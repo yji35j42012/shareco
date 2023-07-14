@@ -77,9 +77,38 @@
   position: absolute;
   left: 0;
   bottom: 0;
-  width: auto;
-  max-width: 1245px;
-  height: 694px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: none;
+      -ms-flex-pack: none;
+          justify-content: none;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  width: 50%;
+  max-width: 985px;
+  max-height: 694px;
+  padding-bottom: calc(50% * 0.704);
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+}
+
+.mouseL .home_lion {
+  -webkit-transform: translate(-50px, 0);
+          transform: translate(-50px, 0);
+}
+
+.mouseB .home_lion {
+  -webkit-transform: translate(0, 50px);
+          transform: translate(0, 50px);
+}
+
+.home_lion img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 .home:after {

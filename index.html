@@ -13,9 +13,11 @@
 
 <body>
     <div class="wrap">
-        <div class="home">
+        <div id="home" class="home" data-move="">
             <div class="home_bg"></div>
-            <img class="home_lion" src="./images/lion.png" alt="">
+            <div class="home_lion">
+                <img src="./images/lion.png" alt="">
+            </div>
         </div>
     </div>
 
@@ -25,7 +27,10 @@
         setTimeout(() => {
             wrap.classList.add('active')
         }, 500);
+
+
     </script>
+    <script src="./js/index.js"></script>
 </body>
 
 </html>
