@@ -95,13 +95,23 @@
 }
 
 .mouseL .home_lion {
-  -webkit-transform: translate(-50px, 0);
-          transform: translate(-50px, 0);
+  -webkit-transform: translate(-20px, 0);
+          transform: translate(-20px, 0);
+}
+
+.mouseR .home_lion {
+  -webkit-transform: translate(20px, 0);
+          transform: translate(20px, 0);
 }
 
 .mouseB .home_lion {
-  -webkit-transform: translate(0, 50px);
-          transform: translate(0, 50px);
+  -webkit-transform: translate(0, 40px);
+          transform: translate(0, 40px);
+}
+
+.mouseT .home_lion {
+  -webkit-transform: translate(0, 0) scale(1.05);
+          transform: translate(0, 0) scale(1.05);
 }
 
 .home_lion img {
