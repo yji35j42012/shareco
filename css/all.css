@@ -2,6 +2,34 @@
   cursor: pointer;
 }
 
+h2 {
+  color: #333;
+  text-align: center;
+  font-family: Noto Sans;
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.fz26px {
+  color: #333;
+  text-align: center;
+  font-family: Noto Sans;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+}
+
+.fz14px {
+  font-family: Noto Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
 .wrap {
   position: relative;
   display: -webkit-box;
@@ -41,6 +69,57 @@
   background-color: #fff;
   -webkit-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.07);
           box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.07);
+}
+
+.footer {
+  padding: 83px 149px 96px;
+  background-color: #171717;
+}
+
+.footer_box {
+  border-top: 1px solid #fff;
+}
+
+.footer_nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 24px 0;
+  color: #fff;
+}
+
+.footer_nav_item {
+  font-family: Noto Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.footer_nav_item + .footer_nav_item {
+  margin-left: 48px;
+}
+
+.footer_nav_icon {
+  width: 26px;
+  height: 26px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.footer_nav_icon._fb {
+  background-image: url("../images/icon/icon_fb.svg");
+}
+
+.footer_nav_icon._ig {
+  background-image: url("../images/icon/icon_ig.svg");
 }
 
 .lang {
@@ -242,6 +321,38 @@
   height: 765px;
   background: -webkit-gradient(linear, left bottom, left top, from(#000), color-stop(60.42%, rgba(0, 0, 0, 0.43)), to(rgba(0, 0, 0, 0)));
   background: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.43) 60.42%, rgba(0, 0, 0, 0) 100%);
+}
+
+.banner {
+  position: relative;
+}
+
+.banner_txt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 auto;
+}
+
+.banner_txt_rule {
+  max-width: 1278px;
+  white-space: pre-line;
+  text-align: center;
 }
 
 @-webkit-keyframes homeAni {
