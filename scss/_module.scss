@@ -70,13 +70,15 @@ h2 {
 		&_icon {
 			width: 26px;
 			height: 26px;
+
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: contain;
 			&._fb {
+				margin-left: auto;
 				background-image: url("../images/icon/icon_fb.svg");
 			}
-			&._ig { 
+			&._ig {
 				background-image: url("../images/icon/icon_ig.svg");
 			}
 		}

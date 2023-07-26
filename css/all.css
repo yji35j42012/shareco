@@ -115,6 +115,7 @@ h2 {
 }
 
 .footer_nav_icon._fb {
+  margin-left: auto;
   background-image: url("../images/icon/icon_fb.svg");
 }
 
