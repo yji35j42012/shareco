@@ -1,0 +1,44 @@
+.rule {
+	padding: 111px 0 132px;
+	// .rule_group
+	&_group {
+		@include d_f(flex, space-between);
+		flex-wrap: wrap;
+		& + & {
+			margin-top: 248px;
+		}
+	}
+	// .rule_title
+	&_title {
+		width: 100%;
+		margin-bottom: 56px;
+		text-align: center;
+		color: #333;
+		text-align: center;
+		font-family: Noto Sans;
+		font-size: 28px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: normal;
+	}
+	// .rule_item
+	&_item {
+		width: calc(50% - 24px);
+		& + .rule_title {
+			margin-top: 188px;
+		}
+		// .rule_item_txt
+		&_txt {
+			margin-bottom: 43px;
+			padding: 6px 0;
+			background-color: #f4f4f4;
+			color: #595959;
+			font-family: Noto Sans;
+			font-size: 20px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 160%;
+			text-align: center;
+		}
+	}
+}

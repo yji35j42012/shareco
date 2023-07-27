@@ -7,6 +7,15 @@ h2 {
 	font-weight: 600;
 	line-height: normal;
 }
+h3 {
+	color: #333;
+	text-align: center;
+	font-family: Noto Sans;
+	font-size: 28px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+}
 .fz26px {
 	color: #333;
 	text-align: center;
@@ -69,7 +78,11 @@ h2 {
 	width: 100%;
 	height: 100%;
 }
-
+.container{
+	width: 100%;
+	max-width: 1280px;
+	margin: auto;
+}
 .header {
 	position: relative;
 	@include d_f(flex, none, center);
