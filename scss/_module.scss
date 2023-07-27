@@ -24,6 +24,42 @@ h2 {
 	line-height: normal;
 }
 .border_btn {
+	@include d_f(flex, space-between, center);
+	padding: 6px 20px;
+	border-radius: 100px;
+	border: 2px solid #333;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	color: #333;
+	@extend %hand;
+	@extend %transition;
+	&:after {
+		content: "";
+		flex: none;
+		display: block;
+		width: 12px;
+		height: 12px;
+		margin-left: 10px;
+		background: url("../images/icon/icon_arr_down.svg") no-repeat
+			center/contain;
+		filter: invert(16%) sepia(21%) saturate(0%) hue-rotate(245deg)
+			brightness(95%) contrast(87%);
+		@extend %transition;
+	}
+
+	.banner_txt & {
+		margin-top: 48px;
+	}
+	@include hoverHandler {
+		background-color: #0d0d0d;
+		color: #fff;
+		border-color: #0d0d0d;
+		&:after {
+			filter: invert(1);
+		}
+	}
 }
 .wrap {
 	position: relative;
@@ -52,6 +88,7 @@ h2 {
 	}
 	// .footer_nav
 	&_nav {
+		position: relative;
 		@include d_f(flex, center, center);
 		padding: 24px 0;
 		color: #fff;
@@ -74,14 +111,30 @@ h2 {
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: contain;
+			@extend %hand;
 			&._fb {
-				margin-left: auto;
+				position: absolute;
+				right: 36px;
+				// margin-left: auto;
 				background-image: url("../images/icon/icon_fb.svg");
 			}
 			&._ig {
+				position: absolute;
+				right: 0;
+				margin-left: 10px;
 				background-image: url("../images/icon/icon_ig.svg");
 			}
 		}
+	}
+
+	.copyRight {
+		text-align: center;
+		color: #fff;
+		font-family: Arial;
+		font-size: 12px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
 	}
 }
 .lang {
@@ -135,12 +188,34 @@ h2 {
 	}
 	// .nav_item
 	&_item {
+		position: relative;
 		font-family: Noto Sans;
 		font-size: 18px;
 		font-style: normal;
 		font-weight: 500;
+		color: #000;
+		@extend %hand;
+		@extend %transition;
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			width: 0;
+			height: 1px;
+			margin: auto 0;
+			background-color: rgba(0, 0, 0, 0.5);
+			@extend %transition;
+		}
 		& + & {
 			margin-left: 87px;
+		}
+		@include hoverHandler {
+			opacity: 0.5;
+			&:after {
+				width: 100%;
+			}
 		}
 	}
 }
