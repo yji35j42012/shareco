@@ -97,6 +97,7 @@ h3 {
 	@include mw(L) {
 		justify-content: space-between;
 		height: 54px;
+		padding: 0 12px;
 	}
 }
 .footer {
@@ -224,7 +225,7 @@ h3 {
 		align-items: flex-start;
 		flex-direction: column;
 		height: 100vh;
-		padding: 10px 22px;
+		padding: 10px 0;
 		background-color: #f4f4f4;
 	}
 
@@ -238,30 +239,54 @@ h3 {
 		font-style: normal;
 		font-weight: 500;
 		color: rgba(0, 0, 0, 1);
-		// .nav_item_title&_title
+		@include mw(L) {
+			align-items: flex-start;
+			width: 100%;
+			&:after {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: 22px;
+				width: calc(100% - 44px);
+				height: 1px;
+				background-color: #979797;
+				margin: auto;
+			}
+			@at-root .on > .nav_sec {
+				display: block;
+			}
+		}
+		// .nav_item_title
 		&_title {
+			position: relative;
 			color: rgba(0, 0, 0, 1);
+			@extend %transition;
+			@include mw(L) {
+				margin-left: 42px;
+				padding: 26px 0;
+			}
+			&:after {
+				content: "";
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				width: 0;
+				height: 1px;
+				margin: auto 0;
+				background-color: rgba(0, 0, 0, 0.5);
+				@extend %transition;
+
+				.on & {
+					width: 100%;
+					background-color: rgba(0, 0, 0, 1);
+				}
+			}
 		}
 
 		@extend %hand;
 		@extend %transition;
-		@include mw(L) {
-			width: 100%;
-			padding: 26px 0 26px 20px;
-			border-bottom: 1px solid #979797;
-		}
-		&:after {
-			content: "";
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			width: 0;
-			height: 1px;
-			margin: auto 0;
-			background-color: rgba(0, 0, 0, 0.5);
-			@extend %transition;
-		}
+
 		& + & {
 			margin-left: 87px;
 			@include mw(L) {
@@ -272,8 +297,16 @@ h3 {
 			.nav_item_title {
 				color: rgba(0, 0, 0, 0.5);
 			}
-			&:after {
+			.nav_item_title:after {
 				width: 100%;
+			}
+		}
+
+		@include minmw(L) {
+			@include hoverHandler {
+				& > .nav_sec {
+					display: block;
+				}
 			}
 		}
 	}
@@ -281,8 +314,12 @@ h3 {
 	// .nav_btn
 	&_btn {
 		position: relative;
+		display: none;
 		width: 17px;
 		height: 13px;
+		@include mw(L) {
+			display: block;
+		}
 		// .nav_btn_line
 		&_line {
 			display: block;
@@ -313,29 +350,99 @@ h3 {
 	// .nav_sec
 	&_sec {
 		position: absolute;
-		top: calc(100% + 60px);
+		display: none;
 		margin: auto;
-		padding: 14px 14px;
-		background-color: #171717;
+		padding-top: 80px;
 		border-radius: 8px;
-		&::before {
-			content: "";
-			position: absolute;
-			left: 0;
-			right: 0;
-			top: 0;
-			width: 23px;
-			height: 14px;
-			margin: auto;
-			background: url("../images/icon/icon_trangle_top.svg") no-repeat
-				center/contain;
-			transform: translateY(-100%);
+		@include mw(L) {
+			position: relative;
+			display: none;
+			width: 100%;
+			padding-top: 0;
 		}
 		// .nav_sec_item
 		&_item {
+			position: relative;
+			min-width: 127px;
+
+			white-space: nowrap;
+			background-color: #171717;
+			@include minmw(L) {
+				padding: 0 14px;
+				text-align: center;
+				&:first-child {
+					padding-top: 14px;
+					border-top-right-radius: 8px;
+					border-top-left-radius: 8px;
+					&::before {
+						content: "";
+						position: absolute;
+						left: 0;
+						right: 0;
+						top: 0;
+						width: 23px;
+						height: 14px;
+						margin: auto;
+						background: url("../images/icon/icon_trangle_top.svg")
+							no-repeat center/contain;
+						transform: translateY(-100%);
+					}
+				}
+				&:last-child {
+					padding-bottom: 14px;
+					border-bottom-right-radius: 8px;
+					border-bottom-left-radius: 8px;
+				}
+			}
+
+			@include mw(L) {
+				width: 100%;
+				&:after {
+					content: "";
+					position: absolute;
+					left: 22px;
+					bottom: 0;
+					display: block;
+					width: calc(100% - 44px);
+					height: 1px;
+					background-color: #fff;
+				}
+			}
+		}
+		// .nav_sec_link
+		&_link {
+			position: relative;
+			display: block;
+			padding: 14px 20px;
 			color: rgba(255, 255, 255, 1);
-			padding: 14px 0;
-			text-align: center;
+			@extend %hand;
+			@extend %transition;
+
+			@include mw(L) {
+				margin-left: 56px;
+				padding: 26px 0;
+				&::before {
+					content: "・";
+				}
+			}
+			&:after {
+				content: "";
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				width: 0;
+				height: 1px;
+				margin: auto 0;
+				background-color: rgba(0, 0, 0, 0.5);
+				@extend %transition;
+			}
+			@include hoverHandler {
+				color: rgba(255, 255, 255, 0.5);
+				&:after {
+					width: 100%;
+				}
+			}
 		}
 	}
 }
