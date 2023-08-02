@@ -21,13 +21,13 @@ h3 {
 	font-weight: 600;
 	line-height: normal;
 }
-.fz36to14{
+.fz36to14 {
 	font-family: Noto Sans;
 	font-size: 36px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: normal;
-	@include mw(L){
+	@include mw(L) {
 		font-size: 14px;
 	}
 }
@@ -79,6 +79,10 @@ h3 {
 	color: #333;
 	@extend %hand;
 	@extend %transition;
+	@include mw(L) {
+		font-size: 14px;
+		border-width: 1px;
+	}
 	&:after {
 		content: "";
 		flex: none;
@@ -91,6 +95,10 @@ h3 {
 		filter: invert(16%) sepia(21%) saturate(0%) hue-rotate(245deg)
 			brightness(95%) contrast(87%);
 		@extend %transition;
+		@include mw(L) {
+			height: 7px;
+			transform: rotate(-90deg);
+		}
 	}
 
 	.banner_txt & {
@@ -112,6 +120,10 @@ h3 {
 	flex: 1 1 100%;
 	width: 100%;
 	height: 100%;
+	padding-top: 98px;
+	@include mw(L) {
+		padding-top: 54px;
+	}
 }
 .container {
 	width: 100%;
@@ -616,6 +628,13 @@ h3 {
 
 .banner {
 	position: relative;
+	padding-bottom: calc(100% * 0.25);
+	background-size: cover;
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	@include mw(L) {
+		min-height: 145px;
+	}
 	// .banner_txt
 	&_txt {
 		position: absolute;
