@@ -1,3 +1,31 @@
 .spokesman {
-    
+	padding: 120px 0 132px;
+	// .spokesman_group
+	&_group {
+		padding: 0 75px 120px;
+		border-bottom: 1px solid #afafaf;
+		text-align: center;
+		&:not(:first-child){
+			padding-top: 120px;
+		}
+		.border_btn {
+			margin: 42px auto;
+		}
+	}
+	// .spokesman_title
+	&_title {
+		font-family: Noto Sans;
+		font-size: 48px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: normal;
+	}
+	// .spokesman_pic
+	&_pic {
+		max-width: 1232px;
+		margin: auto;
+	}
+	p {
+		margin-top: 8px;
+	}
 }

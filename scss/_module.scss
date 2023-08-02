@@ -1,4 +1,4 @@
-h2 {
+h1 {
 	color: #333;
 	text-align: center;
 	font-family: Noto Sans;
@@ -6,6 +6,11 @@ h2 {
 	font-style: normal;
 	font-weight: 600;
 	line-height: normal;
+	@include mw(L) {
+		font-size: 20px;
+	}
+}
+h2 {
 }
 h3 {
 	color: #333;
@@ -15,6 +20,16 @@ h3 {
 	font-style: normal;
 	font-weight: 600;
 	line-height: normal;
+}
+.fz36to14{
+	font-family: Noto Sans;
+	font-size: 36px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	@include mw(L){
+		font-size: 14px;
+	}
 }
 .fz26px {
 	color: #333;
@@ -31,6 +46,26 @@ h3 {
 	font-style: normal;
 	font-weight: 400;
 	line-height: normal;
+}
+.fz18to16 {
+	font-family: Noto Sans;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	@include mw(L) {
+		font-size: 16px;
+	}
+}
+.fz14to12 {
+	font-family: Noto Sans;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	@include mw(L) {
+		font-size: 12px;
+	}
 }
 .border_btn {
 	@include d_f(flex, space-between, center);
@@ -82,6 +117,7 @@ h3 {
 	width: 100%;
 	max-width: 1280px;
 	margin: auto;
+	padding: 0 20px;
 }
 .header {
 	position: fixed;
@@ -103,9 +139,47 @@ h3 {
 .footer {
 	padding: 83px 149px 96px;
 	background-color: #171717;
+	@include mw(L) {
+		padding: 35px;
+	}
 	// .footer_box
 	&_box {
-		border-top: 1px solid #fff;
+		position: relative;
+		@include minmw(L) {
+			border-top: 1px solid #fff;
+		}
+	}
+	// .footer_link
+	&_link {
+		@include d_f(flex, center);
+		@include minmw(L) {
+			position: absolute;
+			top: 24px;
+			right: 0;
+		}
+		// .footer_link_icon
+		&_icon {
+			width: 26px;
+			height: 26px;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+			@extend %hand;
+			@include mw(L) {
+				width: 20px;
+				height: 20px;
+			}
+			&._fb {
+				background-image: url("../images/icon/icon_fb.svg");
+			}
+			&._ig {
+				margin-left: 24px;
+				background-image: url("../images/icon/icon_ig.svg");
+				@include mw(L) {
+					margin-left: 43px;
+				}
+			}
+		}
 	}
 	// .footer_nav
 	&_nav {
@@ -113,37 +187,25 @@ h3 {
 		@include d_f(flex, center, center);
 		padding: 24px 0;
 		color: #fff;
+		@include mw(L) {
+			padding-top: 20px;
+			padding-bottom: 14px;
+		}
 		// .footer_nav_item
 		&_item {
-			font-family: Noto Sans;
-			font-size: 14px;
-			font-style: normal;
-			font-weight: 400;
-			line-height: normal;
-			& + & {
-				margin-left: 48px;
+			@include mw(L) {
+				padding: 0 21px;
+				&:first-child {
+					display: none;
+				}
+				&:not(:last-child) {
+					border-right: solid 1px #fff;
+				}
 			}
-		}
-		// .footer_nav_icon
-		&_icon {
-			width: 26px;
-			height: 26px;
-
-			background-repeat: no-repeat;
-			background-position: center;
-			background-size: contain;
-			@extend %hand;
-			&._fb {
-				position: absolute;
-				right: 36px;
-				// margin-left: auto;
-				background-image: url("../images/icon/icon_fb.svg");
-			}
-			&._ig {
-				position: absolute;
-				right: 0;
-				margin-left: 10px;
-				background-image: url("../images/icon/icon_ig.svg");
+			@include minmw(L) {
+				& + & {
+					margin-left: 48px;
+				}
 			}
 		}
 	}
@@ -218,6 +280,7 @@ h3 {
 	width: 100%;
 	height: 100%;
 	padding: 10px 0;
+	@extend %transition;
 	@include mw(L) {
 		position: absolute;
 		top: 54px;
@@ -227,6 +290,10 @@ h3 {
 		height: 100vh;
 		padding: 10px 0;
 		background-color: #f4f4f4;
+		transform: translateX(100%);
+		@at-root .showMenu & {
+			transform: translateX(0);
+		}
 	}
 
 	// .nav_item
@@ -234,10 +301,6 @@ h3 {
 		position: relative;
 		@include d_f(flex, none, center);
 		flex-direction: column;
-		font-family: Noto Sans;
-		font-size: 18px;
-		font-style: normal;
-		font-weight: 500;
 		color: rgba(0, 0, 0, 1);
 		@include mw(L) {
 			align-items: flex-start;
@@ -325,8 +388,12 @@ h3 {
 			display: block;
 			width: 17px;
 			height: 1px;
-			background-color: #333;
+			background-color: rgba(51, 51, 51, 1);
 			border-radius: 100%;
+			@extend %transition;
+			.showMenu & {
+				background-color: rgba(51, 51, 51, 0);
+			}
 			&::before,
 			&:after {
 				content: "";
@@ -337,12 +404,21 @@ h3 {
 				height: 1px;
 				background-color: #333;
 				border-radius: 100%;
+				@extend %transition;
 			}
 			&::before {
 				top: 0;
+				.showMenu & {
+					top: 50%;
+					transform: rotate(45deg) translateY(-50%);
+				}
 			}
 			&:after {
 				bottom: 0;
+				.showMenu & {
+					bottom: 50%;
+					transform: rotate(-45deg) translateY(50%);
+				}
 			}
 		}
 	}
