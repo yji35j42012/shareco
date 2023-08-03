@@ -46,7 +46,7 @@
 			width: calc(100% - 66px);
 			max-width: 1277px;
 			margin: auto;
-			padding-bottom: 76px;
+			padding: 38px 0;
 		}
 		// .gallery_swiper_group
 		&_group {
@@ -82,7 +82,10 @@
 				}
 			}
 			&:nth-child(odd) {
-				transform: translateY(76px);
+				transform: translateY(38px);
+			}
+			&:nth-child(even) {
+				transform: translateY(-38px);
 			}
 			&:nth-child(4n) {
 				margin-right: 0;
@@ -91,7 +94,7 @@
 		// .gallery_swiper_btn
 		&_btn {
 			position: absolute;
-			top: 0;
+			top: -182px;
 			bottom: 0;
 			flex: none;
 			width: 13px;

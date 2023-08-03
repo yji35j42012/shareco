@@ -4,7 +4,7 @@
   transition: all .3s ease-in-out;
 }
 
-.border_btn, .footer_link_icon, .lang_btn, .nav_item, .nav_sec_link, .gallery_swiper_btn {
+.dots_item, .border_btn, .footer_link_icon, .lang_btn, .nav_item, .nav_sec_link, .gallery_swiper_btn {
   cursor: pointer;
 }
 
@@ -140,7 +140,7 @@ h4 {
   margin-left: 18px;
 }
 
-.dots_item._on {
+.dots_item.on {
   background-color: #636363;
 }
 
@@ -1214,7 +1214,7 @@ h4 {
   width: calc(100% - 66px);
   max-width: 1277px;
   margin: auto;
-  padding-bottom: 76px;
+  padding: 38px 0;
 }
 
 .gallery_swiper_group {
@@ -1262,8 +1262,13 @@ h4 {
 }
 
 .gallery_swiper_item:nth-child(odd) {
-  -webkit-transform: translateY(76px);
-          transform: translateY(76px);
+  -webkit-transform: translateY(38px);
+          transform: translateY(38px);
+}
+
+.gallery_swiper_item:nth-child(even) {
+  -webkit-transform: translateY(-38px);
+          transform: translateY(-38px);
 }
 
 .gallery_swiper_item:nth-child(4n) {
@@ -1272,7 +1277,7 @@ h4 {
 
 .gallery_swiper_btn {
   position: absolute;
-  top: 0;
+  top: -182px;
   bottom: 0;
   -webkit-box-flex: 0;
       -ms-flex: none;
