@@ -29,15 +29,15 @@
 			margin-top: 204px;
 		}
 	}
-// .gallery_sec
-&_sec{
-    padding: 0 20px;
-}
+	// .gallery_sec
+	&_sec {
+		padding: 0 20px;
+	}
 	// .gallery_swiper
 	&_swiper {
 		position: relative;
 		max-width: 1437px;
-        margin: auto;
+		margin: auto;
 		// .gallery_swiper_box
 		&_box {
 			overflow: hidden;
@@ -49,16 +49,36 @@
 		// .gallery_swiper_group
 		&_group {
 			@include d_f(flex);
-			transform: translateX(-100%);
+			// transform: translateX(-100%);
 			@extend %transition;
 		}
 		// .gallery_swiper_item
 		&_item {
+			position: relative;
 			flex: none;
 			width: calc(100% / 4 - 17.25px);
 			max-width: 320px;
 			margin-right: 23px;
 			background-color: #ccc;
+			&:after {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(
+					0deg,
+					rgba(23, 23, 23, 0.7) 0%,
+					rgba(23, 23, 23, 0.7) 100%
+                );
+                @extend %transition;
+			}
+			@include hoverHandler {
+				&:after {
+					opacity: 0;
+				}
+			}
 			&:nth-child(odd) {
 				transform: translateY(76px);
 			}
