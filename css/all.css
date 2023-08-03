@@ -4,7 +4,7 @@
   transition: all .3s ease-in-out;
 }
 
-.border_btn, .footer_link_icon, .lang_btn, .nav_item, .nav_sec_link {
+.border_btn, .footer_link_icon, .lang_btn, .nav_item, .nav_sec_link, .gallery_swiper_btn {
   cursor: pointer;
 }
 
@@ -250,6 +250,21 @@ h4 {
   width: 100%;
   height: 100%;
   padding-top: 98px;
+}
+
+.wrap._gallery {
+  height: auto;
+}
+
+.wrap._gallery::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  min-height: 1362px;
+  background: url("../images/gallery/background_3.png") no-repeat center bottom/contain;
 }
 
 @media screen and (max-width: 1024px) {
@@ -1184,7 +1199,7 @@ h4 {
   margin-top: 204px;
 }
 
-.gallery_sec {
+.gallery_sec, .gallery_forth {
   padding: 0 20px;
 }
 
@@ -1284,5 +1299,45 @@ h4 {
 
 .gallery_swiper .dots {
   margin-top: 182px;
+}
+
+.gallery_photo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  max-width: 1087px;
+  margin: auto;
+}
+
+.gallery_swiper + .gallery_photo {
+  margin-top: 204px;
+}
+
+.gallery_photo_item {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  width: calc(100% / 3 - 70px / 3);
+  max-width: 339px;
+  margin-bottom: 38px;
+}
+
+.gallery_photo_item:not(:nth-child(3n)) {
+  margin-right: 35px;
+}
+
+.gallery_third {
+  margin-top: 199px;
+  padding-top: 161px;
+  padding-bottom: 158px;
+  background: url("../images/gallery/background_1.png") no-repeat center bottom/cover;
 }
 /*# sourceMappingURL=all.css.map */
