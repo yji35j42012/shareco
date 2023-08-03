@@ -6,6 +6,9 @@ h1 {
 	font-style: normal;
 	font-weight: 600;
 	line-height: normal;
+	.gallery & {
+		color: #fff;
+	}
 	@include mw(L) {
 		font-size: 20px;
 	}
@@ -20,6 +23,18 @@ h3 {
 	font-style: normal;
 	font-weight: 600;
 	line-height: normal;
+}
+h4 {
+	color: #fff;
+	text-align: center;
+	font-family: Noto Sans;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 300;
+	line-height: normal;
+	@include mw(L) {
+		font-size: 16px;
+	}
 }
 .fz36to14 {
 	font-family: Noto Sans;
@@ -65,6 +80,33 @@ h3 {
 	line-height: normal;
 	@include mw(L) {
 		font-size: 12px;
+	}
+}
+.dots {
+	@include d_f(flex, center);
+	// .dots_item
+	&_item {
+		flex: none;
+		width: 13px;
+		height: 13px;
+		border-radius: 100%;
+		background-color: #d9d9d9;
+		& + & {
+			margin-left: 18px;
+		}
+		&._on {
+			background-color: #636363;
+		}
+	}
+}
+.line {
+	&:after {
+		content: "";
+		display: block;
+		width: 1px;
+		height: 107px;
+		background-color: #fff;
+		margin: 48px auto 0;
 	}
 }
 .border_btn {
