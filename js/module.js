@@ -47,3 +47,15 @@ window.onresize = function() {
 		header.classList.remove("showMenu");
 	}
 };
+
+var alert = document.querySelector("#alert");
+var alert_close = document.querySelector("#alert_close");
+
+if (alert_close && alert) {
+	alert_close.onclick = function() {
+		alert.classList.remove("on");
+		setTimeout(() => {
+			alert.classList.remove("show");
+		}, 500);
+	};
+}

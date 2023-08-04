@@ -178,3 +178,64 @@ window.onresize = function() {
 		// dotsProductHandler();
 	}
 };
+
+var swiperHandler = document.querySelectorAll("[name='swiperHandler']");
+var gal_year = document.querySelector("#gal_year");
+var gal_name = document.querySelector("#gal_name");
+var gal_detail = document.querySelector("#gal_detail");
+var gal_txt = document.querySelector("#gal_txt");
+console.log("swiperHandler", swiperHandler);
+for (let i = 0; i < swiperHandler.length; i++) {
+	const element = swiperHandler[i];
+	element.onclick = function() {
+		console.log(element);
+		if (alert) {
+			alert.classList.add("show");
+			setTimeout(() => {
+				alert.classList.add("on");
+			}, 10);
+		} else {
+			return;
+		}
+		var galId = element.getAttribute("data-galId");
+		console.log("galId", galId);
+
+		gal_year.innerHTML = galData[0].galYear;
+		gal_name.innerHTML = galData[0].galName;
+		gal_detail.innerHTML = galData[0].galDetail;
+		gal_txt.innerHTML = galData[0].galTxt;
+	};
+}
+
+var galData = [
+	{
+		galId: 1,
+		galName: "裸麝香",
+		galPhoto: "perfume_name_photot_1.png",
+		galYear: "2023",
+		galDetail:
+			"海洋。孕育生命的起源，如鯨鯊的存在 強悍與母性並存 <br> 溫柔撩人的香氣 充滿成熟的韻味",
+		galTxt:
+			"Odors have a power of persuasion stronger than that of words, appearances or will.SHARECO, <br>  using the most direct odor tomake you feel the fine atmosphere."
+	},
+	{
+		galId: 2,
+		galName: "麝掠香",
+		galPhoto: "perfume_name_photot_1.png",
+		galYear: "2023",
+		galDetail:
+			"在叢林的騷動裡 靜靜窺探，清澈、桀驁的琥珀木質香 <br> 模糊我們的界線",
+		galTxt:
+			"Odors have a power of persuasion stronger than that of words, appearances or will.SHARECO, <br> using the most direct odor tomake you feel the fine atmosphere."
+	},
+	{
+		galId: 3,
+		galName: "迷幻靈魂",
+		galPhoto: "perfume_name_photot_1.png",
+		galYear: "2023",
+		galDetail:
+			"在叢林的騷動裡 靜靜窺探，清澈、桀驁的琥珀木質香 <br> 模糊我們的界線",
+		galTxt:
+			"Odors have a power of persuasion stronger than that of words, appearances or will.SHARECO, <br> using the most direct odor tomake you feel the fine atmosphere."
+	}
+];

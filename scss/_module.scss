@@ -208,12 +208,24 @@ h4 {
 	position: fixed;
 	top: 0;
 	left: 0;
-	@include d_f(flex, center, center);
+	display: none;
+	justify-content: center;
+	align-items: center;
 	width: 100%;
 	height: 100%;
 	padding: 15px;
 	background-color: rgba(0, 0, 0, 0.7);
 	z-index: 100;
+	opacity: 0;
+	pointer-events: none;
+	@extend %transition;
+	&.show {
+		display: flex;
+	}
+	&.on {
+		opacity: 1;
+		pointer-events: auto;
+	}
 	// .alert_close
 	&_close {
 		position: absolute;

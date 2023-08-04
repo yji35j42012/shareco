@@ -1,10 +1,10 @@
 @charset "UTF-8";
-.border_btn, .border_btn:after, .nav, .nav_item_title, .nav_item_title:after, .nav_item, .nav_btn_line, .nav_btn_line::before, .nav_btn_line:after, .nav_sec_link, .nav_sec_link:after, .gallery_swiper_group, .gallery_swiper_item:after {
+.border_btn, .border_btn:after, .alert, .nav, .nav_item_title, .nav_item_title:after, .nav_item, .nav_btn_line, .nav_btn_line::before, .nav_btn_line:after, .nav_sec_link, .nav_sec_link:after, .gallery_swiper_group, .gallery_swiper_item:after {
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
 }
 
-.dots_item, .border_btn, .alert_close, .footer_link_icon, .lang_btn, .nav_item, .nav_sec_link, .gallery_swiper_btn {
+.dots_item, .border_btn, .alert_close, .footer_link_icon, .lang_btn, .nav_item, .nav_sec_link, .gallery_swiper_item, .gallery_swiper_btn {
   cursor: pointer;
 }
 
@@ -307,9 +307,7 @@ h4 {
   position: fixed;
   top: 0;
   left: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -321,6 +319,19 @@ h4 {
   padding: 15px;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.alert.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.alert.on {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .alert_close {
