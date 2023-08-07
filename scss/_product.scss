@@ -1,3 +1,12 @@
-.product{
-    padding: 80px 0 0;
+.product {
+	padding: 80px 0 0;
+	&._parfums {
+		background: url("../images/product_parfums/background.png") no-repeat
+			center bottom/contain;
+	}
+
+    // .product_txt
+    &_txt{
+        max-width: 1278px;
+    }
 }

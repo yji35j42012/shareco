@@ -824,13 +824,17 @@ h4 {
 
 .banner {
 	position: relative;
-	padding-bottom: calc(100% * 0.25);
-	background-size: cover;
-	background-position: center bottom;
-	background-repeat: no-repeat;
-	@include mw(L) {
-		min-height: 145px;
+
+	&._bg {
+		padding-bottom: calc(100% * 0.25);
+		background-size: cover;
+		background-position: center bottom;
+		background-repeat: no-repeat;
+		@include mw(L) {
+			min-height: 145px;
+		}
 	}
+	
 	// .banner_txt
 	&_txt {
 		position: absolute;
