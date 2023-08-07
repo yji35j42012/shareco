@@ -9,6 +9,9 @@ h1 {
 	.gallery & {
 		color: #fff;
 	}
+	.product_txt + & {
+		margin-top: 80px;
+	}
 	@include mw(L) {
 		font-size: 20px;
 	}
@@ -23,6 +26,9 @@ h3 {
 	font-style: normal;
 	font-weight: 600;
 	line-height: normal;
+	@include mw(L){
+		font-size: 20px;
+	}
 }
 h4 {
 	color: #fff;
@@ -834,7 +840,7 @@ h4 {
 			min-height: 145px;
 		}
 	}
-	
+
 	// .banner_txt
 	&_txt {
 		position: absolute;
