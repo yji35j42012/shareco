@@ -1722,7 +1722,7 @@ h1 + .product_group {
 }
 
 .product_item_pic {
-  width: 267px;
+  width: 367px;
   margin: auto;
 }
 
@@ -1737,6 +1737,7 @@ h1 + .product_group {
       -ms-flex-align: center;
           align-items: center;
   margin-top: 8px;
+  margin-bottom: 138px;
   padding: 9px 0;
 }
 

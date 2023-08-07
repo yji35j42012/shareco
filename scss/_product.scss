@@ -69,13 +69,14 @@
 		}
 		// .product_item_pic
 		&_pic {
-			width: 267px;
+			width: 367px;
 			margin: auto;
 		}
 		// .product_item_detail
 		&_detail {
 			@include d_f(flex, none, center);
 			margin-top: 8px;
+			margin-bottom: 138px;
 			padding: 9px 0;
 			li {
 				&:nth-child(1) {
