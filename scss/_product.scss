@@ -1,8 +1,12 @@
 .product {
 	padding: 80px 0 0;
 	&._parfums {
+		padding: 80px 20px 0;
 		background: url("../images/product_parfums/background.png") no-repeat
 			center bottom/contain;
+		@include mw(L) {
+			padding: 32px 14px 0;
+		}
 	}
 
 	// .product_txt
@@ -36,16 +40,35 @@
 		flex-wrap: wrap;
 		max-width: 1094px;
 		margin: auto;
-
+		@include mw(L) {
+			max-width: 296px;
+		}
 		h1 + & {
 			margin-top: 90px;
+			@include mw(L) {
+				margin-top: 44px;
+			}
 		}
 	}
 	// .product_item
 	&_item {
 		width: calc(100% / 2 - 71px);
+		margin-bottom: 138px;
+		@include mw(XL) {
+			width: calc(100% / 2 - 50px);
+			margin-bottom: 73px;
+		}
+		@include mw(L) {
+			width: 100%;
+		}
 		&:nth-child(even) {
 			margin-left: 142px;
+			@include mw(XL) {
+				margin-left: 100px;
+			}
+			@include mw(L) {
+				margin-left: 0;
+			}
 		}
 		// .product_item_head
 		&_head {
@@ -88,15 +111,18 @@
 		}
 		// .product_item_pic
 		&_pic {
-			width: 367px;
+			width: 100%;
+			max-width: 367px;
 			margin: auto;
 		}
 		// .product_item_detail
 		&_detail {
 			@include d_f(flex, none, center);
 			margin-top: 8px;
-			margin-bottom: 138px;
 			padding: 9px 0;
+			@include mw(L) {
+				flex-direction: column;
+			}
 			li {
 				&:nth-child(1) {
 					position: relative;
@@ -107,7 +133,10 @@
 					font-weight: 400;
 					line-height: 160%; /* 25.6px */
 					@include mw(L) {
+						padding-right: 0;
+						padding-bottom: 14px;
 						font-size: 14px;
+						text-align: center;
 					}
 					&::after {
 						content: "";
@@ -117,6 +146,14 @@
 						width: 1px;
 						height: calc(100% + 18px);
 						background-color: #d9d9d9;
+						@include mw(L) {
+							bottom: 0;
+							top: auto;
+							left: 0;
+							width: 150px;
+							height: 1px;
+							margin: 0 auto;
+						}
 					}
 				}
 				&:nth-child(2) {
@@ -127,6 +164,11 @@
 					font-style: normal;
 					font-weight: 400;
 					line-height: 170.7%; /* 20.484px */
+					@include mw(L) {
+						padding-top: 14px;
+						padding-left: 0;
+						text-align: center;
+					}
 				}
 			}
 		}
@@ -153,6 +195,9 @@
 			max-width: 680px;
 			margin: auto;
 			color: #fff;
+			@include mw(L) {
+				max-width: 272px;
+			}
 			&::before,
 			&::after {
 				content: "";
@@ -163,10 +208,13 @@
 				background-repeat: no-repeat;
 				background-size: contain;
 				background-position: center;
+				@include mw(L) {
+					width: 16px;
+				}
 			}
 			&::before {
 				background-image: url("../images/icon/icon_dot_down.svg");
-				transform: translateX(-100%);
+				transform: translate(-100%, -100%);
 			}
 			&::after {
 				right: 0;

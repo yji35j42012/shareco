@@ -11,6 +11,9 @@ h1 {
 	}
 	.product_txt + & {
 		margin-top: 80px;
+		@include mw(L){
+			margin-top: 44px;
+		}
 	}
 	.product_pic + &{
 		margin-top: 142px;
