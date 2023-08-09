@@ -152,7 +152,7 @@ h4 {
 	}
 }
 .border_btn {
-	@include d_f(flex, space-between, center);
+	@include d_f(inline-flex, space-between, center);
 	padding: 6px 20px;
 	border-radius: 100px;
 	border: 2px solid #333;
