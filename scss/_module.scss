@@ -11,12 +11,15 @@ h1 {
 	}
 	.product_txt + & {
 		margin-top: 80px;
-		@include mw(L){
+		@include mw(L) {
 			margin-top: 44px;
 		}
 	}
-	.product_pic + &{
+	.product_pic + & {
 		margin-top: 142px;
+		@include mw(L){
+			margin-top: 87px;
+		}
 	}
 	@include mw(L) {
 		font-size: 20px;
@@ -86,7 +89,7 @@ h4 {
 	font-style: normal;
 	font-weight: 400;
 	line-height: 160%; /* 38.4px */
-	@include mw(L){
+	@include mw(L) {
 		font-size: 14px;
 	}
 }
@@ -371,7 +374,7 @@ h4 {
 	padding: 83px 149px 96px;
 	background-color: #171717;
 	@include mw(L) {
-		padding: 35px;
+		padding: 15px;
 	}
 
 	// .footer_box
@@ -847,7 +850,15 @@ h4 {
 
 .banner {
 	position: relative;
-
+	@include mw(S) {
+		min-height: 219px;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		img {
+			display: none;
+		}
+	}
 	&._bg {
 		padding-bottom: calc(100% * 0.25);
 		background-size: cover;
