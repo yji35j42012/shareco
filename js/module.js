@@ -50,9 +50,20 @@ window.onresize = function() {
 
 var alert = document.querySelector("#alert");
 var alert_close = document.querySelector("#alert_close");
-
+var alert_lightBox = document.querySelector("#alert_lightBox");
+if (alert_lightBox) {
+	alert_lightBox.onclick = function(event) {
+		event.stopPropagation();
+	};
+}
 if (alert_close && alert) {
 	alert_close.onclick = function() {
+		alert.classList.remove("on");
+		setTimeout(() => {
+			alert.classList.remove("show");
+		}, 500);
+	};
+	alert.onclick = function() {
 		alert.classList.remove("on");
 		setTimeout(() => {
 			alert.classList.remove("show");
