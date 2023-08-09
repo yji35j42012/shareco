@@ -25,6 +25,7 @@
 	}
 	// .gallery_video
 	&_video {
+		position: relative;
 		max-width: 1278px;
 		height: 675px;
 		margin: 131px auto 0;
@@ -38,6 +39,25 @@
 			margin-top: 204px;
 			@include mw(L) {
 				margin-top: 46px;
+			}
+		}
+
+		// .gallery_video_sound
+		&_sound {
+			position: absolute;
+			left: 14px;
+			bottom: 14px;
+			width: 46px;
+			height: 46px;
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: center;
+			@extend %hand;
+			&._quiet {
+				background-image: url("../images/icon/icon_quiet_sound.svg");
+			}
+			&._voiced {
+				background-image: url("../images/icon/icon_voiced_sound.svg");
 			}
 		}
 	}
@@ -189,6 +209,3 @@
 		}
 	}
 }
-
-
-

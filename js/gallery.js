@@ -1,3 +1,20 @@
+var videoHandler1 = document.querySelector("#videoHandler1")
+var video1 = document.querySelector("#video1")
+
+videoHandler1.onclick = function () {
+	if (videoHandler1.classList.contains("_quiet")) {
+		videoHandler1.classList.remove("_quiet")
+		videoHandler1.classList.add("_voiced")
+		video1.setAttribute("muted", 'muted')
+		video1.volume = 0
+	} else {
+		videoHandler1.classList.remove("_voiced")
+		videoHandler1.classList.add("_quiet")
+		video1.setAttribute("muted", '')
+		video1.volume = 1
+	}
+}
+
 var swiper1_prev = document.querySelector("#swiper1_prev");
 var swiper1_next = document.querySelector("#swiper1_next");
 var swiper1_group = document.querySelector("#swiper1_group");
@@ -18,7 +35,7 @@ function swiper1MoveHandler(e) {
 	swiper1_group.style = `transform: translateX(${swiper1_moveNum}%);transition-duration: 0.3s;opacity:1;`;
 }
 
-swiper1_prev.onclick = function() {
+swiper1_prev.onclick = function () {
 	if (swiper1_count == 0) {
 		swiper1_count = swiper1_max - 1;
 	} else {
@@ -29,7 +46,7 @@ swiper1_prev.onclick = function() {
 	dotsSwiper1Handler();
 };
 
-swiper1_next.onclick = function() {
+swiper1_next.onclick = function () {
 	if (swiper1_count + 1 >= swiper1_max) {
 		swiper1_count = 0;
 	} else {
@@ -63,7 +80,7 @@ function pushDots1() {
 function dotSwiper1Item() {
 	for (let i = 0; i < swiper1_dots_item.length; i++) {
 		const element = swiper1_dots_item[i];
-		element.onclick = function() {
+		element.onclick = function () {
 			swiper1_count = i;
 			swiper1_moveNum = -100 * swiper1_count;
 			swiper1MoveHandler();
@@ -91,7 +108,7 @@ function swiper2MoveHandler(e) {
 	swiper2_group.style = `transform: translateX(${swiper2_moveNum}%);transition-duration: 0.3s;opacity:2;`;
 }
 
-swiper2_prev.onclick = function() {
+swiper2_prev.onclick = function () {
 	if (swiper2_count == 0) {
 		swiper2_count = swiper2_max - 1;
 	} else {
@@ -102,7 +119,7 @@ swiper2_prev.onclick = function() {
 	dotsSwiper2Handler();
 };
 
-swiper2_next.onclick = function() {
+swiper2_next.onclick = function () {
 	if (swiper2_count + 1 >= swiper2_max) {
 		swiper2_count = 0;
 	} else {
@@ -136,7 +153,7 @@ function pushDots2() {
 function dotSwiper2Item() {
 	for (let i = 0; i < swiper2_dots_item.length; i++) {
 		const element = swiper2_dots_item[i];
-		element.onclick = function() {
+		element.onclick = function () {
 			swiper2_count = i;
 			swiper2_moveNum = -100 * swiper2_count;
 			swiper2MoveHandler();
@@ -146,7 +163,7 @@ function dotSwiper2Item() {
 }
 pushDots2();
 
-window.onresize = function() {
+window.onresize = function () {
 	if (window.innerWidth <= 1024 && screen == "pc") {
 		screen = "ph";
 		swiper1_max = Math.ceil(swiper1_item.length / 2);
@@ -180,7 +197,7 @@ var gal_picOutside = document.querySelector("#gal_picOutside");
 
 for (let i = 0; i < swiperHandler.length; i++) {
 	const element = swiperHandler[i];
-	element.onclick = function() {
+	element.onclick = function () {
 		if (alert) {
 			setAlert(element.getAttribute("data-galId"));
 			alert.classList.add("show");

@@ -160,6 +160,7 @@ h4 {
 	font-style: normal;
 	font-weight: 500;
 	line-height: normal;
+	background-color: #fff;
 	color: #333;
 	@extend %hand;
 	@extend %transition;
@@ -178,7 +179,8 @@ h4 {
 			center/contain;
 		filter: invert(16%) sepia(21%) saturate(0%) hue-rotate(245deg)
 			brightness(95%) contrast(87%);
-		@extend %transition;
+		transform: rotate(-90deg);
+		// @extend %transition;
 		@include mw(L) {
 			height: 7px;
 			transform: rotate(-90deg);
@@ -226,7 +228,7 @@ h4 {
 }
 .container {
 	width: 100%;
-	max-width: 1280px;
+	max-width: calc(1280px + 150px);
 	margin: auto;
 	padding: 0 20px;
 }
@@ -343,6 +345,7 @@ h4 {
 		&_pic {
 			margin-top: 42px;
 			text-align: center;
+			background-size: 0;
 			img.galMax {
 				max-width: 1102px;
 				margin: auto;
@@ -424,7 +427,7 @@ h4 {
 				width: 20px;
 				height: 20px;
 			}
-			a{
+			a {
 				display: block;
 				width: 100%;
 				height: 100%;

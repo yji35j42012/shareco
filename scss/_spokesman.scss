@@ -1,7 +1,7 @@
 .spokesman {
 	padding: 120px 0 132px;
 	@include mw(L) {
-		padding: 31px 0 88px;
+		padding: 40px 0 88px;
 	}
 	// .spokesman_group
 	&_group {
@@ -60,5 +60,8 @@
 	}
 	p {
 		margin-top: 18px;
+		@include mw(L){
+			margin-top: 8.5px;
+		}
 	}
 }
