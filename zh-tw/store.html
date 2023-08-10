@@ -6,17 +6,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<meta name="description" content="光速火箭-商標及應用準則">
-	<meta name="keywords" content="光速火箭">
+	<meta name="description" content="Shareco-Gallery">
+	<meta name="keywords" content="Shareco">
 	<link rel="shortcut icon" type="image/png" href="favicon.png">
 	<link rel="stylesheet" href="../css/reset.css">
 	<link rel="stylesheet" href="../css/all.min.css">
-	<title>Shareco-商標及應用準則</title>
+	<link rel="stylesheet" href="../css/aos.css">
+	<title>Shareco-Gallery</title>
 </head>
 
 <body>
 	<div class="wrap">
-		<header id="header" class="headeFr">
+		<header id="header" class="header">
 			<h1 class="logo"><img src="../images/logo.svg" alt=""></h1>
 			<ul class="nav">
 				<li class="nav_item fz18to16" name="nav_item">
@@ -72,70 +73,13 @@
 				<span class="nav_btn_line"></span>
 			</button>
 		</header>
-		<section class="banner">
-			<img src="../images/rule/banner.png" alt="">
-			<div class="banner_txt">
-				<h2>商標及應用準則</h2>
-				<div class="banner_txt_rule fz26px">
-					下方為SHARECO的標誌使用方針，你可以下載所有標誌素材進行運用。
-					使用標誌素材，表示你同意遵守光速火箭商標使用規範。
-					請了解光速火箭有權利在任一時間重新評估標誌素材的使用方式，
-					並保留可終止或修改「標誌使用權限」的權利。
-				</div>
-				<button class="border_btn">
-					下載所有標誌素材
-				</button>
-			</div>
-		</section>
-		<section class="rule">
-			<div class="container">
-				<ul class="rule_group">
-					<li class="rule_title">SHARECO黑體標誌</li>
-					<li class="rule_item">
-						<div class="rule_item_txt">淺色背景用</div>
-						<div class="rule_item_pic">
-							<img src="../images/rule/background_light.png" alt="">
-						</div>
-					</li>
-					<li class="rule_item">
-						<div class="rule_item_txt">深色背景用 (全字反白)</div>
-						<div class="rule_item_pic">
-							<img src="../images/rule/background_dark.png" alt="">
-						</div>
-					</li>
-					<li class="rule_title">SHARECO襯線體標誌</li>
-					<li class="rule_item">
-						<div class="rule_item_txt">淺色背景用</div>
-						<div class="rule_item_pic">
-							<img src="../images/rule/font_light.png" alt="">
-						</div>
-					</li>
-					<li class="rule_item">
-						<div class="rule_item_txt">深色背景用 (全字反白)</div>
-						<div class="rule_item_pic">
-							<img src="../images/rule/font_dark.png" alt="">
-						</div>
-					</li>
-				</ul>
-
-
-
-				<!-- <h3></h3>
-				<ul class="rule_group">
-
-				</ul>
-				<h3></h3>
-				<h3>標誌顏色</h3>
-				<h3>淨空範圍</h3> -->
-			</div>
-		</section>
 		<footer class="footer">
 			<div class="footer_box">
 				<ul class="footer_link">
 					<li class="footer_link_icon _fb">
 						<a href="https://www.facebook.com/Share.co.tw" target="_blank"></a>
 					</li>
-										<li class="footer_link_icon _ig">
+					<li class="footer_link_icon _ig">
 						<a href="https://www.instagram.com/share.co.design/" target="_blank"></a>
 					</li>
 				</ul>
@@ -148,10 +92,35 @@
 				<p class="copyRight">Copyright © 2023 SHARECO | All Rights Reserved</p>
 			</div>
 		</footer>
+
+		<div id="alert" class="alert">
+			<div id="alert_lightBox" class="alert_lightBox">
+				<button id="alert_close" class="alert_close"></button>
+				<ul class="alert_lightBox_head">
+					<li id="show_photo" class="alert_lightBox_logo">
+						<img id="gal_photo" src="../images/gallery/perfume_name_photot_1.png" alt="">
+					</li>
+					<li id="gal_year" class="alert_lightBox_year fz26pxto16"></li>
+					<li id="gal_name" class="alert_lightBox_name fz26pxto16"></li>
+					<li id="gal_detail" class="alert_lightBox_detail fz14to12"></li>
+				</ul>
+				<div id="gal_picOutside" class="alert_lightBox_pic">
+					<img id="gal_pic" src="" alt="">
+				</div>
+				<div id="gal_txt" class="alert_lightBox_txt">
+					Odors have a power of persuasion stronger than that of words, appearances or will.SHARECO, <br>
+					using the most direct odor tomake you feel the fine atmosphere.
+				</div>
+			</div>
+		</div>
 	</div>
 
-
 	<script src="../js/module.js"></script>
+	<script src="../js/store.js"></script>
+	<script src="../js/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
 </body>
 
 </html>

@@ -45,7 +45,7 @@
 		overflow: hidden;
 		@include d_f(flex, space-between);
 		flex-wrap: wrap;
-		max-width: 1094px;
+		max-width: 1100px;
 		margin: auto;
 		@include mw(L) {
 			max-width: 352px;
@@ -117,6 +117,7 @@
 				padding: 5px 12px;
 				border-radius: 100px;
 				background: #efefef;
+				white-space: nowrap;
 			}
 		}
 		// .product_item_pic

@@ -520,7 +520,12 @@ h4 {
 			font-style: normal;
 			font-weight: 400;
 			line-height: normal;
-			background-color: #fff;
+			background-color: rgba(232, 232, 232, 1);
+			@extend %transition;
+			@extend %hand;
+			@include hoverHandler {
+				background-color: rgba(232, 232, 232, 0.6);
+			}
 			&.on {
 				font-weight: 700;
 			}
