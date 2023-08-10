@@ -14,7 +14,22 @@ videoHandler1.onclick = function () {
 		video1.volume = 1
 	}
 }
+var videoHandler2 = document.querySelector("#videoHandler2")
+var video2 = document.querySelector("#video2")
 
+videoHandler2.onclick = function () {
+	if (videoHandler2.classList.contains("_quiet")) {
+		videoHandler2.classList.remove("_quiet")
+		videoHandler2.classList.add("_voiced")
+		video2.setAttribute("muted", 'muted')
+		video2.volume = 0
+	} else {
+		videoHandler2.classList.remove("_voiced")
+		videoHandler2.classList.add("_quiet")
+		video2.setAttribute("muted", '')
+		video2.volume = 1
+	}
+}
 var swiper1_prev = document.querySelector("#swiper1_prev");
 var swiper1_next = document.querySelector("#swiper1_next");
 var swiper1_group = document.querySelector("#swiper1_group");
