@@ -1,0 +1,24 @@
+.store {
+	padding: 87px 0 132px;
+
+	// .store_sel
+	&_sel {
+		@include d_f(flex);
+		width: 100%;
+		max-width: 519px;
+		height: 65px;
+        margin: auto;
+        // .store_sel_txt
+        &_txt{
+            @include d_f(flex,center,center);
+            width: 100%;
+            height: 100%;
+        }
+
+        // .store_sel_group
+        &_group{
+            position: absolute;
+            display: none;
+        }
+	}
+}
