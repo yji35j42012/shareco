@@ -99,7 +99,7 @@ h4 {
 	font-style: normal;
 	font-weight: 400;
 	line-height: 149.2%; /* 35.808px */
-	@include mw(L){
+	@include mw(L) {
 		font-size: 18px;
 	}
 }
@@ -524,6 +524,10 @@ h4 {
 		@include minmw(L) {
 			border-top: 1px solid #fff;
 		}
+		@include mw(L) {
+			@include d_f(flex);
+			flex-direction: column;
+		}
 	}
 	// .footer_link
 	&_link {
@@ -532,6 +536,9 @@ h4 {
 			position: absolute;
 			top: 24px;
 			right: 0;
+		}
+		@include mw(L){
+			order: -1;
 		}
 		// .footer_link_icon
 		&_icon {
