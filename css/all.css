@@ -1855,6 +1855,12 @@ h4 {
   background-position: center;
 }
 
+@media screen and (max-width: 1024px) {
+  .gallery_video_sound {
+    display: none;
+  }
+}
+
 .gallery_video_sound._quiet {
   background-image: url("../images/icon/icon_quiet_sound.svg");
 }

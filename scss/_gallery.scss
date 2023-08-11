@@ -63,6 +63,9 @@
 			background-size: contain;
 			background-position: center;
 			@extend %hand;
+			@include mw(L){
+				display: none;
+			}
 			&._quiet {
 				background-image: url("../images/icon/icon_quiet_sound.svg");
 			}
