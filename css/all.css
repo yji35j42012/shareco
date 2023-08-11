@@ -1926,9 +1926,23 @@ h4 {
           transform: translateY(38px);
 }
 
+@media screen and (max-width: 1024px) {
+  .gallery_swiper_item:nth-child(odd) {
+    -webkit-transform: translateY(17px);
+            transform: translateY(17px);
+  }
+}
+
 .gallery_swiper_item:nth-child(even) {
   -webkit-transform: translateY(-38px);
           transform: translateY(-38px);
+}
+
+@media screen and (max-width: 1024px) {
+  .gallery_swiper_item:nth-child(even) {
+    -webkit-transform: translateY(-17px);
+            transform: translateY(-17px);
+  }
 }
 
 .gallery_swiper_item:nth-child(4n) {
@@ -1950,6 +1964,12 @@ h4 {
   background-position: center;
   -webkit-filter: invert(1);
           filter: invert(1);
+}
+
+@media screen and (max-width: 1024px) {
+  .gallery_swiper_btn {
+    top: -25px;
+  }
 }
 
 .gallery_swiper_btn._prev {

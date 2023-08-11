@@ -139,9 +139,15 @@
 			}
 			&:nth-child(odd) {
 				transform: translateY(38px);
+				@include mw(L) {
+					transform: translateY(17px);
+				}
 			}
 			&:nth-child(even) {
 				transform: translateY(-38px);
+				@include mw(L) {
+					transform: translateY(-17px);
+				}
 			}
 			&:nth-child(4n) {
 				margin-right: 0;
@@ -160,6 +166,9 @@
 			background-size: contain;
 			background-position: center;
 			filter: invert(1);
+			@include mw(L){
+				top: -25px;
+			}
 			@extend %hand;
 			&._prev {
 				left: 0;
