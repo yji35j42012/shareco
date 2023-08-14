@@ -19,7 +19,7 @@ var store_sel_group = document.querySelector("#store_sel_group");
 var store_sel_item = document.querySelectorAll("#store_sel_group > li");
 var store_sel_name = null
 var area = null
-var store = null
+var store = "store0"
 function set_store_sel(country) {
     if (country.toLowerCase() == 'tw') {
         store_sel_name = document.querySelector("[name='tw']")
@@ -35,6 +35,7 @@ function set_store_sel(country) {
     store_sel_name.classList.add("on");
     store_sel.innerHTML = store_sel_name.innerHTML
     area = country.toLowerCase();
+    storeShow()
 }
 
 
@@ -60,10 +61,7 @@ for (let i = 0; i < store_sel_item.length; i++) {
     }
 }
 
-
-
-
-var store_tab_item = document.querySelectorAll("#store_tab>li");
+var store_tab_item = document.querySelectorAll("#store_tab>li.normal_tab_item");
 for (let i = 0; i < store_tab_item.length; i++) {
     const element = store_tab_item[i];
     element.onclick = function () {
@@ -77,11 +75,9 @@ for (let i = 0; i < store_tab_item.length; i++) {
         storeShow()
     }
 }
-
 function storeShow() {
     var show = area + "_" + store
     var showInfo = document.querySelector("#" + show);
-    console.log('showInfo', showInfo);
     store_show_none()
     showInfo.style.display = "";
 }
@@ -92,3 +88,24 @@ function store_show_none() {
         store_show[i].style.display = 'none'
     }
 }
+
+var store_ph_data1 = document.querySelector("#store_ph_data1");
+var store_ph_data2 = document.querySelector("#store_ph_data2");
+
+function setPhInfo() {
+    var show = area + "_" + store
+    console.log('ph', show);
+}
+
+window.onresize = function () {
+    if (screen == "pc" && window.innerWidth <= 1024) {
+        screen = "ph";
+    } else if (screen == "ph" && window.innerWidth > 1024) {
+        screen = "pc";
+    }
+}
+setTimeout(() => {
+    if (screen == "ph") {
+        setPhInfo()
+    }
+}, 100);
