@@ -112,22 +112,22 @@
 		<section class="store">
 			<div class="container">
 				<label class="store_sel">
-					<span class="store_sel_txt fz24to18">台灣 / Taiwan</span>
-					<ul class="store_sel_group">
-						<li class="store_sel_item on">台灣 / Taiwan</li>
-						<li class="store_sel_item">日本 / Japan</li>
-						<li class="store_sel_item">香港 / Hongkong</li>
-						<li class="store_sel_item">新加坡 / Singapore</li>
-						<li class="store_sel_item">馬來西亞 / Malaysia</li>
+					<span id="store_sel" class="store_sel_txt fz24to18">台灣 / Taiwan</span>
+					<ul id="store_sel_group" class="store_sel_group">
+						<li name="tw" class="store_sel_item on">台灣 / Taiwan</li>
+						<li name="jp" class="store_sel_item">日本 / Japan</li>
+						<li name="hk" class="store_sel_item">香港 / Hongkong</li>
+						<li name="si" class="store_sel_item">新加坡 / Singapore</li>
+						<li name="ma" class="store_sel_item">馬來西亞 / Malaysia</li>
 					</ul>
 				</label>
-				<ul class="normal_tab">
-					<li class="normal_tab_item on">銷售據點</li>
-					<li class="normal_tab_item">線上商店</li>
+				<ul id="store_tab" class="normal_tab">
+					<li class="normal_tab_item on" name="stroe0">銷售據點</li>
+					<li class="normal_tab_item" name="stroe1">線上商店</li>
 				</ul>
 
 
-				<div class="store_info">
+				<div class="store_info" id="tw_store0" style="display: none;">
 					<div class="store_info_title">旗艦店（直營門市）</div>
 					<div class="store_grid">
 						<div class="store_grid_item">台北西門旗艦店</div>
@@ -266,6 +266,31 @@
 
 
 				</div>
+
+				<div class="store_online" id="tw_store1" style="display: none;">
+					<div class="store_online_title">SHARECO線上商店</div>
+					<div class="store_online_pic">
+						<img src="../images/store/onlinestore_banner.jpg" alt="">
+					</div>
+					<a href="" class="border_btn">線上購買</a>
+
+					<div class="store_online_title _border">其他通路</div>
+					<ul class="store_online_group">
+						<li class="store_online_item">
+							<img src="../images/store/lineicon.png" alt="">
+							<a href="" class="border_btn">前往購買頁面</a>
+
+						</li>
+						<li class="store_online_item">
+							<img src="../images/store/shopeeicon.png" alt="">
+							<a href="" class="border_btn">前往購買頁面</a>
+						</li>
+						<li class="store_online_item">
+							<img src="../images/store/momoicon.png" alt="">
+							<a href="" class="border_btn">前往購買頁面</a>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</section>
 		<footer class="footer">
@@ -309,7 +334,7 @@
 			</div>
 		</div>
 	</div>
-
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script src="../js/module.js"></script>
 	<script src="../js/banner.js"></script>
 	<script src="../js/store.js"></script>

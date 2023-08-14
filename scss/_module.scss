@@ -413,7 +413,12 @@ h4 {
 			font-size: 12px;
 		}
 	}
-
+.store_online > &{
+	margin-bottom: 148px;
+	@include mw(L){
+		margin-bottom: 52px;
+	}
+}
 	&:after {
 		content: "";
 		flex: none;
