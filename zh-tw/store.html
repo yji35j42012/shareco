@@ -114,11 +114,11 @@
 				<label class="store_sel">
 					<span id="store_sel" class="store_sel_txt fz24to18">台灣 / Taiwan</span>
 					<ul id="store_sel_group" class="store_sel_group">
-						<li name="tw" class="store_sel_item on">台灣 / Taiwan</li>
+						<li name="tw" class="store_sel_item">台灣 / Taiwan</li>
 						<li name="jp" class="store_sel_item">日本 / Japan</li>
 						<li name="hk" class="store_sel_item">香港 / Hongkong</li>
-						<li name="si" class="store_sel_item">新加坡 / Singapore</li>
-						<li name="ma" class="store_sel_item">馬來西亞 / Malaysia</li>
+						<li name="sg" class="store_sel_item">新加坡 / Singapore</li>
+						<li name="my" class="store_sel_item">馬來西亞 / Malaysia</li>
 					</ul>
 				</label>
 				<ul id="store_tab" class="normal_tab">
@@ -127,7 +127,7 @@
 				</ul>
 
 
-				<div class="store_info" id="tw_store0" style="display: none;">
+				<div class="store_info" id="tw_store0" name="store_show" style="display: none;">
 					<div class="store_info_title">旗艦店（直營門市）</div>
 					<div class="store_grid">
 						<div class="store_grid_item">台北西門旗艦店</div>
@@ -267,7 +267,7 @@
 
 				</div>
 
-				<div class="store_online" id="tw_store1" style="display: none;">
+				<div class="store_online" id="tw_store1" name="store_show" style="display: none;">
 					<div class="store_online_title">SHARECO線上商店</div>
 					<div class="store_online_pic">
 						<img src="../images/store/onlinestore_banner.jpg" alt="">
@@ -291,6 +291,9 @@
 						</li>
 					</ul>
 				</div>
+
+				<div id="jp_store0" name="store_show" style="display: none;">日本 銷售據點</div>
+				<div id="jp_store1" name="store_show" style="display: none;">日本 線上商店</div>
 			</div>
 		</section>
 		<footer class="footer">
@@ -334,7 +337,6 @@
 			</div>
 		</div>
 	</div>
-	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script src="../js/module.js"></script>
 	<script src="../js/banner.js"></script>
 	<script src="../js/store.js"></script>
