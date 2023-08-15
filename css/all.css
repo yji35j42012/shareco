@@ -94,6 +94,20 @@ h4 {
   }
 }
 
+.fz32to14 {
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 160%;
+  /* 51.2px */
+}
+
+@media screen and (max-width: 1024px) {
+  .fz32to14 {
+    font-size: 14px;
+  }
+}
+
 .fz26pxto16 {
   color: #333;
   font-family: Noto Sans;
@@ -410,8 +424,19 @@ h4 {
   max-height: 0;
 }
 
-.on + .normal_tab_data {
-  max-height: 1000px;
+@media screen and (max-width: 1024px) {
+  .on + .normal_tab_data {
+    max-height: 10000px;
+    padding-top: 26px;
+    padding-bottom: 50px;
+  }
+  .jp .normal_tab_data {
+    background: url("../images/store/japanbackground.png") no-repeat center bottom/contain;
+  }
+  .jp .on + .normal_tab_data {
+    min-height: 346px;
+    padding-top: 117px;
+  }
 }
 
 .icon_prev, .icon_next {
@@ -577,12 +602,14 @@ h4 {
   }
 }
 
-.store_online > .border_btn {
+.store_online > .border_btn,
+.normal_tab_data > .border_btn {
   margin-bottom: 148px;
 }
 
 @media screen and (max-width: 1024px) {
-  .store_online > .border_btn {
+  .store_online > .border_btn,
+  .normal_tab_data > .border_btn {
     margin-bottom: 52px;
   }
 }
@@ -696,6 +723,11 @@ h4 {
   .store .container {
     max-width: 500px;
   }
+}
+
+.store.jp .container {
+  max-width: 100%;
+  padding: 0;
 }
 
 .alert {
@@ -2686,6 +2718,22 @@ h1 + .product_group {
   padding: 87px 0 132px;
 }
 
+.store.jp {
+  padding-bottom: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .store.jp {
+    padding: 41px 16px 58px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .store {
+    padding: 41px 0 58px;
+  }
+}
+
 .store_sel {
   position: relative;
   display: -webkit-box;
@@ -3059,5 +3107,11 @@ h1 + .product_group {
   .store_online_item img {
     margin-bottom: 18px;
   }
+}
+
+.store_nodata {
+  min-height: 593px;
+  padding-top: 170px;
+  background: url("../images/store/japanbackground.png") no-repeat center bottom/contain;
 }
 /*# sourceMappingURL=all.css.map */

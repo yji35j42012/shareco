@@ -1,6 +1,14 @@
 .store {
 	padding: 87px 0 132px;
-
+	&.jp {
+		padding-bottom: 0;
+		@include mw(L){
+			padding: 41px 16px 58px;
+		}
+	}
+	@include mw(L) {
+		padding: 41px 0 58px;
+	}
 	// .store_sel
 	&_sel {
 		position: relative;
@@ -275,5 +283,12 @@
 				}
 			}
 		}
+	}
+	// .store_nodata
+	&_nodata {
+		min-height: 593px;
+		padding-top: 170px;
+		background: url("../images/store/japanbackground.png") no-repeat center
+			bottom/contain;
 	}
 }

@@ -5,7 +5,7 @@ function getC() {
 			if (data.country) {
 				set_store_sel(data.country);
 			} else {
-				set_store_sel("TW");
+				set_store_sel("jp");
 			}
 		})
 		.catch(error => {
@@ -13,7 +13,7 @@ function getC() {
 		});
 }
 getC();
-
+var storeBox = document.querySelector("#store");
 var store_sel = document.querySelector("#store_sel");
 var store_sel_group = document.querySelector("#store_sel_group");
 var store_sel_item = document.querySelectorAll("#store_sel_group > li");
@@ -35,6 +35,7 @@ function set_store_sel(country) {
 	store_sel_name.classList.add("on");
 	store_sel.innerHTML = store_sel_name.innerHTML;
 	area = country.toLowerCase();
+	storeBox.classList.add(area);
 	if (screen == "ph") {
 		setPhInfo();
 	} else {
@@ -61,6 +62,7 @@ for (let i = 0; i < store_sel_item.length; i++) {
 		area = element.getAttribute("name");
 		store_sel_group.classList.remove("on");
 		screen == "pc" ? storeShow() : setPhInfo();
+		storeBox.setAttribute("class", "store " + area);
 	};
 }
 
@@ -127,14 +129,14 @@ function setPhInfo() {
 window.onresize = function() {
 	if (screen == "pc" && window.innerWidth <= 1024) {
 		screen = "ph";
-		store_show_none()
-		setPhInfo()
+		store_show_none();
+		setPhInfo();
 	} else if (screen == "ph" && window.innerWidth > 1024) {
 		screen = "pc";
 		store_tab_count = 0;
 		store_tab_item[store_tab_count].classList.add("on");
-		store_ph_data1.innerHTML=""
-		store_ph_data2.innerHTML=""
-		storeShow()
+		store_ph_data1.innerHTML = "";
+		store_ph_data2.innerHTML = "";
+		storeShow();
 	}
 };

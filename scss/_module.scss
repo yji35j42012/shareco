@@ -61,6 +61,15 @@ h4 {
 		font-size: 14px;
 	}
 }
+.fz32to14 {
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 160%; /* 51.2px */
+	@include mw(L) {
+		font-size: 14px;
+	}
+}
 .fz26pxto16 {
 	color: #333;
 	font-family: Noto Sans;
@@ -292,8 +301,19 @@ h4 {
 		overflow: hidden;
 		max-height: 0;
 		@extend %transition;
-		.on + & {
-			max-height: 1000px;
+		@include mw(L) {
+			.on + & {
+				max-height: 10000px;
+				padding-top: 26px;
+				padding-bottom: 50px;
+			}
+			.jp &{
+				background: url('../images/store/japanbackground.png')no-repeat center bottom/contain;
+			}
+			.jp .on + &{
+				min-height: 346px;
+				padding-top: 117px;
+			}
 		}
 	}
 }
@@ -422,7 +442,8 @@ h4 {
 			font-size: 12px;
 		}
 	}
-	.store_online > & {
+	.store_online > &,
+	.normal_tab_data > & {
 		margin-bottom: 148px;
 		@include mw(L) {
 			margin-bottom: 52px;
@@ -502,6 +523,10 @@ h4 {
 		@include mw(L) {
 			max-width: 500px;
 		}
+	}
+	.store.jp &{
+		max-width: 100%;
+		padding: 0;
 	}
 }
 .alert {
