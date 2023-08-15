@@ -259,7 +259,7 @@ h4 {
 				background-color: #959595;
 				color: #fff;
 
-				&::after{
+				&::after {
 					filter: invert(1);
 					transform: rotate(0);
 				}
@@ -285,6 +285,15 @@ h4 {
 			&:last-child {
 				margin-left: 18px;
 			}
+		}
+	}
+	// .normal_tab_data
+	&_data {
+		overflow: hidden;
+		max-height: 0;
+		@extend %transition;
+		.on + & {
+			max-height: 100%;
 		}
 	}
 }
@@ -408,17 +417,17 @@ h4 {
 		padding: 3px 20px;
 		border-width: 1px;
 		font-size: 18px;
-		@include mw(L){
+		@include mw(L) {
 			padding: 0 20px;
 			font-size: 12px;
 		}
 	}
-.store_online > &{
-	margin-bottom: 148px;
-	@include mw(L){
-		margin-bottom: 52px;
+	.store_online > & {
+		margin-bottom: 148px;
+		@include mw(L) {
+			margin-bottom: 52px;
+		}
 	}
-}
 	&:after {
 		content: "";
 		flex: none;
