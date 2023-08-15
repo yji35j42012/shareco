@@ -37,8 +37,6 @@ function set_store_sel(country) {
 	area = country.toLowerCase();
 	if (screen == "ph") {
 		setPhInfo();
-		store_tab_item[0].classList.remove("on");
-		store_tab_item[1].classList.remove("on");
 	} else {
 		storeShow();
 	}
@@ -62,12 +60,12 @@ for (let i = 0; i < store_sel_item.length; i++) {
 		store_sel.innerHTML = element.innerHTML;
 		area = element.getAttribute("name");
 		store_sel_group.classList.remove("on");
-		screen=='pc'?storeShow():setPhInfo();
+		screen == "pc" ? storeShow() : setPhInfo();
 	};
 }
 
 var store_tab_item = document.querySelectorAll("#store_tab>li.normal_tab_item");
-var store_tab_count = screen == 'pc'?0:null;
+var store_tab_count = screen == "pc" ? 0 : null;
 for (let i = 0; i < store_tab_item.length; i++) {
 	const element = store_tab_item[i];
 	element.onclick = function() {
@@ -113,8 +111,11 @@ var store_ph_data1 = document.querySelector("#store_ph_data1");
 var store_ph_data2 = document.querySelector("#store_ph_data2");
 
 function setPhInfo() {
+	store_tab_count = null;
+	store_tab_item[0].classList.remove("on");
+	store_tab_item[1].classList.remove("on");
 	var show = area + "_store0";
-	var show1 = area + "_store1" ;
+	var show1 = area + "_store1";
 	var showInfo = document.querySelector("#" + show);
 	var showInfo1 = document.querySelector("#" + show1);
 	store_ph_data1.innerHTML = "";
@@ -126,7 +127,14 @@ function setPhInfo() {
 window.onresize = function() {
 	if (screen == "pc" && window.innerWidth <= 1024) {
 		screen = "ph";
+		store_show_none()
+		setPhInfo()
 	} else if (screen == "ph" && window.innerWidth > 1024) {
 		screen = "pc";
+		store_tab_count = 0;
+		store_tab_item[store_tab_count].classList.add("on");
+		store_ph_data1.innerHTML=""
+		store_ph_data2.innerHTML=""
+		storeShow()
 	}
 };

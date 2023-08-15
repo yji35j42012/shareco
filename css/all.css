@@ -411,7 +411,7 @@ h4 {
 }
 
 .on + .normal_tab_data {
-  max-height: 100%;
+  max-height: 1000px;
 }
 
 .icon_prev, .icon_next {
