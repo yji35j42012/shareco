@@ -422,9 +422,18 @@ h4 {
 .normal_tab_data {
   overflow: hidden;
   max-height: 0;
+  color: #333;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 160%;
+  /* 51.2px */
 }
 
 @media screen and (max-width: 1024px) {
+  .normal_tab_data {
+    font-size: 14px;
+  }
   .on + .normal_tab_data {
     max-height: 10000px;
     padding-top: 26px;
@@ -587,6 +596,9 @@ h4 {
     font-size: 14px;
     border-width: 1px;
   }
+  .border_btn._deal {
+    display: none;
+  }
 }
 
 .store_grid .border_btn {
@@ -602,16 +614,20 @@ h4 {
   }
 }
 
-.store_online > .border_btn,
-.normal_tab_data > .border_btn {
+.store_online > .border_btn:not(._m0),
+.normal_tab_data > .border_btn:not(._m0) {
   margin-bottom: 148px;
 }
 
 @media screen and (max-width: 1024px) {
-  .store_online > .border_btn,
-  .normal_tab_data > .border_btn {
+  .store_online > .border_btn:not(._m0),
+  .normal_tab_data > .border_btn:not(._m0) {
     margin-bottom: 52px;
   }
+}
+
+.store_info > .border_btn {
+  margin: 0 auto 70px;
 }
 
 .border_btn:after {
@@ -728,6 +744,12 @@ h4 {
 .store.jp .container {
   max-width: 100%;
   padding: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .store.jp .container {
+    max-width: 500px;
+  }
 }
 
 .alert {
@@ -2759,6 +2781,12 @@ h1 + .product_group {
 }
 
 @media screen and (max-width: 1024px) {
+  .store_sel::after {
+    right: 24px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
   .store_sel {
     max-width: 265px;
     height: 43px;
@@ -2836,16 +2864,12 @@ h1 + .product_group {
 .store_info {
   max-width: 1257px;
   margin: auto;
-  text-align: left;
-}
-
-.normal_tab + .store_info {
-  margin-top: 98px;
+  padding-top: 98px;
 }
 
 @media screen and (max-width: 1024px) {
-  .normal_tab + .store_info {
-    margin-top: 26px;
+  .store_info {
+    padding-top: 26px;
   }
 }
 
@@ -2912,6 +2936,7 @@ h1 + .product_group {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  text-align: left;
 }
 
 @media screen and (max-width: 1024px) {
@@ -3016,12 +3041,12 @@ h1 + .product_group {
 }
 
 .store_online {
-  padding: 141px 0 132px;
+  padding-top: 141px;
 }
 
 @media screen and (max-width: 1024px) {
   .store_online {
-    padding: 42px 0 132px;
+    padding-top: 42px;
   }
 }
 

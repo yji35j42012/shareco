@@ -2,10 +2,12 @@ function getC() {
 	fetch("https://ipinfo.io/json")
 		.then(response => response.json())
 		.then(data => {
+			console.log('data.country',data.country);
+
 			if (data.country) {
 				set_store_sel(data.country);
 			} else {
-				set_store_sel("jp");
+				set_store_sel("tw");
 			}
 		})
 		.catch(error => {

@@ -1,8 +1,9 @@
 .store {
+	// min-height: 100%;
 	padding: 87px 0 132px;
 	&.jp {
 		padding-bottom: 0;
-		@include mw(L){
+		@include mw(L) {
 			padding: 41px 16px 58px;
 		}
 	}
@@ -29,6 +30,9 @@
 			margin: auto 0;
 			background: url("../images/icon/icon_arr_down.svg") no-repeat
 				center/contain;
+			@include mw(L) {
+				right: 24px;
+			}
 		}
 
 		@include mw(L) {
@@ -96,13 +100,18 @@
 	&_info {
 		max-width: 1257px;
 		margin: auto;
-		text-align: left;
-		.normal_tab + & {
-			margin-top: 98px;
-			@include mw(L) {
-				margin-top: 26px;
-			}
+		padding-top: 98px;
+		// text-align: left;
+		@include mw(L) {
+			padding-top: 26px;
 		}
+
+		// .normal_tab + & {
+		// 	margin-top: 98px;
+		// 	@include mw(L) {
+		// 		margin-top: 26px;
+		// 	}
+		// }
 		// .store_info_title
 		&_title {
 			@include d_f(flex, none, center);
@@ -147,6 +156,7 @@
 		font-style: normal;
 		font-weight: 500;
 		line-height: normal;
+		text-align: left;
 		@include mw(L) {
 			grid-template-areas: "name address" "phone map";
 			grid-template-columns: 40% 60%;
@@ -224,9 +234,9 @@
 	}
 	// .store_online
 	&_online {
-		padding: 141px 0 132px;
+		padding-top: 141px;
 		@include mw(L) {
-			padding: 42px 0 132px;
+			padding-top: 42px;
 		}
 		// .store_online_title
 		&_title {

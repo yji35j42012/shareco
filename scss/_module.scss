@@ -300,17 +300,24 @@ h4 {
 	&_data {
 		overflow: hidden;
 		max-height: 0;
+		color: #333;
+		font-size: 32px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 160%; /* 51.2px */
 		@extend %transition;
 		@include mw(L) {
+			font-size: 14px;
 			.on + & {
 				max-height: 10000px;
 				padding-top: 26px;
 				padding-bottom: 50px;
 			}
-			.jp &{
-				background: url('../images/store/japanbackground.png')no-repeat center bottom/contain;
+			.jp & {
+				background: url("../images/store/japanbackground.png") no-repeat
+					center bottom/contain;
 			}
-			.jp .on + &{
+			.jp .on + & {
 				min-height: 346px;
 				padding-top: 117px;
 			}
@@ -431,6 +438,10 @@ h4 {
 	@include mw(L) {
 		font-size: 14px;
 		border-width: 1px;
+
+		&._deal {
+			display: none;
+		}
 	}
 
 	.store_grid & {
@@ -442,12 +453,16 @@ h4 {
 			font-size: 12px;
 		}
 	}
-	.store_online > &,
-	.normal_tab_data > & {
+	.store_online > &:not(._m0),
+	.normal_tab_data > &:not(._m0) {
 		margin-bottom: 148px;
 		@include mw(L) {
 			margin-bottom: 52px;
 		}
+	}
+
+	.store_info > & {
+		margin: 0 auto 70px;
 	}
 	&:after {
 		content: "";
@@ -524,9 +539,12 @@ h4 {
 			max-width: 500px;
 		}
 	}
-	.store.jp &{
+	.store.jp & {
 		max-width: 100%;
 		padding: 0;
+		@include mw(L) {
+			max-width: 500px;
+		}
 	}
 }
 .alert {
