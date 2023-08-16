@@ -72,6 +72,10 @@
 			width: 100%;
 			._swip & {
 				flex: none;
+				margin-bottom: 56px;
+			}
+			._swip & + & {
+				margin-left: 50px;
 			}
 		}
 		&:nth-child(even) {
@@ -249,8 +253,13 @@
 	}
 	// .product_overflow
 	&_overflow {
-		@include minmw(L) {
+		@include mw(L) {
 			overflow: hidden;
+			position: relative;
+			// width: 100%;
+			max-width: calc(352px + 100px);
+			margin: auto;
+			padding: 0 50px 16px;
 		}
 	}
 }
