@@ -1,8 +1,7 @@
 .product {
-
 	padding: 80px 0 0;
 	&._parfums {
-		padding: 80px 20px 0;
+		padding: 80px 20px 110px;
 		background: url("../images/product_parfums/background.png") no-repeat
 			center bottom/contain;
 		@include mw(L) {
@@ -42,13 +41,17 @@
 	}
 	// .product_group
 	&_group {
-		overflow: hidden;
+		// overflow: hidden;
 		@include d_f(flex, space-between);
 		flex-wrap: wrap;
 		max-width: 1100px;
 		margin: auto;
 		@include mw(L) {
 			max-width: 352px;
+
+			&._swip {
+				flex-wrap: nowrap;
+			}
 		}
 		h1 + & {
 			margin-top: 90px;
@@ -67,6 +70,9 @@
 		}
 		@include mw(L) {
 			width: 100%;
+			._swip & {
+				flex: none;
+			}
 		}
 		&:nth-child(even) {
 			margin-left: 142px;
@@ -131,7 +137,7 @@
 			@include d_f(flex, none, center);
 			margin-top: 8px;
 			padding: 9px 0;
-			&._only{
+			&._only {
 				justify-content: center;
 			}
 			@include mw(L) {
@@ -239,6 +245,12 @@
 				background-image: url("../images/icon/icon_dot_top.svg");
 				transform: translateX(100%);
 			}
+		}
+	}
+	// .product_overflow
+	&_overflow {
+		@include minmw(L) {
+			overflow: hidden;
 		}
 	}
 }
