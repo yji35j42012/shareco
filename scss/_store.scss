@@ -51,7 +51,7 @@
 
 		// .store_sel_group
 		&_group {
-			// overflow: hidden;
+			overflow: hidden;
 			position: absolute;
 			top: calc(100% + 20px);
 			// display: none;
@@ -60,6 +60,7 @@
 			z-index: 2;
 			@extend %transition;
 			&.on {
+				overflow-x: auto;
 				max-height: 700%;
 			}
 			&::before {
