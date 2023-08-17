@@ -1755,6 +1755,12 @@ h4 {
   }
 }
 
+.banner._video {
+  width: 100%;
+  padding-bottom: calc(100% * 0.55);
+  background-color: #ccc;
+}
+
 .banner_txt {
   position: absolute;
   top: 0;
@@ -3654,5 +3660,114 @@ h1 + .product_group {
   .privacy_group_item {
     font-size: 14px;
   }
+}
+
+.usually {
+  padding: 40px 26px 58px;
+  background: url("../images/usually/background.png") no-repeat center/contain;
+}
+
+.usually_btn {
+  display: block;
+  width: 100%;
+  height: 65px;
+  line-height: 65px;
+  border-radius: 4px;
+  border: 0.5px solid #333;
+  background-color: rgba(255, 255, 255, 0.7);
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+  color: #333;
+  text-align: center;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.usually_btn + .usually_btn {
+  margin-top: 24px;
+}
+
+.usually_sel {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 60px;
+  margin-top: 30px;
+  border-radius: 4px;
+  border: 2px solid #fff;
+  background: rgba(223, 223, 223, 0.6);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+}
+
+.usually_sel::after {
+  content: "";
+  position: absolute;
+  right: 40px;
+  top: 0;
+  bottom: 0;
+  display: block;
+  width: 8px;
+  height: 13px;
+  margin: auto 0;
+  background: url("../images/icon/icon_arr_down.svg") no-repeat center/contain;
+}
+
+@media screen and (max-width: 1024px) {
+  .usually_sel::after {
+    right: 24px;
+  }
+}
+
+.usually_sel_txt {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #333;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 60px;
+}
+
+.usually_sel_group {
+  position: absolute;
+  display: none;
+  top: calc(100% + 35px);
+  width: 100%;
+  z-index: 20;
+}
+
+.usually_sel_group::before {
+  position: absolute;
+  top: -5px;
+  left: 0;
+  right: 0;
+  content: "";
+  width: 53px;
+  height: 53px;
+  margin: auto;
+  background-color: #fff;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.usually_sel_group.on {
+  display: block;
+}
+
+.usually_sel_item {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 20px 0;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.usually_sel_item.on {
+  color: #a4a4a4;
+  pointer-events: none;
 }
 /*# sourceMappingURL=all.css.map */
