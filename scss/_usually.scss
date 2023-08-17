@@ -1,6 +1,7 @@
 .usually {
 	padding: 40px 26px 58px;
-	background: url("../images/usually/background.png") no-repeat center/contain;
+	background: url("../images/usually/background.png") no-repeat center 25% /
+		contain;
 
 	// .usually_btn
 	&_btn {
@@ -20,9 +21,19 @@
 		& + & {
 			margin-top: 24px;
 		}
+		& + .gallery_photo {
+			margin-top: 40px;
+		}
+		.usually_sel + & {
+			margin-top: 30px;
+		}
+		&:after {
+			content: attr(data-msg);
+		}
 	}
 	// .usually_sel
 	&_sel {
+		z-index: 10;
 		position: relative;
 		display: block;
 		width: 100%;
@@ -65,7 +76,6 @@
 			display: none;
 			top: calc(100% + 35px);
 			width: 100%;
-			z-index: 20;
 			&::before {
 				position: absolute;
 				top: -5px;
@@ -81,7 +91,7 @@
 				// 	display: none;
 				// }
 			}
-			&.on{
+			&.on {
 				display: block;
 			}
 		}

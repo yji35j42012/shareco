@@ -1,9 +1,19 @@
+var storeBox = document.querySelector("#store");
+var store_sel = document.querySelector("#store_sel");
+var store_sel_group = document.querySelector("#store_sel_group");
+var store_sel_item = document.querySelectorAll("#store_sel_group > li");
+var store_sel_name = null;
+var area = null;
+var store = "store0";
+var store_tab_item = document.querySelectorAll("#store_tab>li.normal_tab_item");
+var store_tab_count = screen == "pc" ? 0 : null;
+var store_show = document.querySelectorAll("[name='store_show']");
+var store_ph_data1 = document.querySelector("#store_ph_data1");
+var store_ph_data2 = document.querySelector("#store_ph_data2");
 function getC() {
 	fetch("https://ipinfo.io/json")
 		.then(response => response.json())
 		.then(data => {
-			console.log('data.country',data.country);
-
 			if (data.country) {
 				set_store_sel(data.country);
 			} else {
@@ -14,14 +24,19 @@ function getC() {
 			console.error("Error:", error);
 		});
 }
-getC();
-var storeBox = document.querySelector("#store");
-var store_sel = document.querySelector("#store_sel");
-var store_sel_group = document.querySelector("#store_sel_group");
-var store_sel_item = document.querySelectorAll("#store_sel_group > li");
-var store_sel_name = null;
-var area = null;
-var store = "store0";
+if (location.search) {
+	let str = location.search.split("&");
+	let getCountry = str[0].split("=")[1];
+	let getContent = str[1].split("=")[1];
+	set_store_sel(getCountry);
+	store = getContent;
+	setTab = getContent.split('store')[1];
+	console.log('setTab',setTab);
+	store_tab_item[setTab].classList.add("on");
+
+} else {
+	getC();
+}
 function set_store_sel(country) {
 	if (country.toLowerCase() == "tw") {
 		store_sel_name = document.querySelector("[name='tw']");
@@ -68,8 +83,6 @@ for (let i = 0; i < store_sel_item.length; i++) {
 	};
 }
 
-var store_tab_item = document.querySelectorAll("#store_tab>li.normal_tab_item");
-var store_tab_count = screen == "pc" ? 0 : null;
 for (let i = 0; i < store_tab_item.length; i++) {
 	const element = store_tab_item[i];
 	element.onclick = function() {
@@ -104,15 +117,11 @@ function storeShow() {
 	showInfo.style.display = "";
 }
 
-var store_show = document.querySelectorAll("[name='store_show']");
 function store_show_none() {
 	for (let i = 0; i < store_show.length; i++) {
 		store_show[i].style.display = "none";
 	}
 }
-
-var store_ph_data1 = document.querySelector("#store_ph_data1");
-var store_ph_data2 = document.querySelector("#store_ph_data2");
 
 function setPhInfo() {
 	store_tab_count = null;

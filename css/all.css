@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .normal_tab_data, .border_btn, .alert, .footer_nav_title, .footer_nav_title:after, .lang_group li, .nav, .nav_item_title, .nav_item_title:after, .nav_item, .nav_btn_line, .nav_btn_line::before, .nav_btn_line:after, .nav_sec_link, .nav_sec_link:after, .gallery_swiper_group, .gallery_swiper_item:after, .gallery_photo_item img, .store_sel_group, .contact_item_mail::before {
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .normal_dots_item, .normal_tab_item, .icon_prev, .icon_next, .dots_item, .border_btn, .alert_close, .footer_link_icon, .lang_btn, .lang_group li, .nav_item, .nav_sec_link, .gallery_video_sound, .gallery_swiper_item, .gallery_swiper_btn, .store_sel_txt, .store_sel_item, .contact_item_mail {
@@ -3664,7 +3664,7 @@ h1 + .product_group {
 
 .usually {
   padding: 40px 26px 58px;
-  background: url("../images/usually/background.png") no-repeat center/contain;
+  background: url("../images/usually/background.png") no-repeat center 25%/contain;
 }
 
 .usually_btn {
@@ -3688,7 +3688,20 @@ h1 + .product_group {
   margin-top: 24px;
 }
 
+.usually_btn + .gallery_photo {
+  margin-top: 40px;
+}
+
+.usually_sel + .usually_btn {
+  margin-top: 30px;
+}
+
+.usually_btn:after {
+  content: attr(data-msg);
+}
+
 .usually_sel {
+  z-index: 10;
   position: relative;
   display: block;
   width: 100%;
@@ -3736,7 +3749,6 @@ h1 + .product_group {
   display: none;
   top: calc(100% + 35px);
   width: 100%;
-  z-index: 20;
 }
 
 .usually_sel_group::before {

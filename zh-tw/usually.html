@@ -83,27 +83,47 @@
             <a href="" class="usually_btn">PARFUMES 香精香水</a>
             <a href="" class="usually_btn">VENUS FLYTRAP 捕蠅草擴香</a>
             <label class="usually_sel">
-                <span class="usually_sel_txt">台灣 / Taiwan</span>
-                <ul class="usually_sel_group">
-                    <li class="usually_sel_item on">台灣 / Taiwan</li>
-                    <li class="usually_sel_item">日本 / Japan</li>
-                    <li class="usually_sel_item">香港 / Hongkong</li>
-                    <li class="usually_sel_item">新加坡 / Singapore</li>
-                    <li class="usually_sel_item">馬來西亞 / Malaysia</li>
+                <span id="usually_sel_txt" class="usually_sel_txt">台灣 / Taiwan</span>
+                <ul id="usually_sel_group" class="usually_sel_group">
+                    <li class="usually_sel_item" name='tw' data-name="台灣">台灣 / Taiwan</li>
+                    <li class="usually_sel_item" name='jp' data-name="日本">日本 / Japan</li>
+                    <li class="usually_sel_item" name='hk' data-name="香港">香港 / Hongkong</li>
+                    <li class="usually_sel_item" name='sg' data-name="新加坡">新加坡 / Singapore</li>
+                    <li class="usually_sel_item" name='my' data-name="馬來西亞">馬來西亞 / Malaysia</li>
                 </ul>
             </label>
-            <a href="" class="usually_btn">台灣 線上銷售平台</a>
-            <a href="" class="usually_btn">台灣 門市據點</a>
-            <ul class="usually_group">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+            <a name="usually_area" class="usually_btn" href="./store.html?country=tw&content=store0"
+                data-msg="線上銷售平台">台灣</a>
+            <a name="usually_area" class="usually_btn" href="./store.html?country=jp&content=store1"
+                data-msg="門市據點">台灣</a>
+            <ul class="gallery_photo" data-aos="">
+                <li class="gallery_photo_item">
+                    <img src="../images/gallery/photot_1.png" alt="">
+                </li>
+                <li class="gallery_photo_item">
+                    <img src="../images/gallery/photot_2.png" alt="">
+                </li>
+                <li class="gallery_photo_item">
+                    <img src="../images/gallery/photot_3.png" alt="">
+                </li>
+                <li class="gallery_photo_item">
+                    <img src="../images/gallery/photot_4.png" alt="">
+                </li>
+                <li class="gallery_photo_item">
+                    <img src="../images/gallery/photot_5.png" alt="">
+                </li>
+                <li class="gallery_photo_item">
+                    <img src="../images/gallery/photot_6.png" alt="">
+                </li>
+                <li class="gallery_photo_item">
+                    <img src="../images/gallery/photot_7.png" alt="">
+                </li>
+                <li class="gallery_photo_item">
+                    <img src="../images/gallery/photot_8.png" alt="">
+                </li>
+                <li class="gallery_photo_item">
+                    <img src="../images/gallery/photot_9.png" alt="">
+                </li>
             </ul>
         </section>
         <footer class="footer">
@@ -131,6 +151,11 @@
 
 
     <script src="../js/module.js"></script>
+    <script src="../js/usually.js"></script>
+    <script src="../js/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
