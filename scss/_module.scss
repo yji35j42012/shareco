@@ -784,6 +784,9 @@ h4 {
 					display: none;
 				}
 				&:nth-child(2) {
+					display: none;
+				}
+				&:nth-child(3) {
 					padding-left: 0;
 				}
 				&:not(:last-child) {
@@ -794,8 +797,45 @@ h4 {
 				}
 			}
 			@include minmw(L) {
+				&:nth-child(4) {
+					display: none;
+				}
 				& + & {
 					margin-left: 48px;
+				}
+			}
+		}
+		// .footer_nav_title
+		&_title {
+			position: relative;
+			color: rgba(255, 255, 255, 1);
+			@extend %transition;
+			@include mw(L) {
+				// width: 100%;
+				// margin-left: 42px;
+				padding: 26px 0;
+			}
+			&:after {
+				content: "";
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				width: 0;
+				height: 1px;
+				margin: auto 0;
+				background-color: rgba(0, 0, 0, 0.5);
+				@extend %transition;
+
+				.on & {
+					width: 100%;
+					background-color: rgba(0, 0, 0, 1);
+				}
+			}
+			@include hoverHandler {
+				color: rgba(255, 255, 255, 0.5);
+				&:after {
+					width: 100%;
 				}
 			}
 		}
