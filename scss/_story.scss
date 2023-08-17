@@ -28,8 +28,8 @@
 			opacity: 1;
 			position: fixed;
 			top: 98px;
-            left: 0;
-            height: 100%;
+			left: 0;
+			height: 100%;
 		}
 	}
 
@@ -55,14 +55,14 @@
 		font-style: normal;
 		font-weight: 400;
 		line-height: 160%; /* 41.6px */
-        text-align: center;
+		text-align: center;
 
-        ._bg1 &{
-            position: absolute;
-            left: 50%;
-            transform: translate(-50% , 0);
-            opacity: 0;
-        }
+		._bg1 & {
+			position: absolute;
+			left: 50%;
+			transform: translate(-50%, 0);
+			opacity: 0;
+		}
 	}
 	// .story_pic
 	&_pic {
@@ -72,9 +72,11 @@
 		img {
 			width: calc(50% - 10px);
 		}
-		._bg1 &{
-			transform: translate3d(0 , 0,0);
+		._bg1 & {
+			position: relative;
 			transform-style: preserve-3d;
+			transform: translate3d(0, 0, 10px);
+			transition: all 0.8s cubic-bezier(0, 0, 0.2, 1);
 		}
 	}
 	// .story_pic2
