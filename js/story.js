@@ -13,15 +13,16 @@ var story_pic2 = document.querySelector("#story_pic2");
 story_emptyBox.style.height =
 	story_box1.offsetHeight + story_box2.offsetHeight + "px";
 
-var box1Default = 200; //scroll滑200點結束
+var box1Default = 200;
 var ani2Start = 250;
-var box1Default2 = 150; //scroll滑200點結束
+var box1Default2 = 150;
 var ani3Start = 350;
 var ani4Start = 400;
-var ani4Default = 200; //scroll滑200點結束
-var ani5Start = 450;
-var ani5Default = 250; //scroll滑200點結束
+var ani4Default = 200;
+var ani5Start = 600;
+var ani5Default = 200;
 
+var ani6Start = 800;
 // Y從-150 ~ -45   105
 // X從 0 ~ -55
 
@@ -92,6 +93,9 @@ function ani1(num) {
 	}
 	story_txt1.style = `transform: translate3d(0, -45px, ${moveZ_1}px);opacity: ${showop};${title_op};`;
 	story_pic1.style = `transform: translate3d(0, ${moveY_1}px, ${moveZ_1}px);${title_op};`;
+	if (op4 >= 0) {
+		ani4(num);
+	}
 }
 // 250~450
 function ani2(num) {
@@ -118,8 +122,10 @@ function ani2(num) {
 		box2op = (num - ani3Start) * 0.01;
 		story_box2.style = `--bgop2:${box2op}`;
 	}
+	if (op4 >= 0) {
+		ani4(num);
+	}
 }
-
 //350~450 第二張背景圖淡入
 function ani3(num) {
 	box1op = 1 - (num - ani3Start) * 0.01;
@@ -154,9 +160,9 @@ function ani4(num) {
 	}
 }
 function ani5(num) {
-	var moveY_1 = startPicY_5 - unitY_5 * (num - 450);
-	var moveZ_1 = startPicZ_5 - unitZ_5 * (num - 450);
-	op5 = (num - 450) * 0.02;
+	var moveY_1 = startPicY_5 - unitY_5 * (num - 600);
+	var moveZ_1 = startPicZ_5 - unitZ_5 * (num - 600);
+	op5 = (num - 600) * 0.02;
 	if (moveY_1 >= endPicY_5) {
 		moveY_1 = endPicY_5;
 	}
@@ -164,6 +170,11 @@ function ani5(num) {
 		moveZ_1 = endPicZ_5;
 	}
 	story_pic2.style = ` transform: translate3d(0, ${moveY_1}px, ${moveZ_1}px); opacity: ${op5};`;
+}
+function ani6(num) {
+	console.log("num", num);
+	var moveY = num - 800
+	story_box2.style=`transform: translateY( -${moveY}px )`;
 }
 // 550
 window.addEventListener("scroll", () => {
@@ -182,6 +193,9 @@ window.addEventListener("scroll", () => {
 	}
 	if (this.scrollY > ani5Start) {
 		ani5(this.scrollY);
+	}
+	if (this.scrollY > ani6Start) {
+		ani6(this.scrollY);
 	}
 });
 
