@@ -49,15 +49,15 @@ var unitY_4 = (startTxtY_4 - endTxtY_4) / ani4Default;
 var unitZ_4 = (startTxtZ_4 - endTxtZ_4) / ani4Default;
 
 // transform: translate3d(0, 0px, -30px);
-var startPicY_5 = -600;
+var startPicY_5 = -500;
 var startPicZ_5 = -400;
 
-var endPicY_5 = 0;
+var endPicY_5 = 100;
 var endPicZ_5 = -50;
 var unitY_5 = (startPicY_5 - endPicY_5) / ani5Default;
 var unitZ_5 = (startPicZ_5 - endPicZ_5) / ani5Default;
 var op5 = 0;
-
+var story_box2Y = 0;
 function setDefault() {
 	story_txt1.style = ` transform: translate3d(0, 0px, 0px); opacity: 0;`;
 	story_pic1.style = ` transform: translate3d(0, -150px, 0px)`;
@@ -170,11 +170,14 @@ function ani5(num) {
 		moveZ_1 = endPicZ_5;
 	}
 	story_pic2.style = ` transform: translate3d(0, ${moveY_1}px, ${moveZ_1}px); opacity: ${op5};`;
+
+	if (story_box2Y >= 0) {
+		ani6(num);
+	}
 }
 function ani6(num) {
-	console.log("num", num);
-	var moveY = num - 800
-	story_box2.style=`transform: translateY( -${moveY}px )`;
+	story_box2Y = num - 800;
+	story_box2.style = `transform: translateY( -${story_box2Y}px )`;
 }
 // 550
 window.addEventListener("scroll", () => {
