@@ -42,6 +42,10 @@ h1 {
   }
 }
 
+.error h1 {
+  color: #fff;
+}
+
 @media screen and (max-width: 1024px) {
   h1 {
     font-size: 20px;
@@ -664,6 +668,25 @@ h4 {
   margin-top: 48px;
 }
 
+.border_btn._back {
+  margin-top: 110px;
+  background-color: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+
+.border_btn._back:after {
+  -webkit-box-ordinal-group: 0;
+      -ms-flex-order: -1;
+          order: -1;
+  margin-left: 0;
+  margin-right: 10px;
+  -webkit-filter: invert(1);
+          filter: invert(1);
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
 @media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
   .border_btn:hover {
     background-color: #0d0d0d;
@@ -982,6 +1005,10 @@ h4 {
 .footer {
   padding: 83px 149px 96px;
   background-color: #171717;
+}
+
+.error + .footer {
+  padding-top: 0;
 }
 
 @media screen and (max-width: 1024px) {
@@ -1966,6 +1993,25 @@ h1 + .banner_txt_rule {
   .show_ph {
     display: none;
   }
+}
+
+.error {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  background: url("../images/404/background.png") no-repeat center/cover, -webkit-gradient(linear, left top, left bottom, from(rgba(23, 23, 23, 0)), color-stop(0%, #171717));
+  background: url("../images/404/background.png") no-repeat center/cover, linear-gradient(180deg, rgba(23, 23, 23, 0) 0%, #171717 0%);
 }
 
 @-webkit-keyframes homeAni {
@@ -3817,6 +3863,7 @@ h1 + .product_group {
 }
 
 .story_box._bg1 {
+  pointer-events: none;
   z-index: 1;
   padding-top: 76px;
 }
@@ -3910,5 +3957,7 @@ h1 + .product_group {
   position: relative;
   max-width: 871px;
   margin: auto;
+  -webkit-transform: translate3d(0, 0px, -50px);
+          transform: translate3d(0, 0px, -50px);
 }
 /*# sourceMappingURL=all.css.map */

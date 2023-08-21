@@ -21,6 +21,9 @@ h1 {
 			margin-top: 87px;
 		}
 	}
+	.error & {
+		color: #fff;
+	}
 	@include mw(L) {
 		font-size: 20px;
 	}
@@ -490,6 +493,19 @@ h4 {
 	.banner_txt & {
 		margin-top: 48px;
 	}
+	&._back {
+		margin-top: 110px;
+		background-color: transparent;
+		border-color: #fff;
+		color: #fff;
+		&:after {
+			order: -1;
+			margin-left: 0;
+			margin-right: 10px;
+			filter: invert(1);
+			transform: rotate(90deg);
+		}
+	}
 	@include hoverHandler {
 		background-color: #0d0d0d;
 		color: #fff;
@@ -711,6 +727,9 @@ h4 {
 .footer {
 	padding: 83px 149px 96px;
 	background-color: #171717;
+	.error + & {
+		padding-top: 0;
+	}
 	@include mw(L) {
 		padding: 32px 15px;
 	}
@@ -1438,4 +1457,12 @@ h4 {
 	@include minmw(L) {
 		display: none;
 	}
+}
+
+.error {
+	@include d_f(flex, center, center);
+	flex-direction: column;
+	height: 100%;
+	background: url("../images/404/background.png") no-repeat center/cover,
+	linear-gradient(180deg, rgba(23,23,23,0) 0%, #171717 0%);;
 }
