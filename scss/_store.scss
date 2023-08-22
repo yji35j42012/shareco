@@ -165,7 +165,7 @@
 		position: relative;
 		display: grid;
 		grid-auto-rows: 99px;
-		grid-template-columns: 25% 25% 30% 20%;
+		grid-template-columns: 27% 13% 35% 20%;
 		grid-template-areas: "name phone address map";
 		place-content: center;
 		background-color: #fafafa;
@@ -221,6 +221,9 @@
 			}
 			&:nth-child(2) {
 				grid-area: phone;
+			}
+			&._center{				
+				justify-content: center;
 			}
 			&:nth-child(3) {
 				grid-area: address;
