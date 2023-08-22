@@ -523,6 +523,9 @@ h4 {
 	width: 100%;
 	height: 100%;
 	padding-top: 98px;
+	&.full {
+		padding-top: 0;
+	}
 	&._gallery {
 		height: auto;
 		&::before {
@@ -1194,7 +1197,7 @@ h4 {
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background: url("../images/home.png") no-repeat center/cover;
+			background: url("../images/home/home.png") no-repeat center/cover;
 			transition-duration: 1s;
 			transform: scale(1);
 			transform-origin: center;
@@ -1231,7 +1234,7 @@ h4 {
 		max-width: 985px;
 		max-height: 694px;
 		padding-bottom: calc(50% * 0.704);
-		transition-duration: 1s;
+		// transition-duration: .5s;
 
 		.mouseL & {
 			transform: translate(-20px, 0);
@@ -1464,9 +1467,9 @@ h4 {
 	flex-direction: column;
 	height: 100%;
 	background: url("../images/404/background.png") no-repeat center/cover,
-	linear-gradient(180deg, rgba(23,23,23,0) 0%, #171717 0%);;
+		linear-gradient(180deg, rgba(23, 23, 23, 0) 0%, #171717 0%);
 }
 
-[data-aos^=fade][data-aos^=fade]{
+[data-aos^="fade"][data-aos^="fade"] {
 	transition-property: all !important;
 }

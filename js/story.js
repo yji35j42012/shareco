@@ -13,22 +13,24 @@ var story_pic2 = document.querySelector("#story_pic2");
 story_emptyBox.style.height =
 	story_box1.offsetHeight + story_box2.offsetHeight + "px";
 
+console.log("story_box1", story_box1.offsetHeight);
+console.log("story_box2", story_box2.offsetHeight);
+
 var box1Default = 200;
 var ani2Start = 250;
-var box1Default2 = 150;
+var box1Default2 = 150;	
 var ani3Start = 350;
 var ani4Start = 400;
 var ani4Default = 200;
 var ani5Start = 600;
 var ani5Default = 200;
-
 var ani6Start = 800;
 // Y從-150 ~ -45   105
 // X從 0 ~ -55
 
-var startY_1 = -45;
-var startZ_1 = 0;
-var unitY_1 = 105 / box1Default;
+var startPicY_1 = -150;
+var endPicY_1 = -45;
+var unitY_1 = ((startPicY_1 - endPicY_1) * -1) / box1Default;
 var unitZ_1 = 55 / box1Default;
 var txtop_1 = 1 / box1Default;
 var title_op = 1;
@@ -40,8 +42,8 @@ var box2op = 0;
 
 // transform: translate3d(0, -800px, -400px);
 var startTxtY_4 = -800;
+var endTxtY_4 = 30;
 var startTxtZ_4 = -400;
-var endTxtY_4 = 0;
 var endTxtZ_4 = -30;
 var op4 = 0;
 
@@ -58,11 +60,12 @@ var unitY_5 = (startPicY_5 - endPicY_5) / ani5Default;
 var unitZ_5 = (startPicZ_5 - endPicZ_5) / ani5Default;
 var op5 = 0;
 var story_box2Y = 0;
+
 function setDefault() {
-	story_txt1.style = ` transform: translate3d(0, 0px, 0px); opacity: 0;`;
-	story_pic1.style = ` transform: translate3d(0, -150px, 0px)`;
-	story_txt2.style = ` transform: translate3d(0, ${startTxtY_4}px, ${startTxtZ_4}px); opacity: 0;`;
-	story_pic2.style = ` transform: translate3d(0, ${startPicY_5}px, ${startPicZ_5}px); opacity: 0;`;
+	story_txt1.style = `transform: translate3d(0, 0px, 0px); opacity: 0;`;
+	story_pic1.style = `transform: translate3d(0, -150px, 0px)`;
+	story_txt2.style = `transform: translate3d(0, ${startTxtY_4}px, ${startTxtZ_4}px); opacity: 0;`;
+	story_pic2.style = `transform: translate3d(0, ${startPicY_5}px, ${startPicZ_5}px); opacity: 0;`;
 }
 
 // 0~200
@@ -142,7 +145,6 @@ function ani3(num) {
 		ani4(num);
 	}
 }
-//400 第二張背景圖淡入
 function ani4(num) {
 	var moveY_1 = startTxtY_4 - unitY_4 * (num - 400);
 	var moveZ_1 = startTxtZ_4 - unitZ_4 * (num - 400);
@@ -181,7 +183,6 @@ function ani6(num) {
 }
 // 550
 window.addEventListener("scroll", () => {
-	console.log("this.scrollY", this.scrollY);
 	if (this.scrollY < 200) {
 		ani1(this.scrollY);
 	}

@@ -15,7 +15,6 @@
 		perspective: 200px;
 
 		&._bg1 {
-			pointer-events: none;
 			z-index: 1;
 			padding-top: 76px;
 			&::before {
@@ -51,6 +50,9 @@
 			top: 98px;
 			left: 0;
 			height: 100%;
+			@include mw(L) {
+				top: 54px;
+			}
 		}
 	}
 
@@ -62,6 +64,9 @@
 		font-size: 42px;
 		font-weight: 600;
 		line-height: normal;
+		@include mw(L) {
+			font-size: 20px;
+		}
 	}
 	// .story_txt
 	&_txt {
