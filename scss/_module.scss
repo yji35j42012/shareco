@@ -1186,6 +1186,7 @@ h4 {
 	position: relative;
 	width: 100%;
 	height: 100%;
+	perspective: 200px;
 	// .home_bg
 	&_bg {
 		width: 100%;
@@ -1234,7 +1235,7 @@ h4 {
 		max-width: 985px;
 		max-height: 694px;
 		padding-bottom: calc(50% * 0.704);
-		// transition-duration: .5s;
+		transition-duration: 0.5s;
 
 		.mouseL & {
 			transform: translate(-20px, 0);

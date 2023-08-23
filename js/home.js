@@ -11,10 +11,11 @@
 var nowW = window.innerWidth;
 var nowH = window.innerHeight;
 
-var heightC = nowH / 2; //一半高度
+var boxCenter = nowH / 2; //一半高度
 var mouseB = nowH;
-var bottomRange = mouseB - heightC;
-console.log("bottomRange", bottomRange);
+// var bottomRange = mouseB - heightC;
+var bgPos = 0;
+// console.log("bottomRange", bottomRange);
 
 var home_lion = document.querySelector("#home_lion");
 var lionX = 0,
@@ -22,19 +23,44 @@ var lionX = 0,
 	lionZ = 0,
 	lionMaxY = 40;
 
-function lionMove(X, Y) {
+function lionMove(e) {
 	// 往下從０－４０
-	var moveY = (40 / bottomRange) * (Y - heightC);
-	if (Y > heightC && moveY <= lionMaxY) {
-		// console.log("moveY", moveY);
-		// home_lion.style = `transform: translate3d(${lionX}px, ${moveY}px, ${lionZ}px)`;
+	// var x = e.offsetX === undefined ? e.layerX : e.offsetX;
+	var y = e.offsetY === undefined ? e.layerY : e.offsetY;
+	// x -= boxCenter.x;
+	y -= boxCenter;
+	var moveY = 0;
+	var moveZ = 0;
+	console.log("y", y);
+	console.log("boxCenter", boxCenter);
+	// if (y > 0) {
+	moveY = bgPos + y / 50;
+	// }
+	// if (y < 0) {
+	moveZ = (bgPos + y / 100) * -1;
+	// }
+	if (moveY >= 40) {
+		moveY = 40;
+	} else if (moveY <= 0) {
+		moveY = 0;
 	}
+	if (moveZ < 0) {
+		moveZ = 0;
+	}
+	console.log("moveZ", moveZ);
+	home_lion.style = `transform: translate3d(0px, ${moveY}%, ${moveZ}px)`;
+	// var moveY = (40 / bottomRange) * (Y - heightC);
+	// if (Y > heightC && moveY <= lionMaxY) {
+	// 	// console.log("moveY", moveY);
+	// 	// home_lion.style = `transform: translate3d(${lionX}px, ${moveY}px, ${lionZ}px)`;
+	// }
 }
 
 function mousemove(event) {
 	var mouseX = event.clientX;
 	var mouseY = event.clientY;
-	lionMove(mouseX, mouseY);
+	// lionMove(mouseX, mouseY);
+	lionMove(event);
 	// console.log("clientX: ", event.clientX);
 	// console.log("clientY: ", event.clientY);
 	// if (mouseY > mouseB) {
