@@ -31,14 +31,10 @@ function lionMove(e) {
 	y -= boxCenter;
 	var moveY = 0;
 	var moveZ = 0;
-	console.log("y", y);
-	console.log("boxCenter", boxCenter);
-	// if (y > 0) {
+	// console.log("y", y);
+	// console.log("boxCenter", boxCenter);
 	moveY = bgPos + y / 50;
-	// }
-	// if (y < 0) {
 	moveZ = (bgPos + y / 100) * -1;
-	// }
 	if (moveY >= 40) {
 		moveY = 40;
 	} else if (moveY <= 0) {
@@ -47,8 +43,8 @@ function lionMove(e) {
 	if (moveZ < 0) {
 		moveZ = 0;
 	}
-	console.log("moveZ", moveZ);
-	home_lion.style = `transform: translate3d(0px, ${moveY}%, ${moveZ}px)`;
+	// console.log("moveZ", moveZ);
+	// home_lion.style = `transform: translate3d(0px, ${moveY}%, ${moveZ}px)`;
 	// var moveY = (40 / bottomRange) * (Y - heightC);
 	// if (Y > heightC && moveY <= lionMaxY) {
 	// 	// console.log("moveY", moveY);
@@ -61,11 +57,7 @@ function mousemove(event) {
 	var mouseY = event.clientY;
 	// lionMove(mouseX, mouseY);
 	lionMove(event);
-	// console.log("clientX: ", event.clientX);
-	// console.log("clientY: ", event.clientY);
-	// if (mouseY > mouseB) {
-	// 	console.log("~~~@!@!@E!@");
-	// }
+
 	// 	if (mouseL > mouseX && home.getAttribute("class") !== "mouseL") {
 	// 		home.setAttribute("class", "home mouseL");
 	// 	}

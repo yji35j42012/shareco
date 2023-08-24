@@ -79,7 +79,9 @@ isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 var html = document.querySelector("html");
 
 if (isDarkMode || html.getAttribute("native-dark-active") !== null) {
-	favicon.href = "../favicon-dark.ico";
-} else {
 	favicon.href = "../favicon-light.ico";
+} else {
+	favicon.href = "../favicon-dark.ico";
 }
+
+console.log(isDarkMode);

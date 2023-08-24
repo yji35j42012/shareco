@@ -10,6 +10,9 @@ var store_tab_count = screen == "pc" ? 0 : null;
 var store_show = document.querySelectorAll("[name='store_show']");
 var store_ph_data1 = document.querySelector("#store_ph_data1");
 var store_ph_data2 = document.querySelector("#store_ph_data2");
+var normal_tab_btn = document.querySelector("#normal_tab_btn");
+var ph_deal = document.querySelector("#ph_deal");
+
 function getC() {
 	fetch("https://ipinfo.io/json")
 		.then(response => response.json())
@@ -30,10 +33,9 @@ if (location.search) {
 	let getContent = str[1].split("=")[1];
 	set_store_sel(getCountry);
 	store = getContent;
-	setTab = getContent.split('store')[1];
-	console.log('setTab',setTab);
+	setTab = getContent.split("store")[1];
+	console.log("setTab", setTab);
 	store_tab_item[setTab].classList.add("on");
-
 } else {
 	getC();
 }
@@ -135,6 +137,11 @@ function setPhInfo() {
 	store_ph_data2.innerHTML = "";
 	store_ph_data1.innerHTML = showInfo.innerHTML;
 	store_ph_data2.innerHTML = showInfo1.innerHTML;
+	if (area !== "tw") {
+		normal_tab_btn.style.display = "block";
+	} else {
+		normal_tab_btn.style.display = "none";
+	}
 }
 
 window.onresize = function() {

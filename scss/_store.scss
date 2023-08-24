@@ -165,7 +165,7 @@
 		position: relative;
 		display: grid;
 		grid-auto-rows: 99px;
-		grid-template-columns: 27% 13% 35% 20%;
+		grid-template-columns: 30% 15% 35% 20%;
 		grid-template-areas: "name phone address map";
 		place-content: center;
 		background-color: #fafafa;
@@ -306,6 +306,7 @@
 		&_item {
 			max-width: 210px;
 			@include mw(L) {
+				max-width: 161px;
 				&:not(:last-child) {
 					margin-bottom: 63px;
 				}
@@ -323,6 +324,6 @@
 		min-height: 593px;
 		padding-top: 170px;
 		background: url("../images/store/japanbackground.png") no-repeat center
-			bottom/contain;
+			bottom/cover;
 	}
 }

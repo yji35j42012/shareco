@@ -8,6 +8,10 @@
 		@include d_f(flex, space-between);
 		flex-wrap: wrap;
 		max-width: 1278px;
+		margin: auto;
+		@include mw(L){
+			justify-content: center;
+		}
 		& + & {
 			margin-top: 248px;
 			@include mw(L) {

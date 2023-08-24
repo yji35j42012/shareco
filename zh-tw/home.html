@@ -8,7 +8,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta name="description" content="Shareco">
 	<meta name="keywords" content="Shareco">
-	<title>Shareco</title>
+	<title>SHARECO</title>
 	<link rel="stylesheet" href="../css/reset.css">
 	<link rel="stylesheet" href="../css/all.min.css">
 </head>
@@ -18,12 +18,12 @@
 		<div id="home" class="home" data-move="">
 			<div class="home_bg"></div>
 			<div id="home_lion" class="home_lion">
-				<img src="../images/home/lion.png" alt="">
+				<img data-depth="0.2" src="../images/home/lion.png" alt="">
 			</div>
 		</div>
 	</div>
 
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
 	<script>
 		var wrap = document.querySelector(".wrap");
 		setTimeout(() => {
@@ -31,7 +31,9 @@
 			wrap.classList.add('full')
 		}, 500);
 
+		var scene = document.getElementById('home_lion');
 
+		var parallax = new Parallax(scene);
 	</script>
 	<script src="../js/home.js"></script>
 </body>

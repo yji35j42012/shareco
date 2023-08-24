@@ -401,13 +401,13 @@ var galData = [
 	{
 		galId: 15,
 		setMaxW: true,
-		galName: "寬鬆棉質圓領 TEE",
-		galPhoto: "",
-		galPic: "clothing_open_photot_1.jpg",
-		galPicPh: "clothing_open_photot_ph1.jpg",
+		galName: "雪松麝香 沐浴膠",
+		galPhoto: "bathing_name_1.png",
+		galPic: "bathing_open_1.jpg",
+		galPicPh: "bathing_open_1.jpg",
 		galYear: "2023",
 		galDetail:
-			"紫、可可、深棕：  M / L / XL <br> 黑、白：  M / L / XL / XXL",
+			"乾冷的雪松木質香氣， 像早晨的空氣 輕盈、乾淨<br>營造慵懶自在的 Morning Vibe",
 		galTxt:
 			"Odors have a power of persuasion stronger than that of words, appearances or will.SHARECO, <br>  using the most direct odor tomake you feel the fine atmosphere."
 	},
@@ -415,12 +415,12 @@ var galData = [
 	{
 		galId: 16,
 		setMaxW: true,
-		galName: "刺繡棒球帽",
-		galPhoto: "",
-		galPic: "clothing_open_photot_2.jpg",
-		galPicPh: "clothing_open_photot_ph2.jpg",
+		galName: "菸草香 沐浴膠",
+		galPhoto: "bathing_name_2.png",
+		galPic: "bathing_open_2.jpg",
+		galPicPh: "bathing_open_2.jpg",
 		galYear: "2023",
-		galDetail: "",
+		galDetail: "菸草混合濃郁木質基底<br>在煙霧彌漫的水蒸氣中解放心身靈",
 		galTxt:
 			"Odors have a power of persuasion stronger than that of words, appearances or will.SHARECO, <br>  using the most direct odor tomake you feel the fine atmosphere."
 	},
@@ -428,12 +428,12 @@ var galData = [
 	{
 		galId: 17,
 		setMaxW: true,
-		galName: "CAE™ SOCKS",
-		galPhoto: "",
-		galPic: "clothing_open_photot_3.jpg",
-		galPicPh: "clothing_open_photot_ph3.jpg",
-		galYear: "2022",
-		galDetail: "建議尺寸：  23~27cm",
+		galName: "木曜森林 沐浴膠",
+		galPhoto: "bathing_name_3.png",
+		galPic: "bathing_open_3.jpg",
+		galPicPh: "bathing_open_3.jpg",
+		galYear: "2023",
+		galDetail: "微酸紅醋栗、微醺的狀態，感知力太強、靈感太多<br>捨不得今晚就這樣結束",
 		galTxt:
 			"Odors have a power of persuasion stronger than that of words, appearances or will.SHARECO, <br>  using the most direct odor tomake you feel the fine atmosphere."
 	},
@@ -441,12 +441,12 @@ var galData = [
 	{
 		galId: 18,
 		setMaxW: true,
-		galName: "慵懶落肩口袋TEE",
-		galPhoto: "",
-		galPic: "clothing_open_photot_4.jpg",
-		galPicPh: "clothing_open_photot_ph4.jpg",
-		galYear: "2021",
-		galDetail: " M / L / XL ",
+		galName: "大麻士革 洗髮膠",
+		galPhoto: "bathing_name_4.png",
+		galPic: "bathing_open_4.jpg",
+		galPicPh: "bathing_open_4.jpg",
+		galYear: "2023",
+		galDetail: "強勢又濃郁的沉香木基底<br>只要臣服 就會感覺到無比的安全感",
 		galTxt:
 			"Odors have a power of persuasion stronger than that of words, appearances or will.SHARECO, <br>  using the most direct odor tomake you feel the fine atmosphere."
 	},
