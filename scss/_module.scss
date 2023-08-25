@@ -1260,7 +1260,7 @@ h4 {
 		max-width: 985px;
 		max-height: 694px;
 		padding-bottom: calc(50% * 0.704);
-
+		// transition-duration: 0.5s;
 		.mouseL & {
 			transform: translate(-20px, 0);
 		}
@@ -1274,7 +1274,7 @@ h4 {
 			transform: translate(0, 0) scale(1.05);
 		}
 		img {
-			position: absolute;
+			position: absolute !important;
 			left: 0;
 			bottom: 0;
 			width: 100%;

@@ -17,13 +17,14 @@
 	<div class="wrap">
 		<div id="home" class="home" data-move="">
 			<div class="home_bg"></div>
-			<div id="home_lion" class="home_lion">
-				<img data-depth="0.2" src="../images/home/lion.png" alt="">
+			<div id="lion_scene" class="home_lion">
+				<img data-depth="0.7" src="../images/home/lion.png" alt="">
 			</div>
 		</div>
 	</div>
+	<!-- <script src="../js/pallax.js"></script> -->
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script> -->
 	<script>
 		var wrap = document.querySelector(".wrap");
 		setTimeout(() => {
@@ -31,9 +32,14 @@
 			wrap.classList.add('full')
 		}, 500);
 
-		var scene = document.getElementById('home_lion');
+		// var scene = document.getElementById('lion_scene');
 
-		var parallax = new Parallax(scene);
+		// var parallax = new Parallax(scene, {
+		// 	invertX: false,
+		// 	invertY: false,
+		// 	originY: 0.5,
+		// });
+		// parallax.friction(0.05, 0.05);
 	</script>
 	<script src="../js/home.js"></script>
 </body>
