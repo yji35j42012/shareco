@@ -9,7 +9,7 @@ var lion = {
 	y: 0,
 	z: 0,
 	minX: -30,
-	maxX: 15,
+	maxX: 20,
 	rangeL: 0,
 	rangeR: 0,
 	maxY: 40,
@@ -50,11 +50,15 @@ function lionTime() {
 		} else if (lx < lmx) {
 			lion.moveX = setFloat(lmx + lion.rangeL, 3);
 		}
-		// if (lmz >= lz) {
-		// 	lion.moveZ = setFloat(lion.moveZ + lion.rangeZ, 3);
-		// }
-		lion_scene.style = `transform: translate3d(${lion.moveX}px, ${lion.moveY}px, ${lion.z}px)`;
-	}, 3);
+
+		if (lmz <= lz) {
+			lion.moveZ = setFloat(lmz + lion.rangeZ, 3);
+		} else {
+			lion.moveZ = setFloat(lmz - lion.rangeZ, 3);
+		}
+
+		lion_scene.style = `transform: translate3d(${lion.moveX}px, ${lion.moveY}px, ${lion.moveZ}px)`;
+	}, 1);
 }
 function lionMove(x, y) {
 	// var moveX = (x - boxCenterW) * lion.rangeL;
@@ -73,7 +77,7 @@ function lionMove(x, y) {
 		moveY = moveY * lion.range;
 		lion.y = setFloat(moveY, 3);
 	}
-console.log('lion.z',lion.z);
+
 
 	lionTime();
 }
