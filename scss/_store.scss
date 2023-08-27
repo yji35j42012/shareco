@@ -177,7 +177,7 @@
 		@include mw(L) {
 			grid-template-areas: "name address" "phone map";
 			grid-template-columns: 40% 60%;
-			grid-auto-rows: 40px 40px;
+			grid-auto-rows: 55px 35px;
 			font-size: 12px;
 
 			& + & {
