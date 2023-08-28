@@ -82,8 +82,46 @@ var lion_parallax = new Parallax(lion_scene, {
 });
 lion_parallax.friction(0.05, 0.05);
 
-function lionZ() {
-	lion_scene.style = `transform: translate3d(0px, 0%, 0px)`;
+var lionMax = 20;
+var lionNow = 0;
+var lionMove = 0;
+var lionTime;
+var lionRange = lionMax / boxCenterH;
+console.log("lionRange", lionRange);
+
+function lionZ(y) {
+	lionMove = y * lionRange;
+	lionTime = setInterval(() => {
+		// if (lionNow >= lionMax) {
+		// 	lionNow = lionMax;
+		// } else if (lionNow < 0) {
+		// 	lionNow = 0;
+		// }
+		// if (parseInt(lionNow) == parseInt(lionMove)) {
+		// 	clearInterval(lionTime);
+		// }
+		// console.log("lionNow", parseInt(lionNow));
+		// console.log("lionMove", parseInt(lionMove));
+		// if (lionNow > lionMove) {
+		// 	lionNow = lionNow - lionRange;
+		// } else {
+		// 	lionNow = lionNow + lionRange;
+		// }
+
+		// if (lionNow <= lionMove) {
+		// 	lionNow = lionNow - lionRange;
+		// }else if(lionNow >= lionMove){
+		//     lionNow = lionNow + lionRange;
+		// }
+
+		// if (lionMove <= lionNow && lionNow < lionMax) {
+		// 	lionNow = lionNow + 0.01;
+		// } else if (lionNow > 0) {
+		// 	lionNow = lionNow - 0.1;
+		// }
+		lion_scene.style = `transform: translate3d(0px, 0%, ${lionNow}px)`;
+	}, 30);
+	console.log("lionMove", lionMove);
 }
 
 function mousemove(event) {
@@ -91,7 +129,7 @@ function mousemove(event) {
 	var mouseY = event.clientY;
 	if (mouseY - boxCenterH < 0) {
 		// 滑鼠在上方
-		lionZ();
+		lionZ(mouseY - boxCenterH);
 	}
 }
 
