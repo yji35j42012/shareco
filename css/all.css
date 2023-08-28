@@ -1807,15 +1807,15 @@ h4 {
 .home_grass {
   position: absolute;
   bottom: 0;
-  right: 0px;
-  max-width: 1240px;
+  right: 320px;
+  max-width: 750px;
 }
 
 .home_plant {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  max-width: 475px;
+  right: -180px;
+  bottom: -100px;
+  max-width: 600px;
 }
 
 .home_bird {
@@ -1827,19 +1827,19 @@ h4 {
 
 .home_flyl {
   position: absolute;
-  top: 250px;
-  right: 500px;
-  max-width: 140px;
-}
-
-.home .home_flyr {
-  position: absolute;
-  bottom: 390px;
-  right: 400px;
+  top: 220px;
+  right: 520px;
   max-width: 120px;
 }
 
-.home .home_logo {
+.home_flyr {
+  position: absolute;
+  bottom: 350px;
+  right: 430px;
+  max-width: 90px;
+}
+
+.home_logo {
   z-index: 2;
   position: absolute;
   top: 63px;
