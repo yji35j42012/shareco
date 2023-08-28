@@ -1409,6 +1409,7 @@ h4 {
 	height: 100%;
 	perspective: 200px;
 
+	pointer-events: none;
 	// .home_linear
 	&_linear {
 		position: absolute;
@@ -1425,6 +1426,7 @@ h4 {
 			height: 765px;
 			background: url("../images/home/home_top.png") no-repeat
 				center/cover;
+				pointer-events: none;
 		}
 		&:after {
 			content: "";
@@ -1439,6 +1441,7 @@ h4 {
 				rgba(0, 0, 0, 0.43) 60.42%,
 				rgba(0, 0, 0, 0) 100%
 			);
+			pointer-events: none;
 		}
 	}
 	// .home_bg
@@ -1488,7 +1491,7 @@ h4 {
 	&_lion {
 		position: absolute;
 		left: -375px;
-		bottom: -20px;
+		bottom: -30px;
 		@include d_f(flex, none, flex-end);
 		width: 100%;
 		max-width: 1280px;
@@ -1540,7 +1543,7 @@ h4 {
 	// .home_grass
 	&_grass {
 		position: absolute;
-		bottom: 0;
+		bottom: -20px;
 		right: 320px;
 		max-width: 750px;
 	}
@@ -1593,6 +1596,10 @@ h4 {
 		height: 100%;
 		@include d_f(flex, center, center);
 		flex-direction: column;
+		// .home_txt_box
+		&_box {
+			text-align: center;
+		}
 		// .home_txt_title
 		&_title {
 			margin-bottom: 35px;
@@ -1618,7 +1625,6 @@ h4 {
 		&_btn {
 			z-index: 10;
 			position: relative;
-
 			padding: 8px 28px;
 			border-radius: 100px;
 			background: #0d0d0d;
@@ -1628,6 +1634,7 @@ h4 {
 			font-style: normal;
 			font-weight: 500;
 			line-height: normal;
+			pointer-events: all ;
 			@extend %hand;
 			@extend %transition;
 			@include hoverHandler {

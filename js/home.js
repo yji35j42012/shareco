@@ -29,6 +29,47 @@ var grass_parallax = new Parallax(grass_scene, {
 });
 grass_parallax.friction(0.1, 0.1);
 
+var plant_scene = document.getElementById("plant_scene");
+var plant_parallax = new Parallax(plant_scene, {
+	invertX: false,
+	invertY: false,
+	originY: 0.5
+});
+plant_parallax.friction(0.1, 0.1);
+
+var flyl_scene = document.getElementById("flyl_scene");
+var flyl_parallax = new Parallax(flyl_scene, {
+	invertX: false,
+	invertY: false,
+	originY: 0.5
+});
+flyl_parallax.friction(0.2, 0.2);
+
+var flyr_scene = document.getElementById("flyr_scene");
+var flyr_parallax = new Parallax(flyr_scene, {
+	invertX: false,
+	invertY: false,
+	originY: 0.5
+});
+flyr_parallax.friction(0.3, 0.3);
+
+var bird_scene = document.getElementById("bird_scene");
+var bird_parallax = new Parallax(bird_scene, {
+	invertX: false,
+	invertY: false,
+	originY: 0.5
+});
+bird_parallax.friction(0.5, 0.5);
+
+var txt_scene = document.getElementById("txt_scene");
+var txt_parallax = new Parallax(txt_scene, {
+	invertX: false,
+	invertY: false,
+	originY: 0.5
+});
+txt_parallax.friction(0.1, 0.1);
+
+
 // var nowW = window.innerWidth;
 // var nowH = window.innerHeight;
 // var boxCenterW = nowW / 2;
