@@ -18,7 +18,7 @@ console.log("story_box2", story_box2.offsetHeight);
 
 var box1Default = 200;
 var ani2Start = 250;
-var box1Default2 = 150;	
+var box1Default2 = 150;
 var ani3Start = 350;
 var ani4Start = 400;
 var ani4Default = 200;
@@ -63,7 +63,9 @@ var story_box2Y = 0;
 
 function setDefault() {
 	story_txt1.style = `transform: translate3d(0, 0px, 0px); opacity: 0;`;
-	story_pic1.style = `transform: translate3d(0, -150px, 0px)`;
+setTimeout(() => {
+	story_pic1.style = `transform: translate3d(0, -150px, 0px);`;
+}, 500);
 	story_txt2.style = `transform: translate3d(0, ${startTxtY_4}px, ${startTxtZ_4}px); opacity: 0;`;
 	story_pic2.style = `transform: translate3d(0, ${startPicY_5}px, ${startPicZ_5}px); opacity: 0;`;
 }
@@ -94,8 +96,8 @@ function ani1(num) {
 		}
 		story_title1.style = ` transform: translate3d(0, ${moveY_title}px, ${moveZ_title}px);opacity: ${title_op};`;
 	}
-	story_txt1.style = `transform: translate3d(0, -45px, ${moveZ_1}px);opacity: ${showop};${title_op};`;
-	story_pic1.style = `transform: translate3d(0, ${moveY_1}px, ${moveZ_1}px);${title_op};`;
+	story_txt1.style = `transform: translate3d(0, -45px, ${moveZ_1}px);opacity: ${showop};${title_op};transition-duration: 0s;`;
+	story_pic1.style = `transform: translate3d(0, ${moveY_1}px, ${moveZ_1}px);${title_op};transition-duration: 0s;`;
 	if (op4 >= 0) {
 		ani4(num);
 	}
@@ -113,9 +115,9 @@ function ani2(num) {
 		title_op = 0;
 	}
 	// console.log("moveY", moveY);
-	story_title1.style = ` transform: translate3d(0, ${moveY_title}px, ${moveZ_title}px);opacity: ${title_op};`;
-	story_txt1.style = ` transform: translate3d(0, ${moveY_txt}px, ${moveZ_txt}px); opacity: ${title_op};`;
-	story_pic1.style = ` transform: translate3d(0, ${moveY_txt}px, ${moveZ_txt}px); opacity: ${title_op};`;
+	story_title1.style = ` transform: translate3d(0, ${moveY_title}px, ${moveZ_title}px);opacity: ${title_op};transition-duration: 0s;`;
+	story_txt1.style = ` transform: translate3d(0, ${moveY_txt}px, ${moveZ_txt}px); opacity: ${title_op};transition-duration: 0s;`;
+	story_pic1.style = ` transform: translate3d(0, ${moveY_txt}px, ${moveZ_txt}px); opacity: ${title_op};transition-duration: 0s;`;
 
 	if (box1op <= 1) {
 		box1op = 1 - (num - ani3Start) * 0.01;

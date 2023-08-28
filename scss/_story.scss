@@ -64,6 +64,13 @@
 		font-size: 42px;
 		font-weight: 600;
 		line-height: normal;
+		opacity: 0;
+		transition-duration: 0.3s;
+		transform: translate3d(0, -170px, -100px);
+		.active & {
+			opacity: 1;
+			transform: translate3d(0, 0px, 0px);
+		}
 		@include mw(L) {
 			font-size: 20px;
 		}
@@ -104,7 +111,13 @@
 			width: calc(50% - 10px);
 		}
 		._bg1 & {
-			transform: translate3d(0, -150px, 0px);
+			transform: translate3d(0, -150px, 0px) scale(0);
+			opacity: 0;
+			transition-duration: 0.3s;
+			.active & {
+				opacity: 1;
+				transform: translate3d(0, -150px, 0px) scale(1);
+			}
 		}
 	}
 	// .story_pic2
