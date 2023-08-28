@@ -1660,6 +1660,7 @@ h4 {
 }
 
 .home {
+  z-index: 100;
   overflow: hidden;
   position: relative;
   width: 100%;

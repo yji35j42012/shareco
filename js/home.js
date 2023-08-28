@@ -1,3 +1,8 @@
+var home_btn = document.querySelector("#home_btn");
+var home = document.querySelector("#home");
+home_btn.onclick = function() {
+    home.style.display="none";
+};
 // var nowW = window.innerWidth;
 // var nowH = window.innerHeight;
 // var boxCenterW = nowW / 2;
@@ -77,7 +82,6 @@
 // 		moveY = moveY * lion.range;
 // 		lion.y = setFloat(moveY, 3);
 // 	}
-
 
 // 	lionTime();
 // }
