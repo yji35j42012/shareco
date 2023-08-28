@@ -1690,6 +1690,7 @@ h4 {
 }
 
 .home_linear:after {
+  z-index: 1;
   content: "";
   position: absolute;
   left: 0;
@@ -1790,6 +1791,17 @@ h4 {
   left: 0;
   bottom: 0;
   width: 100%;
+}
+
+.home_straw {
+  position: absolute;
+  left: -150px;
+  bottom: -105px;
+  max-width: 450px;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transform-origin: left bottom;
+          transform-origin: left bottom;
 }
 
 .home_tree {

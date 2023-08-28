@@ -4,14 +4,10 @@ home_btn.onclick = function() {
 	home.style.display = "none";
 };
 
-var lion_scene = document.getElementById("lion_scene");
-
-var lion_parallax = new Parallax(lion_scene, {
-	invertX: false,
-	invertY: false,
-	originY: 0.5
-});
-lion_parallax.friction(0.05, 0.05);
+var nowW = window.innerWidth;
+var nowH = window.innerHeight;
+var boxCenterW = nowW / 2;
+var boxCenterH = nowH / 2;
 
 var tree_scene = document.getElementById("tree_scene");
 var tree_parallax = new Parallax(tree_scene, {
@@ -20,6 +16,14 @@ var tree_parallax = new Parallax(tree_scene, {
 	originY: 0.5
 });
 tree_parallax.friction(0.05, 0.05);
+
+var straw_scene = document.getElementById("straw_scene");
+var straw_parallax = new Parallax(straw_scene, {
+	invertX: false,
+	invertY: false,
+	originY: 0.5
+});
+straw_parallax.friction(0.05, 0.05);
 
 var grass_scene = document.getElementById("grass_scene");
 var grass_parallax = new Parallax(grass_scene, {
@@ -69,12 +73,29 @@ var txt_parallax = new Parallax(txt_scene, {
 });
 txt_parallax.friction(0.1, 0.1);
 
+var lion_scene = document.getElementById("lion_scene");
 
-// var nowW = window.innerWidth;
-// var nowH = window.innerHeight;
-// var boxCenterW = nowW / 2;
-// var boxCenterH = nowH / 2;
-// var lion_scene = document.querySelector("#lion_scene");
+var lion_parallax = new Parallax(lion_scene, {
+	invertX: false,
+	invertY: false,
+	originY: 0.5
+});
+lion_parallax.friction(0.05, 0.05);
+
+function lionZ() {
+	lion_scene.style = `transform: translate3d(0px, 0%, 0px)`;
+}
+
+function mousemove(event) {
+	var mouseX = event.clientX;
+	var mouseY = event.clientY;
+	if (mouseY - boxCenterH < 0) {
+		// 滑鼠在上方
+		lionZ();
+	}
+}
+
+window.addEventListener("mousemove", mousemove);
 
 // var lion = {
 // 	x: 0,
