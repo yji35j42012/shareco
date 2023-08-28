@@ -86,26 +86,46 @@ var lionMax = 20;
 var lionNow = 0;
 var lionMove = 0;
 var lionTime;
-var lionRange = lionMax / boxCenterH;
+var lionRange = 0.1;
 console.log("lionRange", lionRange);
 
 function lionZ(y) {
 	lionMove = y * lionRange;
+	if (lionMove * -1 >= lionMax) {
+		lionMove = parseInt(lionMax) * -1;
+	}
+	if (lionMove * -1 < 0) {
+		lionMove = 0;
+	}
+	console.log("lionMove", lionMove);
+	console.log("lionNow", lionNow);
+	clearInterval(lionTime);
 	lionTime = setInterval(() => {
+		if (parseInt(lionNow) * -1 >= lionMax) {
+			lionNow = clearInterval(lionTime);
+		}
+		if (parseInt(lionNow) == parseInt(lionMove)) {
+			clearInterval(lionTime);
+		}
+		if (lionNow > lionMove) {
+			lionNow = lionNow - lionRange;
+		} else {
+			lionNow = lionNow + lionRange;
+		}
+
+		console.log("lionNow", lionNow);
+
 		// if (lionNow >= lionMax) {
 		// 	lionNow = lionMax;
 		// } else if (lionNow < 0) {
 		// 	lionNow = 0;
-		// }
-		// if (parseInt(lionNow) == parseInt(lionMove)) {
-		// 	clearInterval(lionTime);
 		// }
 		// console.log("lionNow", parseInt(lionNow));
 		// console.log("lionMove", parseInt(lionMove));
 		// if (lionNow > lionMove) {
 		// 	lionNow = lionNow - lionRange;
 		// } else {
-		// 	lionNow = lionNow + lionRange;
+		//
 		// }
 
 		// if (lionNow <= lionMove) {
@@ -119,8 +139,8 @@ function lionZ(y) {
 		// } else if (lionNow > 0) {
 		// 	lionNow = lionNow - 0.1;
 		// }
-		lion_scene.style = `transform: translate3d(0px, 0%, ${lionNow}px)`;
-	}, 30);
+		lion_scene.style = `transform: translate3d(0px, 0%, ${lionNow * -1}px)`;
+	}, 1);
 	console.log("lionMove", lionMove);
 }
 
