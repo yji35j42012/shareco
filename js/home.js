@@ -1,6 +1,6 @@
 var home_btn = document.querySelector("#home_btn");
 var home = document.querySelector("#home");
-home_btn.onclick = function() {
+home_btn.onclick = function () {
 	home.style.display = "none";
 };
 
@@ -86,62 +86,85 @@ var lionMax = 20;
 var lionNow = 0;
 var lionMove = 0;
 var lionTime;
-var lionRange = 0.1;
+// var lionRange = 0.2;
+var lionRange = lionMax / boxCenterH
 console.log("lionRange", lionRange);
 
 function lionZ(y) {
 	lionMove = y * lionRange;
-	if (lionMove * -1 >= lionMax) {
-		lionMove = parseInt(lionMax) * -1;
+	if (lionMove * -1 > lionMax) {
+		lionMove = lionMax * -1
+	} else if (lionMove * -1 < 0) {
+		lionMove = 0
 	}
-	if (lionMove * -1 < 0) {
-		lionMove = 0;
-	}
-	console.log("lionMove", lionMove);
-	console.log("lionNow", lionNow);
+	console.log('lionMove', lionMove);
 	clearInterval(lionTime);
+
+
 	lionTime = setInterval(() => {
-		if (parseInt(lionNow) * -1 >= lionMax) {
-			lionNow = clearInterval(lionTime);
-		}
-		if (parseInt(lionNow) == parseInt(lionMove)) {
+		if (parseInt(lionMove) == parseInt(lionNow)) {
 			clearInterval(lionTime);
+		} else if (lionNow < lionMove) {
+			lionNow = lionNow + (lionRange + 0.05)
+		} else if (lionNow > lionMove) {
+			lionNow = lionNow - (lionRange + 0.05)
 		}
-		if (lionNow > lionMove) {
-			lionNow = lionNow - lionRange;
-		} else {
-			lionNow = lionNow + lionRange;
-		}
-
-		console.log("lionNow", lionNow);
-
-		// if (lionNow >= lionMax) {
-		// 	lionNow = lionMax;
-		// } else if (lionNow < 0) {
-		// 	lionNow = 0;
-		// }
-		// console.log("lionNow", parseInt(lionNow));
-		// console.log("lionMove", parseInt(lionMove));
-		// if (lionNow > lionMove) {
-		// 	lionNow = lionNow - lionRange;
-		// } else {
-		//
-		// }
-
-		// if (lionNow <= lionMove) {
-		// 	lionNow = lionNow - lionRange;
-		// }else if(lionNow >= lionMove){
-		//     lionNow = lionNow + lionRange;
-		// }
-
-		// if (lionMove <= lionNow && lionNow < lionMax) {
-		// 	lionNow = lionNow + 0.01;
-		// } else if (lionNow > 0) {
-		// 	lionNow = lionNow - 0.1;
-		// }
+		console.log('lionMove', lionMove);
+		console.log('lionNow', lionNow);
 		lion_scene.style = `transform: translate3d(0px, 0%, ${lionNow * -1}px)`;
 	}, 1);
-	console.log("lionMove", lionMove);
+
+
+	// if (lionMove * -1 >= lionMax) {
+	// 	lionMove = parseInt(lionMax) * -1;
+	// }
+	// if (lionMove * -1 < 0) {
+	// 	lionMove = 0;
+	// }
+	// console.log("lionNow", lionNow);
+	// 
+	// lionTime = setInterval(() => {
+	// 	if (parseInt(lionNow) * -1 >= lionMax) {
+	// 		lionNow = clearInterval(lionTime);
+	// 	}
+	// 	if (parseInt(lionNow) == parseInt(lionMove)) {
+	// 		clearInterval(lionTime);
+	// 	}
+	// 	if (lionNow > lionMove) {
+	// 		lionNow = lionNow - lionRange;
+	// 	}
+	// 	
+	// 	// else {
+	// 	// 	lionNow = lionNow + lionRange;
+	// 	// }
+
+	// 	console.log("lionMove", lionMove);
+
+	// 	// if (lionNow >= lionMax) {
+	// 	// 	lionNow = lionMax;
+	// 	// } else if (lionNow < 0) {
+	// 	// 	lionNow = 0;
+	// 	// }
+	// 	// console.log("lionNow", parseInt(lionNow));
+	// 	// console.log("lionMove", parseInt(lionMove));
+	// 	// if (lionNow > lionMove) {
+	// 	// 	lionNow = lionNow - lionRange;
+	// 	// } else {
+	// 	//
+	// 	// }
+
+	// 	// if (lionNow <= lionMove) {
+	// 	// 	lionNow = lionNow - lionRange;
+	// 	// }else if(lionNow >= lionMove){
+	// 	//     lionNow = lionNow + lionRange;
+	// 	// }
+
+	// 	// if (lionMove <= lionNow && lionNow < lionMax) {
+	// 	// 	lionNow = lionNow + 0.01;
+	// 	// } else if (lionNow > 0) {
+	// 	// 	lionNow = lionNow - 0.1;
+	// 	// }
+	// }, 1);
 }
 
 function mousemove(event) {
