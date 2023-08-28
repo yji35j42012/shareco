@@ -1,8 +1,34 @@
 var home_btn = document.querySelector("#home_btn");
 var home = document.querySelector("#home");
 home_btn.onclick = function() {
-    home.style.display="none";
+	home.style.display = "none";
 };
+
+var lion_scene = document.getElementById("lion_scene");
+
+var lion_parallax = new Parallax(lion_scene, {
+	invertX: false,
+	invertY: false,
+	originY: 0.5
+});
+lion_parallax.friction(0.05, 0.05);
+
+var tree_scene = document.getElementById("tree_scene");
+var tree_parallax = new Parallax(tree_scene, {
+	invertX: false,
+	invertY: false,
+	originY: 0.5
+});
+tree_parallax.friction(0.05, 0.05);
+
+var grass_scene = document.getElementById("grass_scene");
+var grass_parallax = new Parallax(grass_scene, {
+	invertX: false,
+	invertY: false,
+	originY: 0.5
+});
+grass_parallax.friction(0.1, 0.1);
+
 // var nowW = window.innerWidth;
 // var nowH = window.innerHeight;
 // var boxCenterW = nowW / 2;

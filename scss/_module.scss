@@ -1420,7 +1420,7 @@ h4 {
 			z-index: 1;
 			content: "";
 			position: absolute;
-			top: -97px;
+			top: -180px;
 			width: 100%;
 			height: 765px;
 			background: url("../images/home/home_top.png") no-repeat
@@ -1487,11 +1487,11 @@ h4 {
 	// .home_lion
 	&_lion {
 		position: absolute;
-		left: 0;
-		bottom: 0;
+		left: -375px;
+		bottom: -20px;
 		@include d_f(flex, none, flex-end);
 		width: 100%;
-		max-width: 870px;
+		max-width: 1280px;
 		max-height: 694px;
 		// padding-bottom: calc(50% * 0.704);
 
@@ -1520,13 +1520,13 @@ h4 {
 		}
 	}
 
-	// .home_treel
-	&_treel {
+	// .home_tree
+	&_tree {
 		position: absolute;
-		left: 0;
-		top: 0;
+		left: -65px;
+		top: -95px;
 		width: 100%;
-		max-width: 500px;
+		max-width: 620px;
 		// padding-bottom: calc(45% * 0.924);
 
 		img {

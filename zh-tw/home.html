@@ -100,14 +100,14 @@
 		<div id="home" class="home" data-move="">
 			<div class="home_bg"></div>
 			<div class="home_linear"></div>
-			<div class="home_treel">
-				<img src="../images/home/treel.png" alt="">
+			<div id="tree_scene" class="home_tree">
+				<img data-depth="0.8" src="../images/home/treel.png" alt="">
 			</div>
 			<div id="lion_scene" class="home_lion">
-				<img src="../images/home/lion.png" alt="">
+				<img data-depth="0.5" src="../images/home/lion.png" alt="">
 			</div>
-			<div class="home_grass">
-				<img src="../images/home/grass.png" alt="">
+			<div id="grass_scene" class="home_grass">
+				<img data-depth="0.5" src="../images/home/grass.png" alt="">
 			</div>
 			<div class="home_plant">
 				<img src="../images/home/plant.png" alt="">
@@ -134,7 +134,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- <script src="../js/pallax.js"></script> -->
+	<script src="../js/pallax.js"></script>
 
 	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script> -->
 	<script>
@@ -144,14 +144,9 @@
 			wrap.classList.add('full')
 		}, 500);
 
-		// var scene = document.getElementById('lion_scene');
+		//
 
-		// var parallax = new Parallax(scene, {
-		// 	invertX: false,
-		// 	invertY: false,
-		// 	originY: 0.5,
-		// });
-		// parallax.friction(0.05, 0.05);
+
 	</script>
 	<script src="../js/home.js"></script>
 </body>
