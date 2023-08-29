@@ -82,8 +82,6 @@ function strawZ(y) {
 		} else if (strawNowR > strawMoveR) {
 			strawNowR = strawNowR - (strawRangeR + 0.01);
 		}
-		console.log("DFASDFASDF");
-
 		straw_scene.style = `transform: translate3d(0px, ${strawNow *
 			-1}px, 0px) rotate(${strawNowR}deg) scale(1);`;
 	}, 0.5);

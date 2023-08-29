@@ -1958,11 +1958,6 @@ h4 {
 }
 
 .home_video {
-  position: fixed;
-  top: 98px;
-  left: 0;
-  width: 100%;
-  height: calc(100% - 98px);
   padding: 63px;
   background: url("../images/home/video_1_background.png") no-repeat center bottom/cover, -webkit-gradient(linear, left top, left bottom, from(rgba(23, 23, 23, 0)), color-stop(0%, #171717));
   background: url("../images/home/video_1_background.png") no-repeat center bottom/cover, linear-gradient(180deg, rgba(23, 23, 23, 0) 0%, #171717 0%);
@@ -2047,6 +2042,162 @@ h4 {
 
 .home_video_sound._voiced {
   background-image: url("../images/icon/icon_voiced_sound.svg");
+}
+
+.home_video, .home_struggle {
+  position: fixed;
+  top: 98px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 98px);
+}
+
+.home_struggle {
+  overflow: hidden;
+}
+
+.home_struggle_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 110px;
+  background: url("../images/home/background_2.jpg") no-repeat center/cover;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  opacity: 0;
+}
+
+.show .home_struggle_box {
+  -webkit-animation: struggle_box 2s forwards;
+          animation: struggle_box 2s forwards;
+}
+
+@-webkit-keyframes struggle_box {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+    opacity: 0;
+  }
+  60% {
+    -webkit-transform: translateY(-10%);
+            transform: translateY(-10%);
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes struggle_box {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+    opacity: 0;
+  }
+  60% {
+    -webkit-transform: translateY(-10%);
+            transform: translateY(-10%);
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.home_struggle_txt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  color: #ede3e3;
+  text-align: center;
+  font-family: Noto Sans;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 160%;
+  /* 44.8px */
+}
+
+.home_struggle_txt::before {
+  content: "";
+  display: block;
+  width: 51px;
+  height: 44px;
+  margin: 0 auto 75px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-image: url(../images/icon/icon_dot_down.svg);
+}
+
+.home_struggle_txt._right {
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  opacity: 0;
+}
+
+.show .home_struggle_txt._right {
+  -webkit-animation: struggle_txtR 3s forwards;
+          animation: struggle_txtR 3s forwards;
+}
+
+@-webkit-keyframes struggle_txtR {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+    opacity: 0;
+  }
+  60% {
+    -webkit-transform: translateY(-10%);
+            transform: translateY(-10%);
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes struggle_txtR {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+    opacity: 0;
+  }
+  60% {
+    -webkit-transform: translateY(-10%);
+            transform: translateY(-10%);
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+    opacity: 1;
+  }
 }
 
 .banner {
