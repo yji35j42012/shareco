@@ -1750,11 +1750,7 @@ h4 {
 				center/cover;
 			transform: translateY(100%);
 			opacity: 0;
-			// transition-duration: 1s;
-
 			.show & {
-				// transform: translateY(0);
-				// opacity: 1;
 				animation: struggle_box 2s forwards;
 			}
 
