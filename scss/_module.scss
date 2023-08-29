@@ -325,6 +325,9 @@ h4 {
 		}
 
 		@include minmw(L) {
+			.normal_tab_btn + & {
+				margin-right: 36px;
+			}
 			&.on {
 				font-weight: 700;
 
@@ -1650,6 +1653,15 @@ h4 {
 				color: #000;
 			}
 		}
+	}
+	.room {
+		transform: scale(1);
+		opacity: 1;
+	}
+	&.zoomOut .room {
+		transform: scale(2) !important;
+		opacity: 0;
+		transition-duration: 0.5s;
 	}
 }
 

@@ -11,20 +11,21 @@ var story_pic1 = document.querySelector("#story_pic1");
 var story_txt2 = document.querySelector("#story_txt2");
 var story_pic2 = document.querySelector("#story_pic2");
 story_emptyBox.style.height =
-	story_box1.offsetHeight + story_box2.offsetHeight + "px";
+	story_box1.offsetHeight + story_box2.offsetHeight + 1100 + "px";
 
 console.log("story_box1", story_box1.offsetHeight);
 console.log("story_box2", story_box2.offsetHeight);
 
-var box1Default = 200;
-var ani2Start = 250;
-var box1Default2 = 150;
-var ani3Start = 350;
-var ani4Start = 400;
-var ani4Default = 200;
-var ani5Start = 600;
-var ani5Default = 200;
-var ani6Start = 800;
+var box1Default = 400;
+
+var ani2Start = 450;
+var box1Default2 = 600;
+var ani3Start = 650;
+var ani4Start = 750;
+var ani4Default = 800;
+var ani5Start = 1200;
+var ani5Default = 600;
+var ani6Start = 1500;
 // Y從-150 ~ -45   105
 // X從 0 ~ -55
 
@@ -63,9 +64,9 @@ var story_box2Y = 0;
 
 function setDefault() {
 	story_txt1.style = `transform: translate3d(0, 0px, 0px); opacity: 0;`;
-setTimeout(() => {
-	story_pic1.style = `transform: translate3d(0, -150px, 0px);`;
-}, 500);
+	setTimeout(() => {
+		story_pic1.style = `transform: translate3d(0, -150px, 0px);`;
+	}, 500);
 	story_txt2.style = `transform: translate3d(0, ${startTxtY_4}px, ${startTxtZ_4}px); opacity: 0;`;
 	story_pic2.style = `transform: translate3d(0, ${startPicY_5}px, ${startPicZ_5}px); opacity: 0;`;
 }
@@ -104,17 +105,16 @@ function ani1(num) {
 }
 // 250~450
 function ani2(num) {
-	moveY_title = (num - ani2Start) * 1.7;
-	moveZ_title = num - ani2Start;
+	moveY_title = (num - ani2Start) * 1.2;
+	moveZ_title = (num - ani2Start) * (ani2Start / box1Default2) - 0.5;
 
-	var moveY_txt = (num - ani2Start) * 1.7 - 45;
-	var moveZ_txt = num - ani2Start - 55;
+	var moveY_txt = (num - ani2Start) * 1.2 - 45;
+	var moveZ_txt = (num - ani2Start) * (ani2Start / box1Default2) - 55 - 0.5;
 
-	title_op = 1 - (num - ani2Start) * (1 / box1Default2);
+	title_op = 1 - (num - ani2Start) * (1 / (box1Default2 - 400));
 	if (title_op <= 0) {
 		title_op = 0;
 	}
-	// console.log("moveY", moveY);
 	story_title1.style = ` transform: translate3d(0, ${moveY_title}px, ${moveZ_title}px);opacity: ${title_op};transition-duration: 0s;`;
 	story_txt1.style = ` transform: translate3d(0, ${moveY_txt}px, ${moveZ_txt}px); opacity: ${title_op};transition-duration: 0s;`;
 	story_pic1.style = ` transform: translate3d(0, ${moveY_txt}px, ${moveZ_txt}px); opacity: ${title_op};transition-duration: 0s;`;
@@ -164,9 +164,9 @@ function ani4(num) {
 	}
 }
 function ani5(num) {
-	var moveY_1 = startPicY_5 - unitY_5 * (num - 600);
-	var moveZ_1 = startPicZ_5 - unitZ_5 * (num - 600);
-	op5 = (num - 600) * 0.02;
+	var moveY_1 = startPicY_5 - unitY_5 * (num - 1200);
+	var moveZ_1 = startPicZ_5 - unitZ_5 * (num - 1200);
+	op5 = (num - 1200) * 0.02;
 	if (moveY_1 >= endPicY_5) {
 		moveY_1 = endPicY_5;
 	}
@@ -180,27 +180,35 @@ function ani5(num) {
 	}
 }
 function ani6(num) {
-	story_box2Y = num - 800;
+	story_box2Y = num - 1800;
 	story_box2.style = `transform: translateY( -${story_box2Y}px )`;
 }
 // 550
 window.addEventListener("scroll", () => {
-	if (this.scrollY < 200) {
+	// console.log("this.scrollY", this.scrollY);
+
+	if (this.scrollY < box1Default) {
+		console.log("ani1");
 		ani1(this.scrollY);
 	}
 	if (this.scrollY > ani2Start) {
+		console.log("ani2");
 		ani2(this.scrollY);
 	}
 	if (this.scrollY > ani3Start) {
+		console.log("ani3");
 		ani3(this.scrollY);
 	}
 	if (this.scrollY > ani4Start) {
+		console.log("ani4");
 		ani4(this.scrollY);
 	}
 	if (this.scrollY > ani5Start) {
+		console.log("ani5");
 		ani5(this.scrollY);
 	}
 	if (this.scrollY > ani6Start) {
+		console.log("ani6");
 		ani6(this.scrollY);
 	}
 });

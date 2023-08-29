@@ -1,21 +1,26 @@
 var home_btn = document.querySelector("#home_btn");
 var home = document.querySelector("#home");
-home_btn.onclick = function () {
-	home.style.display = "none";
+
+
+
+
+home_btn.onclick = function() {
+	home.classList.add("zoomOut");
+	// home.style.display = "none";
 };
+
+
+
+
+
+
+
+
 
 var nowW = window.innerWidth;
 var nowH = window.innerHeight;
 var boxCenterW = nowW / 2;
 var boxCenterH = nowH / 2;
-
-var tree_scene = document.getElementById("tree_scene");
-var tree_parallax = new Parallax(tree_scene, {
-	invertX: false,
-	invertY: false,
-	originY: 0.5
-});
-tree_parallax.friction(0.05, 0.05);
 
 var straw_scene = document.getElementById("straw_scene");
 var straw_parallax = new Parallax(straw_scene, {
@@ -24,6 +29,58 @@ var straw_parallax = new Parallax(straw_scene, {
 	originY: 0.5
 });
 straw_parallax.friction(0.05, 0.05);
+
+var strawMax = 160;
+var strawMaxR = 15;
+
+var strawNow = 0;
+var strawNowR = 0;
+var strawMove = 0;
+var strawMoveR = 0;
+
+var strawTime;
+// var lionRange = 0.2;
+var strawRange = strawMax / boxCenterH;
+var strawRangeR = strawMaxR / boxCenterH;
+// 100 / 70
+function strawZ(y) {
+	strawMove = y * strawRange;
+	strawMoveR = y * strawRangeR;
+	if (strawMove * -1 > strawMax) {
+		strawMove = strawMax * -1;
+	} else if (strawMove * -1 < 0) {
+		strawMove = 0;
+	}
+	if (strawMoveR * -1 > strawMaxR) {
+		strawMoveR = strawMaxR * -1;
+	} else if (strawMoveR * -1 < 0) {
+		strawMoveR = 0;
+	}
+	clearInterval(strawTime);
+
+	strawTime = setInterval(() => {
+		if (
+			parseInt(strawMove) == parseInt(strawNow) &&
+			parseInt(strawMoveR) == parseInt(strawNowR)
+		) {
+			clearInterval(strawTime);
+		} else if (strawNow < strawMove) {
+			strawNow = strawNow + (strawRange + 0.01);
+		} else if (strawNow > strawMove) {
+			strawNow = strawNow - (strawRange + 0.01);
+		}
+
+		if (strawNowR < strawMoveR) {
+			strawNowR = strawNowR + (strawRangeR + 0.01);
+		} else if (strawNowR > strawMoveR) {
+			strawNowR = strawNowR - (strawRangeR + 0.01);
+		}
+		console.log("DFASDFASDF");
+
+		straw_scene.style = `transform: translate3d(0px, ${strawNow *
+			-1}px, 0px) rotate(${strawNowR}deg);`;
+	}, 0.5);
+}
 
 var grass_scene = document.getElementById("grass_scene");
 var grass_parallax = new Parallax(grass_scene, {
@@ -73,8 +130,45 @@ var txt_parallax = new Parallax(txt_scene, {
 });
 txt_parallax.friction(0.1, 0.1);
 
-var lion_scene = document.getElementById("lion_scene");
+var tree_scene = document.getElementById("tree_scene");
 
+var straw_img1 = document.getElementById("straw_img1");
+var straw_img2 = document.getElementById("straw_img2");
+
+var tree_parallax = new Parallax(tree_scene, {
+	invertX: false,
+	invertY: false,
+	originY: 0.5
+});
+tree_parallax.friction(0.05, 0.05);
+
+var treeMax = 20;
+var treeNow = 0;
+var treeMove = 0;
+var treeTime;
+var treeRange = treeMax / boxCenterW;
+
+function treeZ(x) {
+	treeMove = x * treeRange;
+	if (treeMove > treeMax) {
+		treeMove = treeMax;
+	} else if (treeMove < 0) {
+		treeMove = 0;
+	}
+	clearInterval(treeTime);
+	treeTime = setInterval(() => {
+		if (parseInt(treeMove) == parseInt(treeNow)) {
+			clearInterval(treeTime);
+		} else if (treeNow < treeMove) {
+			treeNow = treeNow + (lionRange + 0.01);
+		} else if (treeNow > treeMove) {
+			treeNow = treeNow - (lionRange + 0.01);
+		}
+		tree_scene.style = `transform: translate3d(0px, 0%, ${treeNow}px) scale(1)`;
+	}, 0.5);
+}
+
+var lion_scene = document.getElementById("lion_scene");
 var lion_parallax = new Parallax(lion_scene, {
 	invertX: false,
 	invertY: false,
@@ -87,84 +181,26 @@ var lionNow = 0;
 var lionMove = 0;
 var lionTime;
 // var lionRange = 0.2;
-var lionRange = lionMax / boxCenterH
-console.log("lionRange", lionRange);
-
+var lionRange = lionMax / boxCenterH;
 function lionZ(y) {
 	lionMove = y * lionRange;
 	if (lionMove * -1 > lionMax) {
-		lionMove = lionMax * -1
+		lionMove = lionMax * -1;
 	} else if (lionMove * -1 < 0) {
-		lionMove = 0
+		lionMove = 0;
 	}
-	console.log('lionMove', lionMove);
 	clearInterval(lionTime);
-
 
 	lionTime = setInterval(() => {
 		if (parseInt(lionMove) == parseInt(lionNow)) {
 			clearInterval(lionTime);
 		} else if (lionNow < lionMove) {
-			lionNow = lionNow + (lionRange + 0.05)
+			lionNow = lionNow + (lionRange + 0.01);
 		} else if (lionNow > lionMove) {
-			lionNow = lionNow - (lionRange + 0.05)
+			lionNow = lionNow - (lionRange + 0.01);
 		}
-		console.log('lionMove', lionMove);
-		console.log('lionNow', lionNow);
 		lion_scene.style = `transform: translate3d(0px, 0%, ${lionNow * -1}px)`;
-	}, 1);
-
-
-	// if (lionMove * -1 >= lionMax) {
-	// 	lionMove = parseInt(lionMax) * -1;
-	// }
-	// if (lionMove * -1 < 0) {
-	// 	lionMove = 0;
-	// }
-	// console.log("lionNow", lionNow);
-	// 
-	// lionTime = setInterval(() => {
-	// 	if (parseInt(lionNow) * -1 >= lionMax) {
-	// 		lionNow = clearInterval(lionTime);
-	// 	}
-	// 	if (parseInt(lionNow) == parseInt(lionMove)) {
-	// 		clearInterval(lionTime);
-	// 	}
-	// 	if (lionNow > lionMove) {
-	// 		lionNow = lionNow - lionRange;
-	// 	}
-	// 	
-	// 	// else {
-	// 	// 	lionNow = lionNow + lionRange;
-	// 	// }
-
-	// 	console.log("lionMove", lionMove);
-
-	// 	// if (lionNow >= lionMax) {
-	// 	// 	lionNow = lionMax;
-	// 	// } else if (lionNow < 0) {
-	// 	// 	lionNow = 0;
-	// 	// }
-	// 	// console.log("lionNow", parseInt(lionNow));
-	// 	// console.log("lionMove", parseInt(lionMove));
-	// 	// if (lionNow > lionMove) {
-	// 	// 	lionNow = lionNow - lionRange;
-	// 	// } else {
-	// 	//
-	// 	// }
-
-	// 	// if (lionNow <= lionMove) {
-	// 	// 	lionNow = lionNow - lionRange;
-	// 	// }else if(lionNow >= lionMove){
-	// 	//     lionNow = lionNow + lionRange;
-	// 	// }
-
-	// 	// if (lionMove <= lionNow && lionNow < lionMax) {
-	// 	// 	lionNow = lionNow + 0.01;
-	// 	// } else if (lionNow > 0) {
-	// 	// 	lionNow = lionNow - 0.1;
-	// 	// }
-	// }, 1);
+	}, 0.5);
 }
 
 function mousemove(event) {
@@ -173,212 +209,11 @@ function mousemove(event) {
 	if (mouseY - boxCenterH < 0) {
 		// 滑鼠在上方
 		lionZ(mouseY - boxCenterH);
+		strawZ(mouseY - boxCenterH);
+	}
+	if (mouseX - boxCenterW > 0) {
+		treeZ(mouseX - boxCenterW);
 	}
 }
 
 window.addEventListener("mousemove", mousemove);
-
-// var lion = {
-// 	x: 0,
-// 	y: 0,
-// 	z: 0,
-// 	minX: -30,
-// 	maxX: 20,
-// 	rangeL: 0,
-// 	rangeR: 0,
-// 	maxY: 40,
-// 	range: 0,
-// 	time: "",
-// 	moveX: 0,
-// 	moveY: 0,
-// 	moveZ: 0,
-// 	maxZ: 20,
-// 	rangeZ: 0
-// };
-// function setFloat(num, f) {
-// 	return parseFloat(num.toFixed(f));
-// }
-// function lionTime() {
-// 	clearInterval(lion.time);
-// 	lion.time = setInterval(() => {
-// 		// console.log('~~~');
-// 		var lx = lion.x;
-// 		var lmx = lion.moveX;
-// 		var ly = lion.y;
-// 		var lmy = lion.moveY;
-// 		var lz = lion.z;
-// 		var lmz = lion.moveZ;
-// 		console.log("lz", lz);
-// 		console.log("lmz", lmz);
-// 		if (parseInt(ly) == parseInt(lmy) && parseInt(lx) == parseInt(lmx)) {
-// 			clearInterval(lion.time);
-// 		} else if (lmy >= ly && lmy !== 0) {
-// 			lion.moveY = setFloat(lion.moveY - lion.range, 3);
-// 		} else if (lion.moveY <= lion.y && lion.moveY < lion.maxY) {
-// 			lion.moveY = setFloat(lion.moveY + lion.range, 3);
-// 		} else {
-// 			clearInterval(lion.time);
-// 		}
-// 		if (lmx < lx) {
-// 			lion.moveX = setFloat(lmx + lion.rangeR, 3);
-// 		} else if (lx < lmx) {
-// 			lion.moveX = setFloat(lmx + lion.rangeL, 3);
-// 		}
-
-// 		if (lmz <= lz) {
-// 			lion.moveZ = setFloat(lmz + lion.rangeZ, 3);
-// 		} else {
-// 			lion.moveZ = setFloat(lmz - lion.rangeZ, 3);
-// 		}
-
-// 		lion_scene.style = `transform: translate3d(${lion.moveX}px, ${lion.moveY}px, ${lion.moveZ}px)`;
-// 	}, 1);
-// }
-// function lionMove(x, y) {
-// 	// var moveX = (x - boxCenterW) * lion.rangeL;
-// 	var moveX = x - boxCenterW;
-// 	moveX > 0
-// 		? (moveX = moveX * lion.rangeR)
-// 		: (moveX = moveX * lion.rangeL * -1);
-// 	lion.x = setFloat(moveX, 3);
-
-// 	var moveY = y - boxCenterH;
-// 	var moveZ = y - boxCenterH;
-// 	if (moveY < 0 && moveZ <= lion.maxZ) {
-// 		moveY = 0;
-// 		lion.z = setFloat(moveZ * lion.rangeZ * -1, 3);
-// 	} else {
-// 		moveY = moveY * lion.range;
-// 		lion.y = setFloat(moveY, 3);
-// 	}
-
-// 	lionTime();
-// }
-
-// function mousemove(event) {
-// 	var mouseX = event.clientX;
-// 	var mouseY = event.clientY;
-// 	lionMove(mouseX, mouseY);
-// }
-
-// window.addEventListener("mousemove", mousemove);
-// function setDefault() {
-// 	lion.rangeL = setFloat(lion.minX / boxCenterW, 3);
-// 	lion.rangeR = setFloat(lion.maxX / boxCenterW, 3);
-// 	lion.range = setFloat(lion.maxY / boxCenterH, 3);
-// 	lion.rangeZ = setFloat(lion.maxZ / boxCenterH, 3);
-
-// 	lion_scene.style = `transform: translate3d(${lion.x}px, ${lion.y}%, ${lion.z}px)`;
-// }
-// // start
-// document.addEventListener("DOMContentLoaded", () => {
-// 	setDefault();
-// });
-
-// // // var mouseR = nowW * (3 / 4);
-// // // var mouseL = nowW * (1 / 4);
-
-// // // var mouseT = nowH * (1 / 4);
-// // // var mouseB = nowH * (3 / 4);
-
-// // // var home = document.querySelector("#home");
-
-// // // console.log("mouseR", mouseR);
-// // // console.log("mouseL", mouseL);
-// // var nowW = window.innerWidth;
-// //
-
-// // var boxCenterH = nowH / 2; //一半高度
-// // var mouseB = nowH;
-// // // var bottomRange = mouseB - heightC;
-// // var bgPos = 0;
-// // // console.log("bottomRange", bottomRange);
-
-// // var lionX = 0,
-// // 	lionY = 3,
-// // 	lionZ = 0,
-// // 	lionMaxY = 40;
-
-// // var lion_t;
-// // var test = document.querySelector("#test");
-
-// // var lionY_move = 10;
-// // var switchL = false;
-
-// // console.log();
-
-// // function lionTime() {
-// // 	lion_t = setInterval(() => {
-// // 		if (switchL) {
-// // 			console.log("a");
-// // 			clearInterval(lion_t);
-// // 		} else {
-// // 			console.log("lionY_move",lionY_move);
-// // 		}
-// // 	}, 1000);
-// // }
-
-// // test.onclick = function() {
-// // 	switchL = !switchL;
-// // 	console.log("switchL", switchL);
-// // };
-// // // lionTime();
-// // function lionMove(e) {
-// // 	// 往下從０－４０
-// // 	// var x = e.offsetX === undefined ? e.layerX : e.offsetX;
-// // 	var y = e.offsetY === undefined ? e.layerY : e.offsetY;
-// // 	// x -= boxCenterH.x;
-// // 	y -= boxCenterH;
-// // 	var moveY = 0;
-// // 	var moveZ = 0;
-// // 	// console.log("y", y);
-// // 	// console.log("boxCenterH", boxCenterH);
-// // 	lionY_move = bgPos + y / 50;
-// // 	// moveZ = (bgPos + y / 100) * -1;
-// // 	// if (moveY >= 40) {
-// // 	// 	moveY = 40;
-// // 	// } else if (moveY <= 0) {
-// // 	// 	moveY = 0;
-// // 	// }
-// // 	// if (moveZ < 0) {
-// // 	// 	moveZ = 0;
-// // 	// }
-// // 	// console.log("moveZ", moveZ);
-// // 	// lion_scene.style = `transform: translate3d(0px, ${moveY}%, ${moveZ}px)`;
-// // 	// var moveY = (40 / bottomRange) * (Y - heightC);
-// // 	// if (Y > heightC && moveY <= lionMaxY) {
-// // 	// 	// console.log("moveY", moveY);
-// // 	// 	// lion_scene.style = `transform: translate3d(${lionX}px, ${moveY}px, ${lionZ}px)`;
-// // 	// }
-// // }
-
-// // function mousemove(event) {
-// // 	var mouseX = event.clientX;
-// // 	var mouseY = event.clientY;
-// // 	// console.log(mouseX, mouseY);
-
-// // 	// lionMove(mouseX, mouseY);
-// // 	lionMove(event);
-
-// // 	// 	if (mouseL > mouseX && home.getAttribute("class") !== "mouseL") {
-// // 	// 		home.setAttribute("class", "home mouseL");
-// // 	// 	}
-// // 	// 	if (mouseR < mouseX && home.getAttribute("class") !== "mouseR") {
-// // 	// 		home.setAttribute("class", "home mouseR");
-// // 	// 	}
-// // 	// 	if (mouseL < mouseX && mouseR > mouseX && mouseY < mouseT) {
-// // 	// 		home.setAttribute("class", "home mouseT");
-// // 	// 	}
-// // 	// 	if (mouseL < mouseX && mouseR > mouseX && mouseY > mouseB) {
-// // 	// 		home.setAttribute("class", "home mouseB");
-// // 	// 	}
-// // 	// 	if (
-// // 	// 		mouseL < mouseX &&
-// // 	// 		mouseR > mouseX &&
-// // 	// 		mouseY < mouseB &&
-// // 	// 		mouseY > mouseT
-// // 	// 	) {
-// // 	// 		home.setAttribute("class", "home mouseC");
-// // 	// 	}
-// // 	//
-// // }

@@ -404,6 +404,9 @@ h4 {
 }
 
 @media screen and (min-width: 1025px) {
+  .normal_tab_btn + .normal_tab_item {
+    margin-right: 36px;
+  }
   .normal_tab_item.on {
     font-weight: 700;
   }
@@ -1940,6 +1943,20 @@ h4 {
   color: #000;
 }
 
+.home .room {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  opacity: 1;
+}
+
+.home.zoomOut .room {
+  -webkit-transform: scale(2) !important;
+          transform: scale(2) !important;
+  opacity: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+
 .banner {
   position: relative;
 }
@@ -2282,9 +2299,22 @@ h1 + .banner_txt_rule {
 
 @media screen and (max-width: 1024px) {
   .rule_group {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .rule_group._color {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
 }
 
@@ -2335,6 +2365,7 @@ h1 + .banner_txt_rule {
 @media screen and (max-width: 1024px) {
   .rule_item {
     width: 100%;
+    max-width: 330px;
   }
   .rule_item + .rule_item:not(._color) {
     margin-top: 56px;
@@ -2446,7 +2477,7 @@ h1 + .banner_txt_rule {
 
 @media screen and (max-width: 1024px) {
   .rule_area {
-    max-width: 576px;
+    max-width: 330px;
     margin: 0 auto 0;
   }
 }
@@ -3511,11 +3542,25 @@ h1 + .product_group {
         grid-template-areas: "name address" "phone map";
     -ms-grid-columns: 40% 60%;
         grid-template-columns: 40% 60%;
-    grid-auto-rows: 55px 35px;
+    grid-auto-rows: 1fr 1fr;
+    padding: 18px 0;
     font-size: 12px;
   }
   .store_grid + .store_grid {
     margin-top: 8px;
+  }
+  .store_grid::before {
+    content: "";
+    position: absolute;
+    left: -20%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: block;
+    width: 1px;
+    height: 70%;
+    margin: auto;
+    background-color: #a3a3a3;
   }
 }
 
@@ -3544,7 +3589,6 @@ h1 + .product_group {
   }
   .store_grid_item:nth-child(3), .store_grid_item:nth-child(4) {
     padding-left: 14px;
-    border-left: 1px solid #a3a3a3;
   }
   .store_grid_item:nth-child(1), .store_grid_item:nth-child(3) {
     -ms-flex-item-align: end;

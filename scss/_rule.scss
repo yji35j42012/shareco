@@ -10,7 +10,13 @@
 		max-width: 1278px;
 		margin: auto;
 		@include mw(L){
+			align-items: center;
 			justify-content: center;
+			flex-direction: column;
+
+			&._color{
+				flex-direction: row;
+			}
 		}
 		& + & {
 			margin-top: 248px;
@@ -47,6 +53,7 @@
 		}
 		@include mw(L) {
 			width: 100%;
+			max-width: 330px;
 			& + &:not(._color) {
 				margin-top: 56px;
 			}
@@ -123,7 +130,7 @@
 			}
 		}
 		@include mw(L) {
-			max-width: 576px;
+			max-width: 330px;
 			margin: 0 auto 0;
 		}
 	}
