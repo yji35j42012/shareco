@@ -1,21 +1,28 @@
 var home_btn = document.querySelector("#home_btn");
 var home = document.querySelector("#home");
 
-
-
+var home_video = document.querySelector("#home_video");
 
 home_btn.onclick = function() {
 	home.classList.add("zoomOut");
+	home_video.classList.add("show");
 	// home.style.display = "none";
 };
 
+function MouseWheel(e) {
+	e = e || window.event;
+	console.log(e.wheelDelta);
+}
 
-
-
-
-
-
-
+// hook event listener on window object
+if ("onmousewheel" in window) {
+	window.onmousewheel = MouseWheel;
+} else if ("onmousewheel" in document) {
+	document.onmousewheel = MouseWheel;
+} else if ("addEventListener" in window) {
+	window.addEventListener("mousewheel", MouseWheel, false);
+	window.addEventListener("DOMMouseScroll", MouseWheel, false);
+}
 
 var nowW = window.innerWidth;
 var nowH = window.innerHeight;
@@ -78,7 +85,7 @@ function strawZ(y) {
 		console.log("DFASDFASDF");
 
 		straw_scene.style = `transform: translate3d(0px, ${strawNow *
-			-1}px, 0px) rotate(${strawNowR}deg);`;
+			-1}px, 0px) rotate(${strawNowR}deg) scale(1);`;
 	}, 0.5);
 }
 
@@ -199,7 +206,8 @@ function lionZ(y) {
 		} else if (lionNow > lionMove) {
 			lionNow = lionNow - (lionRange + 0.01);
 		}
-		lion_scene.style = `transform: translate3d(0px, 0%, ${lionNow * -1}px)`;
+		lion_scene.style = `transform: translate3d(0px, 0%, ${lionNow *
+			-1}px) scale(1)`;
 	}, 0.5);
 }
 

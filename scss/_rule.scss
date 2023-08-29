@@ -9,12 +9,12 @@
 		flex-wrap: wrap;
 		max-width: 1278px;
 		margin: auto;
-		@include mw(L){
+		@include mw(L) {
 			align-items: center;
 			justify-content: center;
 			flex-direction: column;
 
-			&._color{
+			&._color {
 				flex-direction: row;
 			}
 		}
