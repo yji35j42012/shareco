@@ -3,7 +3,7 @@ var home = document.querySelector("#home");
 
 var home_video = document.querySelector("#home_video");
 
-home_btn.onclick = function() {
+home_btn.onclick = function () {
 	home.classList.add("zoomOut");
 	home_video.classList.add("show");
 	// home.style.display = "none";
@@ -103,6 +103,55 @@ var plant_parallax = new Parallax(plant_scene, {
 });
 plant_parallax.friction(0.1, 0.1);
 
+
+var plantMax = 20;
+var plantNow = 0;
+var plantMove = 0;
+var plantTime;
+
+
+function strawZ(x) {
+	// strawMove = y * strawRange;
+	// strawMoveR = y * strawRangeR;
+	// if (strawMove * -1 > strawMax) {
+	// 	strawMove = strawMax * -1;
+	// } else if (strawMove * -1 < 0) {
+	// 	strawMove = 0;
+	// }
+	// if (strawMoveR * -1 > strawMaxR) {
+	// 	strawMoveR = strawMaxR * -1;
+	// } else if (strawMoveR * -1 < 0) {
+	// 	strawMoveR = 0;
+	// }
+	// clearInterval(strawTime);
+
+	// strawTime = setInterval(() => {
+	// 	if (
+	// 		parseInt(strawMove) == parseInt(strawNow) &&
+	// 		parseInt(strawMoveR) == parseInt(strawNowR)
+	// 	) {
+	// 		clearInterval(strawTime);
+	// 	} else if (strawNow < strawMove) {
+	// 		strawNow = strawNow + (strawRange + 0.01);
+	// 	} else if (strawNow > strawMove) {
+	// 		strawNow = strawNow - (strawRange + 0.01);
+	// 	}
+
+	// 	if (strawNowR < strawMoveR) {
+	// 		strawNowR = strawNowR + (strawRangeR + 0.01);
+	// 	} else if (strawNowR > strawMoveR) {
+	// 		strawNowR = strawNowR - (strawRangeR + 0.01);
+	// 	}
+	// 	straw_scene.style = `transform: translate3d(0px, ${strawNow *
+	// 		-1}px, 0px) rotate(${strawNowR}deg) scale(1);`;
+	// }, 0.5);
+}
+
+
+
+
+
+
 var flyl_scene = document.getElementById("flyl_scene");
 var flyl_parallax = new Parallax(flyl_scene, {
 	invertX: false,
@@ -148,28 +197,45 @@ var tree_parallax = new Parallax(tree_scene, {
 tree_parallax.friction(0.05, 0.05);
 
 var treeMax = 20;
+var treeMaxB = 30;
 var treeNow = 0;
+var treeNowB = 0;
 var treeMove = 0;
+var treeMoveB = 0;
 var treeTime;
+
 var treeRange = treeMax / boxCenterW;
+var treeRangeB = treeMaxB / boxCenterW;
 
 function treeZ(x) {
 	treeMove = x * treeRange;
+	treeMoveB = x * treeRangeB;
 	if (treeMove > treeMax) {
 		treeMove = treeMax;
 	} else if (treeMove < 0) {
 		treeMove = 0;
 	}
+	if (treeMoveB > treeMaxB) {
+		treeMoveB = treeMaxB;
+	} else if (treeMoveB < 0) {
+		treeMoveB = 0;
+	}
 	clearInterval(treeTime);
 	treeTime = setInterval(() => {
-		if (parseInt(treeMove) == parseInt(treeNow)) {
+		if (parseInt(treeMove) == parseInt(treeNow) && parseInt(treeMoveB) == parseInt(treeNowB)) {
 			clearInterval(treeTime);
 		} else if (treeNow < treeMove) {
-			treeNow = treeNow + (lionRange + 0.01);
+			treeNow = treeNow + (treeRange + 0.05);
 		} else if (treeNow > treeMove) {
-			treeNow = treeNow - (lionRange + 0.01);
+			treeNow = treeNow - (treeRange + 0.05);
 		}
-		tree_scene.style = `transform: translate3d(0px, 0%, ${treeNow}px) scale(1)`;
+
+		if (treeNowB < treeMoveB) {
+			treeNowB = treeNowB + (treeRangeB + 0.2);
+		} else if (treeNowB > treeMoveB) {
+			treeNowB = treeNowB - (treeRangeB + 0.2);
+		}
+		tree_scene.style = `transform: translate3d(0px, ${treeNowB}px, ${treeNow}px) scale(1)`;
 	}, 0.5);
 }
 
@@ -218,8 +284,16 @@ function mousemove(event) {
 		strawZ(mouseY - boxCenterH);
 	}
 	if (mouseX - boxCenterW > 0) {
+		// 滑鼠在右方
 		treeZ(mouseX - boxCenterW);
 	}
+
+	if (mouseX - boxCenterW < 0) {
+		// 滑鼠在右方
+		strawZ(mouseX - boxCenterW);
+	}
+
+	// strawZ
 }
 
 window.addEventListener("mousemove", mousemove);
