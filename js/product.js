@@ -67,3 +67,53 @@ function dotSwiper1Item() {
 	}
 }
 pushDots1();
+
+var screen = window.innerWidth <= 1024 ? "ph" : "pc";
+
+var allaos = document.querySelectorAll("[name = 'aos']");
+
+console.log("allaos", allaos);
+// function clearallaos() {
+// 	for (let i = 0; i < allaos.length; i++) {
+// 		const element = allaos[i];
+// 		element.setAttribute("data-aos", "");
+// 	}
+// }
+// function setallaos() {
+// 	for (let i = 0; i < allaos.length; i++) {
+// 		const element = allaos[i];
+// 		// element.setAttribute("data-aos", "fade-up");
+// 		element.classList.add("aos-animate");
+// 	}
+// }
+window.onresize = function() {
+	console.log(document.querySelector("html").scrollTop);
+
+	// AOS.init();
+	if (screen == "ph" && window.innerWidth > 1024) {
+		screen = "pc";
+		swiper1_group.style = ``;
+		swiper1_count = 0;
+		pushDots1();
+		AOS.init();
+		setTimeout(() => {
+			AOS.init();
+			document
+				.querySelector("html")
+				.scrollTo(document.querySelector("html").scrollTop - 1);
+			document
+				.querySelector("html")
+				.scrollTo(document.querySelector("html").scrollTop + 1);
+		}, 100);
+	} else if (screen == "pc" && window.innerWidth <= 1024) {
+		screen = "ph";
+		AOS.init();
+		setTimeout(() => {
+			AOS.init();
+		}, 100);
+	}
+};
+
+window.addEventListener("scroll", event => {
+	AOS.init();
+});

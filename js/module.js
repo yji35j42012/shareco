@@ -83,5 +83,3 @@ if (isDarkMode || html.getAttribute("native-dark-active") !== null) {
 } else {
 	favicon.href = "../favicon-dark.ico";
 }
-
-console.log(isDarkMode);
