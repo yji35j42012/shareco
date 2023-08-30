@@ -415,10 +415,16 @@ h4 {
 			margin: 0;
 			fill: #333;
 		}
+		@at-root .product_overflow & {
+			display: none;
+		}
 
 		@include mw(L) {
 			@at-root .banner & {
 				display: none;
+			}
+			@at-root .product_overflow & {
+				display: block;
 			}
 		}
 
