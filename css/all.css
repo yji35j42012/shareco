@@ -1841,6 +1841,8 @@ h4 {
   right: -180px;
   bottom: -100px;
   max-width: 600px;
+  -webkit-transform-origin: right bottom;
+          transform-origin: right bottom;
 }
 
 .home_bird {
@@ -1855,6 +1857,8 @@ h4 {
   top: 220px;
   right: 520px;
   max-width: 120px;
+  -webkit-transform-origin: center;
+          transform-origin: center;
 }
 
 .home_flyr {

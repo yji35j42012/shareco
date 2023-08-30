@@ -3,7 +3,7 @@ var home = document.querySelector("#home");
 
 var home_video = document.querySelector("#home_video");
 
-home_btn.onclick = function () {
+home_btn.onclick = function() {
 	home.classList.add("zoomOut");
 	home_video.classList.add("show");
 	// home.style.display = "none";
@@ -103,54 +103,36 @@ var plant_parallax = new Parallax(plant_scene, {
 });
 plant_parallax.friction(0.1, 0.1);
 
-
-var plantMax = 20;
+var plantMax = 0.1;
 var plantNow = 0;
 var plantMove = 0;
+var plantRange = plantMax / boxCenterW;
 var plantTime;
 
-
-function strawZ(x) {
-	// strawMove = y * strawRange;
-	// strawMoveR = y * strawRangeR;
-	// if (strawMove * -1 > strawMax) {
-	// 	strawMove = strawMax * -1;
-	// } else if (strawMove * -1 < 0) {
-	// 	strawMove = 0;
-	// }
-	// if (strawMoveR * -1 > strawMaxR) {
-	// 	strawMoveR = strawMaxR * -1;
-	// } else if (strawMoveR * -1 < 0) {
-	// 	strawMoveR = 0;
-	// }
-	// clearInterval(strawTime);
-
-	// strawTime = setInterval(() => {
-	// 	if (
-	// 		parseInt(strawMove) == parseInt(strawNow) &&
-	// 		parseInt(strawMoveR) == parseInt(strawNowR)
-	// 	) {
-	// 		clearInterval(strawTime);
-	// 	} else if (strawNow < strawMove) {
-	// 		strawNow = strawNow + (strawRange + 0.01);
-	// 	} else if (strawNow > strawMove) {
-	// 		strawNow = strawNow - (strawRange + 0.01);
-	// 	}
-
-	// 	if (strawNowR < strawMoveR) {
-	// 		strawNowR = strawNowR + (strawRangeR + 0.01);
-	// 	} else if (strawNowR > strawMoveR) {
-	// 		strawNowR = strawNowR - (strawRangeR + 0.01);
-	// 	}
-	// 	straw_scene.style = `transform: translate3d(0px, ${strawNow *
-	// 		-1}px, 0px) rotate(${strawNowR}deg) scale(1);`;
-	// }, 0.5);
+function setFloat(num, f) {
+	return num.toFixed(f);
 }
 
-
-
-
-
+function plantZ(x) {
+	plantMove = x * plantRange;
+	if (plantMove * -1 > plantMax) {
+		plantMove = plantMax;
+	} else if (plantMove * -1 < 0) {
+		plantMove = 0;
+	}
+	clearInterval(plantTime);
+	plantTime = setInterval(() => {
+		if (setFloat(plantMove, 3) == setFloat(plantNow, 3)) {
+			clearInterval(plantTime);
+		} else if (plantNow < plantMove) {
+			plantNow = plantNow + plantRange + 0.00018;
+		} else if (plantNow > plantMove) {
+			plantNow = plantNow - plantRange - 0.00018;
+		}
+		plant_scene.style = `transform: translate3d(0px, 0px, 0px) scale(${1 +
+			plantNow * -1});`;
+	}, 0.5);
+}
 
 var flyl_scene = document.getElementById("flyl_scene");
 var flyl_parallax = new Parallax(flyl_scene, {
@@ -160,6 +142,48 @@ var flyl_parallax = new Parallax(flyl_scene, {
 });
 flyl_parallax.friction(0.2, 0.2);
 
+var flylMax = 30;
+var flylNow = 0;
+var flylMove = 0;
+
+var flylMaxX = 100;
+var flylNowX = 0;
+var flylMoveX = 0;
+
+var flylRange = flylMax / boxCenterW;
+var flylRangeX = flylMax / boxCenterW;
+
+var flylTime;
+function flyl(x) {
+	flylMove = x * flylRange;
+	flylMoveX = x * flylRangeX;
+	if (flylMove * -1 > flylMax) {
+		flylMove = flylMax;
+	} else if (flylMove * -1 < 0) {
+		flylMove = 0;
+	}
+	if (flylMoveX * -1 > flylMaxX) {
+		flylMoveX = flylMaxX;
+	} else if (flylMoveX * -1 < 0) {
+		flylMoveX = 0;
+	}
+	clearInterval(flylTime);
+	flylTime = setInterval(() => {
+		if (parseInt(flylMove) == parseInt(flylNow)) {
+			clearInterval(flylTime);
+		} else if (flylNow < flylMove) {
+			flylNow = flylNow + flylRange + 0.1;
+		} else if (flylNow > flylMove) {
+			flylNow = flylNow - flylRange - 0.1;
+		}
+		console.log("flyl", flylNow);
+
+		flyl_scene.style = `transform: translate3d(${flylNow}px, 0px, 0px) scale(${1 +
+			flylNow * -0.01}) rotate(${flylNow * -1}deg);`;
+	}, 0);
+	console.log("flylMove", flylMove);
+}
+
 var flyr_scene = document.getElementById("flyr_scene");
 var flyr_parallax = new Parallax(flyr_scene, {
 	invertX: false,
@@ -168,13 +192,77 @@ var flyr_parallax = new Parallax(flyr_scene, {
 });
 flyr_parallax.friction(0.3, 0.3);
 
+var flyrMax = 0.2;
+var flyrNow = 0;
+var flyrMove = 0;
+var flyrRange = flyrMax / boxCenterW;
+
+var flyrMaxX = 80;
+var flyrNowX = 0;
+var flyrMoveX = 0;
+var flyrRangeX = flyrMaxX / boxCenterW;
+
+var flyrMaxY = 80;
+var flyrNowY = 0;
+var flyrMoveY = 0;
+var flyrRangeY = flyrMaxY / boxCenterW;
+var flyrTime;
+
+function flyrZ(x) {
+	flyrMove = x * flyrRange;
+	flyrMoveX = x * flyrRangeX;
+	flyrMoveY = x * flyrRangeY;
+	if (flyrMove > flyrMax) {
+		flyrMove = flyrMax;
+	} else if (flyrMove < 0) {
+		flyrMove = 0;
+	}
+	if (flyrMoveX > flyrMaxX) {
+		flyrMoveX = flyrMaxX;
+	} else if (flyrMoveX < 0) {
+		flyrMoveX = 0;
+	}
+	if (flyrMoveY > flyrMaxY) {
+		flyrMoveY = flyrMaxY;
+	} else if (flyrMoveY < 0) {
+		flyrMoveY = 0;
+	}
+	clearInterval(flyrTime);
+	flyrTime = setInterval(() => {
+		if (
+			setFloat(flyrMove, 3) == setFloat(flyrNow, 3) &&
+			parseInt(flyrMoveX) == parseInt(flyrNowX) &&
+			parseInt(flyrMoveY) == parseInt(flyrNowY)
+		) {
+			clearInterval(flyrTime);
+		} else if (flyrNow < flyrMove) {
+			flyrNow = flyrNow + flyrRange + 0.0002;
+		} else if (flyrNow > flyrMove) {
+			flyrNow = flyrNow - flyrRange - 0.0002;
+		}
+
+		if (flyrNowX < flyrMoveX) {
+			flyrNowX = flyrNowX + (flyrRangeX + 0.09);
+		} else if (flyrNowX > flyrMoveX) {
+			flyrNowX = flyrNowX - (flyrRangeX + 0.09);
+		}
+		if (flyrNowY < flyrMoveY) {
+			flyrNowY = flyrNowY + (flyrRangeY + 0.09);
+		} else if (flyrNowY > flyrMoveY) {
+			flyrNowY = flyrNowY - (flyrRangeY + 0.09);
+		}
+		flyr_scene.style = `transform: translate3d(${flyrNowX}px, ${flyrNowY *
+			-1}px, 0px) scale(${1 + flyrNow});`;
+	}, 0);
+}
+
 var bird_scene = document.getElementById("bird_scene");
 var bird_parallax = new Parallax(bird_scene, {
 	invertX: false,
 	invertY: false,
 	originY: 0.5
 });
-bird_parallax.friction(0.5, 0.5);
+bird_parallax.friction(0.1, 0.1);
 
 var txt_scene = document.getElementById("txt_scene");
 var txt_parallax = new Parallax(txt_scene, {
@@ -222,7 +310,10 @@ function treeZ(x) {
 	}
 	clearInterval(treeTime);
 	treeTime = setInterval(() => {
-		if (parseInt(treeMove) == parseInt(treeNow) && parseInt(treeMoveB) == parseInt(treeNowB)) {
+		if (
+			parseInt(treeMove) == parseInt(treeNow) &&
+			parseInt(treeMoveB) == parseInt(treeNowB)
+		) {
 			clearInterval(treeTime);
 		} else if (treeNow < treeMove) {
 			treeNow = treeNow + (treeRange + 0.05);
@@ -251,7 +342,6 @@ var lionMax = 20;
 var lionNow = 0;
 var lionMove = 0;
 var lionTime;
-// var lionRange = 0.2;
 var lionRange = lionMax / boxCenterH;
 function lionZ(y) {
 	lionMove = y * lionRange;
@@ -278,6 +368,8 @@ function lionZ(y) {
 function mousemove(event) {
 	var mouseX = event.clientX;
 	var mouseY = event.clientY;
+	// console.log("mouseX", mouseX - boxCenterW);
+
 	if (mouseY - boxCenterH < 0) {
 		// 滑鼠在上方
 		lionZ(mouseY - boxCenterH);
@@ -286,11 +378,13 @@ function mousemove(event) {
 	if (mouseX - boxCenterW > 0) {
 		// 滑鼠在右方
 		treeZ(mouseX - boxCenterW);
+		flyrZ(mouseX - boxCenterW);
 	}
 
 	if (mouseX - boxCenterW < 0) {
-		// 滑鼠在右方
-		strawZ(mouseX - boxCenterW);
+		// 滑鼠在左方
+		plantZ(mouseX - boxCenterW);
+		flyl(mouseX - boxCenterW);
 	}
 
 	// strawZ

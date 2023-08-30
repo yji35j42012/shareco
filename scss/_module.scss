@@ -1539,6 +1539,7 @@ h4 {
 		max-width: 450px;
 		transform: rotate(0deg);
 		transform-origin: left bottom;
+
 	}
 	// .home_tree
 	&_tree {
@@ -1570,6 +1571,7 @@ h4 {
 		right: -180px;
 		bottom: -100px;
 		max-width: 600px;
+		transform-origin: right bottom;
 	}
 	// .home_bird
 	&_bird {
@@ -1584,6 +1586,7 @@ h4 {
 		top: 220px;
 		right: 520px;
 		max-width: 120px;
+		transform-origin: center;
 	}
 	// .home_flyr
 	&_flyr {
