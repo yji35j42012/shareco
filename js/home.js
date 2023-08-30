@@ -1,17 +1,78 @@
 var home_btn = document.querySelector("#home_btn");
 var home = document.querySelector("#home");
 
-var home_video = document.querySelector("#home_video");
+var home_second = document.querySelector("#home_second");
+
+var pageArr = ["home", "home_second", "home_third", "home_forth"];
+var pageNum = 0;
+// var nowPage = "home";
 
 home_btn.onclick = function() {
 	home.classList.add("zoomOut");
-	home_video.classList.add("show");
-	// home.style.display = "none";
+	home_second.classList.add("show");
+	pageNum = 1;
+	// nowPage = pageArr[1];
 };
 
+var scaleTime;
+var scaleNum = 0;
+var scaleOp = 0;
+var mouseShow;
+var MouseWheelSwitch = true;
+function scaleHandler(num, op) {
+	clearInterval(scaleTime);
+	scaleNum = num;
+	scaleOp = op;
+	scaleTime = setInterval(() => {
+		if (scaleNum == 1 && scaleOp == 1) {
+			clearInterval(scaleTime);
+		} else {
+			if (scaleNum !== 1) {
+				scaleNum = scaleNum - 0.1;
+				scaleNum = parseFloat(setFloat(scaleNum, 1));
+			} else if (scaleNum < 1) {
+				scaleNum = 1;
+			}
+			if (scaleOp !== 1) {
+				scaleOp = scaleOp + 0.1;
+				scaleOp = parseFloat(setFloat(scaleOp, 1));
+			} else if (scaleOp < 1) {
+				scaleOp = 1;
+			}
+		}
+		mouseShow.style = `transform: scale(${scaleNum}); opacity:${scaleOp} ;`;
+
+		console.log("scaleHandler");
+	}, 100);
+}
+function changePage() {
+	clearInterval(scaleTime);
+	mouseShow.classList.add("zoomOut");
+	pageNum++;
+	mouseShow = document.querySelector("#" + pageArr[pageNum]);
+	mouseShow.classList.add("show");
+	setTimeout(() => {
+		MouseWheelSwitch = true;
+	}, 1100);
+}
 function MouseWheel(e) {
 	e = e || window.event;
-	console.log(e.wheelDelta);
+	// e.wheelDelta <= 0 || e.detail > 0
+	if (!MouseWheelSwitch) return;
+	if (e.wheelDelta > 0) return;
+	if (home.classList.contains("zoomOut")) {
+		// console.log("wheelDelta", e.wheelDelta);
+		// console.log("detail", e.detail);
+		var sc = (e.wheelDelta / 120) * -1 * 0.1;
+		if (sc > 0.5) {
+			MouseWheelSwitch = false;
+			changePage();
+		} else {
+			mouseShow = document.querySelector("#" + pageArr[pageNum]);
+			mouseShow.style = `transform: scale(${1 + sc});	opacity:${1 - sc} ;`;
+			scaleHandler(1 + sc, 1 - sc);
+		}
+	}
 }
 
 // hook event listener on window object
@@ -176,12 +237,9 @@ function flyl(x) {
 		} else if (flylNow > flylMove) {
 			flylNow = flylNow - flylRange - 0.1;
 		}
-		console.log("flyl", flylNow);
-
 		flyl_scene.style = `transform: translate3d(${flylNow}px, 0px, 0px) scale(${1 +
 			flylNow * -0.01}) rotate(${flylNow * -1}deg);`;
 	}, 0);
-	console.log("flylMove", flylMove);
 }
 
 var flyr_scene = document.getElementById("flyr_scene");
@@ -369,22 +427,23 @@ function mousemove(event) {
 	var mouseX = event.clientX;
 	var mouseY = event.clientY;
 	// console.log("mouseX", mouseX - boxCenterW);
+	if (!home.classList.contains("zoomOut")) {
+		if (mouseY - boxCenterH < 0) {
+			// 滑鼠在上方
+			lionZ(mouseY - boxCenterH);
+			strawZ(mouseY - boxCenterH);
+		}
+		if (mouseX - boxCenterW > 0) {
+			// 滑鼠在右方
+			treeZ(mouseX - boxCenterW);
+			flyrZ(mouseX - boxCenterW);
+		}
 
-	if (mouseY - boxCenterH < 0) {
-		// 滑鼠在上方
-		lionZ(mouseY - boxCenterH);
-		strawZ(mouseY - boxCenterH);
-	}
-	if (mouseX - boxCenterW > 0) {
-		// 滑鼠在右方
-		treeZ(mouseX - boxCenterW);
-		flyrZ(mouseX - boxCenterW);
-	}
-
-	if (mouseX - boxCenterW < 0) {
-		// 滑鼠在左方
-		plantZ(mouseX - boxCenterW);
-		flyl(mouseX - boxCenterW);
+		if (mouseX - boxCenterW < 0) {
+			// 滑鼠在左方
+			plantZ(mouseX - boxCenterW);
+			flyl(mouseX - boxCenterW);
+		}
 	}
 
 	// strawZ

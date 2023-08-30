@@ -1505,9 +1505,6 @@ h4 {
 		width: 100%;
 		max-width: 1280px;
 		max-height: 694px;
-		// padding-bottom: calc(50% * 0.704);
-
-		// transition-duration: 0.5s;
 		.mouseL & {
 			transform: translate(-20px, 0);
 		}
@@ -1539,7 +1536,6 @@ h4 {
 		max-width: 450px;
 		transform: rotate(0deg);
 		transform-origin: left bottom;
-
 	}
 	// .home_tree
 	&_tree {
@@ -1554,7 +1550,6 @@ h4 {
 			position: absolute;
 			top: 0;
 			left: 0;
-
 			width: 100%;
 		}
 	}
@@ -1680,11 +1675,15 @@ h4 {
 				center bottom / cover,
 			linear-gradient(180deg, rgba(23, 23, 23, 0) 0%, #171717 0%);
 		opacity: 0;
-		transition-duration: 1s;
 		&.show {
 			opacity: 1;
 		}
-
+		&.zoomOut {
+			transform: scale(2) !important;
+			opacity: 0 !important;
+			transition-duration: 1s !important;
+			pointer-events: none !important;
+		}
 		// .home_video_box
 		&_box {
 			position: relative;
@@ -1739,17 +1738,24 @@ h4 {
 		}
 	}
 	&_video,
-	&_struggle {
+	&_third,
+	&_forth {
 		position: fixed;
 		top: 98px;
 		left: 0;
 		width: 100%;
 		height: calc(100% - 98px);
+		transition-duration: 1s;
 	}
-	// .home_struggle
-	&_struggle {
+	// .home_third
+	&_third {
 		overflow: hidden;
-		// .home_struggle_box
+		&.zoomOut {
+			transform: scale(2) !important;
+			opacity: 0 !important;
+			transition-duration: 1s !important;
+		}
+		// .home_third_box
 		&_box {
 			@include d_f(flex, space-between, center);
 			width: 100%;
@@ -1778,7 +1784,7 @@ h4 {
 				}
 			}
 		}
-		// .home_struggle_txt
+		// .home_third_txt
 		&_txt {
 			@include d_f(flex, center, center);
 			flex-direction: column;
@@ -1823,6 +1829,61 @@ h4 {
 					opacity: 1;
 				}
 			}
+		}
+	}
+	// .home_forth
+	&_forth {
+		overflow: hidden;
+		// .home_forth_box
+		&_box {
+			width: 100%;
+			height: 100%;
+			&::before,
+			&::after {
+				content: "";
+				width: 100%;
+				transform: translateY(100%);
+			}
+			&::before {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: url("../images/home/background_forth_1.jpg")
+					no-repeat center/cover;
+			}
+			&::after {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				display: block;
+				height: 500px;
+				background: url("../images/home/background_forth_2.png")
+					no-repeat center/cover;
+			}
+		}
+
+		// .home_forth_txt
+		&_txt {
+			position: absolute;
+			top: 200px;
+			right: 0;
+			left: 0;
+			display: inline-block;
+			max-width: 940px;
+			margin: auto;
+			padding: 64px 130px;
+			color: #ede3e3;
+			text-align: center;
+			font-family: Noto Sans;
+			font-size: 28px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 160%;
+			background-color: rgba(6, 6, 6, 0.5);
+			transform: translateY(80%) scale(0);
+			position: 0;
 		}
 	}
 }

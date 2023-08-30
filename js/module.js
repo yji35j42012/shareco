@@ -71,7 +71,6 @@ if (alert_close && alert) {
 	};
 }
 
-
 let favicon = document.querySelector('link[rel="shortcut icon"]');
 let isDarkMode = false;
 isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
