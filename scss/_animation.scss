@@ -241,3 +241,32 @@
 		opacity: 0;
 	}
 }
+
+@keyframes six_txt {
+	0% {
+		opacity: 0;
+		transform: translateY(100%) scale(0);
+	}
+	70% {
+		opacity: 1;
+		transform: translateY(-10%) scale(1.1);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0%) scale(1);
+	}
+}
+
+@keyframes six_bg {
+	0% {
+		opacity: 0;
+		transform: translateY(100%);
+	}
+	70% {
+		transform: translateY(-5%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0%);
+	}
+}

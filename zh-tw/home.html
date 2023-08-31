@@ -103,7 +103,7 @@
 				<span class="nav_btn_line"></span>
 			</button>
 		</header>
-		<div id="home" class="home zoomOut">
+		<div id="home" class="home">
 			<div class="home_bg room"></div>
 			<div id="tree_scene" class="home_tree room">
 				<img data-depth="0.5" src="../images/home/treel.png" alt="SHARECO">
@@ -145,7 +145,7 @@
 			</div>
 			<div class="home_linear room"></div>
 		</div>
-		<div id="home_second" class="home_video zoomOut">
+		<div id="home_second" class="home_video">
 			<div class="home_video_box">
 				<span>
 					<video id="home_video1" width="100%" height="" autoplay src="../images/home/video_1.mp4"></video>
@@ -153,13 +153,13 @@
 				</span>
 			</div>
 		</div>
-		<div id="home_third" class="home_third zoomOut">
+		<div id="home_third" class="home_third">
 			<div class="home_third_box">
 				<div class="home_third_txt">我們都經歷過成長過程中的 struggle</div>
 				<div class="home_third_txt _right">我們都質疑過自己在這個世界的位置</div>
 			</div>
 		</div>
-		<div id="home_forth" class="home_forth zoomOut">
+		<div id="home_forth" class="home_forth">
 			<div class="home_forth_box">
 				<div class="home_forth_txt">
 					面對內在與外在的衝突 <br>
@@ -169,7 +169,7 @@
 				</div>
 			</div>
 		</div>
-		<div id="home_fifth" class="home_fifth zoomOut">
+		<div id="home_fifth" class="home_fifth">
 			<div class="home_fifth_box1">
 				<div class="home_fifth_bg1">
 					<img src="../images/home/fifth_grass_top.png" alt="">
@@ -190,9 +190,17 @@
 		</div>
 		<div id="home_six" class="home_six">
 			<div class="home_six_box">
-				<span><img src="../images/home/six_background1.jpg" alt=""></span>
-				<span><img src="../images/home/six_background2.png" alt=""></span>
-
+				<div class="home_six_bg">
+					<span><img src="../images/home/six_background1.jpg" alt=""></span>
+					<span><img src="../images/home/six_background2.png" alt=""></span>
+				</div>
+				<div class="home_six_txt">
+					<span>
+						對那些能夠激發我們黑暗面的人 <br>
+						會有一種讓人沈迷的吸引力 <br>
+						這種人格特質散發的 “味道” 就是 SHARECO
+					</span>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -200,14 +208,14 @@
 
 	<script>
 		var wrap = document.querySelector(".wrap");
-		var home_fifth = document.querySelector("#home_fifth");
+		// var home_six = document.querySelector("#home_six");
 
 		setTimeout(() => {
 			wrap.classList.add('active')
 			wrap.classList.add('full')
 		}, 500);
 		// setTimeout(() => {
-		// 	home_fifth.classList.add('show')
+		// 	home_six.classList.add('show')
 
 		// }, 1000);
 
