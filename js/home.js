@@ -45,12 +45,38 @@ function scaleHandler(num, op) {
 		console.log("scaleHandler");
 	}, 100);
 }
+var home_video1 = document.querySelector("#home_video1");
+var home_video1Handler1 = document.querySelector("#home_video1Handler1");
+home_video1.volume = 0;
+home_video1Handler1.onclick = function () {
+	if (home_video1Handler1.classList.contains("_quiet")) {
+		home_video1Handler1.classList.remove("_quiet");
+		home_video1Handler1.classList.add("_voiced");
+		video1.volume = 1;
+	} else {
+		home_video1Handler1.classList.remove("_voiced");
+		home_video1Handler1.classList.add("_quiet");
+		video1.volume = 0;
+	}
+};
+
+var fifth_video = document.querySelector("#fifth_video");
+fifth_video.pause();
+function fifth_ani2() {
+	setTimeout(() => {
+		home_fifth.classList.add("show2");
+		fifth_video.play();
+	}, 7000);
+}
 function changePage() {
 	clearInterval(scaleTime);
 	mouseShow.classList.add("zoomOut");
 	pageNum++;
 	mouseShow = document.querySelector("#" + pageArr[pageNum]);
 	mouseShow.classList.add("show");
+	if (pageNum == 4) {
+		fifth_ani2();
+	}
 	setTimeout(() => {
 		MouseWheelSwitch = true;
 	}, 1100);
