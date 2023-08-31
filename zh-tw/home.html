@@ -184,7 +184,8 @@
 			</div>
 			<div class="home_fifth_bg2"></div>
 			<div class="home_fifth_box2">
-
+				<video id="fifth_video" width="100%" height="100%" muted loop autoplay
+					src="../images/home/try_video.mp4"></video>
 			</div>
 		</div>
 	</div>
@@ -192,7 +193,9 @@
 
 	<script>
 		var wrap = document.querySelector(".wrap");
-		var home_fifth = document.querySelector(".home_fifth");
+		var home_fifth = document.querySelector("#home_fifth");
+		var fifth_video = document.querySelector("#fifth_video");
+		fifth_video.pause();
 		setTimeout(() => {
 			wrap.classList.add('active')
 			wrap.classList.add('full')
@@ -204,6 +207,7 @@
 		function fifth_ani2() {
 			setTimeout(() => {
 				home_fifth.classList.add('show2')
+				fifth_video.play();
 			}, 7000);
 		}
 	</script>
