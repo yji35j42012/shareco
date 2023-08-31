@@ -3,7 +3,7 @@ var home = document.querySelector("#home");
 
 var home_second = document.querySelector("#home_second");
 
-var pageArr = ["home", "home_second", "home_third", "home_forth"];
+var pageArr = ["home", "home_second", "home_third", "home_forth", "home_fifth"];
 var pageNum = 0;
 // var nowPage = "home";
 
