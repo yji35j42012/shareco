@@ -3,7 +3,14 @@ var home = document.querySelector("#home");
 
 var home_second = document.querySelector("#home_second");
 
-var pageArr = ["home", "home_second", "home_third", "home_forth", "home_fifth", "home_six"];
+var pageArr = [
+	"home",
+	"home_second",
+	"home_third",
+	"home_forth",
+	"home_fifth",
+	"home_six"
+];
 var pageNum = 0;
 // var nowPage = "home";
 
@@ -48,7 +55,7 @@ function scaleHandler(num, op) {
 var home_video1 = document.querySelector("#home_video1");
 var home_video1Handler1 = document.querySelector("#home_video1Handler1");
 home_video1.volume = 0;
-home_video1Handler1.onclick = function () {
+home_video1Handler1.onclick = function() {
 	if (home_video1Handler1.classList.contains("_quiet")) {
 		home_video1Handler1.classList.remove("_quiet");
 		home_video1Handler1.classList.add("_voiced");
