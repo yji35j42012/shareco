@@ -260,7 +260,8 @@
 	&_third,
 	&_forth,
 	&_fifth,
-	&_six {
+	&_six,
+	&_seven {
 		position: fixed;
 		top: 98px;
 		left: 0;
@@ -387,7 +388,7 @@
 				transform: translateY(100%);
 				opacity: 0;
 				.show & {
-					animation: struggle_txtR 4s forwards;
+					animation: struggle_txtR 3s forwards;
 				}
 			}
 		}
@@ -744,6 +745,57 @@
 			}
 			.home_six_bg {
 				animation: six_bg 1.5s forwards;
+			}
+		}
+	}
+	// .home_seven
+	&_seven {
+		overflow: hidden;
+		// .home_seven_box
+		&_box {
+			@include d_f(flex, space-between);
+			flex-direction: column;
+			width: 100%;
+			height: 100%;
+			background-color: #000;
+			transform: translateY(100%);
+			.show & {
+				animation: seven_box 2s forwards;
+			}
+		}
+		// .home_seven_bg
+		&_bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: url("../images/home/seven_background.jpg") no-repeat
+				center/cover;
+			opacity: 0.8;
+			transform: scale(1);
+			.show & {
+				animation: seven_bg 2s 2s forwards;
+			}
+		}
+		// .home_seven_txt
+		&_txt {
+			position: relative;
+			padding-top: 70px;
+			opacity: 0;
+			.show & {
+				opacity: 1;
+				transition-duration: 2s;
+				transition-delay: 2s;
+			}
+			p {
+				color: #fff;
+				text-align: center;
+				font-family: Noto Sans;
+				font-size: 36px;
+				font-style: normal;
+				font-weight: 300;
+				line-height: normal;
 			}
 		}
 	}

@@ -877,7 +877,11 @@ h4 {
 	.error + & {
 		padding-top: 0;
 	}
-
+	.home_seven & {
+		padding-top: 0;
+		padding-bottom: 75px;
+		background-color: transparent;
+	}
 	@include mw(L) {
 		padding: 32px 15px;
 	}
@@ -889,7 +893,9 @@ h4 {
 		@include minmw(L) {
 			border-top: 1px solid #fff;
 		}
-
+.home_seven &{
+	border-top: none;
+}
 		@include mw(L) {
 			@include d_f(flex);
 			flex-direction: column;
@@ -1409,8 +1415,6 @@ h4 {
 		}
 	}
 }
-
-
 
 .banner {
 	position: relative;

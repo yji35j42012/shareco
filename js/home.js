@@ -9,16 +9,15 @@ var pageArr = [
 	"home_third",
 	"home_forth",
 	"home_fifth",
-	"home_six"
+	"home_six",
+	"home_seven"
 ];
 var pageNum = 0;
-// var nowPage = "home";
-
-home_btn.onclick = function() {
+home_btn.onclick = function () {
 	home.classList.add("zoomOut");
 	home_second.classList.add("show");
 	pageNum = 1;
-	// nowPage = pageArr[1];
+	home_video1.play();
 };
 
 var scaleTime;
@@ -55,15 +54,17 @@ function scaleHandler(num, op) {
 var home_video1 = document.querySelector("#home_video1");
 var home_video1Handler1 = document.querySelector("#home_video1Handler1");
 home_video1.volume = 0;
-home_video1Handler1.onclick = function() {
+home_video1.pause();
+
+home_video1Handler1.onclick = function () {
 	if (home_video1Handler1.classList.contains("_quiet")) {
 		home_video1Handler1.classList.remove("_quiet");
 		home_video1Handler1.classList.add("_voiced");
-		video1.volume = 1;
+		home_video1.volume = 1;
 	} else {
 		home_video1Handler1.classList.remove("_voiced");
 		home_video1Handler1.classList.add("_quiet");
-		video1.volume = 0;
+		home_video1.volume = 0;
 	}
 };
 
@@ -81,6 +82,7 @@ function changePage() {
 	pageNum++;
 	mouseShow = document.querySelector("#" + pageArr[pageNum]);
 	mouseShow.classList.add("show");
+
 	if (pageNum == 4) {
 		fifth_ani2();
 	}
@@ -91,13 +93,16 @@ function changePage() {
 function MouseWheel(e) {
 	e = e || window.event;
 	// e.wheelDelta <= 0 || e.detail > 0
+	console.log('pageArr.length', pageArr.length);
+	console.log('pageNum', pageNum);
 	if (!MouseWheelSwitch) return;
 	if (e.wheelDelta > 0) return;
+	if (pageArr.length - 1 == pageNum || pageNum == 0) return;
 	if (home.classList.contains("zoomOut")) {
-		// console.log("wheelDelta", e.wheelDelta);
-		// console.log("detail", e.detail);
+		console.log("wheelDelta", e.wheelDelta);
+		console.log("detail", e.detail);
 		var sc = (e.wheelDelta / 120) * -1 * 0.1;
-		if (sc > 0.5) {
+		if (sc > 0.1) {
 			MouseWheelSwitch = false;
 			changePage();
 		} else {
