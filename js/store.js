@@ -62,7 +62,7 @@ function set_store_sel(country) {
 	}
 }
 
-store_sel.onclick = function() {
+store_sel.onclick = function () {
 	store_sel_group.classList.toggle("on");
 };
 
@@ -74,7 +74,7 @@ function store_sel_clear() {
 
 for (let i = 0; i < store_sel_item.length; i++) {
 	const element = store_sel_item[i];
-	element.onclick = function() {
+	element.onclick = function () {
 		store_sel_clear();
 		element.classList.add("on");
 		store_sel.innerHTML = element.innerHTML;
@@ -87,7 +87,7 @@ for (let i = 0; i < store_sel_item.length; i++) {
 
 for (let i = 0; i < store_tab_item.length; i++) {
 	const element = store_tab_item[i];
-	element.onclick = function() {
+	element.onclick = function () {
 		if (screen == "pc") {
 			if (i == 0) {
 				store_tab_item[1].classList.remove("on");
@@ -144,7 +144,7 @@ function setPhInfo() {
 	}
 }
 
-window.onresize = function() {
+window.onresize = function () {
 	if (screen == "pc" && window.innerWidth <= 1024) {
 		screen = "ph";
 		store_show_none();

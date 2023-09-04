@@ -13,11 +13,20 @@ var story_pic2 = document.querySelector("#story_pic2");
 story_emptyBox.style.height =
 	story_box1.offsetHeight + story_box2.offsetHeight + 1100 + "px";
 
-console.log("story_box1", story_box1.offsetHeight);
-console.log("story_box2", story_box2.offsetHeight);
+function mobile() {
+	try {
+		document.createEvent("TouchEvent");
+		return true;
+	} catch (e) {
+		return false;
+	}
+}
+
+var device = mobile() ? "ph" : "pc"
+
+
 
 var box1Default = 400;
-
 var ani2Start = 450;
 var box1Default2 = 600;
 var ani3Start = 650;
@@ -29,16 +38,25 @@ var ani6Start = 1500;
 // Y從-150 ~ -45   105
 // X從 0 ~ -55
 
-var startPicY_1 = -150;
+
+
+if (device == "pc") {
+
+	var startPicY_1 = -150;
+	var firstPic = -55
+} else {
+
+	var startPicY_1 = -50;
+}
+
+
 var endPicY_1 = -45;
 var unitY_1 = ((startPicY_1 - endPicY_1) * -1) / box1Default;
 var unitZ_1 = 55 / box1Default;
 var txtop_1 = 1 / box1Default;
 var title_op = 1;
 var moveY_title = 0;
-var moveZ_title = 0;
-
-var box1op = 1;
+var moveZ_title = 0;var box1op = 1;
 var box2op = 0;
 
 // transform: translate3d(0, -800px, -400px);
@@ -65,7 +83,7 @@ var story_box2Y = 0;
 function setDefault() {
 	story_txt1.style = `transform: translate3d(0, 0px, 0px); opacity: 0;`;
 	setTimeout(() => {
-		story_pic1.style = `transform: translate3d(0, -150px, 0px);`;
+		story_pic1.style = `transform: translate3d(0, ${startPicY_1}px, 0px);`;
 	}, 500);
 	story_txt2.style = `transform: translate3d(0, ${startTxtY_4}px, ${startTxtZ_4}px); opacity: 0;`;
 	story_pic2.style = `transform: translate3d(0, ${startPicY_5}px, ${startPicZ_5}px); opacity: 0;`;
@@ -74,7 +92,7 @@ function setDefault() {
 // 0~200
 function ani1(num) {
 	var showop = txtop_1 * num;
-	var moveY_1 = unitY_1 * num - 150;
+	var moveY_1 = unitY_1 * num - (startPicY_1 * -1);
 	var moveZ_1 = unitZ_1 * num * -1;
 	if (moveY_1 >= -45) {
 		moveY_1 = -45;
@@ -185,30 +203,24 @@ function ani6(num) {
 }
 // 550
 window.addEventListener("scroll", () => {
-	// console.log("this.scrollY", this.scrollY);
+	console.log("scrollY", this.scrollY);
 
 	if (this.scrollY < box1Default) {
-		console.log("ani1");
 		ani1(this.scrollY);
 	}
 	if (this.scrollY > ani2Start) {
-		console.log("ani2");
 		ani2(this.scrollY);
 	}
 	if (this.scrollY > ani3Start) {
-		console.log("ani3");
 		ani3(this.scrollY);
 	}
 	if (this.scrollY > ani4Start) {
-		console.log("ani4");
 		ani4(this.scrollY);
 	}
 	if (this.scrollY > ani5Start) {
-		console.log("ani5");
 		ani5(this.scrollY);
 	}
 	if (this.scrollY > ani6Start) {
-		console.log("ani6");
 		ani6(this.scrollY);
 	}
 });

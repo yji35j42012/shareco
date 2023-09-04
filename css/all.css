@@ -3437,6 +3437,20 @@ h1 + .product_group {
   transform: translate3d(0, 0px, -50px);
 }
 
+@media (any-pointer: coarse) and (hover: none) {
+  .story_pic {
+    padding: 0 20px;
+  }
+  ._bg1 .story_pic {
+    transform: translate3d(0, -50px, 0px) scale(0);
+    opacity: 0;
+    transition-duration: 0.3s;
+  }
+  .active ._bg1 .story_pic {
+    opacity: 1;
+    transform: translate3d(0, -50px, 0px) scale(1);
+  }
+}
 .home {
   z-index: 100;
   overflow: hidden;
