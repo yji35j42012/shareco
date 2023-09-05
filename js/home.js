@@ -29,7 +29,7 @@ var pageArr = [
 	"home_seven"
 ];
 var pageNum = 0;
-home_btn.onclick = function() {
+home_btn.onclick = function () {
 	home.classList.add("zoomOut");
 	home_second.classList.remove("zoom");
 	home_second.classList.add("show");
@@ -106,7 +106,7 @@ function mousemove(event) {
 	// strawZ
 }
 
-home_video1Handler1.onclick = function() {
+home_video1Handler1.onclick = function () {
 	if (home_video1Handler1.classList.contains("_quiet")) {
 		home_video1Handler1.classList.remove("_quiet");
 		home_video1Handler1.classList.add("_voiced");
@@ -175,11 +175,12 @@ function MouseWheel(e) {
 		pagedown = false;
 		pageMove = e.wheelDelta * -1;
 	} else {
+		if (pageArr.length - 1 == pageNum) return
 		pagedown = true;
 		pageMove = e.wheelDelta;
 	}
 
-	if (pageArr.length - 1 == pageNum || pageNum == 0) return;
+	if (pageNum == 0) return;
 
 	console.log("pageArr.length", pageArr.length);
 	console.log("pageNum", pageNum);
@@ -188,14 +189,9 @@ function MouseWheel(e) {
 		console.log("wheelDelta", pageMove);
 		console.log("detail", e.detail);
 		var sc = (pageMove / 120) * -1 * 0.1;
-		if (sc > 0.1) {
-			MouseWheelSwitch = false;
-			changePage(pagedown);
-		} else {
-			mouseShow = document.querySelector("#" + pageArr[pageNum]);
-			mouseShow.style = `transform: scale(${1 + sc});	opacity:${1 - sc} ;`;
-			scaleHandler(1 + sc, 1 - sc);
-		}
+		mouseShow = document.querySelector("#" + pageArr[pageNum]);
+		MouseWheelSwitch = false;
+		changePage(pagedown);
 	}
 }
 
@@ -208,6 +204,8 @@ if ("onmousewheel" in window) {
 	window.addEventListener("mousewheel", MouseWheel, false);
 	window.addEventListener("DOMMouseScroll", MouseWheel, false);
 }
+
+
 
 var touchStart = 0;
 var touchEnd;
