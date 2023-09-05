@@ -1,3 +1,8 @@
+var wrap = document.querySelector("#wrap");
+setTimeout(() => {
+	wrap.classList.add("active");
+	wrap.classList.add("full");
+}, 500);
 var home_btn = document.querySelector("#home_btn");
 var home = document.querySelector("#home");
 
@@ -13,17 +18,23 @@ var pageArr = [
 	"home_seven"
 ];
 var pageNum = 0;
-home_btn.onclick = function () {
+home_btn.onclick = function() {
 	home.classList.add("zoomOut");
 	home_second.classList.add("show");
 	pageNum = 1;
 	home_video1.play();
+	setTimeout(() => {
+		wrap.classList.remove("active");
+		// home.classList.remove("zoomOut");
+	}, 2000);
 };
 
 var scaleTime;
 var scaleNum = 0;
 var scaleOp = 0;
 var mouseShow;
+var mouseNoShow;
+var changePageDelay = 2500;
 var MouseWheelSwitch = true;
 function scaleHandler(num, op) {
 	clearInterval(scaleTime);
@@ -56,7 +67,33 @@ var home_video1Handler1 = document.querySelector("#home_video1Handler1");
 home_video1.volume = 0;
 home_video1.pause();
 
-home_video1Handler1.onclick = function () {
+function mousemove(event) {
+	var mouseX = event.clientX;
+	var mouseY = event.clientY;
+	// console.log("mouseX", mouseX - boxCenterW);
+	if (!home.classList.contains("zoomOut")) {
+		if (mouseY - boxCenterH < 0) {
+			// 滑鼠在上方
+			lionZ(mouseY - boxCenterH);
+			strawZ(mouseY - boxCenterH);
+		}
+		if (mouseX - boxCenterW > 0) {
+			// 滑鼠在右方
+			treeZ(mouseX - boxCenterW);
+			flyrZ(mouseX - boxCenterW);
+		}
+
+		if (mouseX - boxCenterW < 0) {
+			// 滑鼠在左方
+			plantZ(mouseX - boxCenterW);
+			flyl(mouseX - boxCenterW);
+		}
+	}
+
+	// strawZ
+}
+
+home_video1Handler1.onclick = function() {
 	if (home_video1Handler1.classList.contains("_quiet")) {
 		home_video1Handler1.classList.remove("_quiet");
 		home_video1Handler1.classList.add("_voiced");
@@ -76,35 +113,70 @@ function fifth_ani2() {
 		fifth_video.play();
 	}, 7000);
 }
-function changePage() {
+function changePage(boo) {
 	clearInterval(scaleTime);
+	mouseNoShow = document.querySelector("#" + pageArr[pageNum]);
 	mouseShow.classList.add("zoomOut");
-	pageNum++;
+	if (boo) {
+		pageNum++;
+	} else {
+		pageNum--;
+	}
+	if(pageNum == 0){
+		wrap.classList.add("active");
+	}
 	mouseShow = document.querySelector("#" + pageArr[pageNum]);
+	mouseShow.classList.remove("zoomOut");
 	mouseShow.classList.add("show");
 
+	if (pageNum == 2 || pageNum == 3) {
+		changePageDelay = 3000;
+	}
 	if (pageNum == 4) {
 		fifth_ani2();
+		changePageDelay = 8500;
 	}
+
+	setTimeout(() => {
+		mouseNoShow.classList.remove("show");
+		mouseNoShow.classList.remove("zoomOut");
+		mouseNoShow.style = ``;
+	}, 1500);
 	setTimeout(() => {
 		MouseWheelSwitch = true;
-	}, 1100);
+	}, changePageDelay);
 }
+var pagedown = true;
+var pageMove = 0;
 function MouseWheel(e) {
 	e = e || window.event;
 	// e.wheelDelta <= 0 || e.detail > 0
-	console.log('pageArr.length', pageArr.length);
-	console.log('pageNum', pageNum);
+	console.log("e.wheelDelta", e.wheelDelta);
+
+	console.log("pagedown", pagedown);
+
 	if (!MouseWheelSwitch) return;
-	if (e.wheelDelta > 0) return;
+
+	if (e.wheelDelta > 0) {
+		pagedown = false;
+		pageMove = e.wheelDelta * -1;
+	} else {
+		pagedown = true;
+		pageMove = e.wheelDelta;
+	}
+
 	if (pageArr.length - 1 == pageNum || pageNum == 0) return;
+
+	console.log("pageArr.length", pageArr.length);
+	console.log("pageNum", pageNum);
+
 	if (home.classList.contains("zoomOut")) {
-		console.log("wheelDelta", e.wheelDelta);
+		console.log("wheelDelta", pageMove);
 		console.log("detail", e.detail);
-		var sc = (e.wheelDelta / 120) * -1 * 0.1;
+		var sc = (pageMove / 120) * -1 * 0.1;
 		if (sc > 0.1) {
 			MouseWheelSwitch = false;
-			changePage();
+			changePage(pagedown);
 		} else {
 			mouseShow = document.querySelector("#" + pageArr[pageNum]);
 			mouseShow.style = `transform: scale(${1 + sc});	opacity:${1 - sc} ;`;
@@ -122,6 +194,21 @@ if ("onmousewheel" in window) {
 	window.addEventListener("mousewheel", MouseWheel, false);
 	window.addEventListener("DOMMouseScroll", MouseWheel, false);
 }
+
+var touchStart = 0;
+function touchHandler(e) {
+	console.log("~");
+	touchStart = e.touches[0].pageY;
+}
+function touchmoveHandler(e) {
+	console.log("~！", touchStart - e.touches[0].pageY);
+}
+function touchendHandler() {}
+
+window.addEventListener("mousemove", mousemove);
+window.addEventListener("touchstart", touchHandler);
+window.addEventListener("touchmove", touchmoveHandler);
+window.addEventListener("touchend", touchendHandler);
 
 var nowW = window.innerWidth;
 var nowH = window.innerHeight;
@@ -460,31 +547,3 @@ function lionZ(y) {
 			-1}px) scale(1)`;
 	}, 0.5);
 }
-
-function mousemove(event) {
-	var mouseX = event.clientX;
-	var mouseY = event.clientY;
-	// console.log("mouseX", mouseX - boxCenterW);
-	if (!home.classList.contains("zoomOut")) {
-		if (mouseY - boxCenterH < 0) {
-			// 滑鼠在上方
-			lionZ(mouseY - boxCenterH);
-			strawZ(mouseY - boxCenterH);
-		}
-		if (mouseX - boxCenterW > 0) {
-			// 滑鼠在右方
-			treeZ(mouseX - boxCenterW);
-			flyrZ(mouseX - boxCenterW);
-		}
-
-		if (mouseX - boxCenterW < 0) {
-			// 滑鼠在左方
-			plantZ(mouseX - boxCenterW);
-			flyl(mouseX - boxCenterW);
-		}
-	}
-
-	// strawZ
-}
-
-window.addEventListener("mousemove", mousemove);
