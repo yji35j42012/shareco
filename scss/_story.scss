@@ -130,8 +130,14 @@
 }
 @media (any-pointer: coarse) and (hover: none) {
 	.story {
+		// .story_txt
+		&_txt{
+			max-width: 315px;
+		}
 		// .story_pic
 		&_pic {
+			max-width: 500px;
+			margin: auto;
 			padding: 0 20px;
 
 			._bg1 & {
