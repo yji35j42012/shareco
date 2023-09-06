@@ -861,7 +861,7 @@ h4 {
 	padding: 0 55px;
 	background-color: #fff;
 	box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.07);
-	z-index: 101;
+	z-index: 100;
 
 	@include mw(L) {
 		justify-content: space-between;
