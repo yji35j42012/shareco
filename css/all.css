@@ -6115,11 +6115,7 @@ h1 + .product_group {
     max-width: 75px;
   }
   .home_fifth_box2 video {
-    position: absolute;
-    bottom: 0;
-    height: 90%;
-    -webkit-transform: translateX(-160px);
-            transform: translateX(-160px);
+    width: 100%;
   }
   .home_fifth_box2 span {
     top: 5%;
@@ -6128,7 +6124,7 @@ h1 + .product_group {
     height: 10%;
   }
   .home_fifth_txt {
-    top: 5%;
+    top: 7%;
     left: 0px;
     right: 0;
     color: #333;
