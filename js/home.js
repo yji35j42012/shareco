@@ -29,7 +29,7 @@ var pageArr = [
 	"home_seven"
 ];
 var pageNum = 0;
-home_btn.onclick = function () {
+home_btn.onclick = function() {
 	home.classList.add("zoomOut");
 	home_second.classList.remove("zoom");
 	home_second.classList.add("show");
@@ -106,7 +106,7 @@ function mousemove(event) {
 	// strawZ
 }
 
-home_video1Handler1.onclick = function () {
+home_video1Handler1.onclick = function() {
 	if (home_video1Handler1.classList.contains("_quiet")) {
 		home_video1Handler1.classList.remove("_quiet");
 		home_video1Handler1.classList.add("_voiced");
@@ -178,7 +178,7 @@ function MouseWheel(e) {
 		pagedown = false;
 		pageMove = e.wheelDelta * -1;
 	} else {
-		if (pageArr.length - 1 == pageNum) return
+		if (pageArr.length - 1 == pageNum) return;
 		pagedown = true;
 		pageMove = e.wheelDelta;
 	}
@@ -208,8 +208,6 @@ if ("onmousewheel" in window) {
 	window.addEventListener("DOMMouseScroll", MouseWheel, false);
 }
 
-
-
 var touchStart = 0;
 var touchEnd;
 function touchHandler(e) {
@@ -230,6 +228,7 @@ function touchmoveHandler(e) {
 		touchEnd = true;
 	} else {
 		console.log("換上一個");
+
 		touchEnd = false;
 	}
 }
@@ -242,6 +241,7 @@ function touchendHandler() {
 	}
 	mouseShow = document.querySelector("#" + pageArr[pageNum]);
 	pagedown = touchEnd;
+	if (pagedown && pageArr.length - 1 == pageNum) return;
 	changePage(pagedown);
 	window.removeEventListener("touchmove", touchmoveHandler);
 	window.removeEventListener("touchend", touchendHandler);
