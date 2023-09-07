@@ -623,14 +623,70 @@
 			width: 100%;
 			height: 100%;
 			opacity: 0;
+			background-color: #f2f2f2;
 			> img {
 				position: absolute;
 				bottom: 0;
 				right: 0;
 				max-width: 1000px;
 			}
+			span {
+				position: absolute;
+				top: 0;
+				left: 1331px;
+				display: inline-block;
+				width: 10%;
+				height: 100%;
+				background-color: #f2f2f2;
+				-webkit-filter: blur(20px);
+				filter: blur(20px);
+				z-index: 1;
+			}
+			video {
+				width: auto;
+			}
 		}
-
+		// .home_fifth_txt
+		&_txt {
+			position: absolute;
+			top: 45%;
+			right: 165px;
+			margin: auto;
+			color: #333;
+			text-align: center;
+			font-family: Noto Sans;
+			font-size: 28px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 160%; /* 44.8px */
+			z-index: 1;
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				display: block;
+				width: 40px;
+				height: 44px;
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-position: center;
+				@include mw(L) {
+					width: 16px;
+				}
+			}
+			&::before {
+				background-image: url("../images/icon/icon_dot_down_b.svg");
+				left: 0;
+				top: 0;
+				transform: translate(-150%, -150%);
+			}
+			&::after {
+				right: 0;
+				bottom: 0;
+				background-image: url("../images/icon/icon_dot_top_b.svg");
+				transform: translate(150%, 150%);
+			}
+		}
 		&.show2 {
 			.home_fifth_box1 {
 				transform: translateY(-100%);
@@ -643,6 +699,10 @@
 			.home_fifth_box2 {
 				opacity: 1;
 				transition-duration: 1s;
+
+				> img {
+					z-index: 2;
+				}
 			}
 		}
 	}
@@ -1063,6 +1123,12 @@
 		}
 		// .home_fifth
 		&_fifth {
+			.pc {
+				display: none;
+			}
+			.ph {
+				display: block;
+			}
 			// .home_fifth_bg1
 			&_bg1 {
 				.pc {
@@ -1073,7 +1139,7 @@
 					display: block;
 
 					&._p1 {
-						top: 0;
+						bottom: 0;
 						left: 0;
 					}
 					&._p2 {
@@ -1124,6 +1190,43 @@
 					right: 0;
 					bottom: 150px;
 					max-width: 75px;
+				}
+			}
+			&_box2 {
+				video {
+					position: absolute;
+					bottom: 0;
+					height: 90%;
+					transform: translateX(-160px);
+				}
+				span {
+					top: 5%;
+					left: 0;
+					width: 100%;
+					height: 10%;
+				}
+			}
+			// .home_fifth_txt
+			&_txt {
+				top: 5%;
+				left: 0px;
+				right: 0;
+				color: #333;
+				text-align: center;
+				font-family: Noto Sans;
+				font-size: 16px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 160%; /* 25.6px */
+				&::before,
+				&:after {
+					width: 16px;
+				}
+				&::before {
+					transform: translate(165%, -70%);
+				}
+				&:after {
+					transform: translate(-165%, 70%);
 				}
 			}
 		}

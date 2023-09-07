@@ -13,7 +13,7 @@ function mobile() {
 }
 
 var device = mobile() ? "ph" : "pc";
-
+var fifthAni2Time;
 var home_btn = document.querySelector("#home_btn");
 var home = document.querySelector("#home");
 
@@ -120,8 +120,9 @@ home_video1Handler1.onclick = function () {
 
 var fifth_video = document.querySelector("#fifth_video");
 fifth_video.pause();
+
 function fifth_ani2() {
-	setTimeout(() => {
+	fifthAni2Time = setTimeout(() => {
 		home_fifth.classList.add("show2");
 		fifth_video.play();
 	}, 7000);
@@ -146,6 +147,7 @@ function changePage(boo) {
 	if (pageNum == 2 || pageNum == 3) {
 		changePageDelay = 3000;
 	}
+	clearTimeout(fifthAni2Time);
 	if (pageNum == 4) {
 		fifth_ani2();
 		changePageDelay = 8500;
@@ -158,9 +160,10 @@ function changePage(boo) {
 		mouseNoShow.classList.add("zoom");
 		mouseNoShow.style = ``;
 	}, 1500);
+	// MouseWheelSwitch = true;
 	setTimeout(() => {
 		MouseWheelSwitch = true;
-	}, changePageDelay);
+	}, 2000);
 }
 var pagedown = true;
 var pageMove = 0;
