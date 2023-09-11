@@ -627,7 +627,7 @@
 			> img {
 				position: absolute;
 				bottom: 0;
-				right: 0;
+				right: -60px;
 				max-width: 1000px;
 			}
 			span {
@@ -649,7 +649,7 @@
 		// .home_fifth_txt
 		&_txt {
 			position: absolute;
-			top: 45%;
+			top: 40%;
 			right: 165px;
 			margin: auto;
 			color: #333;
@@ -704,6 +704,15 @@
 					z-index: 2;
 				}
 			}
+		}
+		// .home_fifth_bee
+		&_bee {
+			z-index: 1;
+			position: absolute;
+			top: 230px;
+			right: 125px;
+			max-width: 60px;
+			transform: rotate(15deg);
 		}
 	}
 	// .home_six
