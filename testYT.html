@@ -4,8 +4,12 @@
 <body>
     <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
     <div id="player"></div>
-
+    <button id="open">開聲音</button>
+    <button id="close">關聲音</button>
     <script>
+        var open = document.querySelector("#open");
+        var close = document.querySelector("#close");
+
         // 2. This code loads the IFrame Player API code asynchronously.
         var tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
@@ -24,7 +28,7 @@
                 videoId: '3xuF-cCZEWc',
                 playerVars: {
                     'autoplay': 1,
-                    'controls': 0,
+                    'controls': 1,
                     'playsinline': 1,
                     'loop': 1,
                 },
@@ -39,6 +43,10 @@
             event.target.playVideo();
             event.target.setVolume(0);
             event.target.playVideo();
+            event.target.setLoop(false);
+        }
+        open.onclick = function (event) {
+            event.target.setVolume(100);
         }
         // 5. The API calls this function when the player's state changes.
         //    The function indicates that when playing a video (state=1),
@@ -46,10 +54,11 @@
         var done = false;
 
         function onPlayerStateChange(event) {
-            if (event.data == YT.PlayerState.PLAYING && !done) {
-                setTimeout(stopVideo, 6000);
-                done = true;
-            }
+            event.target.setLoop(true);
+            // if (event.data == YT.PlayerState.PLAYING && !done) {
+            //     setTimeout(stopVideo, 6000);
+            //     done = true;
+            // }
         }
 
         function stopVideo() {
