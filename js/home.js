@@ -29,13 +29,12 @@ var pageArr = [
 	"home_seven"
 ];
 var pageNum = 0;
-home_btn.onclick = function() {
+home_btn.onclick = function () {
 	home.classList.add("zoomOut");
 	home_second.classList.remove("zoom");
 	home_second.classList.add("show");
 	pageNum = 1;
-	home_video1.play();
-	// videoYT1.target.playVideo();
+	player.playVideo();
 	setTimeout(() => {
 		wrap.classList.remove("active");
 	}, 2000);
@@ -74,19 +73,12 @@ function scaleHandler(num, op) {
 		console.log("scaleHandler");
 	}, 100);
 }
-var home_video1 = document.querySelector("#home_video1");
-var home_video1Handler1 = document.querySelector("#home_video1Handler1");
-home_video1.volume = 0;
-home_video1.pause();
-
-
 var videoYT1 = document.querySelector("#videoYT1");
 
 function mousemove(event) {
 	var mouseX = event.clientX;
 	var mouseY = event.clientY;
 	if (device == "ph") return;
-	// console.log("mouseX", mouseX - boxCenterW);
 	if (!home.classList.contains("zoomOut")) {
 		if (mouseY - boxCenterH < 0) {
 			// 滑鼠在上方
@@ -109,15 +101,15 @@ function mousemove(event) {
 	// strawZ
 }
 
-home_video1Handler1.onclick = function() {
+home_video1Handler1.onclick = function () {
 	if (home_video1Handler1.classList.contains("_quiet")) {
 		home_video1Handler1.classList.remove("_quiet");
 		home_video1Handler1.classList.add("_voiced");
-		home_video1.volume = 1;
+		player.setVolume(100)
 	} else {
 		home_video1Handler1.classList.remove("_voiced");
 		home_video1Handler1.classList.add("_quiet");
-		home_video1.volume = 0;
+		player.setVolume(0)
 	}
 };
 
@@ -134,7 +126,7 @@ function changePage(boo) {
 	clearInterval(scaleTime);
 	mouseNoShow = document.querySelector("#" + pageArr[pageNum]);
 	mouseShow.classList.add("zoomOut");
-	console.log('pageNum',pageNum);
+	console.log('pageNum', pageNum);
 
 	if (boo) {
 		pageNum++;
@@ -144,10 +136,10 @@ function changePage(boo) {
 	if (pageNum == 0) {
 		wrap.classList.add("active");
 	}
-	if(pageNum ==1){
-		home_video1.play();
-	}else{
-		home_video1.pause();
+	if (pageNum == 1) {
+		player.playVideo();
+	} else {
+		player.pauseVideo();
 	}
 	mouseShow = document.querySelector("#" + pageArr[pageNum]);
 	mouseShow.classList.remove("zoomOut");
@@ -590,4 +582,39 @@ if (device == "pc") {
 				-1}px) scale(1)`;
 		}, 0.5);
 	}
+}
+
+
+
+var open = document.querySelector("#open");
+var close = document.querySelector("#close");
+// 2. This code loads the IFrame Player API code asynchronously.
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+// 3. This function creates an <iframe> (and YouTube player)
+//    after the API code downloads.
+var player;
+
+function onYouTubeIframeAPIReady() {
+	player = new YT.Player('player', {
+		width: '100%',
+		height: '100%',
+		videoId: '3xuF-cCZEWc',
+		playerVars: {
+			'playlist': '3xuF-cCZEWc',
+			'autoplay': 0,
+			'loop': 1,
+			'controls': 0,
+			'playsinline': 1,
+		},
+		events: {
+			'onReady': onPlayerReady,
+		}
+	});
+}
+function onPlayerReady(event) {
+	event.target.setVolume(0);
+	event.target.setLoop(true);
 }

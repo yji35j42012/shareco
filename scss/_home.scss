@@ -297,45 +297,26 @@
 		&_box {
 			position: relative;
 			@include d_f(flex, center);
-			max-width: 1140px;
+			// max-width: 1140px;
 			width: 100%;
 			height: 100%;
 			margin: auto;
 			@include mw(XL) {
 				align-items: center;
 			}
-			span {
-				position: relative;
-				display: inline-block;
+			&:after{
+				content:"";
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: block;
 				width: 100%;
-				max-width: 100%;
-				// height: 100%;
-				padding-bottom: calc(100% * 0.56);
-				// @include mw(XL) {
-				// 	display: inline-block;
-				// 	width: 100%;
-				// 	padding-bottom: calc(100% * 0.56);
-				// }
-				iframe{
-					position: absolute;
-					top: 0;
-					left: 0;
-				}
-			}
-			video {
 				height: 100%;
-				@include mw(XL) {
-					position: absolute;
-					top: 0;
-					left: 0;
-					bottom: 0;
-					height: auto;
-					margin: auto;
-				}
 			}
 		}
 		// .home_video_sound
 		&_sound {
+			z-index: 3;
 			position: absolute;
 			left: 14px;
 			bottom: 14px;
