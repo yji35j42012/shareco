@@ -37,7 +37,6 @@ home_btn.onclick = function() {
 	home_video1.play();
 	setTimeout(() => {
 		wrap.classList.remove("active");
-		// home.classList.remove("zoomOut");
 	}, 2000);
 };
 
@@ -131,6 +130,8 @@ function changePage(boo) {
 	clearInterval(scaleTime);
 	mouseNoShow = document.querySelector("#" + pageArr[pageNum]);
 	mouseShow.classList.add("zoomOut");
+	console.log('pageNum',pageNum);
+
 	if (boo) {
 		pageNum++;
 	} else {
@@ -138,6 +139,11 @@ function changePage(boo) {
 	}
 	if (pageNum == 0) {
 		wrap.classList.add("active");
+	}
+	if(pageNum ==1){
+		home_video1.play();
+	}else{
+		home_video1.pause();
 	}
 	mouseShow = document.querySelector("#" + pageArr[pageNum]);
 	mouseShow.classList.remove("zoomOut");
@@ -170,8 +176,6 @@ var pageMove = 0;
 function MouseWheel(e) {
 	e = e || window.event;
 	// e.wheelDelta <= 0 || e.detail > 0
-	console.log("e.wheelDelta", e.wheelDelta);
-	console.log("pagedown", pagedown);
 	if (!MouseWheelSwitch) return;
 
 	if (e.wheelDelta > 0) {
@@ -211,10 +215,8 @@ if ("onmousewheel" in window) {
 var touchStart = 0;
 var touchEnd;
 function touchHandler(e) {
-	console.log("~");
 	if (!MouseWheelSwitch) return;
 	touchStart = e.touches[0].pageY;
-
 	window.addEventListener("touchmove", touchmoveHandler);
 	window.addEventListener("touchend", touchendHandler);
 }
@@ -222,13 +224,9 @@ var touchMove;
 function touchmoveHandler(e) {
 	if (pageNum == 0) return;
 	touchMove = touchStart - e.touches[0].pageY;
-	console.log("touchMove", touchMove);
-
 	if (touchMove > 0) {
 		touchEnd = true;
 	} else {
-		console.log("換上一個");
-
 		touchEnd = false;
 	}
 }

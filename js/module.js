@@ -1,7 +1,62 @@
 var lang = document.querySelector("#lang");
+var lang_group = document.querySelector(".lang_group");
+var lang_group_item = document.querySelectorAll(".lang_group > li");
+var href = location.href;
+
+for (let i = 0; i < lang_group_item.length; i++) {
+	const element = lang_group_item[i];
+	element.classList.remove("on");
+}
+(function() {
+	if (href.indexOf("zh-tw") !== -1) {
+		lang_group_item[0].classList.add("on");
+		// lang_txt.innerHTML = "繁中";
+	} else if (href.indexOf("zh-cn") !== -1) {
+		lang_group_item[1].classList.add("on");
+		// lang_txt.innerHTML = "简中";
+	} else if (href.indexOf("en-us") !== -1) {
+		lang_group_item[2].classList.add("on");
+		// lang_txt.innerHTML = "EN";
+		// body.classList.add("en")
+	} else if (href.indexOf("ja-jp") !== -1) {
+		lang_group_item[3].classList.add("on");
+	}
+})();
 if (lang) {
 	lang.onclick = function() {
 		lang.classList.toggle("show_lang");
+	};
+}
+for (let i = 0; i < lang_group_item.length; i++) {
+	const element = lang_group_item[i];
+	element.onclick = function() {
+		event.stopPropagation();
+		// lang_txt.innerHTML = element.innerHTML;
+		lang.classList.remove("on");
+		var changeLang = element.getAttribute("data-lang");
+		var num = null;
+		var newHref = "";
+		if (href.indexOf(changeLang) == -1) {
+			let hrefS = href.split("/");
+			if (hrefS.indexOf("zh-tw") !== -1) {
+				num = hrefS.indexOf("zh-tw");
+			} else if (hrefS.indexOf("zh-cn") !== -1) {
+				num = hrefS.indexOf("zh-cn");
+			} else if (hrefS.indexOf("en-us") !== -1) {
+				num = hrefS.indexOf("en-us");
+			}
+
+			hrefS.splice(num, 1, changeLang);
+
+			for (let i = 0; i < hrefS.length; i++) {
+				if (i == hrefS.length - 1) {
+					newHref += hrefS[i];
+				} else {
+					newHref += hrefS[i] + "/";
+				}
+			}
+			location.href = newHref;
+		}
 	};
 }
 

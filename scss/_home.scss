@@ -447,6 +447,7 @@
 
 		// .home_forth_txt
 		&_txt {
+			z-index: 1;
 			position: absolute;
 			top: 200px;
 			right: 0;
@@ -650,7 +651,7 @@
 		&_txt {
 			position: absolute;
 			top: 40%;
-			right: 165px;
+			right: 215px;
 			margin: auto;
 			color: #333;
 			text-align: center;
@@ -1118,6 +1119,7 @@
 			}
 			// .home_forth_txt
 			&_txt {
+				z-index: 1;
 				width: calc(100% - 40px);
 				max-width: 400px;
 				padding: 35px 20px;
