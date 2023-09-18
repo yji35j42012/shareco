@@ -297,7 +297,8 @@
 		&_box {
 			position: relative;
 			@include d_f(flex, center);
-			max-width: 1500px;
+			max-width: 1140px;
+			width: 100%;
 			height: 100%;
 			margin: auto;
 			@include mw(XL) {
@@ -305,11 +306,20 @@
 			}
 			span {
 				position: relative;
+				display: inline-block;
+				width: 100%;
 				max-width: 100%;
-				@include mw(XL) {
-					display: inline-block;
-					width: 100%;
-					padding-bottom: calc(100% * 0.54);
+				// height: 100%;
+				padding-bottom: calc(100% * 0.56);
+				// @include mw(XL) {
+				// 	display: inline-block;
+				// 	width: 100%;
+				// 	padding-bottom: calc(100% * 0.56);
+				// }
+				iframe{
+					position: absolute;
+					top: 0;
+					left: 0;
 				}
 			}
 			video {

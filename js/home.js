@@ -35,6 +35,7 @@ home_btn.onclick = function() {
 	home_second.classList.add("show");
 	pageNum = 1;
 	home_video1.play();
+	// videoYT1.target.playVideo();
 	setTimeout(() => {
 		wrap.classList.remove("active");
 	}, 2000);
@@ -77,6 +78,9 @@ var home_video1 = document.querySelector("#home_video1");
 var home_video1Handler1 = document.querySelector("#home_video1Handler1");
 home_video1.volume = 0;
 home_video1.pause();
+
+
+var videoYT1 = document.querySelector("#videoYT1");
 
 function mousemove(event) {
 	var mouseX = event.clientX;
