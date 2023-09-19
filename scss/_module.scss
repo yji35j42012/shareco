@@ -610,6 +610,23 @@ h4 {
 			filter: invert(1);
 			transform: rotate(90deg);
 		}
+		.home_seven_txt &{
+			margin-top: 0;
+			@include hoverHandler{
+				background-color: #fff;
+				color: #000;
+				&:after{
+					filter: invert(16%) sepia(21%) saturate(0%) hue-rotate(245deg)
+			brightness(95%) contrast(87%);
+				}
+			}
+		}
+		.home_seven_txt &:after {
+			order: 0;
+			margin-left: 10px;
+			margin-right: 0;
+			transform: rotate(-90deg);
+		}
 	}
 
 	@include hoverHandler {

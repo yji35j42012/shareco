@@ -608,6 +608,7 @@ function onYouTubeIframeAPIReady() {
 			'loop': 1,
 			'controls': 0,
 			'playsinline': 1,
+			'rel':0,
 		},
 		events: {
 			'onReady': onPlayerReady,
