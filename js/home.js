@@ -29,7 +29,7 @@ var pageArr = [
 	"home_seven"
 ];
 var pageNum = 0;
-home_btn.onclick = function () {
+home_btn.onclick = function() {
 	home.classList.add("zoomOut");
 	home_second.classList.remove("zoom");
 	home_second.classList.add("show");
@@ -101,15 +101,15 @@ function mousemove(event) {
 	// strawZ
 }
 
-home_video1Handler1.onclick = function () {
+home_video1Handler1.onclick = function() {
 	if (home_video1Handler1.classList.contains("_quiet")) {
 		home_video1Handler1.classList.remove("_quiet");
 		home_video1Handler1.classList.add("_voiced");
-		player.setVolume(100)
+		player.setVolume(100);
 	} else {
 		home_video1Handler1.classList.remove("_voiced");
 		home_video1Handler1.classList.add("_quiet");
-		player.setVolume(0)
+		player.setVolume(0);
 	}
 };
 
@@ -126,7 +126,7 @@ function changePage(boo) {
 	clearInterval(scaleTime);
 	mouseNoShow = document.querySelector("#" + pageArr[pageNum]);
 	mouseShow.classList.add("zoomOut");
-	console.log('pageNum', pageNum);
+	console.log("pageNum", pageNum);
 
 	if (boo) {
 		pageNum++;
@@ -584,34 +584,26 @@ if (device == "pc") {
 	}
 }
 
-
-
-var open = document.querySelector("#open");
-var close = document.querySelector("#close");
-// 2. This code loads the IFrame Player API code asynchronously.
-var tag = document.createElement('script');
+var tag = document.createElement("script");
 tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
+var firstScriptTag = document.getElementsByTagName("script")[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-// 3. This function creates an <iframe> (and YouTube player)
-//    after the API code downloads.
 var player;
-
 function onYouTubeIframeAPIReady() {
-	player = new YT.Player('player', {
-		width: '100%',
-		height: '100%',
-		videoId: '3xuF-cCZEWc',
+	player = new YT.Player("player", {
+		width: "100%",
+		height: "100%",
+		videoId: "3xuF-cCZEWc",
 		playerVars: {
-			'playlist': '3xuF-cCZEWc',
-			'autoplay': 0,
-			'loop': 1,
-			'controls': 0,
-			'playsinline': 1,
-			'rel':0,
+			playlist: "3xuF-cCZEWc",
+			autoplay: 0,
+			loop: 1,
+			controls: 0,
+			playsinline: 1,
+			rel: 0
 		},
 		events: {
-			'onReady': onPlayerReady,
+			onReady: onPlayerReady
 		}
 	});
 }
