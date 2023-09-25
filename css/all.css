@@ -2577,7 +2577,7 @@ h1 + .product_group {
 }
 .product_item_detail li:nth-child(1) {
   position: relative;
-  padding-right: 28px;
+  padding-right: 32px;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
