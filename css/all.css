@@ -2471,7 +2471,7 @@ h1 + .product_group {
   }
 }
 .product_item:nth-child(even) {
-  margin-left: 142px;
+  margin-left: 138px;
 }
 @media screen and (max-width: 1280px) {
   .product_item:nth-child(even) {
@@ -2618,7 +2618,7 @@ h1 + .product_group {
   display: none;
 }
 .product_item_detail li:nth-child(2) {
-  padding-left: 24px;
+  padding-left: 28px;
   font-size: 12px;
   font-family: Noto Sans;
   font-size: 12px;
