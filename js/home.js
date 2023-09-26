@@ -114,12 +114,14 @@ home_video1Handler1.onclick = function() {
 };
 
 var fifth_video = document.querySelector("#fifth_video");
+var fifth_video_m = document.querySelector("#fifth_video");
 fifth_video.pause();
-
+fifth_video_m.pause();
 function fifth_ani2() {
 	fifthAni2Time = setTimeout(() => {
 		home_fifth.classList.add("show2");
 		fifth_video.play();
+		fifth_video_m.play();
 	}, 7000);
 }
 function changePage(boo) {

@@ -297,9 +297,16 @@
 			max-width: 680px;
 			margin: auto;
 			color: #fff;
-
+			text-align: center;
+			font-family: Noto Sans;
+			font-size: 24px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 160%; /* 38.4px */
 			@include mw(XL) {
 				max-width: 272px;
+				font-size: 12px;
+				transform: scale(0.9);
 			}
 
 			&::before,
@@ -315,18 +322,25 @@
 
 				@include mw(XL) {
 					width: 16px;
+					
 				}
 			}
 
 			&::before {
 				background-image: url("../images/icon/icon_dot_down.svg");
 				transform: translate(-150%, -150%);
+				@include mw(XL){
+					transform: translate(-130%, -55%);
+				}
 			}
 
 			&::after {
 				right: 0;
 				background-image: url("../images/icon/icon_dot_top.svg");
 				transform: translateX(150%);
+				@include mw(XL){
+					transform: translate(130%, -55%);
+				}
 			}
 		}
 	}
