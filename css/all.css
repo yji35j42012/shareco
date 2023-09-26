@@ -4047,6 +4047,9 @@ h1 + .product_group {
 .home_fifth_box2 video {
   width: auto;
 }
+.home_fifth_box2 .ph {
+  display: none;
+}
 .home_fifth_txt {
   position: absolute;
   top: 40%;
