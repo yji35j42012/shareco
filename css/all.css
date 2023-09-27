@@ -777,6 +777,7 @@ h4 {
   }
 }
 .alert_lightBox_detail {
+  min-width: 240px;
   margin-left: auto;
   text-align: right;
   white-space: break-spaces;
