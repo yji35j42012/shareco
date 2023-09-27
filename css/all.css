@@ -827,17 +827,25 @@ h4 {
   }
 }
 .alert_lightBox_txt {
+  max-width: 510px;
   margin: 40px auto 0;
   color: rgba(51, 51, 51, 0.5);
   text-align: center;
   font-size: 8px;
+  transform: scale(0.8);
   font-weight: 300;
   line-height: 140%;
   /* 11.2px */
 }
+.alert_lightBox_txt span {
+  display: block;
+}
 @media screen and (max-width: 1024px) {
   .alert_lightBox_txt {
     margin-top: 14px;
+  }
+  .alert_lightBox_txt span {
+    display: inline;
   }
 }
 
