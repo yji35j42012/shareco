@@ -2166,7 +2166,15 @@ h1 + .banner_txt_rule {
   height: 100%;
   padding-bottom: 56%;
 }
-.gallery_video video {
+.gallery_video_box::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.gallery_video iframe {
   position: absolute;
   top: 0;
   left: 0;
@@ -2185,6 +2193,7 @@ h1 + .banner_txt_rule {
   }
 }
 .gallery_video_sound {
+  z-index: 2;
   position: absolute;
   left: 14px;
   bottom: 14px;

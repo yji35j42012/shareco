@@ -72,23 +72,7 @@ var screen = window.innerWidth <= 1024 ? "ph" : "pc";
 
 var allaos = document.querySelectorAll("[name = 'aos']");
 
-console.log("allaos", allaos);
-// function clearallaos() {
-// 	for (let i = 0; i < allaos.length; i++) {
-// 		const element = allaos[i];
-// 		element.setAttribute("data-aos", "");
-// 	}
-// }
-// function setallaos() {
-// 	for (let i = 0; i < allaos.length; i++) {
-// 		const element = allaos[i];
-// 		// element.setAttribute("data-aos", "fade-up");
-// 		element.classList.add("aos-animate");
-// 	}
-// }
 window.onresize = function() {
-	console.log(document.querySelector("html").scrollTop);
-
 	// AOS.init();
 	if (screen == "ph" && window.innerWidth > 1024) {
 		screen = "pc";

@@ -1,34 +1,126 @@
-var videoHandler1 = document.querySelector("#videoHandler1");
-var video1 = document.querySelector("#video1");
+
+
+
+
+
+var header = document.querySelector("#header");
+var scrollTop = window.pageYOffset;
+var windowH = window.innerHeight;
 var video_box1 = document.querySelector("#video_box1");
+var v1T = video_box1.offsetTop
+var v1H = video_box1.offsetHeight
+var v1Max = v1T + v1H - header.offsetHeight + windowH
+var video_box2 = document.querySelector("#video_box2");
+var v2T = video_box2.offsetTop
+var v2H = video_box2.offsetHeight
+var v2Max = v2T + v2H - header.offsetHeight + windowH
+
+
+var tag = document.createElement("script");
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName("script")[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+var player1;
+var player2;
+function onYouTubeIframeAPIReady() {
+	player1 = new YT.Player("player1", {
+		width: "100%",
+		height: "100%",
+		videoId: "RWFLs9EUw-w",
+		playerVars: {
+			playlist: "RWFLs9EUw-w",
+			autoplay: 0,
+			loop: 1,
+			controls: 0,
+			playsinline: 1,
+			rel: 0
+		},
+		events: {
+			onReady: onPlayerReady
+		}
+	});
+	player2 = new YT.Player("player2", {
+		width: "100%",
+		height: "100%",
+		videoId: "SpRIlkGi2ao",
+		playerVars: {
+			playlist: "SpRIlkGi2ao",
+			autoplay: 0,
+			loop: 1,
+			controls: 0,
+			playsinline: 1,
+			rel: 0
+		},
+		events: {
+			onReady: onPlayerReady2
+		}
+	});
+}
+function onPlayerReady(event) {
+	event.target.setVolume(0);
+	event.target.setLoop(true);
+
+	if (scrollTop + windowH > video_box1.offsetTop) {
+		event.target.playVideo();
+	}
+
+	if (scrollTop + windowH > v1T && scrollTop + windowH < v1Max) {
+		player1.playVideo();
+	}
+}
+function onPlayerReady2(event) {
+	event.target.setVolume(0);
+	event.target.setLoop(true);
+	if (scrollTop + windowH > v2T && scrollTop + windowH < v2Max) {
+		player2.playVideo();
+	}
+}
+
+var videoHandler1 = document.querySelector("#videoHandler1");
+var videoHandler2 = document.querySelector("#videoHandler2");
 
 videoHandler1.onclick = function () {
 	if (videoHandler1.classList.contains("_quiet")) {
 		videoHandler1.classList.remove("_quiet");
 		videoHandler1.classList.add("_voiced");
-		video1.volume = 1;
+		player1.setVolume(100);
 	} else {
 		videoHandler1.classList.remove("_voiced");
 		videoHandler1.classList.add("_quiet");
-		video1.volume = 0;
+		player1.setVolume(0);
 	}
 };
-var videoHandler2 = document.querySelector("#videoHandler2");
-var video2 = document.querySelector("#video2");
-
 videoHandler2.onclick = function () {
 	if (videoHandler2.classList.contains("_quiet")) {
 		videoHandler2.classList.remove("_quiet");
 		videoHandler2.classList.add("_voiced");
-		video2.volume = 1;
+		player2.setVolume(100);
 	} else {
 		videoHandler2.classList.remove("_voiced");
 		videoHandler2.classList.add("_quiet");
-		video2.volume = 0;
+		player2.setVolume(0);
 	}
 };
-video1.volume = 0;
-video2.volume = 0;
+
+window.addEventListener("scroll", (event) => {
+	scrollTop = window.pageYOffset;
+	windowH = window.innerHeight;
+	videoHandler(scrollTop + windowH)
+});
+
+function videoHandler(num) {
+	if (num > v1T && num < v1Max) {
+		player1.playVideo();
+	} else if (num > v1Max && player1) {
+		player1.pauseVideo();
+	}
+	if (num > v2T && num < v2Max && player2) {
+		player2.playVideo();
+	} else if (num > v2Max || num < v2T && player2) {
+		player2.pauseVideo();
+	}
+}
+
 var swiper1_prev = document.querySelector("#swiper1_prev");
 var swiper1_next = document.querySelector("#swiper1_next");
 var swiper1_group = document.querySelector("#swiper1_group");
