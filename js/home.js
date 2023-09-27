@@ -90,7 +90,7 @@ home_video1Handler1.onclick = function () {
 };
 
 var fifth_video = document.querySelector("#fifth_video");
-var fifth_video_m = document.querySelector("#fifth_video");
+var fifth_video_m = document.querySelector("#fifth_video_m");
 fifth_video.pause();
 fifth_video_m.pause();
 function fifth_ani2() {
@@ -184,7 +184,9 @@ var touchStart = 0;
 var touchEnd;
 var touchMove;
 var header = document.querySelector("#header");
-
+setTimeout(() => {
+	header.style= "display: ;"
+}, 1000);
 function touchHandler(e) {
 	if (header.classList.contains("onHead")) return
 	if (!MouseWheelSwitch) return;
