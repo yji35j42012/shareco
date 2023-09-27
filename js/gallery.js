@@ -4,18 +4,21 @@
 
 
 var header = document.querySelector("#header");
+var headerH = header.offsetHeight
 var scrollTop = window.pageYOffset;
 var windowH = window.innerHeight;
+
 var video_box1 = document.querySelector("#video_box1");
 var v1T = video_box1.offsetTop
 var v1H = video_box1.offsetHeight
-var v1Max = v1T + v1H - header.offsetHeight + windowH
+var v1Max = v1T + v1H - headerH + windowH
 var video_box2 = document.querySelector("#video_box2");
 var v2T = video_box2.offsetTop
 var v2H = video_box2.offsetHeight
-var v2Max = v2T + v2H - header.offsetHeight + windowH
+var v2Max = v2T + v2H - headerH + windowH
 
 
+// console.log('headerH',headerH);
 var tag = document.createElement("script");
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName("script")[0];
@@ -29,11 +32,13 @@ function onYouTubeIframeAPIReady() {
 		videoId: "RWFLs9EUw-w",
 		playerVars: {
 			playlist: "RWFLs9EUw-w",
-			autoplay: 0,
+			autoplay: 1,
 			loop: 1,
 			controls: 0,
 			playsinline: 1,
-			rel: 0
+			rel: 0,
+			autohide: 1, // Hide video controls when playing
+			
 		},
 		events: {
 			onReady: onPlayerReady
@@ -59,18 +64,20 @@ function onYouTubeIframeAPIReady() {
 function onPlayerReady(event) {
 	event.target.setVolume(0);
 	event.target.setLoop(true);
-
-	if (scrollTop + windowH > video_box1.offsetTop) {
-		event.target.playVideo();
+	if(screen=='ph'){
+		event.target.mute();
 	}
-
 	if (scrollTop + windowH > v1T && scrollTop + windowH < v1Max) {
-		player1.playVideo();
+		console.log('ASDF');
+		event.target.playVideo();
 	}
 }
 function onPlayerReady2(event) {
 	event.target.setVolume(0);
 	event.target.setLoop(true);
+	if(screen=='ph'){
+		event.target.mute();
+	}
 	if (scrollTop + windowH > v2T && scrollTop + windowH < v2Max) {
 		player2.playVideo();
 	}
@@ -105,18 +112,31 @@ videoHandler2.onclick = function () {
 window.addEventListener("scroll", (event) => {
 	scrollTop = window.pageYOffset;
 	windowH = window.innerHeight;
+	if(screen=='ph'){
+		v1Max = v1T + v1H - headerH + windowH
+		v2Max = v2T + v2H - headerH + windowH
+	}
 	videoHandler(scrollTop + windowH)
 });
 
 function videoHandler(num) {
 	if (num > v1T && num < v1Max) {
+		console.log('v1可以播放囉');
 		player1.playVideo();
 	} else if (num > v1Max && player1) {
+		console.log('v1要暫停囉');
 		player1.pauseVideo();
 	}
+
+console.log(' window.innerHeight', window.innerHeight);
+	console.log('num',num);
+	console.log('v2T',v2T);
+	console.log('v2Max',v2Max);
 	if (num > v2T && num < v2Max && player2) {
+		console.log('v2可以播放囉');
 		player2.playVideo();
 	} else if (num > v2Max || num < v2T && player2) {
+		console.log('v2要暫停囉');
 		player2.pauseVideo();
 	}
 }
