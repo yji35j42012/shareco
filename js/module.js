@@ -7,7 +7,7 @@ for (let i = 0; i < lang_group_item.length; i++) {
 	const element = lang_group_item[i];
 	element.classList.remove("on");
 }
-(function() {
+(function () {
 	if (href.indexOf("zh-tw") !== -1) {
 		lang_group_item[0].classList.add("on");
 		// lang_txt.innerHTML = "繁中";
@@ -23,13 +23,13 @@ for (let i = 0; i < lang_group_item.length; i++) {
 	}
 })();
 if (lang) {
-	lang.onclick = function() {
+	lang.onclick = function () {
 		lang.classList.toggle("show_lang");
 	};
 }
 for (let i = 0; i < lang_group_item.length; i++) {
 	const element = lang_group_item[i];
-	element.onclick = function() {
+	element.onclick = function () {
 		event.stopPropagation();
 		// lang_txt.innerHTML = element.innerHTML;
 		lang.classList.remove("on");
@@ -67,7 +67,7 @@ var nav_item_count = null;
 if (nav_item) {
 	for (let i = 0; i < nav_item.length; i++) {
 		const element = nav_item[i];
-		element.onclick = function() {
+		element.onclick = function () {
 			if (screen == "pc") return;
 			if (nav_item_count == null) {
 				element.classList.add("on");
@@ -86,12 +86,21 @@ if (nav_item) {
 var nav_btn = document.querySelector("#nav_btn");
 var header = document.querySelector("#header");
 if (nav_btn) {
-	nav_btn.onclick = function() {
+	nav_btn.onclick = function () {
 		header.classList.toggle("showMenu");
 	};
 }
 
-window.onresize = function() {
+function touchHeader() {
+	header.classList.add('onHead');
+	header.addEventListener("touchend", touchendHeader);
+}
+function touchendHeader() {
+	header.classList.remove('onHead');
+}
+header.addEventListener("touchstart", touchHeader);
+
+window.onresize = function () {
 	if (screen == "pc" && window.innerWidth <= 1024) {
 		screen = "ph";
 	} else if (screen == "ph" && window.innerWidth > 1024) {
@@ -107,18 +116,18 @@ var alert = document.querySelector("#alert");
 var alert_close = document.querySelector("#alert_close");
 var alert_lightBox = document.querySelector("#alert_lightBox");
 if (alert_lightBox) {
-	alert_lightBox.onclick = function(event) {
+	alert_lightBox.onclick = function (event) {
 		event.stopPropagation();
 	};
 }
 if (alert_close && alert) {
-	alert_close.onclick = function() {
+	alert_close.onclick = function () {
 		alert.classList.remove("on");
 		setTimeout(() => {
 			alert.classList.remove("show");
 		}, 500);
 	};
-	alert.onclick = function() {
+	alert.onclick = function () {
 		alert.classList.remove("on");
 		setTimeout(() => {
 			alert.classList.remove("show");

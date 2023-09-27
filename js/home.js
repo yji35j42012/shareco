@@ -29,8 +29,10 @@ var pageArr = [
 	"home_seven"
 ];
 var pageNum = 0;
-home_btn.onclick = function() {
+home_btn.onclick = function () {
 	home.classList.add("zoomOut");
+	clearTimeout(changePageTime);
+	home_second.classList.remove("zoomOut");
 	home_second.classList.remove("zoom");
 	home_second.classList.add("show");
 	pageNum = 1;
@@ -47,34 +49,8 @@ var mouseShow;
 var mouseNoShow;
 var changePageDelay = 2500;
 var MouseWheelSwitch = true;
-function scaleHandler(num, op) {
-	clearInterval(scaleTime);
-	scaleNum = num;
-	scaleOp = op;
-	scaleTime = setInterval(() => {
-		if (scaleNum == 1 && scaleOp == 1) {
-			clearInterval(scaleTime);
-		} else {
-			if (scaleNum !== 1) {
-				scaleNum = scaleNum - 0.1;
-				scaleNum = parseFloat(setFloat(scaleNum, 1));
-			} else if (scaleNum < 1) {
-				scaleNum = 1;
-			}
-			if (scaleOp !== 1) {
-				scaleOp = scaleOp + 0.1;
-				scaleOp = parseFloat(setFloat(scaleOp, 1));
-			} else if (scaleOp < 1) {
-				scaleOp = 1;
-			}
-		}
-		mouseShow.style = `transform: scale(${scaleNum}); opacity:${scaleOp} ;`;
-
-		console.log("scaleHandler");
-	}, 100);
-}
 var videoYT1 = document.querySelector("#videoYT1");
-
+var changePageTime;
 function mousemove(event) {
 	var mouseX = event.clientX;
 	var mouseY = event.clientY;
@@ -101,7 +77,7 @@ function mousemove(event) {
 	// strawZ
 }
 
-home_video1Handler1.onclick = function() {
+home_video1Handler1.onclick = function () {
 	if (home_video1Handler1.classList.contains("_quiet")) {
 		home_video1Handler1.classList.remove("_quiet");
 		home_video1Handler1.classList.add("_voiced");
@@ -157,7 +133,7 @@ function changePage(boo) {
 		changePageDelay = 8500;
 	}
 
-	setTimeout(() => {
+	changePageTime = setTimeout(() => {
 		mouseNoShow.classList.remove("show2");
 		mouseNoShow.classList.remove("show");
 		mouseNoShow.classList.remove("zoomOut");
@@ -186,10 +162,6 @@ function MouseWheel(e) {
 	}
 
 	if (pageNum == 0) return;
-
-	console.log("pageArr.length", pageArr.length);
-	console.log("pageNum", pageNum);
-
 	if (home.classList.contains("zoomOut")) {
 		console.log("wheelDelta", pageMove);
 		console.log("detail", e.detail);
@@ -199,8 +171,6 @@ function MouseWheel(e) {
 		changePage(pagedown);
 	}
 }
-
-// hook event listener on window object
 if ("onmousewheel" in window) {
 	window.onmousewheel = MouseWheel;
 } else if ("onmousewheel" in document) {
@@ -212,14 +182,20 @@ if ("onmousewheel" in window) {
 
 var touchStart = 0;
 var touchEnd;
+var touchMove;
+var header = document.querySelector("#header");
+
 function touchHandler(e) {
+	if (header.classList.contains("onHead")) return
 	if (!MouseWheelSwitch) return;
 	touchStart = e.touches[0].pageY;
 	window.addEventListener("touchmove", touchmoveHandler);
 	window.addEventListener("touchend", touchendHandler);
 }
-var touchMove;
 function touchmoveHandler(e) {
+	if (header.classList.contains("onHead")) return
+	console.log('66666');
+	console.log('ASDF', header.classList.contains("onHead"));
 	if (pageNum == 0) return;
 	touchMove = touchStart - e.touches[0].pageY;
 	if (touchMove > 0) {
@@ -229,6 +205,11 @@ function touchmoveHandler(e) {
 	}
 }
 function touchendHandler() {
+	if (header.classList.contains("onHead")) {
+		window.removeEventListener("touchmove", touchmoveHandler);
+		window.removeEventListener("touchend", touchendHandler);
+		return
+	}
 	if (pageNum == 0) return;
 	if (touchMove > 0 && touchMove < 30) {
 		return;
@@ -613,3 +594,33 @@ function onPlayerReady(event) {
 	event.target.setVolume(0);
 	event.target.setLoop(true);
 }
+
+
+
+
+// function scaleHandler(num, op) {
+// 	clearInterval(scaleTime);
+// 	scaleNum = num;
+// 	scaleOp = op;
+// 	scaleTime = setInterval(() => {
+// 		if (scaleNum == 1 && scaleOp == 1) {
+// 			clearInterval(scaleTime);
+// 		} else {
+// 			if (scaleNum !== 1) {
+// 				scaleNum = scaleNum - 0.1;
+// 				scaleNum = parseFloat(setFloat(scaleNum, 1));
+// 			} else if (scaleNum < 1) {
+// 				scaleNum = 1;
+// 			}
+// 			if (scaleOp !== 1) {
+// 				scaleOp = scaleOp + 0.1;
+// 				scaleOp = parseFloat(setFloat(scaleOp, 1));
+// 			} else if (scaleOp < 1) {
+// 				scaleOp = 1;
+// 			}
+// 		}
+// 		mouseShow.style = `transform: scale(${scaleNum}); opacity:${scaleOp} ;`;
+
+// 		console.log("scaleHandler");
+// 	}, 100);
+// }
