@@ -38,7 +38,7 @@ function onYouTubeIframeAPIReady() {
 			playsinline: 1,
 			rel: 0,
 			autohide: 1, // Hide video controls when playing
-			
+
 		},
 		events: {
 			onReady: onPlayerReady
@@ -64,7 +64,7 @@ function onYouTubeIframeAPIReady() {
 function onPlayerReady(event) {
 	event.target.setVolume(0);
 	event.target.setLoop(true);
-	if(screen=='ph'){
+	if (screen == 'ph') {
 		event.target.mute();
 	}
 	if (scrollTop + windowH > v1T && scrollTop + windowH < v1Max) {
@@ -75,7 +75,7 @@ function onPlayerReady(event) {
 function onPlayerReady2(event) {
 	event.target.setVolume(0);
 	event.target.setLoop(true);
-	if(screen=='ph'){
+	if (screen == 'ph') {
 		event.target.mute();
 	}
 	if (scrollTop + windowH > v2T && scrollTop + windowH < v2Max) {
@@ -112,7 +112,11 @@ videoHandler2.onclick = function () {
 window.addEventListener("scroll", (event) => {
 	scrollTop = window.pageYOffset;
 	windowH = window.innerHeight;
-	if(screen=='ph'){
+	if (screen == 'ph') {
+		v1T = video_box1.offsetTop
+		v1H = video_box1.offsetHeight
+		v2T = video_box2.offsetTop
+		v2H = video_box2.offsetHeight
 		v1Max = v1T + v1H - headerH + windowH
 		v2Max = v2T + v2H - headerH + windowH
 	}
@@ -128,10 +132,10 @@ function videoHandler(num) {
 		player1.pauseVideo();
 	}
 
-console.log(' window.innerHeight', window.innerHeight);
-	console.log('num',num);
-	console.log('v2T',v2T);
-	console.log('v2Max',v2Max);
+	// console.log(' window.innerHeight', window.innerHeight);
+	console.log('num', num);
+	console.log('v2T', v2T);
+	console.log('v2Max', v2Max);
 	if (num > v2T && num < v2Max && player2) {
 		console.log('v2可以播放囉');
 		player2.playVideo();
