@@ -1144,17 +1144,32 @@ h4 {
 }
 
 .logo {
+	position: relative;
 	flex: none;
 	width: calc(244px + 79px);
 	padding-right: 79px;
 	margin-right: 79px;
-	border-right: 1px solid #000;
+	// border-right: 1px solid #000;
 
+	&:after{
+		content:"";
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		display: block;
+		width: 1px;
+		height: 57px;
+		margin: auto;
+		background-color: #000;
+	}
 	@include mw(L) {
 		width: 132px;
 		padding-right: 0;
 		margin-right: 0;
-		border-right: none;
+		&:after{
+			display: none;
+		}
 	}
 }
 

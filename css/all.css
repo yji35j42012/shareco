@@ -1106,18 +1106,32 @@ h4 {
 }
 
 .logo {
+  position: relative;
   flex: none;
   width: 323px;
   padding-right: 79px;
   margin-right: 79px;
-  border-right: 1px solid #000;
+}
+.logo:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  display: block;
+  width: 1px;
+  height: 57px;
+  margin: auto;
+  background-color: #000;
 }
 @media screen and (max-width: 1024px) {
   .logo {
     width: 132px;
     padding-right: 0;
     margin-right: 0;
-    border-right: none;
+  }
+  .logo:after {
+    display: none;
   }
 }
 
@@ -3410,7 +3424,7 @@ h1 + .product_group {
 }
 @media screen and (max-width: 1024px) {
   .story_box._bg2 {
-    padding-top: 153px;
+    padding-top: 60px;
     padding-bottom: 54px;
   }
 }
@@ -3670,7 +3684,8 @@ h1 + .product_group {
   font-size: 90px;
   font-style: normal;
   font-weight: 400;
-  line-height: 128.5%; /* 115.65px */
+  line-height: 128.5%;
+  /* 115.65px */
   letter-spacing: 0.2px;
   text-align: center;
 }
@@ -3680,7 +3695,8 @@ h1 + .product_group {
   font-size: 32px;
   font-style: normal;
   font-weight: 400;
-  line-height: 122%; /* 39.04px */
+  line-height: 122%;
+  /* 39.04px */
   letter-spacing: 0.2px;
 }
 .home_txt_btn {
@@ -3820,7 +3836,8 @@ h1 + .product_group {
   font-size: 28px;
   font-style: normal;
   font-weight: 600;
-  line-height: 160%; /* 44.8px */
+  line-height: 160%;
+  /* 44.8px */
 }
 .home_third_txt::before {
   content: "";
@@ -3993,7 +4010,8 @@ h1 + .product_group {
   font-size: 96px;
   font-style: normal;
   font-weight: 400;
-  line-height: 128.5%; /* 123.36px */
+  line-height: 128.5%;
+  /* 123.36px */
   letter-spacing: 0.2px;
   opacity: 0;
   transform: scale(2);
@@ -4081,7 +4099,8 @@ h1 + .product_group {
   font-size: 28px;
   font-style: normal;
   font-weight: 400;
-  line-height: 160%; /* 44.8px */
+  line-height: 160%;
+  /* 44.8px */
   z-index: 1;
 }
 .home_fifth_txt::before, .home_fifth_txt::after {
@@ -4123,6 +4142,16 @@ h1 + .product_group {
   opacity: 1;
   transition-duration: 1s;
 }
+.home_fifth.show2 .home_fifth_box2::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 50px;
+  height: 100%;
+  background-color: #000;
+}
 .home_fifth.show2 .home_fifth_box2 > img {
   z-index: 2;
 }
@@ -4154,6 +4183,7 @@ h1 + .product_group {
   height: 100%;
   opacity: 0;
   transform: translateY(100%);
+  background-color: #fff;
 }
 .home_six_bg > span:nth-child(1) {
   position: absolute;
@@ -4205,7 +4235,8 @@ h1 + .product_group {
   font-size: 28px;
   font-style: normal;
   font-weight: 400;
-  line-height: 160%; /* 44.8px */
+  line-height: 160%;
+  /* 44.8px */
   white-space: nowrap;
   opacity: 0;
   transform: translateY(100%) scale(0);
@@ -4330,7 +4361,8 @@ h1 + .product_group {
     font-size: 32px;
     font-style: normal;
     font-weight: 400;
-    line-height: 128.5%; /* 41.12px */
+    line-height: 128.5%;
+    /* 41.12px */
     letter-spacing: 0.2px;
   }
   .home_txt_since {
@@ -4340,7 +4372,8 @@ h1 + .product_group {
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
-    line-height: 122%; /* 21.96px */
+    line-height: 122%;
+    /* 21.96px */
     letter-spacing: 0.2px;
   }
   .home_txt_btn {
@@ -4419,7 +4452,8 @@ h1 + .product_group {
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
-    line-height: 160%; /* 25.6px */
+    line-height: 160%;
+    /* 25.6px */
     z-index: 1;
   }
   .home_third_txt::before {
@@ -4477,7 +4511,8 @@ h1 + .product_group {
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 160%; /* 25.6px */
+    line-height: 160%;
+    /* 25.6px */
   }
   .home_fifth .pc {
     display: none;
@@ -4514,7 +4549,8 @@ h1 + .product_group {
     font-size: 40px;
     font-style: normal;
     font-weight: 400;
-    line-height: 128.5%; /* 51.4px */
+    line-height: 128.5%;
+    /* 51.4px */
     letter-spacing: 0.2px;
   }
   .home_fifth_animal img:nth-child(1) {
@@ -4551,7 +4587,8 @@ h1 + .product_group {
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 160%; /* 25.6px */
+    line-height: 160%;
+    /* 25.6px */
   }
   .home_fifth_txt::before, .home_fifth_txt:after {
     width: 16px;
@@ -4579,7 +4616,8 @@ h1 + .product_group {
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 160%; /* 25.6px */
+    line-height: 160%;
+    /* 25.6px */
   }
   .home_six_bg::after {
     display: none;
