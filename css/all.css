@@ -3168,6 +3168,7 @@ h1 + .product_group {
   font-size: 42px;
   font-weight: 600;
   line-height: 149.2%;
+  text-align: center;
 }
 @media screen and (max-width: 1024px) {
   .contact_item_title {

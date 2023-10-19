@@ -44,8 +44,11 @@ for (let i = 0; i < lang_group_item.length; i++) {
 				num = hrefS.indexOf("zh-cn");
 			} else if (hrefS.indexOf("en-us") !== -1) {
 				num = hrefS.indexOf("en-us");
+			} else if (hrefS.indexOf("ja-jp") !== -1) {
+				num = hrefS.indexOf("ja-jp");
 			}
-
+			// 112.10.19補上
+			
 			hrefS.splice(num, 1, changeLang);
 
 			for (let i = 0; i < hrefS.length; i++) {
