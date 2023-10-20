@@ -341,8 +341,7 @@ for (let i = 0; i < swiperHandler.length; i++) {
 	};
 }
 
-// 112.10.19修改 start
-
+// 112.10.19 gallery.js 修改 start
 var href = location.href;
 var galData;
 (function () {
@@ -1290,9 +1289,7 @@ var galData;
 		];
 	}
 })();
-
-
-// 112.10.19修改 end
+// 112.10.19 gallery.js 修改 end
 
 
 

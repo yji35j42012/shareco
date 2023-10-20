@@ -47,7 +47,7 @@ for (let i = 0; i < lang_group_item.length; i++) {
 			} else if (hrefS.indexOf("ja-jp") !== -1) {
 				num = hrefS.indexOf("ja-jp");
 			}
-			// 112.10.19補上
+			// 112.10.19  module.js補上ja-jp
 			
 			hrefS.splice(num, 1, changeLang);
 
