@@ -2415,6 +2415,13 @@ h1 + .banner_txt_rule {
   padding: 80px 20px 110px;
   background: url("../images/product_parfums/background.png") no-repeat center bottom/contain;
 }
+.product._parfums.no_group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+  background-size: cover;
+}
 @media screen and (max-width: 1280px) {
   .product._parfums {
     padding: 32px 14px 0;
