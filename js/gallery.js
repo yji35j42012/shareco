@@ -1056,232 +1056,234 @@ var galData;
 			{
 				galId: 1,
 				setMaxW: false,
-				galName: "裸麝香",
+				galName: "キンダブギー",
 				galPhoto: "perfume_name_photot_1.png",
 				galPic: "perfume_open_photot_1.jpg",
 				galPicPh: "perfume_open_photot_ph1.jpg",
 				galYear: "2023",
 				galDetail:
-					"Like the ocean that is the cradle of life, a tough and feminine presence that lures you away.",
+					"橘の香りが、ジャングルの始まりを予感させる。空間に広がるのは、野性的なタバコの香り。王者はもうすぐ凱旋帰還します。",
 				picPosition: "center"
 			},
 			{
 				galId: 2,
 				setMaxW: false,
-				galName: "麝掠香",
+				galName: "エナジームスク",
 				galPhoto: "perfume_name_photot_2.png",
 				galPic: "perfume_open_photot_2.jpg",
 				galPicPh: "perfume_open_photot_ph2.jpg",
 				galYear: "2023",
 				galDetail:
-					"Lurking in the bustling jungle, a clear, young amber wood note that blurs the lines.",
+					"冒険は心地よい木の香りの中で始まる。朝日と共に明らかになるのは、麝香の清新な活力。紳士に、静けさと優雅さをもたらします。",
 				picPosition: "30%"
 			},
 			{
 				galId: 3,
 				setMaxW: false,
-				galName: "迷幻灵魂",
+				galName: "アシッドモリー",
 				galPhoto: "perfume_name_photot_3.png",
 				galPic: "perfume_open_photot_3.jpg",
 				galPicPh: "perfume_open_photot_ph3.jpg",
 				galYear: "2023",
 				galDetail:
-					"A mysterious hint of strong floral notes, inviting you on an adventure in the land of imagination.",
+					"リラックスさせる化学物質が広がり、人々に快適な怠惰な気分をもたらします。まるでパーティーのような雰囲気で、現実世界から離れたひとときを楽しんでください。",
 				picPosition: "center"
 			},
 			{
 				galId: 4,
 				setMaxW: false,
-				galName: "焚香草",
+				galName: "ヴィーナスフライトラップ",
 				galPhoto: "perfume_name_photot_4.png",
 				galPic: "perfume_open_photot_4.jpg",
 				galPicPh: "perfume_open_photot_ph4.jpg",
 				galYear: "2023",
 				galDetail:
-					"Heart racing with every breath, is my scent an invitation?Who do you want to meet?",
+					"緻密に飾り付けられたエデンガーデン。漂うのは、静かに魅惑的な甘い香り。獲物を静かに待つ、攻撃性を纏って。",
 				picPosition: "center"
 			},
 			{
 				galId: 5,
 				setMaxW: false,
-				galName: "黑水香树",
+				galName: "ロイヤルオーク",
 				galPhoto: "perfume_name_photot_5.png",
 				galPic: "perfume_open_photot_5.jpg",
 				galPicPh: "perfume_open_photot_ph5.jpg",
 				galYear: "2022",
-				galDetail: "Wood scent masked with a hint of sweet and a note of tang; enchanting your senses, lowering defences.",
+				galDetail: "大いなる自信が、貴族の香りから生まれます。島の植物と果物の香りが融合し、王室の魅力を放っています。",
 				picPosition: "42%"
 			},
 			{
 				galId: 6,
 				setMaxW: false,
-				galName: "捕蝇草",
+				galName: "キンダブギー",
 				galPhoto: "perfume_name_photot_6.png",
 				galPic: "perfume_open_photot_6.jpg",
 				galPicPh: "perfume_open_photot_ph6.jpg",
 				galYear: "2022",
 				galDetail:
-					"Like the garden of Eden, a hint of something tempting lurks within;wait for your prey, sometimes defense is the best offence.",
+					"橘の香りが、ジャングルの始まりを予感させる。空間に広がるのは、野性的なタバコの香り。王者はもうすぐ凱旋帰還します。",
 				picPosition: "52%"
 			},
 			{
 				galId: 7,
 				setMaxW: false,
-				galName: "琥珀檀香",
+				galName: "エナジームスク",
 				galPhoto: "perfume_name_photot_7.png",
 				galPic: "perfume_open_photot_7.jpg",
 				galPicPh: "perfume_open_photot_ph7.jpg",
 				galYear: "2022",
 				galDetail:
-					"Sometimes cold and prideful, sometimes soft and gentle; an aggressive romantic that cannot be tamed, and you cannot resist.",
+					"冒険は心地よい木の香りの中で始まる。朝日と共に明らかになるのは、麝香の清新な活力。紳士に、静けさと優雅さをもたらします。",
 				picPosition: "82%"
 			},
 			{
 				galId: 8,
 				setMaxW: false,
-				galName: "清醒梦",
+				galName: "アシッドモリー",
 				galPhoto: "perfume_name_photot_8.png",
 				galPic: "perfume_open_photot_8.jpg",
 				galPicPh: "perfume_open_photot_ph1.jpg",
 				galYear: "2021",
 				galDetail:
-					"Immersed in the fantastic utopia of scent, fresh, joyous, and comfortably laid back. Don’t wake me, my dream is my reality.",
+					"リラックスさせる化学物質が広がり、人々に快適な怠惰な気分をもたらします。まるでパーティーのような雰囲気で、現実世界から離れたひとときを楽しんでください。",
 				picPosition: "97%"
 			},
 			{
 				galId: 9,
 				setMaxW: false,
-				galName: "维吉尼亚麝香",
+				galName: "ヴィーナスフライトラップ",
 				galPhoto: "perfume_name_photot_9.png",
 				galPic: "perfume_open_photot_9.jpg",
 				galPicPh: "perfume_open_photot_ph9.jpg",
 				galYear: "2021",
 				galDetail:
-					"Like the strong ladies’ man embraced with smoking wood; let him take charge, and feel unassailable security.",
+					"緻密に飾り付けられたエデンガーデン。漂うのは、静かに魅惑的な甘い香り。獲物を静かに待つ、攻撃性を纏って。",
 				picPosition: "28%"
 			},
 			{
 				galId: 10,
 				setMaxW: false,
-				galName: "大麻麝香",
+				galName: "ロイヤルオーク",
 				galPhoto: "perfume_name_photot_10.png",
 				galPic: "perfume_open_photot_10.jpg",
 				galPicPh: "perfume_open_photot_ph10.jpg",
 				galYear: "2020",
-				galDetail:
-					"An elegant but slightly flirty blend, light citrus in a jungle, wild tobacco in the air, the King has returned.",
+				galDetail: "大いなる自信が、貴族の香りから生まれます。島の植物と果物の香りが融合し、王室の魅力を放っています。",
 				picPosition: "28%"
 			},
 			{
 				galId: 11,
 				setMaxW: false,
-				galName: "琥珀莱姆",
+				galName: "キンダブギー",
 				galPhoto: "perfume_name_photot_11.png",
 				galPic: "perfume_open_photot_11.jpg",
 				galPicPh: "perfume_open_photot_ph11.jpg",
 				galYear: "2020",
 				galDetail:
-					"Soft sweetness of rum blended with the sharp scent of cedar, let’s go, just one more dance, that lasts forever.",
+					"橘の香りが、ジャングルの始まりを予感させる。空間に広がるのは、野性的なタバコの香り。王者はもうすぐ凱旋帰還します。",
 				galTxt:
 					"Odors have a power of persuasion stronger than that of words, appearances or will.SHARECO, <br>  using the most direct odor tomake you feel the fine atmosphere."
 			},
 			{
 				galId: 12,
 				setMaxW: false,
-				galName: "奇迹罂粟",
+				galName: "エナジームスク",
 				galPhoto: "perfume_name_photot_12.png",
 				galPic: "perfume_open_photot_12.jpg",
 				galPicPh: "perfume_open_photot_ph12.jpg",
 				galYear: "2018",
 				galDetail:
-					"The three main floral scent joined in harmony, creating a symphony that brings peace and stability. A most luxurious enjoyment.",
+					"冒険は心地よい木の香りの中で始まる。朝日と共に明らかになるのは、麝香の清新な活力。紳士に、静けさと優雅さをもたらします。",
 				galTxt:
 					"Odors have a power of persuasion stronger than that of words, appearances or will.SHARECO, <br>  using the most direct odor tomake you feel the fine atmosphere."
 			},
 			{
 				galId: 13,
 				setMaxW: false,
-				galName: "能量麝香",
+				galName: "アシッドモリー",
 				galPhoto: "perfume_name_photot_13.png",
 				galPic: "perfume_open_photot_13.jpg",
 				galPicPh: "perfume_open_photot_ph13.jpg",
 				galYear: "2018",
 				galDetail:
-					"The adventure starts with herbaceous scents, that bring with it the energizing freshness of musk; the subtle elegance and suave of a gentleman.",
+					"リラックスさせる化学物質が広がり、人々に快適な怠惰な気分をもたらします。まるでパーティーのような雰囲気で、現実世界から離れたひとときを楽しんでください。",
 				galTxt:
 					"Odors have a power of persuasion stronger than that of words, appearances or will.SHARECO, <br>  using the most direct odor tomake you feel the fine atmosphere."
 			},
 			{
 				galId: 14,
 				setMaxW: false,
-				galName: "皇家橡树",
+				galName: "ヴィーナスフライトラップ",
 				galPhoto: "perfume_name_photot_14.png",
 				galPic: "perfume_open_photot_14.jpg",
 				galPicPh: "perfume_open_photot_ph14.jpg",
 				galYear: "2018",
 				galDetail:
-					"The noble sandalwood grants you unbridled confidence, infused withisland plants and fruits that offer a hint of luxury, allowing you to feel like royalty.",
+					"緻密に飾り付けられたエデンガーデン。漂うのは、静かに魅惑的な甘い香り。獲物を静かに待つ、攻撃性を纏って。",
 				galTxt:
 					"Odors have a power of persuasion stronger than that of words, appearances or will.SHARECO, <br>  using the most direct odor tomake you feel the fine atmosphere."
 			},
 			{
 				galId: 15,
 				setMaxW: true,
-				galName: "Shower Gel",
+				galName: "ロイヤルオーク",
 				galPhoto: "bathing_name_1.png",
 				galPic: "bathing_open_1.jpg",
 				galPicPh: "bathing_open_1.jpg",
 				galYear: "2023",
-				galDetail:
-					"The clean, cold scent of cedarwood, light and full of light, like the morning air, some laid-back morning vibes.",
+				galDetail: "大いなる自信が、貴族の香りから生まれます。島の植物と果物の香りが融合し、王室の魅力を放っています。",
 				galTxt:
 					"Odors have a power of persuasion stronger than that of words, appearances or will.SHARECO, <br>  using the most direct odor tomake you feel the fine atmosphere."
 			},
 			{
 				galId: 16,
 				setMaxW: true,
-				galName: "Shower Gel",
+				galName: "キンダブギー",
 				galPhoto: "bathing_name_2.png",
 				galPic: "bathing_open_2.jpg",
 				galPicPh: "bathing_open_2.jpg",
 				galYear: "2023",
-				galDetail: "Tobacco mixed with a wood base, like steam flitting through the smoke and mirrors, asking you to relax.",
+				galDetail:
+					"橘の香りが、ジャングルの始まりを予感させる。空間に広がるのは、野性的なタバコの香り。王者はもうすぐ凱旋帰還します。",
 				galTxt:
 					"Odors have a power of persuasion stronger than that of words, appearances or will.SHARECO, <br>  using the most direct odor tomake you feel the fine atmosphere."
 			},
 			{
 				galId: 17,
 				setMaxW: true,
-				galName: "Shower Gel",
+				galName: "エナジームスク",
 				galPhoto: "bathing_name_3.png",
 				galPic: "bathing_open_3.jpg",
 				galPicPh: "bathing_open_3.jpg",
 				galYear: "2023",
-				galDetail: "The sharpness of redcurrants, with a mild tipsiness, there’s a sensory overload happening, and I don’t want it to end.",
+				galDetail:
+					"冒険は心地よい木の香りの中で始まる。朝日と共に明らかになるのは、麝香の清新な活力。紳士に、静けさと優雅さをもたらします。",
 				galTxt:
 					"Odors have a power of persuasion stronger than that of words, appearances or will.SHARECO, <br>  using the most direct odor tomake you feel the fine atmosphere."
 			},
 			{
 				galId: 18,
 				setMaxW: true,
-				galName: "Shampoo",
+				galName: "アシッドモリー",
 				galPhoto: "bathing_name_4.png",
 				galPic: "bathing_open_4.jpg",
 				galPicPh: "bathing_open_4.jpg",
 				galYear: "2023",
-				galDetail: "A strong agarwood base, that lets its presence known as soon as you quiet down…an underlying sense of security. ",
+				galDetail:
+				"リラックスさせる化学物質が広がり、人々に快適な怠惰な気分をもたらします。まるでパーティーのような雰囲気で、現実世界から離れたひとときを楽しんでください。",
 				galTxt:
 					"Odors have a power of persuasion stronger than that of words, appearances or will.SHARECO, <br>  using the most direct odor tomake you feel the fine atmosphere."
 			},
 			{
 				galId: 19,
 				setMaxW: true,
-				galName: "厚磅窄版TEE",
+				galName: "ヴィーナスフライトラップ",
 				galPhoto: "",
 				galPic: "clothing_open_photot_5.jpg",
 				galPicPh: "clothing_open_photot_ph5.jpg",
 				galYear: "2019",
-				galDetail: "S / M / L / XL / XXL",
+				galDetail:
+					"緻密に飾り付けられたエデンガーデン。漂うのは、静かに魅惑的な甘い香り。獲物を静かに待つ、攻撃性を纏って。",
 				galTxt:
 					"Odors have a power of persuasion stronger than that of words, appearances or will.SHARECO, <br>  using the most direct odor tomake you feel the fine atmosphere."
 			}

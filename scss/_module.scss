@@ -219,21 +219,32 @@ h4 {
 	margin-top: 96px;
 	padding: 0 24px;
 
-	&::after {
+	li:nth-child(2)::before {
 		position: absolute;
-		left: 0;
-		right: 0;
+		right: -18px;
 		top: 0;
 		content: "";
 		width: 2px;
 		height: 44px;
-		margin: auto;
 		background-color: #d9d9d9;
 
-		@include mw(L) {
-			display: none;
-		}
 	}
+
+	// &::after {
+	// 	position: absolute;
+	// 	left: 0;
+	// 	right: 0;
+	// 	top: 0;
+	// 	content: "";
+	// 	width: 2px;
+	// 	height: 44px;
+	// 	margin: auto;
+	// 	background-color: #d9d9d9;
+
+	// 	@include mw(L) {
+	// 		display: none;
+	// 	}
+	// }
 
 	&::before {
 		content: "";
@@ -269,6 +280,8 @@ h4 {
 		font-weight: 400;
 		line-height: normal;
 		@extend %hand;
+
+
 
 		&:after {
 			content: "";
@@ -867,6 +880,7 @@ h4 {
 			/* 11.2px */
 			@include mw(L) {
 				margin-top: 14px;
+
 				span {
 					display: inline;
 				}
@@ -1151,8 +1165,8 @@ h4 {
 	margin-right: 79px;
 	// border-right: 1px solid #000;
 
-	&:after{
-		content:"";
+	&:after {
+		content: "";
 		position: absolute;
 		top: 0;
 		bottom: 0;
@@ -1163,11 +1177,13 @@ h4 {
 		margin: auto;
 		background-color: #000;
 	}
+
 	@include mw(L) {
 		width: 132px;
 		padding-right: 0;
 		margin-right: 0;
-		&:after{
+
+		&:after {
 			display: none;
 		}
 	}
