@@ -635,6 +635,7 @@ h4 {
   padding-top: 98px;
 }
 .wrap.full {
+  overflow: hidden;
   padding-top: 0;
 }
 .wrap._gallery {
@@ -3734,11 +3735,9 @@ h1 + .product_group {
   transition-duration: 1s;
 }
 .home_video, .home_third, .home_forth, .home_fifth, .home_six, .home_seven {
-  position: fixed;
-  top: 98px;
-  left: 0;
+  flex: none;
   width: 100%;
-  height: calc(100% - 98px);
+  height: 100%;
   transition-duration: 1s;
 }
 .home_video.zoomOut, .home_third.zoomOut, .home_forth.zoomOut, .home_fifth.zoomOut, .home_six.zoomOut, .home_seven.zoomOut {
