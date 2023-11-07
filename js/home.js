@@ -29,6 +29,7 @@ var pageArr=[
 	"home_six",
 	"home_seven"
 ];
+	
 var pageNum=0;
 home_btn.onclick=function () {
 	home.classList.add("zoomOut");
