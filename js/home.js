@@ -1,4 +1,4 @@
-var scrollT=document.querySelector("html");
+var getScrollT=document.querySelector("html");
 var wrap=document.querySelector("#wrap");
 wrap.classList.add("full");
 setTimeout(() => {
@@ -29,7 +29,7 @@ var pageArr=[
 	"home_six",
 	"home_seven"
 ];
-	
+
 var pageNum=0;
 home_btn.onclick=function () {
 	home.classList.add("zoomOut");
@@ -163,7 +163,7 @@ function MouseWheel(e) {
 	e=e||window.event;
 	// e.wheelDelta <= 0 || e.detail > 0
 	if (!MouseWheelSwitch) return;
-	if (scrollT.scrollTop==0&e.wheelDelta>0) {
+	if (getScrollT.scrollTop==0&e.wheelDelta>0) {
 		// backHome();
 	}
 }
@@ -284,8 +284,8 @@ if (device=="pc") {
 			} else if (strawNowR>strawMoveR) {
 				strawNowR=strawNowR-(strawRangeR+0.01);
 			}
-			straw_scene.style=`transform: translate3d(0px, ${strawNow*
-				-1}px, 0px) rotate(${strawNowR}deg) scale(1);`;
+			straw_scene.style=`transform: translate3d(0px, ${ strawNow*
+				-1 }px, 0px) rotate(${ strawNowR }deg) scale(1);`;
 		}, 0.5);
 	}
 
@@ -331,8 +331,8 @@ if (device=="pc") {
 			} else if (plantNow>plantMove) {
 				plantNow=plantNow-plantRange-0.00018;
 			}
-			plant_scene.style=`transform: translate3d(0px, 0px, 0px) scale(${1+
-				plantNow*-1});`;
+			plant_scene.style=`transform: translate3d(0px, 0px, 0px) scale(${ 1+
+				plantNow*-1 });`;
 		}, 0.5);
 	}
 
@@ -378,8 +378,8 @@ if (device=="pc") {
 			} else if (flylNow>flylMove) {
 				flylNow=flylNow-flylRange-0.1;
 			}
-			flyl_scene.style=`transform: translate3d(${flylNow}px, 0px, 0px) scale(${1+
-				flylNow*-0.01}) rotate(${flylNow*-1}deg);`;
+			flyl_scene.style=`transform: translate3d(${ flylNow }px, 0px, 0px) scale(${ 1+
+				flylNow*-0.01 }) rotate(${ flylNow*-1 }deg);`;
 		}, 0);
 	}
 
@@ -450,8 +450,8 @@ if (device=="pc") {
 			} else if (flyrNowY>flyrMoveY) {
 				flyrNowY=flyrNowY-(flyrRangeY+0.09);
 			}
-			flyr_scene.style=`transform: translate3d(${flyrNowX}px, ${flyrNowY*
-				-1}px, 0px) scale(${1+flyrNow});`;
+			flyr_scene.style=`transform: translate3d(${ flyrNowX }px, ${ flyrNowY*
+				-1 }px, 0px) scale(${ 1+flyrNow });`;
 		}, 0);
 	}
 
@@ -525,7 +525,7 @@ if (device=="pc") {
 			} else if (treeNowB>treeMoveB) {
 				treeNowB=treeNowB-(treeRangeB+0.2);
 			}
-			tree_scene.style=`transform: translate3d(0px, ${treeNowB}px, ${treeNow}px) scale(1)`;
+			tree_scene.style=`transform: translate3d(0px, ${ treeNowB }px, ${ treeNow }px) scale(1)`;
 		}, 0.5);
 	}
 
@@ -559,8 +559,8 @@ if (device=="pc") {
 			} else if (lionNow>lionMove) {
 				lionNow=lionNow-(lionRange+0.01);
 			}
-			lion_scene.style=`transform: translate3d(0px, 0%, ${lionNow*
-				-1}px) scale(1)`;
+			lion_scene.style=`transform: translate3d(0px, 0%, ${ lionNow*
+				-1 }px) scale(1)`;
 		}, 0.5);
 	}
 }
@@ -593,32 +593,86 @@ function onPlayerReady(event) {
 	event.target.setLoop(true);
 }
 
+var allpage=document.querySelectorAll("[name='homepage']");
+var fake_h=document.querySelector("#fake_h");
+var home_scroll=document.querySelector("#home_scroll");
+var setH=0;
+var oldScroll=0;
+var newScroll=0;
+var nowScroll=0;
+var moveLimet=0.5;
+var obj1H=0
+
+var ani2_t1=document.querySelector("#home_third_txt1");
+var ani2_t1_y=-530
+var ani2_t1_op=0
+
+for (let i=0; i<allpage.length; i++) {
+	const element=allpage[i];
+	setH+=element.offsetHeight;
+	obj1H=allpage[i].offsetHeight
+}
+homeInit();
+
+function set_fake_h(h) {
+	fake_h.style.height=h+"px";
+}
+function setScroll(num) {
+	home_scroll.style=`transform: translateY(${ num*-1 }px);`;
+}
+
+var ani1Start
+window.addEventListener("scroll", () => {
+	console.log('!!!!'+getScrollT.scrollTop);
+	newScroll=getScrollT.scrollTop
+	nowScroll=nowScroll+(newScroll-oldScroll)
+
+	if (newScroll>0&&newScroll<obj1H*(1/3)) {
+		ani1(nowScroll)
+	}
+
+	if (newScroll>obj1H*(1/3)) {
+		ani2(nowScroll)
+	}
+	// setScroll(nowScroll)
+	oldScroll=newScroll
+})
+
+// 開始滑動
+function ani1(s) {
+	console.log('ani1', s-(obj1H*1/3));
+	setScroll(s)
+
+	ani2_t1_op=(s-(obj1H*1/3))*0.01;
+	if (ani2_t1_op<=0) {
+		ani2_t1_op=0
+	}
+	ani2_t1.style=`transform: translateY(${ ani2_t1_y }px); opacity: ${ ani2_t1_op };`;
+}
+
+//顯示 home_third 文字
+function ani2(s) {
+	console.log('ani2');
+	ani2_t1_op=(s-(obj1H*1/3))*0.01;
+	if (ani2_t1_op>1) {
+		ani2_t1_op=1
+	}
+	setScroll(s)
+
+
+	ani2_t1.style=`transform: translateY(${ ani2_t1_y }px); opacity: ${ ani2_t1_op };`;
+}
 
 
 
-// function scaleHandler(num, op) {
-// 	clearInterval(scaleTime);
-// 	scaleNum = num;
-// 	scaleOp = op;
-// 	scaleTime = setInterval(() => {
-// 		if (scaleNum == 1 && scaleOp == 1) {
-// 			clearInterval(scaleTime);
-// 		} else {
-// 			if (scaleNum !== 1) {
-// 				scaleNum = scaleNum - 0.1;
-// 				scaleNum = parseFloat(setFloat(scaleNum, 1));
-// 			} else if (scaleNum < 1) {
-// 				scaleNum = 1;
-// 			}
-// 			if (scaleOp !== 1) {
-// 				scaleOp = scaleOp + 0.1;
-// 				scaleOp = parseFloat(setFloat(scaleOp, 1));
-// 			} else if (scaleOp < 1) {
-// 				scaleOp = 1;
-// 			}
-// 		}
-// 		mouseShow.style = `transform: scale(${scaleNum}); opacity:${scaleOp} ;`;
-
-// 		console.log("scaleHandler");
-// 	}, 100);
-// }
+function homeInit() {
+	set_fake_h(setH);
+	setScroll(0);
+	ani2_t1.style=`transform: translateY(${ ani2_t1_y }px); opacity: ${ ani2_t1_op };`;
+}
+// start
+document.addEventListener("DOMContentLoaded", () => {
+	if (device=="pc") {
+		homeInit();
+	}
+});
