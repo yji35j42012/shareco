@@ -164,7 +164,7 @@ function MouseWheel(e) {
 	// e.wheelDelta <= 0 || e.detail > 0
 	if (!MouseWheelSwitch) return;
 	if (scrollT.scrollTop==0&e.wheelDelta>0) {
-		backHome();
+		// backHome();
 	}
 }
 

@@ -287,7 +287,6 @@
 		// top: 98px;
 		// left: 0;
 		flex: none;
-		;
 		width: 100%;
 		height: 100%;
 		transition-duration: 1s;
@@ -372,6 +371,7 @@
 
 	// .home_third
 	&_third {
+		position: relative;
 		z-index: 9;
 		overflow: hidden;
 		background-color: #000;
@@ -383,11 +383,32 @@
 			height: 100%;
 			padding: 0 110px;
 			background: url("../images/home/background_2.jpg") no-repeat center/cover;
-			transform: translateY(100%);
-			opacity: 0;
+			// transform: translateY(100%);
+			// opacity: 0;
 
-			.show & {
-				animation: struggle_box 2s forwards;
+			// .show & {
+			// 	animation: struggle_box 2s forwards;
+			// }
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(186deg, #171717 5.73%, rgba(23, 23, 23, 0.43) 66.78%, rgba(23, 23, 23, 0.00) 92.66%);
+				transform: translateY(-50%);
+			}
+
+			&::after {
+				content: "";
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(186deg, rgba(0, 0, 0, 0.00) 4.53%, #000 53.61%, rgba(0, 0, 0, 0.00) 72.51%);
+				transform: translateY(50%);
 			}
 		}
 
@@ -417,14 +438,14 @@
 				background-image: url(../images/icon/icon_dot_down.svg);
 			}
 
-			&._right {
-				transform: translateY(100%);
-				opacity: 0;
+			// &._right {
+			// 	transform: translateY(100%);
+			// 	opacity: 0;
 
-				.show & {
-					animation: struggle_txtR 3s forwards;
-				}
-			}
+			// 	.show & {
+			// 		animation: struggle_txtR 3s forwards;
+			// 	}
+			// }
 		}
 
 		// .home_third_liner
@@ -435,6 +456,7 @@
 
 	// .home_forth
 	&_forth {
+		position: relative;
 		z-index: 8;
 		overflow: hidden;
 
@@ -447,7 +469,7 @@
 			&::after {
 				content: "";
 				width: 100%;
-				transform: translateY(100%);
+				// transform: translateY(100%);
 			}
 
 			&::before {
@@ -458,9 +480,9 @@
 				bottom: 0;
 				background: url("../images/home/background_forth_1.jpg") no-repeat center/cover;
 
-				.show & {
-					animation: struggle_box 2s forwards;
-				}
+				// .show & {
+				// 	animation: struggle_box 2s forwards;
+				// }
 			}
 
 			&::after {
@@ -472,9 +494,9 @@
 				background: url("../images/home/background_forth_2.png") no-repeat center/cover;
 				transition-duration: 1.5s;
 
-				.show & {
-					transform: translateY(0);
-				}
+				// .show & {
+				// 	transform: translateY(0);
+				// }
 			}
 		}
 
@@ -497,22 +519,23 @@
 			font-weight: 400;
 			line-height: 160%;
 			background-color: rgba(6, 6, 6, 0.5);
-			opacity: 0;
-			transform: translateY(160%) scale(0);
+			// opacity: 0;
+			// transform: translateY(160%) scale(0);
 			position: 0;
 
-			.show & {
-				animation: forth_txt 4s forwards;
-			}
+			// .show & {
+			// 	animation: forth_txt 4s forwards;
+			// }
 		}
 	}
 
 	// .home_fifth
 	&_fifth {
+		position: relative;
 		z-index: 7;
 		overflow: hidden;
+		width: 100%;
 		background-color: #fff;
-		opacity: 0;
 		transition-duration: 0.5s;
 
 		// .home_fifth_box1
@@ -524,7 +547,6 @@
 			height: 100%;
 			background: url("../images/home/background_fifth.png") no-repeat center/cover;
 			transition-duration: 0.5s;
-			opacity: 0;
 		}
 
 		// .home_fifth_bg1
@@ -562,8 +584,8 @@
 				right: 0;
 				max-width: 480px;
 				margin: auto;
-				transform: translate(50%, 20%) scale(2);
-				opacity: 0;
+				// transform: translate(50%, 20%) scale(2);
+				// opacity: 0;
 			}
 
 			img:nth-child(2) {
@@ -571,8 +593,8 @@
 				left: 170px;
 				bottom: 180px;
 				max-width: 70px;
-				opacity: 0;
-				transform: translate(0%, 0%) scale(2);
+				// opacity: 0;
+				// transform: translate(0%, 0%) scale(2);
 			}
 
 			img:nth-child(3) {
@@ -580,8 +602,8 @@
 				left: 400px;
 				bottom: 100px;
 				max-width: 140px;
-				opacity: 0;
-				transform: translate(0%, 0%) scale(2);
+				// opacity: 0;
+				// transform: translate(0%, 0%) scale(2);
 			}
 
 			img:nth-child(4) {
@@ -589,8 +611,8 @@
 				right: 450px;
 				bottom: 90px;
 				max-width: 70px;
-				opacity: 0;
-				transform: translate(0%, 0%) scale(1);
+				// opacity: 0;
+				// transform: translate(0%, 0%) scale(1);
 			}
 
 			&::before {
@@ -612,8 +634,8 @@
 				line-height: 128.5%;
 				/* 123.36px */
 				letter-spacing: 0.2px;
-				opacity: 0;
-				transform: scale(2);
+				// opacity: 0;
+				// transform: scale(2);
 			}
 		}
 
@@ -625,8 +647,8 @@
 			width: 100%;
 			height: 100%;
 			background: url("../images/home/fifth_background_2.png") no-repeat center top/cover;
-			opacity: 0;
-			transform: translateY(-100%) scale(1);
+			// opacity: 0;
+			// transform: translateY(-100%) scale(1);
 			transform-origin: center top;
 		}
 
@@ -685,19 +707,6 @@
 				bottom: 0;
 				right: -60px;
 				max-width: 1000px;
-			}
-
-			span {
-				// position: absolute;
-				// top: 0;
-				// left: 1331px;
-				// display: inline-block;
-				// width: 10%;
-				// height: 100%;
-				// background-color: #f2f2f2;
-				// -webkit-filter: blur(40px);
-				// filter: blur(40px);
-				// z-index: 1;
 			}
 
 			video {
@@ -810,6 +819,7 @@
 
 	// .home_six
 	&_six {
+		position: relative;
 		overflow: hidden;
 
 		// .home_six_box
@@ -832,8 +842,8 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			opacity: 0;
-			transform: translateY(100%);
+			// opacity: 0;
+			// transform: translateY(100%);
 			background-color: #fff;
 
 			>span:nth-child(1) {
@@ -895,8 +905,8 @@
 				line-height: 160%;
 				/* 44.8px */
 				white-space: nowrap;
-				opacity: 0;
-				transform: translateY(100%) scale(0);
+				// opacity: 0;
+				// transform: translateY(100%) scale(0);
 			}
 
 			&::before {
@@ -909,30 +919,31 @@
 				background-size: contain;
 				background-position: center;
 				background-image: url(../images/icon/icon_dot_top_b.svg);
-				opacity: 0;
-				transition-duration: 1s;
+				// opacity: 0;
+				// transition-duration: 1s;
 			}
 		}
 
-		&.show {
-			.home_six_txt {
-				>span {
-					animation: six_txt 1s forwards;
-				}
+		// &.show {
+		// 	.home_six_txt {
+		// 		>span {
+		// 			animation: six_txt 1s forwards;
+		// 		}
 
-				&::before {
-					opacity: 1;
-				}
-			}
+		// 		&::before {
+		// 			opacity: 1;
+		// 		}
+		// 	}
 
-			.home_six_bg {
-				animation: six_bg 1.5s forwards;
-			}
-		}
+		// 	.home_six_bg {
+		// 		animation: six_bg 1.5s forwards;
+		// 	}
+		// }
 	}
 
 	// .home_seven
 	&_seven {
+		position: relative;
 		overflow: hidden;
 
 		// .home_seven_box
@@ -942,11 +953,11 @@
 			width: 100%;
 			height: 100%;
 			background-color: #000;
-			transform: translateY(100%);
+			// transform: translateY(100%);
 
-			.show & {
-				animation: seven_box 2s forwards;
-			}
+			// .show & {
+			// 	animation: seven_box 2s forwards;
+			// }
 		}
 
 		// .home_seven_bg
@@ -957,26 +968,26 @@
 			width: 100%;
 			height: 100%;
 			background: url("../images/home/seven_background.jpg") no-repeat center/cover;
-			opacity: 0.8;
-			transform: scale(1);
+			// opacity: 0.8;
+			// transform: scale(1);
 
-			.show & {
-				animation: seven_bg 2s 2s forwards;
-			}
+			// .show & {
+			// 	animation: seven_bg 2s 2s forwards;
+			// }
 		}
 
 		// .home_seven_txt
 		&_txt {
 			position: relative;
 			padding-top: 70px;
-			opacity: 0;
+			// opacity: 0;
 			text-align: center;
 
-			.show & {
-				opacity: 1;
-				transition-duration: 2s;
-				transition-delay: 2s;
-			}
+			// .show & {
+			// 	opacity: 1;
+			// 	transition-duration: 2s;
+			// 	transition-delay: 2s;
+			// }
 
 			p {
 				color: #fff;
@@ -1355,24 +1366,6 @@
 				}
 			}
 
-			// .home_fifth_box2
-			&_box2 {
-				video {
-					// width: 100%;
-					// position: absolute;
-					// left: -150px;
-					// bottom: 0;
-					// width: 250%;
-					// height: auto;
-				}
-
-				// span {
-				// 	top: 5%;
-				// 	left: 0;
-				// 	width: 100%;
-				// 	height: 10%;
-				// }
-			}
 
 			// .home_fifth_txt
 			&_txt {
