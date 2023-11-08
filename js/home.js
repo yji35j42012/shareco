@@ -603,9 +603,13 @@ var nowScroll=0;
 var moveLimet=0.5;
 var obj1H=0
 
-var ani2_t1=document.querySelector("#home_third_txt1");
-var ani2_t1_y=-530
-var ani2_t1_op=0
+var ani2T1=document.querySelector("#home_third_txt1");
+var ani2T1_s=-530
+var ani2T1_e=-50
+// var ani2T1_u=(ani2T1_s*-1)
+var ani2T1_op=0
+
+
 
 for (let i=0; i<allpage.length; i++) {
 	const element=allpage[i];
@@ -643,24 +647,30 @@ function ani1(s) {
 	console.log('ani1', s-(obj1H*1/3));
 	setScroll(s)
 
-	ani2_t1_op=(s-(obj1H*1/3))*0.01;
-	if (ani2_t1_op<=0) {
-		ani2_t1_op=0
+	ani2T1_op=(s-(obj1H*1/3))*0.005;
+	if (ani2T1_op<=0) {
+		ani2T1_op=0
 	}
-	ani2_t1.style=`transform: translateY(${ ani2_t1_y }px); opacity: ${ ani2_t1_op };`;
+	ani2T1.style=`transform: translateY(${ ani2T1_s }px); opacity: ${ ani2T1_op };`;
 }
 
 //顯示 home_third 文字
 function ani2(s) {
 	console.log('ani2');
-	ani2_t1_op=(s-(obj1H*1/3))*0.01;
-	if (ani2_t1_op>1) {
-		ani2_t1_op=1
+	console.log('move', s-(obj1H*1/3));
+	ani2T1_op=(s-(obj1H*1/3))*0.005;
+	if (ani2T1_op>1) {
+		ani2T1_op=1
+	}
+	var moveY=ani2T1_s+(s-(obj1H*1/3));
+
+	if (ani2T1_e<moveY) {
+		moveY=ani2T1_e
 	}
 	setScroll(s)
 
 
-	ani2_t1.style=`transform: translateY(${ ani2_t1_y }px); opacity: ${ ani2_t1_op };`;
+	ani2T1.style=`transform: translateY(${ moveY }px); opacity: ${ ani2T1_op };`;
 }
 
 
@@ -668,7 +678,7 @@ function ani2(s) {
 function homeInit() {
 	set_fake_h(setH);
 	setScroll(0);
-	ani2_t1.style=`transform: translateY(${ ani2_t1_y }px); opacity: ${ ani2_t1_op };`;
+	ani2T1.style=`transform: translateY(${ ani2T1_s }px); opacity: ${ ani2T1_op };`;
 }
 // start
 document.addEventListener("DOMContentLoaded", () => {
