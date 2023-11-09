@@ -290,6 +290,13 @@
 		height: calc(100% - 98px);
 	}
 
+	// .home_txtBox
+	&_txtBox {
+		pointer-events: none;
+		@include d_f(flex, space-between, center);
+		padding: 0 110px;
+	}
+
 	// .home_scroll
 	&_scroll {
 		position: relative;
@@ -297,7 +304,7 @@
 		flex-direction: column;
 		transform: translateY(0px);
 		height: 100%;
-		
+
 	}
 
 	&_video,
@@ -480,8 +487,6 @@
 
 	// .home_forth
 	&_forth {
-		z-index: 8;
-		overflow: hidden;
 
 		// .home_forth_box
 		&_box {
@@ -502,10 +507,6 @@
 				right: 0;
 				bottom: 0;
 				background: url("../images/home/background_forth_1.jpg") no-repeat center/cover;
-
-				// .show & {
-				// 	animation: struggle_box 2s forwards;
-				// }
 			}
 
 			&::after {
@@ -515,7 +516,8 @@
 				display: block;
 				height: 500px;
 				background: url("../images/home/background_forth_2.png") no-repeat center/cover;
-				transition-duration: 1.5s;
+				transform: translateY(var(--cat));
+				// transition-duration: 1.5s;
 
 				// .show & {
 				// 	transform: translateY(0);
@@ -523,8 +525,8 @@
 			}
 		}
 
-		// .home_forth_txt
-		&_txt {
+		// .home_forth_txtBox
+		&_txtBox {
 			z-index: 1;
 			position: absolute;
 			top: 200px;
@@ -533,22 +535,29 @@
 			display: inline-block;
 			max-width: 940px;
 			margin: auto;
-			padding: 64px 130px;
-			color: #ede3e3;
-			text-align: center;
-			font-family: Noto Sans;
-			font-size: 28px;
-			font-style: normal;
-			font-weight: 400;
-			line-height: 160%;
-			background-color: rgba(6, 6, 6, 0.5);
-			// opacity: 0;
-			// transform: translateY(160%) scale(0);
 			position: 0;
 
-			// .show & {
-			// 	animation: forth_txt 4s forwards;
-			// }
+			.linear {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(6, 6, 6, 0.5);
+			}
+
+			.txt {
+				position: relative;
+				width: 100%;
+				padding: 64px 130px;
+				text-align: center;
+				font-family: Noto Sans;
+				font-size: 28px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 160%;
+				color: #ede3e3;
+			}
 		}
 	}
 

@@ -3745,6 +3745,13 @@ h1 + .product_group {
   width: 100%;
   height: calc(100% - 98px);
 }
+.home_txtBox {
+  pointer-events: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 110px;
+}
 .home_scroll {
   position: relative;
   display: flex;
@@ -3889,10 +3896,6 @@ h1 + .product_group {
   background: linear-gradient(186deg, rgba(0, 0, 0, 0) 4.53%, #000 53.61%, rgba(0, 0, 0, 0) 72.51%);
   transform: translateY(50%);
 }
-.home_forth {
-  z-index: 8;
-  overflow: hidden;
-}
 .home_forth_box {
   width: 100%;
   height: 100%;
@@ -3916,9 +3919,9 @@ h1 + .product_group {
   display: block;
   height: 500px;
   background: url("../images/home/background_forth_2.png") no-repeat center/cover;
-  transition-duration: 1.5s;
+  transform: translateY(var(--cat));
 }
-.home_forth_txt {
+.home_forth_txtBox {
   z-index: 1;
   position: absolute;
   top: 200px;
@@ -3927,16 +3930,27 @@ h1 + .product_group {
   display: inline-block;
   max-width: 940px;
   margin: auto;
+  position: 0;
+}
+.home_forth_txtBox .linear {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(6, 6, 6, 0.5);
+}
+.home_forth_txtBox .txt {
+  position: relative;
+  width: 100%;
   padding: 64px 130px;
-  color: #ede3e3;
   text-align: center;
   font-family: Noto Sans;
   font-size: 28px;
   font-style: normal;
   font-weight: 400;
   line-height: 160%;
-  background-color: rgba(6, 6, 6, 0.5);
-  position: 0;
+  color: #ede3e3;
 }
 .home_fifth {
   z-index: 7;
