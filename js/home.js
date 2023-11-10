@@ -643,7 +643,7 @@ var forthBox_n=forthBox_s
 
 var transformNum=0
 
-var ani7H=200
+var ani7H=250
 var ani9H=500
 var setHdefault=ani7H+ani9H
 function setScroll(num) {
@@ -824,9 +824,25 @@ function ani6(s) {
 	console.log('ani6');
 	if (scroll_path>0) {
 		ani4Bg_op=check_op(ani4Bg_op+(s-oldScroll)*0.005);
+		if(ani2T1_op>0){
+			ani5(s)
+		}
 	} else {
 		ani4Bg_op=check_op(ani4Bg_op+(s-oldScroll)*0.003);
+		if (ani4Bg_op==0) {
+			ani4Bg_s=-350
+			ani4Bg_n=ani4Bg_s
+		}
+
+
+		if (ani4T1_op>0) {
+			ani7(s);
+		} else if (ani4T1_op==0) {
+			ani4T1_s=-500
+			ani4T1_n=ani4T1_s
+		}
 	}
+
 	ani4Bg_n=ani4Bg_n+(s-oldScroll);
 	if (ani4Bg_n>ani4Bg_e) {
 		ani4Bg_n=ani4Bg_e
@@ -839,11 +855,12 @@ function ani6(s) {
 // forthTXT淡入＆下滑
 function ani7(s) {
 	console.log('ani7');
-	if (scroll_path<0) {
-		ani4T1_op=check_op(ani4T1_op+(s-oldScroll)*0.005);
-	} else {
-		ani4T1_op=check_op(ani4T1_op+(s-oldScroll)*0.005);
+	console.log('ani6n', ani4Bg_n);
+	console.log('ani6e', ani4Bg_e);
+	if (ani4Bg_n<ani4Bg_e&&scroll_path>0) {
+		ani6(s)
 	}
+	ani4T1_op=check_op(ani4T1_op+(s-oldScroll)*0.005);
 	ani4T1_n=ani4T1_n+(s-oldScroll)*1.2;
 	if (ani4T1_n>ani4T1_e) {
 		ani4T1_n=ani4T1_e
@@ -882,7 +899,7 @@ function ani9(s) {
 // 貓塗下爬
 function ani10(s) {
 	console.log('ani10');
-	aniCat_n=aniCat_n+(s-oldScroll)*0.35;
+	aniCat_n=aniCat_n+(s-oldScroll)*0.25;
 	if (aniCat_n<=0) {
 		aniCat_n=0
 	} else if (aniCat_n>=100) {
@@ -902,7 +919,7 @@ setTimeout(() => {
 		console.log(i+":"+element.offsetHeight);
 		console.log("setH:"+setH);
 	}
-}, 20);
+}, 100);
 
 function check_op(num) {
 	if (num>1) {
@@ -918,10 +935,12 @@ function set_fake_h(h) {
 	fake_h.style.height=h+setHdefault+"px";
 }
 
+
+
 function homeInit() {
 	setTimeout(() => {
 		set_fake_h(setH);
-	}, 100);
+	}, 500);
 	setScroll(0);
 	ani2T1.style=`transform: translateY(${ ani2T1_s }px); opacity: ${ ani2T1_op };`;
 	ani2T2.style=`transform: translateY(${ ani2T2_s }px); opacity: ${ ani2T2_op };`;
