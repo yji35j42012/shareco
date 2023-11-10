@@ -196,7 +196,7 @@ function MouseWheel(e) {
 
 	home_move=scrollPercent*2
 	home_scroll.style.transform=`translateY(-${ home_move }px)`;
-console.log('scrollPercent-ani1Range',scrollPercent-ani1Range);
+	console.log('scrollPercent-ani1Range', scrollPercent-ani1Range);
 
 	t1_op=Math.min((scrollPercent-ani1Range)/50, 1)
 	if (t1_op<0) {
