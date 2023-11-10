@@ -186,7 +186,6 @@ function MouseWheel(e) {
 	}
 	// 计算滚动位置的百分比
 
-
 	if (t1_move>t1_e) {
 		t1_move=t1_e
 	}
@@ -194,18 +193,18 @@ function MouseWheel(e) {
 	const scrollPercent=(Math.abs(home_y)/window.innerHeight)*100;
 	console.log('scrollPercent', scrollPercent);
 
-	home_move=scrollPercent*2
+	home_move=scrollPercent*3
 	home_scroll.style.transform=`translateY(-${ home_move }px)`;
 	console.log('scrollPercent-ani1Range', scrollPercent-ani1Range);
 
-	t1_op=Math.min((scrollPercent-ani1Range)/50, 1)
+	t1_op=Math.min((scrollPercent*2-ani1Range/2)/80, 1)
 	if (t1_op<0) {
 		t1_op=0
 	} else if (t1_op>1) {
 		t1_op=1
 	}
 	t1.style.opacity=t1_op;
-	t1_move=t1_s+(scrollPercent-ani1Range)*1.5;
+	t1_move=t1_s+(scrollPercent*2-ani1Range/2)*0.5;
 	if (t1_move<t1_s) {
 		t1_move=t1_s
 	} else if (t1_move>t1_e) {
