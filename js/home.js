@@ -170,7 +170,7 @@ var t1=document.querySelector("#home_third_txt1");
 var t1_delay=0.5
 var t1_s=-85, t1_e=0, t1_move=0, t1_op=0;
 
-var ani1Range=(window.innerHeight-98)/2/2;
+var ani1Range=(window.innerHeight-98)/2;
 console.log('ani1Range', ani1Range);
 
 function MouseWheel(e) {
