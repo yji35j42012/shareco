@@ -8,7 +8,6 @@
 	height: 100%;
 	perspective: 200px;
 	pointer-events: none;
-
 	// .home_linear
 	&_linear {
 		position: absolute;
@@ -304,7 +303,6 @@
 		flex-direction: column;
 		transform: translateY(0px);
 		height: 100%;
-
 	}
 
 	&_video,
@@ -343,11 +341,7 @@
 		padding: 63px;
 		background: url("../images/home/video_1_background.png") no-repeat center bottom / cover,
 			linear-gradient(180deg, rgba(23, 23, 23, 0) 0%, #171717 0%);
-		opacity: 0;
 
-		&.show {
-			opacity: 1;
-		}
 
 		// .home_video_box
 		&_box {
@@ -357,6 +351,12 @@
 			width: 100%;
 			height: 100%;
 			margin: auto;
+			opacity: 0;
+			transition-duration: 2s;
+
+			.show & {
+				opacity: 1;
+			}
 
 			@include mw(XL) {
 				align-items: center;
@@ -1174,6 +1174,7 @@
 				left: 50%;
 				width: 880px;
 				transform: translateX(-50%);
+
 			}
 		}
 

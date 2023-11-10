@@ -159,14 +159,64 @@ function backHome() {
 }
 var pagedown=true;
 var pageMove=0;
+
+
+
+
+var home_y=0
+var home_move=0
+
+var t1=document.querySelector("#home_third_txt1");
+var t1_delay=0.5
+var t1_s=-85, t1_e=0, t1_move=0, t1_op=0;
+
+var ani1Range=(window.innerHeight-98)/2/2;
+console.log('ani1Range', ani1Range);
+
 function MouseWheel(e) {
-	e=e||window.event;
-	// e.wheelDelta <= 0 || e.detail > 0
-	if (!MouseWheelSwitch) return;
-	if (getScrollT.scrollTop==0&e.wheelDelta>0) {
-		// backHome();
+	if (e.deltaY>0) {
+		// 向下滚动
+		home_y-=30;
+	} else if (e.deltaY<0) {
+		// 向上滚动
+		home_y+=30;
 	}
+	if (home_y>0) {
+		home_y=0
+	}
+	// 计算滚动位置的百分比
+
+
+	if (t1_move>t1_e) {
+		t1_move=t1_e
+	}
+
+	const scrollPercent=(Math.abs(home_y)/window.innerHeight)*100;
+	console.log('scrollPercent', scrollPercent);
+
+	home_move=scrollPercent*2
+	home_scroll.style.transform=`translateY(-${ home_move }px)`;
+console.log('scrollPercent-ani1Range',scrollPercent-ani1Range);
+
+	t1_op=Math.min((scrollPercent-ani1Range)/50, 1)
+	if (t1_op<0) {
+		t1_op=0
+	} else if (t1_op>1) {
+		t1_op=1
+	}
+	t1.style.opacity=t1_op;
+	t1_move=t1_s+(scrollPercent-ani1Range)*1.5;
+	if (t1_move<t1_s) {
+		t1_move=t1_s
+	} else if (t1_move>t1_e) {
+		t1_move=t1_e
+	}
+	t1.style.transform=`translateY(${ t1_move }%)`;
 }
+
+// function ani_txt1(s) {
+
+// }
 
 
 if ("onmousewheel" in window) {
@@ -201,6 +251,7 @@ function touchmoveHandler(e) {
 	} else {
 		touchEnd=false;
 	}
+	// console.log('touchMove', touchMove);
 }
 function touchendHandler() {
 	if (header.classList.contains("onHead")) {
@@ -593,364 +644,393 @@ function onPlayerReady(event) {
 	event.target.setLoop(true);
 }
 
-var scroll_path=0
-var allpage=document.querySelectorAll("[name='homepage']");
-var fake_h=document.querySelector("#fake_h");
+
+
+
 var home_scroll=document.querySelector("#home_scroll");
-var setH=0;
-var oldScroll=0;
-var newScroll=0;
-var nowScroll=0;
-var moveLimet=0.5;
-var scrollState;
-
-
-var obj1H=0
-var ani2T1=document.querySelector("#home_third_txt1");
-var ani2T1_s=-600
-var ani2T1_e=-440
-var ani2T1_n=ani2T1_s
-var ani2T1_op=0
-
-
-var ani2T2=document.querySelector("#home_third_txt2");
-var ani2T2_s=-500
-var ani2T2_op=0
-var ani2T2_n=ani2T2_s
-
-var obj2H=0
-
-var ani4Bg=document.querySelector("#forthBg");
-var ani4Bg_op=0
-var ani4Bg_s=-350
-var ani4Bg_e=0
-var ani4Bg_n=ani4Bg_s
-var ani4T1=document.querySelector("#forthTxt");
-var ani4T1_op=0
-var ani4T1_s=-500
-var ani4T1_e=0
-var ani4T1_n=ani4T1_s
-
-var aniCat=document.querySelector("#forth_cat");
-var aniCat_s=100;
-var aniCat_e=0;
-var aniCat_n=aniCat_s
-
-var forthBox=document.querySelector("#forthBox");
-var forthBox_s=1;
-var forthBox_e=0.05;
-var forthBox_n=forthBox_s
-
-var transformNum=0
-
-var ani7H=250
-var ani9H=500
-var setHdefault=ani7H+ani9H
-function setScroll(num) {
-	transformNum=num*-1
-	if (scrollState==8||scrollState==9) {
-		console.log('transformNum', transformNum*-1);
-		console.log('obj2H', obj2H);
-		if (transformNum*-1>obj2H) {
-			transformNum=obj2H*-1
-		}
-	}
-	home_scroll.style=`transform: translateY(${ transformNum }px);`;
-}
-
-var ani1Start
-window.addEventListener("scroll", () => {
-	console.log('!!!!'+getScrollT.scrollTop);
-	newScroll=getScrollT.scrollTop
-	nowScroll=nowScroll+(newScroll-oldScroll)
-
-
-
-
-
-	if (newScroll>=0&&newScroll<obj1H*(1/3)) {
-		ani1(nowScroll)
-		scrollState=1
-	}
-	if (newScroll>obj1H*(1/3)&&newScroll<obj1H*(1/2)) {
-		ani2(nowScroll)
-		scrollState=2
-	}
-	if (newScroll>obj1H*(1/2)&&newScroll<obj1H) {
-		ani3(nowScroll)
-		scrollState=3
-	}
-	if (newScroll>obj1H&&newScroll<obj2H-obj1H*(1/2)) {
-		ani4(nowScroll)
-		scrollState=4
-	}
-	// 文字１、２淡出 
-	if (newScroll>obj2H-obj1H*(1/2)&&newScroll<obj2H-obj1H*(1/3)) {
-		ani5(nowScroll)
-		scrollState=5
-	}
-	// forthBg淡入＆下滑
-	if (newScroll>obj2H-obj1H*(1/2)&&newScroll<obj2H) {
-		ani6(nowScroll)
-		scrollState=6
-	}
-	// forthTXT淡入＆下滑
-	if (newScroll>obj2H-obj1H*(1/3)&&newScroll<obj2H+ani7H) {
-		ani7(nowScroll)
-		ani8(nowScroll)
-		scrollState=8
-	}
-	if (newScroll>obj2H+ani7H&&newScroll<obj2H+ani7H+ani9H) {
-		ani9(nowScroll)
-		scrollState=9
-		ani10(nowScroll)
-	}
-	if (newScroll-oldScroll<0) {
-		scroll_path=-1
-	} else {
-		scroll_path=1
-	}
-	oldScroll=newScroll
-	setScroll(nowScroll)
-})
-
-// 開始滑動
-function ani1(s) {
-	console.log('ani1');
-	// setScroll(s)
-
-	if (scroll_path<0) {
-		ani2T1_op=check_op((s-(obj1H*1/3))*0.005);
-	}
-
-	ani2T1.style=`transform: translateY(${ ani2T1_s }px); opacity: ${ ani2T1_op };`;
-}
-
-//顯示 home_third 文字1
-function ani2(s) {
-	// setScroll(s)
-	console.log('ani2');
-	ani2T1_op=check_op((s-(obj1H*1/3))*0.005);
-	ani2T1_n=ani2T1_n+(s-oldScroll)*0.3;
-	if (ani2T1_n>ani2T1_e) {
-		ani2T1_n=ani2T1_e
-	} else if (ani2T1_n<ani2T1_s) {
-		ani2T1_n=ani2T1_s
-	}
-	ani2T1.style=`transform: translateY(${ ani2T1_n }px); opacity: ${ ani2T1_op };`;
-
-	ani2T2_op=check_op((s-(obj1H*1/2))*0.01);
-
-	ani2T2_n=ani2T2_n+(s-oldScroll)*0.2;
-	ani2T2.style=`transform: translateY(${ ani2T2_n }px); opacity: ${ ani2T2_op };`;
-}
-
-//顯示 home_third 文字2
-function ani3(s) {
-	console.log('ani3');
-	// setScroll(s)
-	ani2T1_op=check_op((s-(obj1H*1/3))*0.005);
-	ani2T1_n=ani2T1_n+(s-oldScroll)*0.3;
-	if (ani2T1_n>ani2T1_e) {
-		ani2T1_n=ani2T1_e
-	}
-	ani2T1.style=`transform: translateY(${ ani2T1_n }px); opacity: ${ ani2T1_op };`
-
-	ani2T2_op=check_op((s-(obj1H*1/2))*0.01);
-
-	ani2T2_n=ani2T2_n+(s-oldScroll)*0.1;
-	if (ani2T2_n>ani2T1_e) {
-		ani2T2_n=ani2T1_e
-	}
-	ani2T2.style=`transform: translateY(${ ani2T2_n }px); opacity: ${ ani2T2_op };`;
-}
-
-// 文字１微微往上 －２繼續往下
-function ani4(s) {
-	console.log('ani4', s-oldScroll);
-	// setScroll(s)
-
-	ani2T1_op=check_op((s-(obj1H*1/3))*0.005);
-	if (ani2T1_op>1) {
-		ani2T1_op=1
-	}
-
-	ani2T1_n=ani2T1_n-(s-oldScroll)*0.5;
-	if (ani2T1_n<ani2T1_s) {
-		ani2T1_n=ani2T1_s
-	}
-	// setScroll(s)
-	ani2T1.style=`transform: translateY(${ ani2T1_n }px); opacity: ${ ani2T1_op };`
-
-
-	ani2T2_op=check_op((s-(obj1H*1/2))*0.01);
-
-	ani2T2_n=ani2T2_n+(s-oldScroll)*0.1;
-	ani2T2.style=`transform: translateY(${ ani2T2_n }px); opacity: ${ ani2T2_op };`;
-
-	if (scroll_path<0) {
-		ani4Bg_op=check_op(ani4Bg_op+(s-oldScroll)*0.01);
-		ani4Bg_n=ani4Bg_n+(s-oldScroll);
-		if (ani4Bg_n>ani4Bg_e) {
-			ani4Bg_n=ani4Bg_e
-		} else if (ani4Bg_n<ani4Bg_s) {
-			ani4Bg_n=ani4Bg_s
-		}
-		ani4Bg.style=`transform: translateY(${ ani4Bg_n }px); opacity: ${ ani4Bg_op };`;
-		ani2T2_op=check_op(ani2T2_op-(s-oldScroll)*0.01);
-		ani2T2.style=`transform: translateY(${ ani2T2_n }px); opacity: ${ ani2T2_op };`
-		ani4T1_op=check_op(ani4T1_op+(s-oldScroll)*0.01);
-		ani4T1.style=`transform: translateY(${ ani4T1_n }px); opacity: ${ ani4T1_op };`;
-	}
-}
-
-// 文字１、２淡出 
-function ani5(s) {
-	console.log('ani5', s-oldScroll);
-	// setScroll(s)
-	if (scroll_path<0) {
-		ani2T1_op=check_op(ani2T1_op-(s-oldScroll)*0.005);
-		ani2T2_op=check_op(ani2T2_op-(s-oldScroll)*0.005);
-	} else {
-		ani2T1_op=check_op(ani2T1_op-(s-oldScroll)*0.01);
-		ani2T2_op=check_op(ani2T2_op-(s-oldScroll)*0.01);
-	}
-	ani2T1.style=`transform: translateY(${ ani2T1_n }px); opacity: ${ ani2T1_op };`
-	ani2T2.style=`transform: translateY(${ ani2T2_n }px); opacity: ${ ani2T2_op };`
-}
-
-// forthBg淡入＆下滑
-function ani6(s) {
-	console.log('ani6');
-	if (scroll_path>0) {
-		ani4Bg_op=check_op(ani4Bg_op+(s-oldScroll)*0.005);
-		if(ani2T1_op>0){
-			ani5(s)
-		}
-	} else {
-		ani4Bg_op=check_op(ani4Bg_op+(s-oldScroll)*0.003);
-		if (ani4Bg_op==0) {
-			ani4Bg_s=-350
-			ani4Bg_n=ani4Bg_s
-		}
-
-
-		if (ani4T1_op>0) {
-			ani7(s);
-		} else if (ani4T1_op==0) {
-			ani4T1_s=-500
-			ani4T1_n=ani4T1_s
-		}
-	}
-
-	ani4Bg_n=ani4Bg_n+(s-oldScroll);
-	if (ani4Bg_n>ani4Bg_e) {
-		ani4Bg_n=ani4Bg_e
-	} else if (ani4Bg_n<ani4Bg_s) {
-		ani4Bg_n=ani4Bg_s
-	}
-	ani4Bg.style=`transform: translateY(${ ani4Bg_n }px); opacity: ${ ani4Bg_op };`;
-
-}
-// forthTXT淡入＆下滑
-function ani7(s) {
-	console.log('ani7');
-	console.log('ani6n', ani4Bg_n);
-	console.log('ani6e', ani4Bg_e);
-	if (ani4Bg_n<ani4Bg_e&&scroll_path>0) {
-		ani6(s)
-	}
-	ani4T1_op=check_op(ani4T1_op+(s-oldScroll)*0.005);
-	ani4T1_n=ani4T1_n+(s-oldScroll)*1.2;
-	if (ani4T1_n>ani4T1_e) {
-		ani4T1_n=ani4T1_e
-	} else if (ani4T1_n<ani4T1_s) {
-		ani4T1_n=ani4T1_s
-	}
-	ani4T1.style=`transform: translateY(${ ani4T1_n }px); opacity: ${ ani4T1_op };`;
-}
-// 貓塗上爬
-function ani8(s) {
-	console.log('ani8');
-	// setScroll(s)
-	// console.log('scrollState', scrollState);
-
-	aniCat_n=aniCat_n-(s-oldScroll)*0.35;
-	if (aniCat_n<=0) {
-		aniCat_n=0
-	} else if (aniCat_n>=100) {
-		aniCat_n=100
-	}
-	console.log('aniCat_n', aniCat_n);
-	aniCat.style=`--cat:${ aniCat_n }%`;
-}
-
-function ani9(s) {
-	console.log('ani9');
-	forthBox_n=forthBox_n-(s-oldScroll)*0.002;
-	if (forthBox_n<=forthBox_e) {
-		forthBox_n=forthBox_e
-	} else if (forthBox_n>=1) {
-		forthBox_n=1
-	}
-	forthBox.style=`transform: scale(${ forthBox_n });`;
-}
-
-// 貓塗下爬
-function ani10(s) {
-	console.log('ani10');
-	aniCat_n=aniCat_n+(s-oldScroll)*0.25;
-	if (aniCat_n<=0) {
-		aniCat_n=0
-	} else if (aniCat_n>=100) {
-		aniCat_n=100
-	}
-	aniCat.style=`--cat:${ aniCat_n }%`;
-}
-
-
-
-setTimeout(() => {
-	for (let i=0; i<allpage.length; i++) {
-		const element=allpage[i];
-		setH+=element.offsetHeight;
-		obj1H=allpage[i].offsetHeight
-		obj2H=allpage[i].offsetHeight*2
-		console.log(i+":"+element.offsetHeight);
-		console.log("setH:"+setH);
-	}
-}, 100);
-
-function check_op(num) {
-	if (num>1) {
-		return 1
-	} else if (num<0) {
-		return 0
-	} else {
-		return num
-	}
-}
-
-function set_fake_h(h) {
-	fake_h.style.height=h+setHdefault+"px";
-}
-
+var home_move=0
+var home_scroll_dely=0.5
 
 
 function homeInit() {
-	setTimeout(() => {
-		set_fake_h(setH);
-	}, 500);
-	setScroll(0);
-	ani2T1.style=`transform: translateY(${ ani2T1_s }px); opacity: ${ ani2T1_op };`;
-	ani2T2.style=`transform: translateY(${ ani2T2_s }px); opacity: ${ ani2T2_op };`;
-	ani4Bg.style=`transform: translateY(${ ani4Bg_s }px); opacity: ${ ani4Bg_op };`;
-	ani4T1.style=`transform: translateY(${ ani4T1_s }px); opacity: ${ ani4T1_op };`;
-	aniCat.style=`--cat:${ aniCat_s }%`;
-	forthBox.style=`transform: scale(${ forthBox_s });`;
-	//
+	console.log('asdf');
+	home_scroll.style=`transform: translateY(${ home_move }px);  transition: transform ${ home_scroll_dely }s ease;;`;
+	t1.style=`transform:translateY(${ t1_s }%); transition: all ${ t1_delay }s ease;opacity: ${ t1_op };`;
 }
-// start
 document.addEventListener("DOMContentLoaded", () => {
 	homeInit();
 });
+
+
+
+
+
+
+// var scroll_path=0
+// var allpage=document.querySelectorAll("[name='homepage']");
+// var fake_h=document.querySelector("#fake_h");
+//
+// var setH=0;
+// var oldScroll=0;
+// var newScroll=0;
+// var nowScroll=0;
+// var moveLimet=0.5;
+// var scrollState;
+
+
+// var obj1H=0
+// var ani2T1=document.querySelector("#home_third_txt1");
+// var ani2T1_s=-600
+// var ani2T1_e=-440
+// var ani2T1_n=ani2T1_s
+// var ani2T1_op=0
+
+
+// var ani2T2=document.querySelector("#home_third_txt2");
+// var ani2T2_s=-500
+// var ani2T2_op=0
+// var ani2T2_n=ani2T2_s
+
+// var obj2H=0
+
+// var ani4Bg=document.querySelector("#forthBg");
+// var ani4Bg_op=0
+// var ani4Bg_s=-350
+// var ani4Bg_e=0
+// var ani4Bg_n=ani4Bg_s
+// var ani4T1=document.querySelector("#forthTxt");
+// var ani4T1_op=0
+// var ani4T1_s=-500
+// var ani4T1_e=0
+// var ani4T1_n=ani4T1_s
+
+// var aniCat=document.querySelector("#forth_cat");
+// var aniCat_s=100;
+// var aniCat_e=0;
+// var aniCat_n=aniCat_s
+
+// var forthBox=document.querySelector("#forthBox");
+// var forthBox_s=1;
+// var forthBox_e=0.05;
+// var forthBox_n=forthBox_s
+
+// var transformNum=0
+
+// var ani7H=250
+// var ani9H=500
+// var setHdefault=ani7H+ani9H
+// function setScroll(num) {
+// 	transformNum=num*-1
+// 	if (scrollState==8||scrollState==9) {
+// 		console.log('transformNum', transformNum*-1);
+// 		console.log('obj2H', obj2H);
+// 		if (transformNum*-1>obj2H) {
+// 			transformNum=obj2H*-1
+// 		}
+// 	}
+// 	home_scroll.style=`transform: translateY(${ transformNum }px);`;
+// }
+
+// var ani1Start
+// window.addEventListener("scroll", () => {
+// 	console.log('!!!!'+getScrollT.scrollTop);
+// 	newScroll=getScrollT.scrollTop
+// 	nowScroll=nowScroll+(newScroll-oldScroll)
+
+
+
+
+
+// 	if (newScroll>=0&&newScroll<obj1H*(1/3)) {
+// 		ani1(nowScroll)
+// 		scrollState=1
+// 	}
+// 	if (newScroll>obj1H*(1/3)&&newScroll<obj1H*(1/2)) {
+// 		ani2(nowScroll)
+// 		scrollState=2
+// 	}
+// 	if (newScroll>obj1H*(1/2)&&newScroll<obj1H) {
+// 		ani3(nowScroll)
+// 		scrollState=3
+// 	}
+// 	if (newScroll>obj1H&&newScroll<obj2H-obj1H*(1/2)) {
+// 		ani4(nowScroll)
+// 		scrollState=4
+// 	}
+// 	// 文字１、２淡出
+// 	if (newScroll>obj2H-obj1H*(1/2)&&newScroll<obj2H-obj1H*(1/3)) {
+// 		ani5(nowScroll)
+// 		scrollState=5
+// 	}
+// 	// forthBg淡入＆下滑
+// 	if (newScroll>obj2H-obj1H*(1/2)&&newScroll<obj2H) {
+// 		ani6(nowScroll)
+// 		scrollState=6
+// 	}
+// 	// forthTXT淡入＆下滑
+// 	if (newScroll>obj2H-obj1H*(1/3)&&newScroll<obj2H+ani7H) {
+// 		ani7(nowScroll)
+// 		ani8(nowScroll)
+// 		scrollState=8
+// 	}
+// 	if (newScroll>obj2H+ani7H&&newScroll<obj2H+ani7H+ani9H) {
+// 		ani9(nowScroll)
+// 		scrollState=9
+// 		ani10(nowScroll)
+// 	}
+// 	if (newScroll>obj2H+ani7H+ani9H) {
+// 		ani11(nowScroll);
+// 	}
+// 	if (newScroll-oldScroll<0) {
+// 		scroll_path=-1
+// 	} else {
+// 		scroll_path=1
+// 	}
+// 	oldScroll=newScroll
+// 	setScroll(nowScroll)
+// })
+
+// // 開始滑動
+// function ani1(s) {
+// 	console.log('ani1');
+// 	// setScroll(s)
+
+// 	if (scroll_path<0) {
+// 		ani2T1_op=check_op((s-(obj1H*1/3))*0.005);
+// 	}
+
+// 	ani2T1.style=`transform: translateY(${ ani2T1_s }px); opacity: ${ ani2T1_op };`;
+// }
+
+// //顯示 home_third 文字1
+// function ani2(s) {
+// 	// setScroll(s)
+// 	console.log('ani2');
+// 	ani2T1_op=check_op((s-(obj1H*1/3))*0.005);
+// 	ani2T1_n=ani2T1_n+(s-oldScroll)*0.3;
+// 	if (ani2T1_n>ani2T1_e) {
+// 		ani2T1_n=ani2T1_e
+// 	} else if (ani2T1_n<ani2T1_s) {
+// 		ani2T1_n=ani2T1_s
+// 	}
+// 	ani2T1.style=`transform: translateY(${ ani2T1_n }px); opacity: ${ ani2T1_op };`;
+
+// 	ani2T2_op=check_op((s-(obj1H*1/2))*0.01);
+
+// 	ani2T2_n=ani2T2_n+(s-oldScroll)*0.2;
+// 	ani2T2.style=`transform: translateY(${ ani2T2_n }px); opacity: ${ ani2T2_op };`;
+// }
+
+// //顯示 home_third 文字2
+// function ani3(s) {
+// 	console.log('ani3');
+// 	// setScroll(s)
+// 	ani2T1_op=check_op((s-(obj1H*1/3))*0.005);
+// 	ani2T1_n=ani2T1_n+(s-oldScroll)*0.3;
+// 	if (ani2T1_n>ani2T1_e) {
+// 		ani2T1_n=ani2T1_e
+// 	}
+// 	ani2T1.style=`transform: translateY(${ ani2T1_n }px); opacity: ${ ani2T1_op };`
+
+// 	ani2T2_op=check_op((s-(obj1H*1/2))*0.01);
+
+// 	ani2T2_n=ani2T2_n+(s-oldScroll)*0.1;
+// 	if (ani2T2_n>ani2T1_e) {
+// 		ani2T2_n=ani2T1_e
+// 	}
+// 	ani2T2.style=`transform: translateY(${ ani2T2_n }px); opacity: ${ ani2T2_op };`;
+// }
+
+// // 文字１微微往上 －２繼續往下
+// function ani4(s) {
+// 	console.log('ani4', s-oldScroll);
+// 	// setScroll(s)
+
+// 	ani2T1_op=check_op((s-(obj1H*1/3))*0.005);
+// 	if (ani2T1_op>1) {
+// 		ani2T1_op=1
+// 	}
+
+// 	ani2T1_n=ani2T1_n-(s-oldScroll)*0.5;
+// 	if (ani2T1_n<ani2T1_s) {
+// 		ani2T1_n=ani2T1_s
+// 	}
+// 	// setScroll(s)
+// 	ani2T1.style=`transform: translateY(${ ani2T1_n }px); opacity: ${ ani2T1_op };`
+
+
+// 	ani2T2_op=check_op((s-(obj1H*1/2))*0.01);
+
+// 	ani2T2_n=ani2T2_n+(s-oldScroll)*0.1;
+// 	ani2T2.style=`transform: translateY(${ ani2T2_n }px); opacity: ${ ani2T2_op };`;
+
+// 	if (scroll_path<0) {
+// 		ani4Bg_op=check_op(ani4Bg_op+(s-oldScroll)*0.01);
+// 		ani4Bg_n=ani4Bg_n+(s-oldScroll);
+// 		if (ani4Bg_n>ani4Bg_e) {
+// 			ani4Bg_n=ani4Bg_e
+// 		} else if (ani4Bg_n<ani4Bg_s) {
+// 			ani4Bg_n=ani4Bg_s
+// 		}
+// 		ani4Bg.style=`transform: translateY(${ ani4Bg_n }px); opacity: ${ ani4Bg_op };`;
+// 		ani2T2_op=check_op(ani2T2_op-(s-oldScroll)*0.01);
+// 		ani2T2.style=`transform: translateY(${ ani2T2_n }px); opacity: ${ ani2T2_op };`
+// 		ani4T1_op=check_op(ani4T1_op+(s-oldScroll)*0.01);
+// 		ani4T1.style=`transform: translateY(${ ani4T1_n }px); opacity: ${ ani4T1_op };`;
+// 	}
+// }
+
+// // 文字１、２淡出
+// function ani5(s) {
+// 	console.log('ani5', s-oldScroll);
+// 	// setScroll(s)
+// 	if (scroll_path<0) {
+// 		ani2T1_op=check_op(ani2T1_op-(s-oldScroll)*0.005);
+// 		ani2T2_op=check_op(ani2T2_op-(s-oldScroll)*0.005);
+// 	} else {
+// 		ani2T1_op=check_op(ani2T1_op-(s-oldScroll)*0.01);
+// 		ani2T2_op=check_op(ani2T2_op-(s-oldScroll)*0.01);
+// 	}
+// 	ani2T1.style=`transform: translateY(${ ani2T1_n }px); opacity: ${ ani2T1_op };`
+// 	ani2T2.style=`transform: translateY(${ ani2T2_n }px); opacity: ${ ani2T2_op };`
+// }
+
+// // forthBg淡入＆下滑
+// function ani6(s) {
+// 	console.log('ani6');
+// 	if (scroll_path>0) {
+// 		ani4Bg_op=check_op(ani4Bg_op+(s-oldScroll)*0.005);
+// 		if (ani2T1_op>0) {
+// 			ani5(s)
+// 		}
+// 	} else {
+// 		ani4Bg_op=check_op(ani4Bg_op+(s-oldScroll)*0.003);
+// 		if (ani4Bg_op==0) {
+// 			ani4Bg_s=-350
+// 			ani4Bg_n=ani4Bg_s
+// 		}
+
+
+// 		if (ani4T1_op>0) {
+// 			ani7(s);
+// 		} else if (ani4T1_op==0) {
+// 			ani4T1_s=-500
+// 			ani4T1_n=ani4T1_s
+// 		}
+// 	}
+
+// 	ani4Bg_n=ani4Bg_n+(s-oldScroll);
+// 	if (ani4Bg_n>ani4Bg_e) {
+// 		ani4Bg_n=ani4Bg_e
+// 	} else if (ani4Bg_n<ani4Bg_s) {
+// 		ani4Bg_n=ani4Bg_s
+// 	}
+// 	ani4Bg.style=`transform: translateY(${ ani4Bg_n }px); opacity: ${ ani4Bg_op };`;
+
+// }
+// // forthTXT淡入＆下滑
+// function ani7(s) {
+// 	console.log('ani7');
+// 	console.log('ani6n', ani4Bg_n);
+// 	console.log('ani6e', ani4Bg_e);
+// 	ani4T1_op=check_op(ani4T1_op+(s-oldScroll)*0.005);
+
+// 	if (ani4T1_n>ani4T1_e) {
+// 		ani4T1_n=ani4T1_e
+// 	} else if (ani4T1_n<ani4T1_s) {
+// 		ani4T1_n=ani4T1_s
+// 	}
+
+// 	if (ani4Bg_n<ani4Bg_e&&scroll_path>0) {
+// 		ani6(s)
+// 	} else if (scroll_path>0&&ani4T1_op!==0) {
+// 		ani4T1_n=ani4T1_n+(s-oldScroll)*1.2;
+// 	}
+
+// 	ani4T1.style=`transform: translateY(${ ani4T1_n }px); opacity: ${ ani4T1_op };`;
+// }
+// // 貓塗上爬
+// function ani8(s) {
+// 	console.log('ani8');
+// 	// setScroll(s)
+// 	// console.log('scrollState', scrollState);
+
+// 	aniCat_n=aniCat_n-(s-oldScroll)*0.35;
+// 	if (aniCat_n<=0) {
+// 		aniCat_n=0
+// 	} else if (aniCat_n>=100) {
+// 		aniCat_n=100
+// 	}
+// 	console.log('aniCat_n', aniCat_n);
+// 	aniCat.style=`--cat:${ aniCat_n }%`;
+// }
+
+// function ani9(s) {
+// 	console.log('ani9');
+// 	forthBox_n=forthBox_n-(s-oldScroll)*0.002;
+// 	if (forthBox_n<=forthBox_e) {
+// 		forthBox_n=forthBox_e
+// 	} else if (forthBox_n>=1) {
+// 		forthBox_n=1
+// 	}
+// 	forthBox.style=`transform: scale(${ forthBox_n });`;
+// }
+
+// // 貓塗下爬
+// function ani10(s) {
+// 	console.log('ani10');
+// 	aniCat_n=aniCat_n+(s-oldScroll)*0.25;
+// 	if (aniCat_n<=0) {
+// 		aniCat_n=0
+// 	} else if (aniCat_n>=100) {
+// 		aniCat_n=100
+// 	}
+// 	aniCat.style=`--cat:${ aniCat_n }%`;
+// }
+
+// function ani11(s) {
+// 	console.log('ani11');
+// }
+
+// setTimeout(() => {
+// 	for (let i=0; i<allpage.length; i++) {
+// 		const element=allpage[i];
+// 		setH+=element.offsetHeight;
+// 		obj1H=allpage[i].offsetHeight
+// 		obj2H=allpage[i].offsetHeight*2
+// 		console.log(i+":"+element.offsetHeight);
+// 		console.log("setH:"+setH);
+// 	}
+// }, 100);
+
+// function check_op(num) {
+// 	if (num>1) {
+// 		return 1
+// 	} else if (num<0) {
+// 		return 0
+// 	} else {
+// 		return num
+// 	}
+// }
+
+// function set_fake_h(h) {
+// 	fake_h.style.height=h+setHdefault+"px";
+// }
+
+
+
+// function homeInit() {
+// 	setTimeout(() => {
+// 		set_fake_h(setH);
+// 	}, 500);
+// 	setScroll(0);
+// 	ani2T1.style=`transform: translateY(${ ani2T1_s }px); opacity: ${ ani2T1_op };`;
+// 	ani2T2.style=`transform: translateY(${ ani2T2_s }px); opacity: ${ ani2T2_op };`;
+// 	ani4Bg.style=`transform: translateY(${ ani4Bg_s }px); opacity: ${ ani4Bg_op };`;
+// 	ani4T1.style=`transform: translateY(${ ani4T1_s }px); opacity: ${ ani4T1_op };`;
+// 	aniCat.style=`--cat:${ aniCat_s }%`;
+// 	forthBox.style=`transform: scale(${ forthBox_s });`;
+// 	//
+// }
+// // start
+
