@@ -35,7 +35,6 @@ var pageArr=[
 
 var pageNum=0;
 function home_btnHandler() {
-
 	home.classList.add("zoomOut");
 	clearTimeout(changePageTime);
 	home_second.classList.remove("zoomOut");
@@ -167,7 +166,7 @@ var pageMove=0;
 
 var home_y=0
 var home_move=0
-var home_speed=window.innerWidth<=1024? 4:10;
+var home_speed=window.innerWidth<=1024? 5:10;
 var scroll_path=0
 var nowS=0, oldS=0;
 var t1=document.querySelector("#home_third_txt1");
@@ -511,11 +510,8 @@ setTimeout(() => {
 }, 1000);
 function touchHandler(e) {
 	if (header.classList.contains("onHead")) return
-	// home_scroll_delay=0
 	// if (!MouseWheelSwitch) return;
-	console.log('ASDFASDF');
 	touchStart=e.touches[0].pageY;
-	// home_scroll.style.transform=`transition: transform 0s ease;`;
 	window.addEventListener("touchmove", touchmoveHandler);
 	window.addEventListener("touchend", touchendHandler);
 }
@@ -931,11 +927,11 @@ function onPlayerReady(event) {
 
 var home_scroll=document.querySelector("#home_scroll");
 var home_move=0
-var home_scroll_delay=0.6
+var home_scroll_dely=0.6
 
 
 function homeInit() {
-	home_scroll.style=`transform: translateY(${ home_move }px);  transition: transform ${ home_scroll_delay }s ease;;`;
+	home_scroll.style=`transform: translateY(${ home_move }px);  transition: transform ${ home_scroll_dely }s ease;;`;
 	t1.style=`transform:translateY(${ t1_s }px); transition: all ${ t1_delay }s ease;opacity: ${ t1_op };`;
 	t2.style=`transform:translateY(${ t2_s }px); transition: all ${ t2_delay }s ease;opacity: ${ t2_op };`;
 	forthBg.style=`transform:translateY(${ forthBg_s }px); transition: all ${ forthBg_delay }s ease;opacity: ${ forthBg_op };`;
