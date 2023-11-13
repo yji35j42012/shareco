@@ -3923,6 +3923,7 @@ h1 + .product_group {
   height: 500px;
   background: url("../images/home/background_forth_2.png") no-repeat center/cover;
   transform: translateY(var(--cat));
+  transition-duration: var(--cat_delay);
 }
 .home_forth_txtBox {
   z-index: 1;

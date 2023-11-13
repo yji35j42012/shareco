@@ -532,7 +532,7 @@
 				background: url("../images/home/background_forth_2.png")
 					no-repeat center/cover;
 				transform: translateY(var(--cat));
-				// transition-duration: 1.5s;
+				transition-duration: var(--cat_delay);
 
 				// .show & {
 				// 	transform: translateY(0);
