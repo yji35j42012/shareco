@@ -14,6 +14,9 @@ function mobile() {
 }
 
 var device=mobile()? "ph":"pc";
+if(device=="ph"){
+	getScrollT.style = `overflow: hidden;`
+}
 var fifthAni2Time;
 var home_btn=document.querySelector("#home_btn");
 var home=document.querySelector("#home");
@@ -31,7 +34,7 @@ var pageArr=[
 ];
 
 var pageNum=0;
-home_btn.onclick=function () {
+function home_btnHandler() {
 	home.classList.add("zoomOut");
 	clearTimeout(changePageTime);
 	home_second.classList.remove("zoomOut");
@@ -43,7 +46,9 @@ home_btn.onclick=function () {
 	setTimeout(() => {
 		wrap.classList.remove("active");
 	}, 100);
-};
+}
+home_btn.addEventListener("click",home_btnHandler)
+home_btn.addEventListener("touchstart",home_btnHandler)
 
 var scaleTime;
 var scaleNum=0;
@@ -159,8 +164,6 @@ var pagedown=true;
 var pageMove=0;
 
 
-
-
 var home_y=0
 var home_move=0
 var home_speed=10
@@ -186,33 +189,47 @@ var forthCat_s=100, forthCat_e=0, forthCat_move=forthCat_s, forthCat_over=0, for
 var forthCat_delay=0.6
 
 var forthBox=document.querySelector("#forthBox");
-var forthBox_s=1, forthBox_e=0.1, forthBox_move=forthBox_s;
+var forthBox_s=1, forthBox_e=0.05, forthBox_move=forthBox_s;
 var forthBox_delay=0.6
 
-var default_h=98;// header高度
+var default_h=window.innerWidth<=1024? 54:98;// header高度
 var h=window.innerHeight-default_h
 
 var ani1Range_s=h/2, ani1Range_e=h, ani1Range_s2=h*(5/4);//第二張圖進場到一半 txt1 txt2開始顯示
 var ani2Range=h*(6/4)
 var ani3Range=h*(7/4)
 var ani4Range=h*(8/4)
-var ani5Range=h*(8/4)+150
-var ani6Range=h*(8/4)+150+550
+var ani5Range=h*(8/4)+350
+var ani6Range=ani5Range+750
 // 2200
 // 1600
 // var ani3Range = (window.innerHeight) + window.innerHeight * (1 / 3);//第二張圖完全進場 txt1 在更慢
 
 function MouseWheel(e) {
-	if (e.deltaY>0) {
-		// 向下滚动
-		home_y-=1;
-		scroll_path=-1
-		// home_scroll_num -= 1
-	} else if (e.deltaY<0) {
-		// 向上滚动
-		home_y+=1;
-		scroll_path=1
-		// home_scroll_num += 1
+	if (device=='ph') {
+		if (touchMove>0) {
+			// 向下滚动
+			home_y-=1;
+			scroll_path=-1
+			// home_scroll_num -= 1
+		} else if (touchMove<0) {
+			// 向上滚动
+			home_y+=1;
+			scroll_path=1
+			// home_scroll_num += 1
+		}
+	} else {
+		if (e.deltaY>0) {
+			// 向下滚动
+			home_y-=1;
+			scroll_path=-1
+			// home_scroll_num -= 1
+		} else if (e.deltaY<0) {
+			// 向上滚动
+			home_y+=1;
+			scroll_path=1
+			// home_scroll_num += 1
+		}
 	}
 	if (home_y>0) {
 		home_y=0
@@ -226,14 +243,13 @@ function MouseWheel(e) {
 	const scrollPercent=Math.abs(home_y)*home_speed;
 	home_move=Math.abs(home_y)*home_speed
 
-
 	if (scrollPercent-ani4Range<0) {
 		home_scroll.style.transform=`translateY(-${ home_move }px)`;
 	} else if (scrollPercent-ani4Range>0) {
 		home_scroll.style.transform=`translateY(-${ ani4Range }px)`;
 	}
 
-	console.log('scrollPercent', scrollPercent);
+	// console.log('scrollPercent', scrollPercent);
 	ani_txt1(scrollPercent)
 	ani_txt2(scrollPercent)
 	ani_forthBg(scrollPercent)
@@ -241,6 +257,7 @@ function MouseWheel(e) {
 	ani_forthCat(scrollPercent)
 	ani_forthBox(scrollPercent)
 	oldS=home_y
+
 }
 
 function ani_txt1(s) {
@@ -285,6 +302,7 @@ function ani_txt1(s) {
 	t1.style.opacity=t1_op;
 	t1.style.transform=`translateY(${ t1_move }px)`;
 }
+
 function ani_txt2(s) {
 	t2_op=check_op(Math.min((s-ani1Range_s)/home_speed*0.05, 1));
 
@@ -322,6 +340,7 @@ function ani_txt2(s) {
 	t2.style.opacity=t2_op;
 	t2.style.transform=`translateY(${ t2_move }px)`;
 }
+
 function ani_forthBg(s) {
 	if (s-ani2Range>0) {
 		forthBg_op=check_op(Math.min((s-ani1Range_s2)/home_speed*0.025, 1));
@@ -338,7 +357,6 @@ function ani_forthBg(s) {
 				forthBg_over=0
 			}
 		}
-
 	} else if (s-ani1Range_s2>0) {
 		forthBg_op=check_op(Math.min((s-ani1Range_s2)/home_speed*0.02, 1));
 		if (scroll_path<0) {
@@ -350,7 +368,6 @@ function ani_forthBg(s) {
 			}
 		}
 	} else if (s-ani1Range_s>ani1Range_e-ani1Range_s) {
-
 		if (scroll_path>0) {
 			forthBg_op=check_op(Math.min((s-ani1Range_s2)/home_speed*0.02, 1));
 			forthBg_move-=home_speed*0.1
@@ -371,16 +388,17 @@ function ani_forthBg(s) {
 }
 
 function ani_forthTxt(s) {
+	var textTime=0.8
 	if (s-ani3Range>0) {
 		if (scroll_path<0) {
-			forthTxt_move+=home_speed*1.5
+			forthTxt_move+=home_speed*textTime
 			forthTxt_op=check_op(Math.min((s-ani3Range)/home_speed*0.025, 1));
 		} else if (scroll_path>0) {
 			// 上滑
 			if (forthTxt_over>0) {
-				forthTxt_over-=home_speed*1.5
+				forthTxt_over-=home_speed*textTime
 			} else {
-				forthTxt_move-=home_speed*1.5
+				forthTxt_move-=home_speed*textTime
 				forthTxt_op=check_op(Math.min((s-ani3Range)/home_speed*0.025, 1));
 			}
 			if (forthTxt_over<0) {
@@ -390,7 +408,7 @@ function ani_forthTxt(s) {
 	}
 	// forthTxt_over
 	if (forthTxt_move>forthTxt_e) {
-		forthTxt_over+=home_speed*1.5
+		forthTxt_over+=home_speed*textTime
 		forthTxt_move=forthTxt_e
 	}
 	if (forthTxt_move<forthTxt_s) {
@@ -403,41 +421,41 @@ function ani_forthTxt(s) {
 
 function ani_forthCat(s) {
 	if (s-ani6Range>0) {
-		console.log('next');
+
 	} else if (s-ani5Range>0) {
-		console.log('aaa');
+
 		if (scroll_path<0) {
-			forthCat_over+=home_speed*0.4
-			forthCat_move+=home_speed*0.15
+			forthCat_over+=home_speed*0.2
+			forthCat_move+=home_speed*0.11
 		} else if (scroll_path>0) {
 			// 上滑
 			if (forthCat_over>0) {
-				forthCat_over-=home_speed*0.4
+				forthCat_over-=home_speed*0.2
 			}
 			if (forthCat_over<0) {
 				forthCat_over=0
 			}
-			forthCat_move-=home_speed*0.15
+			forthCat_move-=home_speed*0.11
 		}
 		if (forthCat_move>forthCat_s) {
 			forthCat_move=forthCat_s
 		}
 	} else if (s-ani3Range>0) {
 		if (scroll_path<0) {
-			forthCat_move-=home_speed*0.4
+			forthCat_move-=home_speed*0.2
 		} else if (scroll_path>0) {
 			// 上滑
 			if (forthCat_over>0) {
-				forthCat_over-=home_speed*0.4
+				forthCat_over-=home_speed*0.2
 			} else {
-				forthCat_move+=home_speed*0.4
+				forthCat_move+=home_speed*0.2
 			}
 			if (forthTxt_over<0) {
 				forthTxt_over=0
 			}
 		}
 		if (forthCat_move<forthCat_e) {
-			forthCat_over+=home_speed*0.4
+			forthCat_over+=home_speed*0.2
 			forthCat_move=forthCat_e
 		}
 	}
@@ -447,13 +465,13 @@ function ani_forthCat(s) {
 
 function ani_forthBox(s) {
 	if (s-ani6Range>0) {
-		console.log('next');
+	
 	} else if (s-ani5Range>0) {
 		if (scroll_path<0) {
-			forthBox_move-=home_speed*0.0018
+			forthBox_move-=home_speed*0.0011
 
 		} else if (scroll_path>0) {
-			forthBox_move+=home_speed*0.0018
+			forthBox_move+=home_speed*0.0011
 		}
 	}
 	if (forthBox_move<forthBox_e) {
@@ -463,6 +481,7 @@ function ani_forthBox(s) {
 	}
 	forthBox.style.transform=`scale(${ forthBox_move })`;
 }
+
 function check_op(num) {
 	if (num>1) {
 		return 1
@@ -490,20 +509,25 @@ setTimeout(() => {
 }, 1000);
 function touchHandler(e) {
 	if (header.classList.contains("onHead")) return
-	if (!MouseWheelSwitch) return;
+	// if (!MouseWheelSwitch) return;
 	touchStart=e.touches[0].pageY;
 	window.addEventListener("touchmove", touchmoveHandler);
 	window.addEventListener("touchend", touchendHandler);
 }
 function touchmoveHandler(e) {
+	e.preventDefault();
 	if (header.classList.contains("onHead")) return
 	if (pageNum==0) return;
 	touchMove=touchStart-e.touches[0].pageY;
+	MouseWheel(touchMove)
+	touchStart=e.touches[0].pageY
+	console.log('touchMove', touchMove);
 	if (touchMove>0) {
 		touchEnd=true;
 	} else {
 		touchEnd=false;
 	}
+
 }
 function touchendHandler() {
 	if (header.classList.contains("onHead")) {
@@ -520,7 +544,7 @@ function touchendHandler() {
 	mouseShow=document.querySelector("#"+pageArr[pageNum]);
 	pagedown=touchEnd;
 	if (pagedown&&pageArr.length-1==pageNum) return;
-	changePage(pagedown);
+	// changePage(pagedown);
 	window.removeEventListener("touchmove", touchmoveHandler);
 	window.removeEventListener("touchend", touchendHandler);
 	MouseWheelSwitch=false;

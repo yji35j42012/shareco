@@ -653,6 +653,14 @@ h4 {
   pointer-events: none;
 }
 @media screen and (max-width: 1024px) {
+  .wrap._home {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+}
+@media screen and (max-width: 1024px) {
   .wrap {
     padding-top: 54px;
   }
@@ -3745,6 +3753,15 @@ h1 + .product_group {
   width: 100%;
   height: calc(100% - 98px);
 }
+@media screen and (max-width: 1024px) {
+  .home_outside {
+    top: 54px;
+    height: calc(100% - 54px);
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+  }
+}
 .home_txtBox {
   pointer-events: none;
   display: flex;
@@ -3790,7 +3807,7 @@ h1 + .product_group {
   height: 100%;
   margin: auto;
   opacity: 0;
-  transition-duration: 2s;
+  transition-duration: 3.5s;
 }
 .show .home_video_box {
   opacity: 1;
@@ -4395,7 +4412,6 @@ h1 + .product_group {
     display: none;
   }
   .home_video, .home_third, .home_forth, .home_fifth, .home_six, .home_seven {
-    top: 54px;
     height: calc(100% - 54px);
   }
   .home_video {

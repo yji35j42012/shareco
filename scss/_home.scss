@@ -8,6 +8,7 @@
 	height: 100%;
 	perspective: 200px;
 	pointer-events: none;
+
 	// .home_linear
 	&_linear {
 		position: absolute;
@@ -282,7 +283,7 @@
 	&_fake_H {
 		flex: none;
 	}
-
+	// .home_outside
 	&_outside {
 		overflow: hidden;
 		position: fixed;
@@ -290,6 +291,11 @@
 		left: 0;
 		width: 100%;
 		height: calc(100% - 98px);
+		@include mw(L){
+			top: 54px;
+			height: calc(100% - 54px);
+			user-select: none;
+		}
 	}
 
 	// .home_txtBox
@@ -355,7 +361,7 @@
 			height: 100%;
 			margin: auto;
 			opacity: 0;
-			transition-duration: 2s;
+			transition-duration: 3.5s;
 
 			.show & {
 				opacity: 1;
@@ -1181,7 +1187,7 @@
 		&_fifth,
 		&_six,
 		&_seven {
-			top: 54px;
+			// top: 54px;
 			height: calc(100% - 54px);
 		}
 
