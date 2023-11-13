@@ -197,7 +197,8 @@ var ani2Range=h*(6/4)
 var ani3Range=h*(7/4)
 var ani4Range=h*(8/4)
 var ani5Range=h*(8/4)+150
-
+var ani6Range=h*(8/4)+150+550
+// 2200
 // 1600
 // var ani3Range = (window.innerHeight) + window.innerHeight * (1 / 3);//第二張圖完全進場 txt1 在更慢
 
@@ -232,7 +233,7 @@ function MouseWheel(e) {
 		home_scroll.style.transform=`translateY(-${ ani4Range }px)`;
 	}
 
-	// console.log('scrollPercent', scrollPercent);
+	console.log('scrollPercent', scrollPercent);
 	ani_txt1(scrollPercent)
 	ani_txt2(scrollPercent)
 	ani_forthBg(scrollPercent)
@@ -401,13 +402,13 @@ function ani_forthTxt(s) {
 }
 
 function ani_forthCat(s) {
-	if (s-ani5Range>0) {
+	if (s-ani6Range>0) {
+		console.log('next');
+	} else if (s-ani5Range>0) {
 		console.log('aaa');
-
 		if (scroll_path<0) {
 			forthCat_over+=home_speed*0.4
-
-			forthCat_move+=home_speed*0.2
+			forthCat_move+=home_speed*0.15
 		} else if (scroll_path>0) {
 			// 上滑
 			if (forthCat_over>0) {
@@ -416,13 +417,11 @@ function ani_forthCat(s) {
 			if (forthCat_over<0) {
 				forthCat_over=0
 			}
-			forthCat_move-=home_speed*0.2
-			// forthCat_out--
-			// if (forthCat_out<0) {
-			// 	forthCat_out=0
-			// }
+			forthCat_move-=home_speed*0.15
 		}
-
+		if (forthCat_move>forthCat_s) {
+			forthCat_move=forthCat_s
+		}
 	} else if (s-ani3Range>0) {
 		if (scroll_path<0) {
 			forthCat_move-=home_speed*0.4
@@ -443,17 +442,18 @@ function ani_forthCat(s) {
 		}
 	}
 
-	console.log('forthCat_over', forthCat_over);
 	forthCat.style=`--cat_delay:${ forthCat_delay }s;--cat:${ forthCat_move }%`;
 }
 
 function ani_forthBox(s) {
-	if (s-ani5Range>0) {
+	if (s-ani6Range>0) {
+		console.log('next');
+	} else if (s-ani5Range>0) {
 		if (scroll_path<0) {
-			forthBox_move-=home_speed*0.002
+			forthBox_move-=home_speed*0.0018
 
 		} else if (scroll_path>0) {
-			forthBox_move+=home_speed*0.002
+			forthBox_move+=home_speed*0.0018
 		}
 	}
 	if (forthBox_move<forthBox_e) {
