@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* 样式保持不变 */
+    </style>
+    <title>Colored Items</title>
+    <style>
+    body, html {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .box {
+            white-space: nowrap;
+            overflow-x: auto;
+            transition: transform 0.5s ease; /* 添加过渡效果 */
+            position: relative;
+        }
+
+        .item {
+            display: block;
+            box-sizing: border-box;
+            width: 100vw;
+            height: 100vh;
+            text-align: center;
+            line-height: 100vh;
+            font-size: 1.5em;
+            position: relative; /* 添加相对定位 */
+        }
+
+        .item:nth-child(1) { background-color: #FF5733; }
+        .item:nth-child(2) { background-color: #33FF57; }
+        .item:nth-child(3) { background-color: #5733FF; }
+        .item:nth-child(4) { background-color: #FF33F3; }
+        .item:nth-child(5) { background-color: #33F3FF; }
+        .item:nth-child(6) { background-color: #FFE033; }
+        .item:nth-child(7) { background-color: #339BFF; }
+        .item:nth-child(8) { background-color: #E033FF; }
+        .item:nth-child(9) { background-color: #8C33FF; }
+        .item:nth-child(10) { background-color: #33FFD4; }
+        
+        /* 新增的样式 */
+        #leftText, #rightText {
+            position: absolute;
+            font-size: 30px;
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s ease; /* 添加淡入效果过渡 */
+            width: 50vw; /* 让文字占据一半的宽度 */
+            top: 50%;
+            transform: translateY(-50%) translateX(-25vw); /* 初始位置在第一个 item 的中间 */
+        }
+
+        .item:nth-child(2) #leftText {
+            transform: translateY(50vh); /* 在第二个 item 的中间 */
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="box" id="scrollBox">
+        <div class="item" id="item1">Item 1</div>
+        <div class="item" id="item2">
+            <!-- 左侧文字 -->
+            <div id="leftText">Hello World</div>
+            
+            <!-- 右侧文字 -->
+            <div id="rightText">你好歡迎使用</div>
+        </div>
+        <div class="item" id="item3">Item 3</div>
+        <div class="item" id="item4">Item 4</div>
+        <div class="item" id="item5">Item 5</div>
+        <div class="item" id="item6">Item 6</div>
+        <div class="item" id="item7">Item 7</div>
+        <div class="item" id="item8">Item 8</div>
+        <div class="item" id="item9">Item 9</div>
+        <div class="item" id="item10">Item 10</div>
+    </div>
+</div>
+
+<script>
+    const box = document.getElementById('scrollBox');
+    const leftText = document.getElementById('leftText');
+    const rightText = document.getElementById('rightText');
+
+    let translateYValue = 0;
+    let touchStartY = 0;
+
+    // 监听滚轮事件
+    box.addEventListener('wheel', handleScroll);
+
+    // 监听触摸事件
+    box.addEventListener('touchstart', (event) => {
+        touchStartY = event.touches[0].clientY;
+    });
+
+    box.addEventListener('touchmove', handleTouchMove);
+
+    function handleScroll(event) {
+        const maxTranslateY = -(box.scrollHeight - window.innerHeight);
+
+        if (event.deltaY > 0 && translateYValue > maxTranslateY) {
+            // 向下滚动
+            translateYValue -= 100;
+        } else if (event.deltaY < 0 && translateYValue < 0) {
+            // 向上滚动
+            translateYValue += 100;
+        }
+
+        updateTransform();
+    }
+
+    function handleTouchMove(event) {
+        const touchMoveY = event.touches[0].clientY;
+        const deltaY = touchMoveY - touchStartY;
+
+        if (deltaY > 0 && translateYValue > -(box.scrollHeight - window.innerHeight)) {
+            // 向下滑动
+            translateYValue -= 10; // 调整滑动速度
+        } else if (deltaY < 0 && translateYValue < 0) {
+            // 向上滑动
+            translateYValue += 10; // 调整滑动速度
+        }
+
+        touchStartY = touchMoveY;
+        updateTransform();
+
+        // 阻止默认的滚动行为
+        event.preventDefault();
+    }
+
+    function updateTransform() {
+        box.style.transform = `translateY(${translateYValue}px)`;
+
+        // 计算滚动位置的百分比
+        const scrollPercent = (Math.abs(translateYValue) / window.innerHeight) * 100;
+
+        // 根据滚动位置的百分比设置文字透明度和位置
+        leftText.style.opacity = Math.min(scrollPercent / 50, 1);
+        leftText.style.transform = `translateY(-${scrollPercent}%) translateX(-25vw)`;
+
+        rightText.style.opacity = Math.min((scrollPercent - 50) / 50, 1);
+    }
+</script>
+
+</body>
+</html>
