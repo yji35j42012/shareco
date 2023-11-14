@@ -14,8 +14,8 @@ function mobile() {
 }
 
 var device=mobile()? "ph":"pc";
-if(device=="ph"){
-	getScrollT.style = `overflow: hidden;`
+if (device=="ph") {
+	getScrollT.style=`overflow: hidden;`
 }
 var fifthAni2Time;
 var home_btn=document.querySelector("#home_btn");
@@ -47,8 +47,8 @@ function home_btnHandler() {
 		wrap.classList.remove("active");
 	}, 100);
 }
-home_btn.addEventListener("click",home_btnHandler)
-home_btn.addEventListener("touchstart",home_btnHandler)
+home_btn.addEventListener("click", home_btnHandler)
+home_btn.addEventListener("touchstart", home_btnHandler)
 
 var scaleTime;
 var scaleNum=0;
@@ -192,6 +192,15 @@ var forthBox=document.querySelector("#forthBox");
 var forthBox_s=1, forthBox_e=0.05, forthBox_move=forthBox_s;
 var forthBox_delay=0.6
 
+
+var home_fifth=document.querySelector("#home_fifth");
+var home_fifth_s=-100, home_fifth_e=0, home_fifth_op=0;
+var home_fifth_delay=0.6
+
+var fiftxt=document.querySelector("#fifth_txt");
+var fiftxt_s=2, fiftxt_op=0;
+var fiftxt_s_delay=0.6
+
 var default_h=window.innerWidth<=1024? 54:98;// header高度
 var h=window.innerHeight-default_h
 
@@ -257,6 +266,7 @@ function MouseWheel(e) {
 	ani_forthTxt(scrollPercent)
 	ani_forthCat(scrollPercent)
 	ani_forthBox(scrollPercent)
+	ani_fifth(scrollPercent)
 	oldS=home_y
 
 }
@@ -424,7 +434,6 @@ function ani_forthCat(s) {
 	if (s-ani6Range>0) {
 
 	} else if (s-ani5Range>0) {
-
 		if (scroll_path<0) {
 			forthCat_over+=home_speed*0.2
 			forthCat_move+=home_speed*0.11
@@ -466,7 +475,7 @@ function ani_forthCat(s) {
 
 function ani_forthBox(s) {
 	if (s-ani6Range>0) {
-	
+
 	} else if (s-ani5Range>0) {
 		if (scroll_path<0) {
 			forthBox_move-=home_speed*0.0011
@@ -481,6 +490,14 @@ function ani_forthBox(s) {
 		forthBox_move=forthBox_s
 	}
 	forthBox.style.transform=`scale(${ forthBox_move })`;
+}
+function ani_fifth(s) {
+	if (s-ani6Range>0) {
+		console.log('ani_fifth');
+		home_fifth_op=check_op(Math.min((s-ani6Range)/home_speed*0.02, 1));
+		console.log('home_fifth_op', home_fifth_op);
+	}
+	home_fifth.style.opacity=home_fifth_op;
 }
 
 function check_op(num) {
@@ -520,7 +537,7 @@ function touchmoveHandler(e) {
 	if (header.classList.contains("onHead")) return
 	if (pageNum==0) return;
 	touchMove=touchStart-e.touches[0].pageY;
-	if(touchMove==0)return;
+	if (touchMove==0) return;
 	MouseWheel(touchMove)
 	touchStart=e.touches[0].pageY
 	console.log('touchMove', touchMove);
@@ -937,7 +954,10 @@ function homeInit() {
 	forthBg.style=`transform:translateY(${ forthBg_s }px); transition: all ${ forthBg_delay }s ease;opacity: ${ forthBg_op };`;
 	forthTxt.style=`transform:translateY(${ forthTxt_s }px); transition: all ${ forthTxt_delay }s ease;opacity: ${ forthTxt_op };`;
 	forthCat.style=`--cat_delay:${ forthCat_delay }s;--cat:${ forthCat_move }%`;
-	forthBox.style=`transform:scale(${ forthBox_s }); transition: all ${ forthBox_delay }s`;
+	forthBox.style=`transform:scale(${ forthBox_s }); transition: all ${ forthBox_delay }s;`;
+	home_fifth.style=`transform:translateY(${ home_fifth_s }%);opacity: ${ home_fifth_op };transition: all ${ home_fifth_delay }s`;
+	fiftxt.style=``;
+
 }
 document.addEventListener("DOMContentLoaded", () => {
 	homeInit();
