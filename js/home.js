@@ -101,13 +101,13 @@ var fifth_video=document.querySelector("#fifth_video");
 var fifth_video_m=document.querySelector("#fifth_video_m");
 fifth_video.pause();
 fifth_video_m.pause();
-function fifth_ani2() {
-	fifthAni2Time=setTimeout(() => {
-		home_fifth.classList.add("show2");
-		fifth_video.play();
-		fifth_video_m.play();
-	}, 7000);
-}
+// function fifth_ani2() {
+// 	fifthAni2Time=setTimeout(() => {
+// 		home_fifth.classList.add("show2");
+// 		fifth_video.play();
+// 		fifth_video_m.play();
+// 	}, 7000);
+// }
 // function changePage(boo) {
 // 	clearInterval(scaleTime);
 // 	mouseNoShow=document.querySelector("#"+pageArr[pageNum]);
@@ -199,7 +199,17 @@ var home_fifth_delay=0.6
 
 var fiftxt=document.querySelector("#fifth_txt");
 var fiftxt_s=2, fiftxt_op=0;
-var fiftxt_s_delay=0.6
+var fiftxt_delay=0.6
+
+
+var fifth_pcG1=document.querySelector("#fifth_pc_g1");
+var fifth_pcG2=document.querySelector("#fifth_pc_g2");
+var fifth_phG1=document.querySelector("#fifth_ph_g1");
+var fifth_phG2=document.querySelector("#fifth_ph_g2");
+var fifthG_delay=0.6
+var fifthG1_s=-100, fifthG1_e=0, fifthG1_move=fifthG1_s;
+var fifthG2_s=100, fifthG2_e=0, fifthG2_move=fifthG2_s;
+
 
 var default_h=window.innerWidth<=1024? 54:98;// header高度
 var h=window.innerHeight-default_h
@@ -210,6 +220,7 @@ var ani3Range=h*(7/4)
 var ani4Range=h*(8/4)
 var ani5Range=h*(8/4)+350
 var ani6Range=ani5Range+750
+var ani7Range=ani6Range+540
 // 2200
 // 1600
 // var ani3Range = (window.innerHeight) + window.innerHeight * (1 / 3);//第二張圖完全進場 txt1 在更慢
@@ -259,15 +270,16 @@ function MouseWheel(e) {
 		home_scroll.style.transform=`translateY(-${ ani4Range }px)`;
 	}
 
-	// console.log('scrollPercent', scrollPercent);
-	ani_txt1(scrollPercent)
-	ani_txt2(scrollPercent)
-	ani_forthBg(scrollPercent)
-	ani_forthTxt(scrollPercent)
-	ani_forthCat(scrollPercent)
-	ani_forthBox(scrollPercent)
-	ani_fifth(scrollPercent)
-	oldS=home_y
+	console.log('scrollPercent', scrollPercent);
+	ani_txt1(scrollPercent);
+	ani_txt2(scrollPercent);
+	ani_forthBg(scrollPercent);
+	ani_forthTxt(scrollPercent);
+	ani_forthCat(scrollPercent);
+	ani_forthBox(scrollPercent);
+	ani_fifth(scrollPercent);
+	ani_fiftxt(scrollPercent)
+	oldS=home_y;
 
 }
 
@@ -492,12 +504,42 @@ function ani_forthBox(s) {
 	forthBox.style.transform=`scale(${ forthBox_move })`;
 }
 function ani_fifth(s) {
-	if (s-ani6Range>0) {
+	if (s-ani7Range>0) {
+
+	} else if (s-ani6Range>0) {
 		console.log('ani_fifth');
 		home_fifth_op=check_op(Math.min((s-ani6Range)/home_speed*0.02, 1));
 		console.log('home_fifth_op', home_fifth_op);
 	}
 	home_fifth.style.opacity=home_fifth_op;
+}
+function ani_fiftxt(s) {
+	if (s-ani7Range>0) {
+		if (scroll_path<0) {
+			fifthG1_move+=home_speed*0.2
+			fifthG2_move-=home_speed*0.2
+		} else if (scroll_path>0) {
+			fifthG1_move-=home_speed*0.2
+			fifthG2_move+=home_speed*0.2
+		}
+	}
+
+	if (fifthG1_move>0) {
+		fifthG1_move=0
+	}
+	if (fifthG2_move<0) {
+		fifthG2_move=0
+	}
+	fifth_pcG1.style.transform=`translateY(${ fifthG1_move }%)`;
+	fifth_pcG2.style.transform=`translateY(${ fifthG2_move }%)`;
+
+	if (device=='pc') {
+		fifth_pcG1.style.transform=`translateY(${ fifthG1_move }%)`;
+		fifth_pcG2.style.transform=`translateY(${ fifthG2_move }%)`;
+	} else if (device=='ph') {
+		fifth_phG1.style.transform=`translateY(${ fifthG1_move }%)`;
+		fifth_phG2.style.transform=`translateY(${ fifthG2_move }%)`;
+	}
 }
 
 function check_op(num) {
@@ -956,8 +998,13 @@ function homeInit() {
 	forthCat.style=`--cat_delay:${ forthCat_delay }s;--cat:${ forthCat_move }%`;
 	forthBox.style=`transform:scale(${ forthBox_s }); transition: all ${ forthBox_delay }s;`;
 	home_fifth.style=`transform:translateY(${ home_fifth_s }%);opacity: ${ home_fifth_op };transition: all ${ home_fifth_delay }s`;
-	fiftxt.style=``;
+	fiftxt.style=`transform:scale(${ fiftxt_s });opacity: ${ fiftxt_op };transition: all ${ fiftxt_delay }s;`;
 
+	fifth_pcG1.style=`transform:translateY(${ fifthG1_s }%); transition: all ${ fifthG_delay }s;;`
+	fifth_pcG2.style=`transform:translateY(${ fifthG2_s }%); transition: all ${ fifthG_delay }s;;`
+
+	fifth_phG1.style=`transform:translateY(${ fifthG1_s }%); transition: all ${ fifthG_delay }s;;`
+	fifth_phG2.style=`transform:translateY(${ fifthG2_s }%); transition: all ${ fifthG_delay }s;;`
 }
 document.addEventListener("DOMContentLoaded", () => {
 	homeInit();
