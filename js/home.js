@@ -166,7 +166,7 @@ var pageMove=0;
 
 var home_y=0
 var home_move=0
-var home_speed=window.innerWidth<=1024? 5:10;
+var home_speed=window.innerWidth<=1024? 10:50;
 var scroll_path=0
 var nowS=0, oldS=0;
 var t1=document.querySelector("#home_third_txt1");
