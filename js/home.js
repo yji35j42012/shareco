@@ -166,7 +166,7 @@ var pageMove=0;
 
 var home_y=0
 var home_move=0
-var home_speed=window.innerWidth<=1024? 10:50;
+var home_speed=window.innerWidth<=1024? 10:20;
 var scroll_path=0
 var nowS=0, oldS=0;
 var t1=document.querySelector("#home_third_txt1");
@@ -192,7 +192,6 @@ var forthBox=document.querySelector("#forthBox");
 var forthBox_s=1, forthBox_e=0.05, forthBox_move=forthBox_s;
 var forthBox_delay=0.6
 
-
 var home_fifth=document.querySelector("#home_fifth");
 var home_fifth_s=-100, home_fifth_e=0, home_fifth_op=0;
 var home_fifth_delay=0.6
@@ -200,7 +199,6 @@ var home_fifth_delay=0.6
 var fiftxt=document.querySelector("#fifth_txt");
 var fiftxt_s=2, fiftxt_op=0;
 var fiftxt_delay=0.6
-
 
 var fifth_pcG1=document.querySelector("#fifth_pc_g1");
 var fifth_pcG2=document.querySelector("#fifth_pc_g2");
