@@ -1,7 +1,7 @@
 var getScrollT=document.querySelector("html");
 var wrap=document.querySelector("#wrap");
 var fake_h=document.querySelector("#fake_h");
-
+var changePageTime;
 
 
 wrap.classList.add("full");
@@ -70,6 +70,31 @@ var fifth_video_m=document.querySelector("#fifth_video_m");
 fifth_video.pause();
 fifth_video_m.pause();
 
+function mousemove(event) {
+	var mouseX=event.clientX;
+	var mouseY=event.clientY;
+	if (device=="ph") return;
+	if (!home.classList.contains("zoomOut")) {
+		if (mouseY-boxCenterH<0) {
+			// 滑鼠在上方
+			lionZ(mouseY-boxCenterH);
+			strawZ(mouseY-boxCenterH);
+		}
+		if (mouseX-boxCenterW>0) {
+			// 滑鼠在右方
+			treeZ(mouseX-boxCenterW);
+			flyrZ(mouseX-boxCenterW);
+		}
+
+		if (mouseX-boxCenterW<0) {
+			// 滑鼠在左方
+			plantZ(mouseX-boxCenterW);
+			flyl(mouseX-boxCenterW);
+		}
+	}
+
+	// strawZ
+}
 
 // var scaleTime;
 // var scaleNum=0;
@@ -79,32 +104,7 @@ fifth_video_m.pause();
 // var changePageDelay=2500;
 // var MouseWheelSwitch=true;
 // var videoYT1=document.querySelector("#videoYT1");
-// var changePageTime;
-// function mousemove(event) {
-// 	var mouseX=event.clientX;
-// 	var mouseY=event.clientY;
-// 	if (device=="ph") return;
-// 	if (!home.classList.contains("zoomOut")) {
-// 		if (mouseY-boxCenterH<0) {
-// 			// 滑鼠在上方
-// 			lionZ(mouseY-boxCenterH);
-// 			strawZ(mouseY-boxCenterH);
-// 		}
-// 		if (mouseX-boxCenterW>0) {
-// 			// 滑鼠在右方
-// 			treeZ(mouseX-boxCenterW);
-// 			flyrZ(mouseX-boxCenterW);
-// 		}
-
-// 		if (mouseX-boxCenterW<0) {
-// 			// 滑鼠在左方
-// 			plantZ(mouseX-boxCenterW);
-// 			flyl(mouseX-boxCenterW);
-// 		}
-// 	}
-
-// 	// strawZ
-// }
+// 
 
 // function fifth_ani2() {
 // 	fifthAni2Time=setTimeout(() => {
@@ -168,382 +168,54 @@ function backHome() {
 var pagedown=true;
 var pageMove=0;
 
-
-var home_y=0
-var home_move=0
-var home_speed=window.innerWidth<=1024? 10:20;
-var scroll_path=0
-var nowS=0, oldS=0;
-var t1=document.querySelector("#home_third_txt1");
-var t1_delay=0.8
-var t1_s=-600, t1_e=0, t1_move=t1_s, t1_op=0;
-var t2=document.querySelector("#home_third_txt2");
-var t2_delay=0.7
-var t2_s=-430, t2_e=0, t2_move=t2_s, t2_op=0;
-
-var forthBg=document.querySelector("#forthBg");
-var forthBg_s=-350, forthBg_e=0, forthBg_move=forthBg_s, forthBg_op=0, forthBg_over=0;
-var forthBg_delay=0.6
-
-var forthTxt=document.querySelector("#forthTxt");
-var forthTxt_s=-400, forthTxt_e=0, forthTxt_move=forthTxt_s, forthTxt_op=0, forthTxt_over=0, forthTxt_scale=1;
-var forthTxt_delay=0.5
-
-var forthCat=document.querySelector("#forth_cat");
-var forthCat_s=100, forthCat_e=0, forthCat_move=forthCat_s, forthCat_over=0, forthCat_out=0
-var forthCat_delay=0.6
-
-var forthBox=document.querySelector("#forthBox");
-var forthBox_s=1, forthBox_e=0.05, forthBox_move=forthBox_s;
-var forthBox_delay=0.6
-
-var home_fifth=document.querySelector("#home_fifth");
-var home_fifth_s=-100, home_fifth_e=0, home_fifth_op=0;
-var home_fifth_delay=0.6
-
-var fiftxt=document.querySelector("#fifth_txt");
-var fiftxt_s=2, fiftxt_op=0;
-var fiftxt_delay=0.6
-
-var fifth_pcG1=document.querySelector("#fifth_pc_g1");
-var fifth_pcG2=document.querySelector("#fifth_pc_g2");
-var fifth_phG1=document.querySelector("#fifth_ph_g1");
-var fifth_phG2=document.querySelector("#fifth_ph_g2");
-var fifthG_delay=0.6
-var fifthG1_s=-100, fifthG1_e=0, fifthG1_move=fifthG1_s;
-var fifthG2_s=100, fifthG2_e=0, fifthG2_move=fifthG2_s;
-
-
-var default_h=window.innerWidth<=1024? 54:98;// header高度
-var h=window.innerHeight-default_h
-
-var ani1Range_s=h/2, ani1Range_e=h, ani1Range_s2=h*(5/4);//第二張圖進場到一半 txt1 txt2開始顯示
-var ani2Range=h*(6/4)
-var ani3Range=h*(7/4)
-var ani4Range=h*(8/4)
-var ani5Range=h*(8/4)+350
-var ani6Range=ani5Range+750
-var ani7Range=ani6Range+540
-// 2200
-// 1600
-// var ani3Range = (window.innerHeight) + window.innerHeight * (1 / 3);//第二張圖完全進場 txt1 在更慢
-
+var body=document.querySelector("body");
 function MouseWheel(e) {
-	if (device=='ph') {
-		console.log('tt');
-		if (touchMove>0) {
-			// 向下滚动
-			home_y-=1;
-			scroll_path=-1
-			// home_scroll_num -= 1
-		} else if (touchMove<0) {
-			// 向上滚动
-			home_y+=1;
-			scroll_path=1
-			// home_scroll_num += 1
-		}
-	} else {
-		if (e.deltaY>0) {
-			// 向下滚动
-			home_y-=1;
-			scroll_path=-1
-			// home_scroll_num -= 1
-		} else if (e.deltaY<0) {
-			// 向上滚动
-			home_y+=1;
-			scroll_path=1
-			// home_scroll_num += 1
-		}
-	}
-	if (home_y>0) {
-		home_y=0
-		// home_scroll_num = 0
-	}
+	console.log('ADF',html.scrollTop);
+	// if (device=='ph') {
+	// 	if (touchMove>0) {
+	// 		// 向下滚动
+	// 		home_y-=1;
+	// 		scroll_path=-1
+	// 	} else if (touchMove<0) {
+	// 		// 向上滚动
+	// 		home_y+=1;
+	// 		scroll_path=1
+	// 	}
+	// } else {
+	// 	if (e.deltaY>0) {
+	// 		// 向下滚动
+	// 		home_y-=1;
+	// 		scroll_path=-1
+	// 	} else if (e.deltaY<0) {
+	// 		// 向上滚动
+	// 		home_y+=1;
+	// 		scroll_path=1
+	// 	}
+	// }
+	// if (home_y>0) {
+	// 	home_y=0
+	// 	// home_scroll_num = 0
+	// }
 	// 计算滚动位置的百分比
 	// if (t1_move > t1_e) {
 	// 	t1_move = t1_e
 	// }
 	// const scrollPercent = (Math.abs(home_y) / window.innerHeight) * 100;
-	const scrollPercent=Math.abs(home_y)*home_speed;
-	home_move=Math.abs(home_y)*home_speed
+	// const scrollPercent=Math.abs(home_y)*home_speed;
+	// home_move=Math.abs(home_y)*home_speed
 
-	if (scrollPercent-ani4Range<0) {
-		home_scroll.style.transform=`translateY(-${ home_move }px)`;
-	} else if (scrollPercent-ani4Range>0) {
-		home_scroll.style.transform=`translateY(-${ ani4Range }px)`;
-	}
+	// if (scrollPercent-ani4Range<0) {
+	// 	home_scroll.style.transform=`translateY(-${ home_move }px)`;
+	// } else if (scrollPercent-ani4Range>0) {
+	// 	home_scroll.style.transform=`translateY(-${ ani4Range }px)`;
+	// }
 
-	console.log('scrollPercent', scrollPercent);
-	ani_txt1(scrollPercent);
-	ani_txt2(scrollPercent);
-	ani_forthBg(scrollPercent);
-	ani_forthTxt(scrollPercent);
-	ani_forthCat(scrollPercent);
-	ani_forthBox(scrollPercent);
-	ani_fifth(scrollPercent);
-	ani_fiftxt(scrollPercent)
-	oldS=home_y;
+	// console.log('scrollPercent', scrollPercent);
+
 
 }
 
-function ani_txt1(s) {
-	t1_op=check_op(Math.min((s-ani1Range_s)/home_speed*0.06, 1));
-	if (s-ani2Range>0) {
-		t1_op=0
-	} else if (s-ani1Range_s2>0) {
-		if (scroll_path<0) {
-			t1_move+=home_speed*0.8
-		} else if (scroll_path>0) {
-			t1_move-=home_speed*0.8
-		}
-		if (t1_move<t1_s) {
-			t1_move=t1_s
-		} else if (t1_move>t1_e+250) {
-			t1_move=t1_e+250
-		}
-		t1_op=1-check_op(Math.min((s-ani1Range_s2)/home_speed*0.05, 1));
-	} else if (s-ani1Range_s>ani1Range_e-ani1Range_s) {
-		if (scroll_path<0) {
-			t1_move+=home_speed*0.5
-		} else if (scroll_path>0) {
-			t1_move-=home_speed*0.5
-		}
-		if (t1_move<t1_s) {
-			t1_move=t1_s
-		} else if (t1_move>t1_e+250) {
-			t1_move=t1_e+250
-		}
-	} else if (s-ani1Range_s>0) {
-		if (scroll_path<0) {
-			t1_move+=home_speed*1.5
-		} else if (scroll_path>0) {
-			t1_move-=home_speed*1.5
-		}
-		if (t1_move<t1_s) {
-			t1_move=t1_s
-		} else if (t1_move>t1_e) {
-			t1_move=t1_e
-		}
-	}
-	t1.style.opacity=t1_op;
-	t1.style.transform=`translateY(${ t1_move }px)`;
-}
 
-function ani_txt2(s) {
-	t2_op=check_op(Math.min((s-ani1Range_s)/home_speed*0.05, 1));
-
-	if (s-ani2Range>0) {
-		t2_op=0
-	} else if (s-ani1Range_s2>0) {
-		if (scroll_path<0) {
-			t2_move+=home_speed*1.3
-		} else if (scroll_path>0) {
-			t2_move-=home_speed*1.3
-		}
-		if (t2_move<t2_s) {
-			t2_move=t2_s
-		}
-		t2_op=1-check_op(Math.min((s-ani1Range_s2)/home_speed*0.05, 1));
-	} else if (s-ani1Range_s>ani1Range_e-ani1Range_s) {
-		if (scroll_path<0) {
-			t2_move+=home_speed*1.3
-		} else if (scroll_path>0) {
-			t2_move-=home_speed*1.3
-		}
-		if (t2_move<t2_s) {
-			t2_move=t2_s
-		}
-	} else if (s-ani1Range_s>0) {
-		if (scroll_path<0) {
-			t2_move+=home_speed*1.1
-		} else if (scroll_path>0) {
-			t2_move-=home_speed*1.1
-		}
-		if (t2_move<t2_s) {
-			t2_move=t2_s
-		}
-	}
-	t2.style.opacity=t2_op;
-	t2.style.transform=`translateY(${ t2_move }px)`;
-}
-
-function ani_forthBg(s) {
-	if (s-ani2Range>0) {
-		forthBg_op=check_op(Math.min((s-ani1Range_s2)/home_speed*0.025, 1));
-		if (scroll_path<0) {
-			forthBg_move+=home_speed*1.2
-		} else if (scroll_path>0) {
-			// 上滑
-			if (forthBg_over>0) {
-				forthBg_over-=home_speed*1.2
-			} else {
-				forthBg_move-=home_speed*1.2
-			}
-			if (forthBg_over<0) {
-				forthBg_over=0
-			}
-		}
-	} else if (s-ani1Range_s2>0) {
-		forthBg_op=check_op(Math.min((s-ani1Range_s2)/home_speed*0.02, 1));
-		if (scroll_path<0) {
-			forthBg_move+=home_speed*0.1
-		} else if (scroll_path>0) {
-			forthBg_move-=home_speed*0.1
-			if (forthBg_op==0) {
-				forthBg_move=forthBg_s
-			}
-		}
-	} else if (s-ani1Range_s>ani1Range_e-ani1Range_s) {
-		if (scroll_path>0) {
-			forthBg_op=check_op(Math.min((s-ani1Range_s2)/home_speed*0.02, 1));
-			forthBg_move-=home_speed*0.1
-			if (forthBg_op==0) {
-				forthBg_move=forthBg_s
-			}
-		}
-	}
-	if (forthBg_move>forthBg_e) {
-		forthBg_over+=home_speed*1.2
-		forthBg_move=forthBg_e
-	}
-	if (forthBg_move<forthBg_s) {
-		forthBg_move=forthBg_s
-	}
-	forthBg.style.opacity=forthBg_op;
-	forthBg.style.transform=`translateY(${ forthBg_move }px)`;
-}
-
-function ani_forthTxt(s) {
-	var textTime=0.8
-	if (s-ani3Range>0) {
-		if (scroll_path<0) {
-			forthTxt_move+=home_speed*textTime
-			forthTxt_op=check_op(Math.min((s-ani3Range)/home_speed*0.025, 1));
-		} else if (scroll_path>0) {
-			// 上滑
-			if (forthTxt_over>0) {
-				forthTxt_over-=home_speed*textTime
-			} else {
-				forthTxt_move-=home_speed*textTime
-				forthTxt_op=check_op(Math.min((s-ani3Range)/home_speed*0.025, 1));
-			}
-			if (forthTxt_over<0) {
-				forthTxt_over=0
-			}
-		}
-	}
-	// forthTxt_over
-	if (forthTxt_move>forthTxt_e) {
-		forthTxt_over+=home_speed*textTime
-		forthTxt_move=forthTxt_e
-	}
-	if (forthTxt_move<forthTxt_s) {
-		forthTxt_move=forthTxt_s
-	}
-
-	forthTxt.style.opacity=forthTxt_op;
-	forthTxt.style.transform=`translateY(${ forthTxt_move }px)`;
-}
-
-function ani_forthCat(s) {
-	if (s-ani6Range>0) {
-
-	} else if (s-ani5Range>0) {
-		if (scroll_path<0) {
-			forthCat_over+=home_speed*0.2
-			forthCat_move+=home_speed*0.11
-		} else if (scroll_path>0) {
-			// 上滑
-			if (forthCat_over>0) {
-				forthCat_over-=home_speed*0.2
-			}
-			if (forthCat_over<0) {
-				forthCat_over=0
-			}
-			forthCat_move-=home_speed*0.11
-		}
-		if (forthCat_move>forthCat_s) {
-			forthCat_move=forthCat_s
-		}
-	} else if (s-ani3Range>0) {
-		if (scroll_path<0) {
-			forthCat_move-=home_speed*0.2
-		} else if (scroll_path>0) {
-			// 上滑
-			if (forthCat_over>0) {
-				forthCat_over-=home_speed*0.2
-			} else {
-				forthCat_move+=home_speed*0.2
-			}
-			if (forthTxt_over<0) {
-				forthTxt_over=0
-			}
-		}
-		if (forthCat_move<forthCat_e) {
-			forthCat_over+=home_speed*0.2
-			forthCat_move=forthCat_e
-		}
-	}
-
-	forthCat.style=`--cat_delay:${ forthCat_delay }s;--cat:${ forthCat_move }%`;
-}
-
-function ani_forthBox(s) {
-	if (s-ani6Range>0) {
-
-	} else if (s-ani5Range>0) {
-		if (scroll_path<0) {
-			forthBox_move-=home_speed*0.0011
-
-		} else if (scroll_path>0) {
-			forthBox_move+=home_speed*0.0011
-		}
-	}
-	if (forthBox_move<forthBox_e) {
-		forthBox_move=forthBox_e
-	} else if (forthBox_move>forthBox_s) {
-		forthBox_move=forthBox_s
-	}
-	forthBox.style.transform=`scale(${ forthBox_move })`;
-}
-function ani_fifth(s) {
-	if (s-ani7Range>0) {
-
-	} else if (s-ani6Range>0) {
-		console.log('ani_fifth');
-		home_fifth_op=check_op(Math.min((s-ani6Range)/home_speed*0.02, 1));
-		console.log('home_fifth_op', home_fifth_op);
-	}
-	home_fifth.style.opacity=home_fifth_op;
-}
-function ani_fiftxt(s) {
-	if (s-ani7Range>0) {
-		if (scroll_path<0) {
-			fifthG1_move+=home_speed*0.2
-			fifthG2_move-=home_speed*0.2
-		} else if (scroll_path>0) {
-			fifthG1_move-=home_speed*0.2
-			fifthG2_move+=home_speed*0.2
-		}
-	}
-
-	if (fifthG1_move>0) {
-		fifthG1_move=0
-	}
-	if (fifthG2_move<0) {
-		fifthG2_move=0
-	}
-	fifth_pcG1.style.transform=`translateY(${ fifthG1_move }%)`;
-	fifth_pcG2.style.transform=`translateY(${ fifthG2_move }%)`;
-
-	if (device=='pc') {
-		fifth_pcG1.style.transform=`translateY(${ fifthG1_move }%)`;
-		fifth_pcG2.style.transform=`translateY(${ fifthG2_move }%)`;
-	} else if (device=='ph') {
-		fifth_phG1.style.transform=`translateY(${ fifthG1_move }%)`;
-		fifth_phG2.style.transform=`translateY(${ fifthG2_move }%)`;
-	}
-}
 
 function check_op(num) {
 	if (num>1) {
@@ -572,7 +244,6 @@ setTimeout(() => {
 }, 1000);
 function touchHandler(e) {
 	if (header.classList.contains("onHead")) return
-	// if (!MouseWheelSwitch) return;
 	touchStart=e.touches[0].pageY;
 	window.addEventListener("touchmove", touchmoveHandler);
 	window.addEventListener("touchend", touchendHandler);
@@ -988,26 +659,19 @@ function onPlayerReady(event) {
 
 
 var home_scroll=document.querySelector("#home_scroll");
+var home_outside=document.querySelector("#home_outside");
+
+
 var home_move=0
 var home_scroll_dely=0.6
-
+// window.innerWidth <= 1024 ? "ph" : "pc";
+var window_h=window.innerWidth<=1024? window.innerHeight-54:window.innerHeight-98;
+console.log('window_h', window_h);
 
 function homeInit() {
-	home_scroll.style=`transform: translateY(${ home_move }px);  transition: transform ${ home_scroll_dely }s ease;;`;
-	t1.style=`transform:translateY(${ t1_s }px); transition: all ${ t1_delay }s ease;opacity: ${ t1_op };`;
-	t2.style=`transform:translateY(${ t2_s }px); transition: all ${ t2_delay }s ease;opacity: ${ t2_op };`;
-	forthBg.style=`transform:translateY(${ forthBg_s }px); transition: all ${ forthBg_delay }s ease;opacity: ${ forthBg_op };`;
-	forthTxt.style=`transform:translateY(${ forthTxt_s }px); transition: all ${ forthTxt_delay }s ease;opacity: ${ forthTxt_op };`;
-	forthCat.style=`--cat_delay:${ forthCat_delay }s;--cat:${ forthCat_move }%`;
-	forthBox.style=`transform:scale(${ forthBox_s }); transition: all ${ forthBox_delay }s;`;
-	home_fifth.style=`transform:translateY(${ home_fifth_s }%);opacity: ${ home_fifth_op };transition: all ${ home_fifth_delay }s`;
-	fiftxt.style=`transform:scale(${ fiftxt_s });opacity: ${ fiftxt_op };transition: all ${ fiftxt_delay }s;`;
-
-	fifth_pcG1.style=`transform:translateY(${ fifthG1_s }%); transition: all ${ fifthG_delay }s;;`
-	fifth_pcG2.style=`transform:translateY(${ fifthG2_s }%); transition: all ${ fifthG_delay }s;;`
-
-	fifth_phG1.style=`transform:translateY(${ fifthG1_s }%); transition: all ${ fifthG_delay }s;;`
-	fifth_phG2.style=`transform:translateY(${ fifthG2_s }%); transition: all ${ fifthG_delay }s;;`
+	// home_scroll.style=`transform: translateY(${ home_move }px);  transition: transform ${ home_scroll_dely }s ease;;`;
+	// t1.style=`transform:translateY(${ t1_s }px); transition: all ${ t1_delay }s ease;opacity: ${ t1_op };`;
+	fake_h.style.height=window_h*2+"px"
 }
 document.addEventListener("DOMContentLoaded", () => {
 	homeInit();
