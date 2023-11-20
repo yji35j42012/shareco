@@ -1,5 +1,9 @@
 var getScrollT=document.querySelector("html");
 var wrap=document.querySelector("#wrap");
+var fake_h=document.querySelector("#fake_h");
+
+
+
 wrap.classList.add("full");
 setTimeout(() => {
 	wrap.classList.add("active");
@@ -50,41 +54,6 @@ function home_btnHandler() {
 home_btn.addEventListener("click", home_btnHandler)
 home_btn.addEventListener("touchstart", home_btnHandler)
 
-var scaleTime;
-var scaleNum=0;
-var scaleOp=0;
-var mouseShow;
-var mouseNoShow;
-var changePageDelay=2500;
-var MouseWheelSwitch=true;
-var videoYT1=document.querySelector("#videoYT1");
-var changePageTime;
-function mousemove(event) {
-	var mouseX=event.clientX;
-	var mouseY=event.clientY;
-	if (device=="ph") return;
-	if (!home.classList.contains("zoomOut")) {
-		if (mouseY-boxCenterH<0) {
-			// 滑鼠在上方
-			lionZ(mouseY-boxCenterH);
-			strawZ(mouseY-boxCenterH);
-		}
-		if (mouseX-boxCenterW>0) {
-			// 滑鼠在右方
-			treeZ(mouseX-boxCenterW);
-			flyrZ(mouseX-boxCenterW);
-		}
-
-		if (mouseX-boxCenterW<0) {
-			// 滑鼠在左方
-			plantZ(mouseX-boxCenterW);
-			flyl(mouseX-boxCenterW);
-		}
-	}
-
-	// strawZ
-}
-
 home_video1Handler1.onclick=function () {
 	if (home_video1Handler1.classList.contains("_quiet")) {
 		home_video1Handler1.classList.remove("_quiet");
@@ -96,11 +65,47 @@ home_video1Handler1.onclick=function () {
 		player.setVolume(0);
 	}
 };
-
 var fifth_video=document.querySelector("#fifth_video");
 var fifth_video_m=document.querySelector("#fifth_video_m");
 fifth_video.pause();
 fifth_video_m.pause();
+
+
+// var scaleTime;
+// var scaleNum=0;
+// var scaleOp=0;
+// var mouseShow;
+// var mouseNoShow;
+// var changePageDelay=2500;
+// var MouseWheelSwitch=true;
+// var videoYT1=document.querySelector("#videoYT1");
+// var changePageTime;
+// function mousemove(event) {
+// 	var mouseX=event.clientX;
+// 	var mouseY=event.clientY;
+// 	if (device=="ph") return;
+// 	if (!home.classList.contains("zoomOut")) {
+// 		if (mouseY-boxCenterH<0) {
+// 			// 滑鼠在上方
+// 			lionZ(mouseY-boxCenterH);
+// 			strawZ(mouseY-boxCenterH);
+// 		}
+// 		if (mouseX-boxCenterW>0) {
+// 			// 滑鼠在右方
+// 			treeZ(mouseX-boxCenterW);
+// 			flyrZ(mouseX-boxCenterW);
+// 		}
+
+// 		if (mouseX-boxCenterW<0) {
+// 			// 滑鼠在左方
+// 			plantZ(mouseX-boxCenterW);
+// 			flyl(mouseX-boxCenterW);
+// 		}
+// 	}
+
+// 	// strawZ
+// }
+
 // function fifth_ani2() {
 // 	fifthAni2Time=setTimeout(() => {
 // 		home_fifth.classList.add("show2");
