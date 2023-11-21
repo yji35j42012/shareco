@@ -1,5 +1,9 @@
 var getScrollT=document.querySelector("html");
 var wrap=document.querySelector("#wrap");
+var fake_h=document.querySelector("#fake_h");
+
+
+
 wrap.classList.add("full");
 setTimeout(() => {
 	wrap.classList.add("active");
@@ -320,6 +324,9 @@ function ani_txt1(s) {
 			t1_move=t1_e
 		}
 	}
+
+	console.log('t1_move',t1_move);
+	
 	t1.style.opacity=t1_op;
 	t1.style.transform=`translateY(${ t1_move }px)`;
 }
