@@ -3977,6 +3977,9 @@ h1 + .product_group {
   background-image: url("../images/icon/icon_voiced_sound.svg");
 }
 .home_third {
+  position: absolute;
+  top: 0;
+  left: 0;
   background-color: #000;
 }
 .home_third_box {

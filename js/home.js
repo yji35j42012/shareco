@@ -169,52 +169,57 @@ var pagedown=true;
 var pageMove=0;
 
 var body=document.querySelector("body");
-function MouseWheel(e) {
-	console.log('ADF',html.scrollTop);
-	// if (device=='ph') {
-	// 	if (touchMove>0) {
-	// 		// 向下滚动
-	// 		home_y-=1;
-	// 		scroll_path=-1
-	// 	} else if (touchMove<0) {
-	// 		// 向上滚动
-	// 		home_y+=1;
-	// 		scroll_path=1
-	// 	}
-	// } else {
-	// 	if (e.deltaY>0) {
-	// 		// 向下滚动
-	// 		home_y-=1;
-	// 		scroll_path=-1
-	// 	} else if (e.deltaY<0) {
-	// 		// 向上滚动
-	// 		home_y+=1;
-	// 		scroll_path=1
-	// 	}
-	// }
-	// if (home_y>0) {
-	// 	home_y=0
-	// 	// home_scroll_num = 0
-	// }
-	// 计算滚动位置的百分比
-	// if (t1_move > t1_e) {
-	// 	t1_move = t1_e
-	// }
-	// const scrollPercent = (Math.abs(home_y) / window.innerHeight) * 100;
-	// const scrollPercent=Math.abs(home_y)*home_speed;
-	// home_move=Math.abs(home_y)*home_speed
 
-	// if (scrollPercent-ani4Range<0) {
-	// 	home_scroll.style.transform=`translateY(-${ home_move }px)`;
-	// } else if (scrollPercent-ani4Range>0) {
-	// 	home_scroll.style.transform=`translateY(-${ ani4Range }px)`;
-	// }
-
-	// console.log('scrollPercent', scrollPercent);
+// function MouseWheel(e) {
+// 	home_y=html.scrollTop
+// 	console.log('ADF', home_y);
+// 	if (home_y>range1) {
+// 		thirdMove()
+// 	}
 
 
-}
+// 	// if (device=='ph') {
+// 	// 	if (touchMove>0) {
+// 	// 		// 向下滚动
+// 	// 		home_y-=1;
+// 	// 		scroll_path=-1
+// 	// 	} else if (touchMove<0) {
+// 	// 		// 向上滚动
+// 	// 		home_y+=1;
+// 	// 		scroll_path=1
+// 	// 	}
+// 	// } else {
+// 	// 	if (e.deltaY>0) {
+// 	// 		// 向下滚动
+// 	// 		home_y-=1;
+// 	// 		scroll_path=-1
+// 	// 	} else if (e.deltaY<0) {
+// 	// 		// 向上滚动
+// 	// 		home_y+=1;
+// 	// 		scroll_path=1
+// 	// 	}
+// 	// }
+// 	// if (home_y>0) {
+// 	// 	home_y=0
+// 	// 	// home_scroll_num = 0
+// 	// }
+// 	// 计算滚动位置的百分比
+// 	// if (t1_move > t1_e) {
+// 	// 	t1_move = t1_e
+// 	// }
+// 	// const scrollPercent = (Math.abs(home_y) / window.innerHeight) * 100;
+// 	// const scrollPercent=Math.abs(home_y)*home_speed;
+// 	// home_move=Math.abs(home_y)*home_speed
 
+// 	// if (scrollPercent-ani4Range<0) {
+// 	// 	home_scroll.style.transform=`translateY(-${ home_move }px)`;
+// 	// } else if (scrollPercent-ani4Range>0) {
+// 	// 	home_scroll.style.transform=`translateY(-${ ani4Range }px)`;
+// 	// }
+
+// 	// console.log('scrollPercent', scrollPercent);
+
+// }
 
 
 function check_op(num) {
@@ -226,14 +231,14 @@ function check_op(num) {
 		return num
 	}
 }
-if ("onmousewheel" in window) {
-	window.onmousewheel=MouseWheel;
-} else if ("onmousewheel" in document) {
-	document.onmousewheel=MouseWheel;
-} else if ("addEventListener" in window) {
-	window.addEventListener("mousewheel", MouseWheel, false);
-	window.addEventListener("DOMMouseScroll", MouseWheel, false);
-}
+// if ("onmousewheel" in window) {
+// 	window.onmousewheel=MouseWheel;
+// } else if ("onmousewheel" in document) {
+// 	document.onmousewheel=MouseWheel;
+// } else if ("addEventListener" in window) {
+// 	window.addEventListener("mousewheel", MouseWheel, false);
+// 	window.addEventListener("DOMMouseScroll", MouseWheel, false);
+// }
 
 var touchStart=0;
 var touchEnd;
@@ -654,24 +659,102 @@ function onPlayerReady(event) {
 	event.target.setVolume(0);
 	event.target.setLoop(true);
 }
-
-
-
-
-var home_scroll=document.querySelector("#home_scroll");
-var home_outside=document.querySelector("#home_outside");
-
-
-var home_move=0
-var home_scroll_dely=0.6
-// window.innerWidth <= 1024 ? "ph" : "pc";
+var old_scroll=0, now_scroll=0;
+var home_y=0;
+var home_scroll=0
 var window_h=window.innerWidth<=1024? window.innerHeight-54:window.innerHeight-98;
-console.log('window_h', window_h);
+
+var home_sec=document.querySelector("#home_second");
+var home_third=document.querySelector("#home_third");
+var third_txt1=document.querySelector("#home_third_txt1");
+var third_txt2=document.querySelector("#home_third_txt2");
+
+var sec_s=0, sec_e, sec_m=sec_s, sec_d=0.2, sec_speed=0.01, sec_op=1
+var third_s=100, third_e=0, third_m=third_s, third_d=0.2, third_speed=0.02
+
+var thirdT1_s=-75, thirdT1_e=0, thirdT1_m=thirdT1_s, thirdT1_d=0.2, thirdT1_speed=0.03, thirdT1_op=0;
+var thirdT2_s=-60, thirdT2_e=0, thirdT2_m=thirdT1_s, thirdT2_d=0.2, thirdT2_speed=0.025, thirdT2_op=0;
+
+var setFake_h=window_h+third_s/third_speed
+var range1=0
+var range2=third_s/third_speed/2
+console.log('window_h', third_s/third_speed);
+console.log('range2', range2);
+
+document.addEventListener("scroll", function (e) {
+	// console.log('666', html.scrollTop-old_scroll);
+	console.log(' html.scrollTop', html.scrollTop);
+	home_y=html.scrollTop
+	html.scrollTop-old_scroll>0? home_scroll=1:home_scroll=-1
+
+	secMove(home_y)
+	thirdMove(home_y)
+	thirdTxt(home_y-range2)
+
+
+	old_scroll=html.scrollTop
+
+
+});
+
+function secMove(move) {
+	if (home_y-range1>=0) {
+		sec_m=sec_s-move*sec_speed
+		sec_op=1-move*0.0001
+	}
+
+	// home_sec.style.opacity=sec_op;
+	home_sec.style.transform=`translateY(${ sec_m }%)`;
+
+}
+function thirdMove(move) {
+	if (home_y-range1>=0) {
+		third_m=third_s-move*third_speed
+	}
+	if (third_m<third_e) {
+		third_m=third_e
+	} else if (third_m>third_s) {
+		third_m=third_s
+	}
+	home_third.style.transform=`translateY(${ third_m }%)`;
+}
+function thirdTxt(move) {
+	console.log('thirdTxt', thirdT1_m);
+	if (home_y-range2>=0) {
+		thirdT1_m=thirdT1_s+move*thirdT1_speed
+		thirdT2_m=thirdT2_s+move*thirdT2_speed
+		thirdT1_op=move*0.0005
+		thirdT2_op=move*0.0005
+
+	} else if (home_y-range1>=0&&home_scroll<0) {
+		thirdT1_m=thirdT1_s+move*thirdT1_speed<thirdT1_s
+		thirdT2_m=thirdT2_s+move*thirdT2_speed
+
+		thirdT1_op=move*0.0005<0? thirdT1_op=0:thirdT1_op=move*0.0005
+		thirdT2_op=move*0.0005<0? thirdT2_op=0:thirdT2_op=move*0.0005
+		if (thirdT1_m<thirdT1_s||thirdT1_op==0) {
+			thirdT1_m=thirdT1_s
+		}
+		if (thirdT2_m<thirdT2_s||thirdT2_op==0) {
+			thirdT2_m=thirdT2_s
+		}
+	}
+	third_txt1.style.transform=`translateY(${ thirdT1_m }%)`;
+	third_txt2.style.transform=`translateY(${ thirdT2_m }%)`;
+	third_txt1.style.opacity=thirdT1_op;
+	third_txt2.style.opacity=thirdT2_op;
+}
+
+
 
 function homeInit() {
 	// home_scroll.style=`transform: translateY(${ home_move }px);  transition: transform ${ home_scroll_dely }s ease;;`;
 	// t1.style=`transform:translateY(${ t1_s }px); transition: all ${ t1_delay }s ease;opacity: ${ t1_op };`;
-	fake_h.style.height=window_h*2+"px"
+	fake_h.style.height=setFake_h+"px";
+	home_sec.style=`transform: translateY(${ sec_s }%);transition: transform ${ sec_d }s;opacity: ${ sec_op };`;
+	home_third.style=`transform: translateY(${ third_s }%);transition: transform ${ third_d }s;`;
+	third_txt1.style=`transform: translateY(${ thirdT1_s }%);transition: transform ${ thirdT1_d }s;opacity: ${ thirdT1_op };`;
+	third_txt2.style=`transform: translateY(${ thirdT2_s }%);transition: transform ${ thirdT2_d }s;opacity: ${ thirdT1_op };`;
 }
 document.addEventListener("DOMContentLoaded", () => {
 	homeInit();
