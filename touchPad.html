@@ -4,124 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Full Width Box Container with Scroll Detection</title>
     <style>
-        body,
-        html {
-            height: 100%;
-            margin: 0;
-            /* overflow: hidden; */
-        }
-
-        .container {
-            height: 100%;
-            /* overflow: hidden; */
-            position: relative;
-        }
-
+        /* 添加一些樣式來設定容器 */
         .box {
-            white-space: nowrap;
-            overflow-x: auto;
-            transition: transform 0.5s ease;
-            /* 添加过渡效果 */
-            position: relative;
-        }
-
-        .item {
-            display: block;
-            box-sizing: border-box;
-            width: 100vw;
-            height: 100vh;
-            text-align: center;
-            line-height: 100vh;
-            font-size: 1.5em;
-            position: relative;
-            /* 添加相对定位 */
-        }
-
-        .item:nth-child(1) {
-            background-color: #FF5733;
-        }
-
-        .item:nth-child(2) {
-            background-color: #33FF57;
-        }
-
-        .item:nth-child(3) {
-            background-color: #5733FF;
-        }
-
-        .item:nth-child(4) {
-            background-color: #FF33F3;
-        }
-
-        .item:nth-child(5) {
-            background-color: #33F3FF;
-        }
-
-        .item:nth-child(6) {
-            background-color: #FFE033;
-        }
-
-        .item:nth-child(7) {
-            background-color: #339BFF;
-        }
-
-        .item:nth-child(8) {
-            background-color: #E033FF;
-        }
-
-        .item:nth-child(9) {
-            background-color: #8C33FF;
-        }
-
-        .item:nth-child(10) {
-            background-color: #33FFD4;
-        }
-
-        /* 新增的样式 */
-        #leftText,
-        #rightText {
-            position: absolute;
-            font-size: 30px;
-            opacity: 0;
-            transition: opacity 0.5s ease, transform 0.5s ease;
-            /* 添加淡入效果过渡 */
-            width: 50vw;
-            /* 让文字占据一半的宽度 */
-            top: 50%;
-            transform: translateY(-50%) translateX(-25vw);
-            /* 初始位置在第一个 item 的中间 */
-        }
-
-        .item:nth-child(2) #leftText {
-            transform: translateY(50vh);
-            /* 在第二个 item 的中间 */
+            width: 100%;
+            height: 500vh;
+            background-color: #e0e0e0;
+            /* 如果不需要邊框、內邊距 */
+            border: 2px solid #333;
+            padding: 0;
+            margin: 0;
         }
     </style>
 </head>
 
-<body>
-    <div class="container">
-        <div class="box" id="scrollBox">
-            <div class="item" id="item1">Item 1</div>
-            <div class="item" id="item2">
-                <!-- 左侧文字 -->
-                <div id="leftText">Hello World</div>
+<body onscroll="handleScroll()">
 
-                <!-- 右侧文字 -->
-                <div id="rightText">你好歡迎使用</div>
-            </div>
-            <div class="item" id="item3">Item 3</div>
-            <div class="item" id="item4">Item 4</div>
-            <div class="item" id="item5">Item 5</div>
-            <div class="item" id="item6">Item 6</div>
-            <div class="item" id="item7">Item 7</div>
-            <div class="item" id="item8">Item 8</div>
-            <div class="item" id="item9">Item 9</div>
-            <div class="item" id="item10">Item 10</div>
-        </div>
+    <!-- 使用 <div> 元素創建帶有類名為 "box" 的容器 -->
+    <div class="box" id="scrollBox">
+        <!-- 不放任何內容 -->
     </div>
+
+    <script>
+        var count=0;
+        var currentScroll=0;
+
+        function handleScroll() {
+            // 获取当前滚动位置
+            var newScroll=window.scrollY;
+
+            // 计算滚动的距离
+            var scrollDistance=newScroll-currentScroll;
+            console.log('scrollDistance', scrollDistance);
+            // 更新 currentScroll
+            currentScroll=newScroll;
+
+            // 如果是往下滚动，递增 count；往上滚动时保持不变
+            // if (scrollDistance>0) {
+            //     console.log('a');
+            //     count+=scrollDistance;
+            // }else{
+            //     console.log('b'); 
+            //     count+=scrollDistance;
+            // }
+            count+=scrollDistance;
+            // 输出滚动位置和计数器的值
+            console.log('滚动计数：', count, '滚动位置：', currentScroll);
+        }
+    </script>
+
 </body>
 
 </html>

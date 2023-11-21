@@ -668,6 +668,8 @@ var home_sec=document.querySelector("#home_second");
 var home_third=document.querySelector("#home_third");
 var third_txt1=document.querySelector("#home_third_txt1");
 var third_txt2=document.querySelector("#home_third_txt2");
+var home_forth=document.querySelector("#home_forth");
+
 
 var sec_s=0, sec_e, sec_m=sec_s, sec_d=0.2, sec_speed=0.01, sec_op=1
 var third_s=100, third_e=0, third_m=third_s, third_d=0.2, third_speed=0.02
@@ -675,11 +677,14 @@ var third_s=100, third_e=0, third_m=third_s, third_d=0.2, third_speed=0.02
 var thirdT1_s=-75, thirdT1_e=0, thirdT1_m=thirdT1_s, thirdT1_d=0.2, thirdT1_speed=0.03, thirdT1_op=0;
 var thirdT2_s=-60, thirdT2_e=0, thirdT2_m=thirdT1_s, thirdT2_d=0.2, thirdT2_speed=0.025, thirdT2_op=0;
 
-var setFake_h=window_h+third_s/third_speed
+var forth_s=100, forth_e=0, forth_m=forth_s, forth_d=0.2, forth_speed=0.03
+
+var setFake_h=window_h+third_s/third_speed+forth_s/forth_speed
 var range1=0
 var range2=third_s/third_speed/2
-console.log('window_h', third_s/third_speed);
-console.log('range2', range2);
+var range3=third_s/third_speed
+console.log('window_h', forth_s/forth_speed);
+console.log('range3', range3);
 
 document.addEventListener("scroll", function (e) {
 	// console.log('666', html.scrollTop-old_scroll);
@@ -690,8 +695,7 @@ document.addEventListener("scroll", function (e) {
 	secMove(home_y)
 	thirdMove(home_y)
 	thirdTxt(home_y-range2)
-
-
+	forthMove(home_y-range3)
 	old_scroll=html.scrollTop
 
 
@@ -708,14 +712,24 @@ function secMove(move) {
 
 }
 function thirdMove(move) {
-	if (home_y-range1>=0) {
+	if (home_y-range3>0) {
+		if (home_y-range1>=0&&third_m<=0) {
+			console.log('aSDFASDFASDFASDF');
+			// third_m=third_s-move*0.01
+		} else {
+			// third_m=third_s-move*third_speed
+		}
+		console.log('SSSSSS', third_m);
+
+	} else if (home_y-range1>=0) {
 		third_m=third_s-move*third_speed
+		if (third_m<third_e) {
+			third_m=third_e
+		} else if (third_m>third_s) {
+			third_m=third_s
+		}
 	}
-	if (third_m<third_e) {
-		third_m=third_e
-	} else if (third_m>third_s) {
-		third_m=third_s
-	}
+
 	home_third.style.transform=`translateY(${ third_m }%)`;
 }
 function thirdTxt(move) {
@@ -745,6 +759,11 @@ function thirdTxt(move) {
 	third_txt2.style.opacity=thirdT2_op;
 }
 
+function forthMove(move) {
+	if (home_y-range3>0) {
+		console.log('forthMove');
+	}
+}
 
 
 function homeInit() {
