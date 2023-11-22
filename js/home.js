@@ -551,6 +551,8 @@ var third_txt1=document.querySelector("#home_third_txt1");
 var third_txt2=document.querySelector("#home_third_txt2");
 var home_forth=document.querySelector("#home_forth");
 var forthTxt1=document.querySelector("#forthTxt");
+var forthBg=document.querySelector("#forthBg");
+var forthCat=document.querySelector("#forth_cat");
 
 
 var sec_s=0, sec_e, sec_m=sec_s, sec_d=0.2, sec_speed=0.005, sec_op=1
@@ -561,6 +563,9 @@ var thirdT2_s=-60, thirdT2_e=0, thirdT2_m=thirdT2_s, thirdT2_d=0.2, thirdT2_spee
 
 var forth_s=100, forth_e=0, forth_m=forth_s, forth_d=0.2, forth_speed=0.01, forth_data=100
 var forthT_s=-120, forthT_e=0, forthT_m=forthT_s, forthT_d=0.2, forthT_speed=0.041, forthT_op=0
+var forthBg_s=-70, forthBg_e=0, forthBg_m=forthBg_s, forthBg_d=0.2, forthBg_op=0
+var forthCat_s=100, forthCat_e=0, forthCat_d=0.2, forthCat_op=1
+
 
 
 var setFake_h=window_h+third_s/third_speed+forth_s/forth_speed
@@ -644,17 +649,36 @@ function forthMove(move) {
 	console.log('forthMove', t);
 	// console.log('forthMove', t);
 
-	if (t<50) {
+	if (t<40) {
+		var m=t*2*(Math.abs(forthT_s)/100)
+		var m2=t*2*(Math.abs(forthBg_s)/100)
+		forthT_m=m*-1
+		forthBg_m=m2*-1
+		forthT_op=t*2/100-1
+		forthT_op=Math.abs(forthT_op);
+
+
+		forthBg_op=t*2/100-1
+		forthBg_op=Math.abs(forthBg_op);
+		console.log('forthBg_op', forthBg_op);
+
+
+	} else if (t>40&&forthBg_op!==0) {
+		forthBg_op=0
+	} else if (t<50) {
 		var m=t*2*(Math.abs(forthT_s)/100)
 		forthT_m=m*-1
 		forthT_op=t*2/100-1
 		forthT_op=Math.abs(forthT_op);
+	} else if (t>50&&forthT_op!==0) {
+		forthT_op=0
 	}
-	console.log('forthT_op', forthT_op);
 	forthTxt1.style.opacity=forthT_op;
-
+	forthBg.style.opacity=forthBg_op;
+	forthBg.style.transform=`translateY(${ forthBg_m }%)`;
 	forthTxt1.style.transform=`translateY(${ forthT_m }%)`;
 	home_forth.style.transform=`translateY(${ t }%)`;
+
 }
 // function forthMove(move) {
 // 	if (home_y-range3>0) {
@@ -708,6 +732,8 @@ function homeInit() {
 	home_forth.style=`transform: translateY(${ forth_s }%);transition: transform ${ forth_d }s;`;
 	forthTxt1.style=`transform: translateY(${ forthT_s }%);transition: transform ${ forthT_d }s;opacity: ${ forthT_op };`;
 	home_forth.setAttribute("data-m", forth_data)
+	forthBg.style=`transform: translateY(${ forthBg_s }%);transition: transform ${ forthBg_d }s;opacity: ${ forthBg_op };`;
+	// forthCat.style=`transform: translateY(${ forthCat_s }%);transition: transform ${ forthCat_d }s;opacity: ${ forthCat_op };`;
 }
 document.addEventListener("DOMContentLoaded", () => {
 	homeInit();
