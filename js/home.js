@@ -675,9 +675,9 @@ var sec_s=0, sec_e, sec_m=sec_s, sec_d=0.2, sec_speed=0.01, sec_op=1
 var third_s=100, third_e=0, third_m=third_s, third_d=0.2, third_speed=0.02
 
 var thirdT1_s=-75, thirdT1_e=0, thirdT1_m=thirdT1_s, thirdT1_d=0.2, thirdT1_speed=0.03, thirdT1_op=0;
-var thirdT2_s=-60, thirdT2_e=0, thirdT2_m=thirdT1_s, thirdT2_d=0.2, thirdT2_speed=0.025, thirdT2_op=0;
+var thirdT2_s=-50, thirdT2_e=0, thirdT2_m=thirdT2_s, thirdT2_d=0.2, thirdT2_speed=0.02, thirdT2_op=0;
 
-var forth_s=100, forth_e=0, forth_m=forth_s, forth_d=0.2, forth_speed=0.03
+var forth_s=100, forth_e=0, forth_m=forth_s, forth_d=0.2, forth_speed=0.02
 
 var setFake_h=window_h+third_s/third_speed+forth_s/forth_speed
 var range1=0
@@ -692,17 +692,16 @@ document.addEventListener("scroll", function (e) {
 	home_y=html.scrollTop
 	html.scrollTop-old_scroll>0? home_scroll=1:home_scroll=-1
 
-	secMove(home_y)
-	thirdMove(home_y)
-	thirdTxt(home_y-range2)
-	forthMove(home_y-range3)
+	secMove(home_y-old_scroll)
+	thirdMove(home_y-old_scroll)
+	thirdTxt(home_y-old_scroll)
+	forthMove(home_y-old_scroll)
 	old_scroll=html.scrollTop
-
-
 });
 
 function secMove(move) {
-	if (home_y-range1>=0) {
+	if (home_y-range3>0) {
+	} else if (home_y-range1>=0) {
 		sec_m=sec_s-move*sec_speed
 		sec_op=1-move*0.0001
 	}
@@ -713,56 +712,75 @@ function secMove(move) {
 }
 function thirdMove(move) {
 	if (home_y-range3>0) {
-		if (home_y-range1>=0&&third_m<=0) {
-			console.log('aSDFASDFASDFASDF');
-			// third_m=third_s-move*0.01
+		if (third_m>0) {
+			third_m=third_s-(range3-range1)*third_speed
+			third_m-=(move-(5000*third_speed))*0.008
 		} else {
-			// third_m=third_s-move*third_speed
+			third_m-=move*0.008
 		}
-		console.log('SSSSSS', third_m);
-
 	} else if (home_y-range1>=0) {
-		third_m=third_s-move*third_speed
+		third_m-=move*third_speed
 		if (third_m<third_e) {
 			third_m=third_e
 		} else if (third_m>third_s) {
 			third_m=third_s
 		}
 	}
-
+	if (move==0&&third_m!==0) {
+		third_m=third_s
+	}
 	home_third.style.transform=`translateY(${ third_m }%)`;
 }
 function thirdTxt(move) {
-	console.log('thirdTxt', thirdT1_m);
+	// console.log('thirdTxt', thirdT1_m);
 	if (home_y-range2>=0) {
-		thirdT1_m=thirdT1_s+move*thirdT1_speed
-		thirdT2_m=thirdT2_s+move*thirdT2_speed
-		thirdT1_op=move*0.0005
-		thirdT2_op=move*0.0005
-
-	} else if (home_y-range1>=0&&home_scroll<0) {
-		thirdT1_m=thirdT1_s+move*thirdT1_speed<thirdT1_s
-		thirdT2_m=thirdT2_s+move*thirdT2_speed
-
-		thirdT1_op=move*0.0005<0? thirdT1_op=0:thirdT1_op=move*0.0005
-		thirdT2_op=move*0.0005<0? thirdT2_op=0:thirdT2_op=move*0.0005
-		if (thirdT1_m<thirdT1_s||thirdT1_op==0) {
-			thirdT1_m=thirdT1_s
-		}
-		if (thirdT2_m<thirdT2_s||thirdT2_op==0) {
-			thirdT2_m=thirdT2_s
+		thirdT1_op+=move*0.0005
+		thirdT2_op+=move*0.0005
+		thirdT1_m+=move*thirdT1_speed
+		thirdT2_m+=move*thirdT2_speed
+	} else if (home_y-range1>=0) {
+		if (home_scroll<0) {
+			thirdT1_op+=move*0.0005
+			thirdT2_op+=move*0.0005
 		}
 	}
+	thirdT1_op<0? thirdT1_op=0:thirdT1_op
+	thirdT2_op<0? thirdT2_op=0:thirdT2_op
+	console.log('thirdT1_m', thirdT1_m);
 	third_txt1.style.transform=`translateY(${ thirdT1_m }%)`;
 	third_txt2.style.transform=`translateY(${ thirdT2_m }%)`;
 	third_txt1.style.opacity=thirdT1_op;
 	third_txt2.style.opacity=thirdT2_op;
+	// if (home_y-range2>=0) {
+	// 	// thirdT1_m=thirdT1_s+move*thirdT1_speed
+	// 	// thirdT2_m=thirdT2_s+move*thirdT2_speed
+	// 	// thirdT1_op=move*0.0005
+	// 	// thirdT2_op=move*0.0005
+
+	// } else if (home_y-range1>=0&&home_scroll<0) {
+	// 	thirdT1_m=thirdT1_s+move*thirdT1_speed<thirdT1_s
+	// 	thirdT2_m=thirdT2_s+move*thirdT2_speed
+
+	// 	if (thirdT1_m<thirdT1_s||thirdT1_op==0) {
+	// 		thirdT1_m=thirdT1_s
+	// 	}
+	// 	if (thirdT2_m<thirdT2_s||thirdT2_op==0) {
+	// 		thirdT2_m=thirdT2_s
+	// 	}
+	// }
 }
 
 function forthMove(move) {
 	if (home_y-range3>0) {
-		console.log('forthMove');
+		console.log('forthMove', move);
+		forth_m-=move*forth_speed
 	}
+	if (forth_m<forth_e) {
+		forth_m=forth_e
+	} else if (forth_m>forth_s) {
+		forth_m=forth_s
+	}
+	home_forth.style.transform=`translateY(${ forth_m }%)`;
 }
 
 
@@ -774,6 +792,7 @@ function homeInit() {
 	home_third.style=`transform: translateY(${ third_s }%);transition: transform ${ third_d }s;`;
 	third_txt1.style=`transform: translateY(${ thirdT1_s }%);transition: transform ${ thirdT1_d }s;opacity: ${ thirdT1_op };`;
 	third_txt2.style=`transform: translateY(${ thirdT2_s }%);transition: transform ${ thirdT2_d }s;opacity: ${ thirdT1_op };`;
+	home_forth.style=`transform: translateY(${ forth_s }%);transition: transform ${ forth_d }s;`;
 }
 document.addEventListener("DOMContentLoaded", () => {
 	homeInit();

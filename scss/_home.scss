@@ -678,7 +678,9 @@
 
 	// .home_forth
 	&_forth {
-		position: relative;
+		position: absolute;
+		top: 0;
+		left: 0;
 
 		// .home_forth_liner
 		&_liner {

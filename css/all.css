@@ -4097,7 +4097,9 @@ h1 + .product_group {
   transform: translateY(50%);
 }
 .home_forth {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .home_forth_liner {
   overflow: hidden;
