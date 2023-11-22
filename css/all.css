@@ -4220,6 +4220,9 @@ h1 + .product_group {
 .home_fifth {
   z-index: 7;
   overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   background-color: #fff;
   transition-duration: 0.5s;

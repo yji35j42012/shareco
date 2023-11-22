@@ -554,6 +554,7 @@ var forthTxt1 = document.querySelector("#forthTxt");
 var forthBg = document.querySelector("#forthBg");
 var forthCat = document.querySelector("#forth_cat");
 var forthBox = document.querySelector("#forthBox");
+var home_fifth = document.querySelector("#home_fifth");
 
 var sec_s = 0, sec_e, sec_m = sec_s, sec_d = 0.2, sec_speed = 0.005, sec_op = 1
 var third_s = 100, third_e = 0, third_m = third_s, third_d = 0.2, third_speed = 0.01, third_speed2 = 0.009
@@ -561,12 +562,14 @@ var third_s = 100, third_e = 0, third_m = third_s, third_d = 0.2, third_speed = 
 var thirdT1_s = -75, thirdT1_e = 0, thirdT1_m = thirdT1_s, thirdT1_d = 0.2, thirdT1_speed = 0.015, thirdT1_op = 0;
 var thirdT2_s = -60, thirdT2_e = 0, thirdT2_m = thirdT2_s, thirdT2_d = 0.2, thirdT2_speed = 0.012, thirdT2_op = 0;
 
-var forth_s = 100, forth_e = 0, forth_m = forth_s, forth_d = 0.2, forth_speed = 0.01, forth_data = 100
+var forth_s = 100, forth_e = 0, forth_m = forth_s, forth_d = 0.2, forth_speed = 0.01, forth_op = 1
 var forthT_s = -120, forthT_e = 0, forthT_m = forthT_s, forthT_d = 0.2, forthT_speed = 0.041, forthT_op = 0
 var forthBg_s = -70, forthBg_e = 0, forthBg_m = forthBg_s, forthBg_d = 0.2, forthBg_op = 0
 var forthCat_s = 100, forthCat_e = 0, forthCat_m = forthCat_s, forthCat_d = 0.2, forthCat_op = 1
 
 var forthOut_s = 100, forthOut_e = 0.1, forthOut_m = 1, forthOut_d = 0.2, forthOut_speed = 0.01
+
+var fif_s = 100, fif_e = 0, fif_m = fif_s, fif_d = 0.2, fif_s = 0.01, fif_op = 0
 
 var setFake_h = window_h + third_s / third_speed + forth_s / forth_speed + forthOut_s / forthOut_speed
 var range1 = 0
@@ -681,24 +684,29 @@ function forthMove(move) {
 	forthCat.style = `--cat:${forthCat_m}%;--cat_delay:${forthCat_d}s;`;
 	forthTxt1.style.opacity = forthT_op;
 	forthBg.style.opacity = forthBg_op;
-
 	forthBg.style.transform = `translateY(${forthBg_m}%)`;
-
 	forthTxt1.style.transform = `translateY(${forthT_m}%)`;
-
-
 	home_forth.style.transform = `translateY(${forth_m}%)`;
 }
 
 
 function forthOut(move) {
 	var t = (range4 - home_y) / 100
-	var catM=0
-	console.log('forthOut', 100-t );
-
-	if (t < 100) {
+	var catM = 0
+	// forthT_op = t * 2 / 100 - 1
+	// forthT_op = Math.abs(forthT_op);
+	if (t < 35) {
 		forthOut_m = t / 100
-		catM=100-t
+		catM = 100 - t
+		forth_op = (t + 65) / 100
+		console.log('forthOut', (t + 65) / 100);
+
+		if(forth_op<0){
+			forth_op=0
+		}
+	} else if (t < 100) {
+		forthOut_m = t / 100
+		catM = 100 - t
 	} else if (t > 100 && home_scroll < 0) {
 		if (forthOut_m !== 1) {
 			forthOut_m = t / 100
@@ -710,6 +718,8 @@ function forthOut(move) {
 	} else if (forthOut_m > 1) {
 		forthOut_m = 1
 	}
+	home_forth.style.opacity = forth_op;
+	forthTxt1.style.opacity = forthT_op;
 	forthCat.style = `--cat:${catM}%;--cat_delay:${forthCat_d}s;`;
 	forthBox.style = `transform: scale(${forthOut_m});transition: transform ${forthOut_d}s;`;
 }
@@ -723,12 +733,12 @@ function homeInit() {
 	third_box.style = `transform: translateY(${third_s}%);transition: transform ${third_d}s;`;
 	third_txt1.style = `transform: translateY(${thirdT1_s}%);transition: transform ${thirdT1_d}s;opacity: ${thirdT1_op};`;
 	third_txt2.style = `transform: translateY(${thirdT2_s}%);transition: transform ${thirdT2_d}s;opacity: ${thirdT1_op};`;
-	home_forth.style = `transform: translateY(${forth_s}%);transition: transform ${forth_d}s;`;
+	home_forth.style = `transform: translateY(${forth_s}%);transition: transform ${forth_d}s;opacity: ${forth_op};`;
 	forthTxt1.style = `transform: translateY(${forthT_s}%);transition: transform ${forthT_d}s;opacity: ${forthT_op};`;
-	home_forth.setAttribute("data-m", forth_data)
 	forthBg.style = `transform: translateY(${forthBg_s}%);transition: transform ${forthBg_d}s;opacity: ${forthBg_op};`;
 	forthCat.style = `--cat:${forthCat_s}%;--cat_delay:{${forthCat_d}}`;
 	forthBox.style = `transform: scale(${forthOut_m});transition: transform ${forthOut_d}s;`;
+	home_fifth.style = `transition: transform ${fif_d}s;opacity: ${fif_op};`
 }
 document.addEventListener("DOMContentLoaded", () => {
 	homeInit();
