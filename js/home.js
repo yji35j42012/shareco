@@ -606,59 +606,34 @@ function thirdMove(move) {
 	} else {
 		t=(range2-home_y)/100
 	}
-	console.log('thirdMove', t);
+	// console.log('thirdMove', t);
 	third_box.style.transform=`translateY(${ t }%)`;
 	home_third.style.transform=`translateY(${ t }%)`;
 	thirdTxt(t)
 
 }
 function thirdTxt(t) {
-	// if (third_m<0) {
-	// 	thirdT1_op-=move*0.0005
-	// 	thirdT2_op-=move*0.0005
-	// 	thirdT1_m+=move*thirdT1_speed
-	// 	thirdT2_m+=move*thirdT2_speed
-	// } else if (third_m<50) {
-	// 	thirdT1_op+=move*0.0003
-	// 	thirdT2_op+=move*0.0003
-	// 	thirdT1_m+=move*thirdT1_speed
-	// 	thirdT2_m+=move*thirdT2_speed
-	// } else if (third_m>50&&home_scroll<0) {
-	// 	thirdT1_op+=move*0.0003
-	// 	thirdT2_op+=move*0.0003
-	// 	thirdT1_op=check_op(thirdT1_op)
-	// 	thirdT2_op=check_op(thirdT2_op)
-
-	// 	thirdT1_m+=move*thirdT1_speed
-	// 	thirdT2_m+=move*thirdT2_speed
-	// 	if (thirdT1_op==0) {
-	// 		thirdT1_op=0
-	// 		thirdT2_op=0
-	// 		thirdT1_m=thirdT1_s
-	// 		thirdT2_m=thirdT2_s
-	// 	}
-	// }
-
-	// 0-1
-	if (t<50) {
-		// 50/75
+	if (t<-25) {
+		if (thirdT2_op!==0) {
+			thirdT2_op=0
+		}
+	} else if (t<0) {
+		var m1=t*2*(Math.abs(thirdT1_s)/100)
+		var m2=t*2*(Math.abs(thirdT2_s)/100)
+		thirdT1_m=m1*-1
+		thirdT2_m=m2*-1
+		thirdT2_op=1+t*4/100
+		thirdT2_op=Math.abs(thirdT2_op);
+	} else if (t<50) {
 		var m1=t*2*(Math.abs(thirdT1_s)/100)
 		var m2=t*2*(Math.abs(thirdT2_s)/100)
 		thirdT2_op=t*2/100-1
 		thirdT2_op=Math.abs(thirdT2_op);
-		// if(home_scroll>0){
-		// 	thirdT1_m -=m1
-		// }else {
-		// 	thirdT1_m +=m1
-		// }
 		thirdT1_m=m1*-1
 		thirdT2_m=m2*-1
-		console.log('m1', m1);
 	} else if (t>50&&thirdT2_op!==0) {
 		thirdT2_op=0
 	}
-
-
 	third_txt1.style.transform=`translateY(${ thirdT1_m }%)`;
 	third_txt2.style.transform=`translateY(${ thirdT2_m }%)`;
 	third_txt1.style.opacity=thirdT2_op;
@@ -666,7 +641,19 @@ function thirdTxt(t) {
 }
 function forthMove(move) {
 	var t=(range3-home_y)/100
+	console.log('forthMove', t);
 	// console.log('forthMove', t);
+
+	if (t<50) {
+		var m=t*2*(Math.abs(forthT_s)/100)
+		forthT_m=m*-1
+		forthT_op=t*2/100-1
+		forthT_op=Math.abs(forthT_op);
+	}
+	console.log('forthT_op', forthT_op);
+	forthTxt1.style.opacity=forthT_op;
+
+	forthTxt1.style.transform=`translateY(${ forthT_m }%)`;
 	home_forth.style.transform=`translateY(${ t }%)`;
 }
 // function forthMove(move) {
@@ -707,8 +694,7 @@ function forthMove(move) {
 // 		forthT_m=forthT_s
 // 	}
 // 	forthT_op=check_op(forthT_op);
-// 	forthTxt1.style.opacity=forthT_op;
-// 	forthTxt1.style.transform=`translateY(${ forthT_m }%)`;
+
 // }
 
 function homeInit() {
