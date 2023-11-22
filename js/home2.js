@@ -96,6 +96,67 @@ function mousemove(event) {
 	// strawZ
 }
 
+// var scaleTime;
+// var scaleNum=0;
+// var scaleOp=0;
+// var mouseShow;
+// var mouseNoShow;
+// var changePageDelay=2500;
+// var MouseWheelSwitch=true;
+// var videoYT1=document.querySelector("#videoYT1");
+// 
+
+// function fifth_ani2() {
+// 	fifthAni2Time=setTimeout(() => {
+// 		home_fifth.classList.add("show2");
+// 		fifth_video.play();
+// 		fifth_video_m.play();
+// 	}, 7000);
+// }
+// function changePage(boo) {
+// 	clearInterval(scaleTime);
+// 	mouseNoShow=document.querySelector("#"+pageArr[pageNum]);
+// 	mouseShow.classList.add("zoomOut");
+// 	if (boo) {
+// 		pageNum++;
+// 	} else {
+// 		pageNum--;
+// 	}
+// 	if (pageNum==0) {
+// 		wrap.classList.add("active");
+// 		wrap.classList.add("full");
+// 	}
+// 	if (pageNum==1) {
+// 		player.playVideo();
+// 	} else {
+// 		player.pauseVideo();
+// 	}
+// 	mouseShow=document.querySelector("#"+pageArr[pageNum]);
+// 	mouseShow.classList.remove("zoomOut");
+// 	mouseShow.classList.remove("zoom");
+// 	mouseShow.classList.add("show");
+// 	changePageDelay=2500;
+// 	if (pageNum==2||pageNum==3) {
+// 		changePageDelay=3000;
+// 	}
+// 	clearTimeout(fifthAni2Time);
+// 	if (pageNum==4) {
+// 		fifth_ani2();
+// 		changePageDelay=8500;
+// 	}
+
+// 	changePageTime=setTimeout(() => {
+// 		mouseNoShow.classList.remove("show2");
+// 		mouseNoShow.classList.remove("show");
+// 		mouseNoShow.classList.remove("zoomOut");
+// 		mouseNoShow.classList.add("zoom");
+// 		mouseNoShow.style=``;
+// 	}, 1500);
+// 	// MouseWheelSwitch = true;
+// 	setTimeout(() => {
+// 		MouseWheelSwitch=true;
+// 	}, 2000);
+// }
 function backHome() {
 	wrap.classList.add("full");
 	home.classList.remove("zoomOut");
@@ -109,6 +170,56 @@ var pageMove=0;
 
 var body=document.querySelector("body");
 
+// function MouseWheel(e) {
+// 	home_y=html.scrollTop
+// 	console.log('ADF', home_y);
+// 	if (home_y>range1) {
+// 		thirdMove()
+// 	}
+
+
+// 	// if (device=='ph') {
+// 	// 	if (touchMove>0) {
+// 	// 		// 向下滚动
+// 	// 		home_y-=1;
+// 	// 		scroll_path=-1
+// 	// 	} else if (touchMove<0) {
+// 	// 		// 向上滚动
+// 	// 		home_y+=1;
+// 	// 		scroll_path=1
+// 	// 	}
+// 	// } else {
+// 	// 	if (e.deltaY>0) {
+// 	// 		// 向下滚动
+// 	// 		home_y-=1;
+// 	// 		scroll_path=-1
+// 	// 	} else if (e.deltaY<0) {
+// 	// 		// 向上滚动
+// 	// 		home_y+=1;
+// 	// 		scroll_path=1
+// 	// 	}
+// 	// }
+// 	// if (home_y>0) {
+// 	// 	home_y=0
+// 	// 	// home_scroll_num = 0
+// 	// }
+// 	// 计算滚动位置的百分比
+// 	// if (t1_move > t1_e) {
+// 	// 	t1_move = t1_e
+// 	// }
+// 	// const scrollPercent = (Math.abs(home_y) / window.innerHeight) * 100;
+// 	// const scrollPercent=Math.abs(home_y)*home_speed;
+// 	// home_move=Math.abs(home_y)*home_speed
+
+// 	// if (scrollPercent-ani4Range<0) {
+// 	// 	home_scroll.style.transform=`translateY(-${ home_move }px)`;
+// 	// } else if (scrollPercent-ani4Range>0) {
+// 	// 	home_scroll.style.transform=`translateY(-${ ani4Range }px)`;
+// 	// }
+
+// 	// console.log('scrollPercent', scrollPercent);
+
+// }
 
 
 function check_op(num) {
@@ -120,6 +231,15 @@ function check_op(num) {
 		return num
 	}
 }
+// if ("onmousewheel" in window) {
+// 	window.onmousewheel=MouseWheel;
+// } else if ("onmousewheel" in document) {
+// 	document.onmousewheel=MouseWheel;
+// } else if ("addEventListener" in window) {
+// 	window.addEventListener("mousewheel", MouseWheel, false);
+// 	window.addEventListener("DOMMouseScroll", MouseWheel, false);
+// }
+
 var touchStart=0;
 var touchEnd;
 var touchMove;
@@ -559,33 +679,30 @@ var third_s=100, third_e=0, third_m=third_s, third_d=0.2, third_speed=0.01, thir
 var thirdT1_s=-75, thirdT1_e=0, thirdT1_m=thirdT1_s, thirdT1_d=0.2, thirdT1_speed=0.015, thirdT1_op=0;
 var thirdT2_s=-60, thirdT2_e=0, thirdT2_m=thirdT2_s, thirdT2_d=0.2, thirdT2_speed=0.012, thirdT2_op=0;
 
-var forth_s=100, forth_e=0, forth_m=forth_s, forth_d=0.2, forth_speed=0.01, forth_data=100
+var forth_s=100, forth_e=0, forth_m=forth_s, forth_d=0.2, forth_speed=0.018, forth_data=100
 var forthT_s=-120, forthT_e=0, forthT_m=forthT_s, forthT_d=0.2, forthT_speed=0.041, forthT_op=0
 
 
 var setFake_h=window_h+third_s/third_speed+forth_s/forth_speed
-// 
 
 var range1=0
-var range2=third_s/third_speed
-console.log('range2', range2);
-var range3=forth_s/forth_speed+range2
-range3=range3.toFixed(2);
+var range2=third_s/third_speed/2
+var range3=third_s/third_speed
+var range4=range3+range3/2
+var range5;
+console.log('window_h', forth_s/forth_speed);
 console.log('range3', range3);
-// var range3=third_s/third_speed
-// var range4=range3+range3/2
-// var range5;
-
-
+console.log('range3', range3+range3/2);
 document.addEventListener("scroll", function (e) {
+	// console.log(' html.scrollTop', html.scrollTop);
 	home_y=html.scrollTop
 	html.scrollTop-old_scroll>0? home_scroll=1:home_scroll=-1
 
 	secMove(home_y-old_scroll)
 	thirdMove(home_y-old_scroll)
-	// thirdTxt(home_y-old_scroll)
+	thirdTxt(home_y-old_scroll)
 	forthMove(home_y-old_scroll)
-	// forthTxt(home_y-old_scroll)
+	forthTxt(home_y-old_scroll)
 	old_scroll=html.scrollTop
 });
 
@@ -600,120 +717,105 @@ function secMove(move) {
 	home_sec.style.transform=`translateY(${ sec_m }%)`;
 }
 function thirdMove(move) {
-	var t=(range2-home_y)/100
-	if (t<0) {
-		t=(range2-home_y)/100+0.5*Math.abs(t)
-	} else {
-		t=(range2-home_y)/100
+	if (home_y-range3>0) {
+		if (third_m>0) {
+			third_m=third_s-(range3-range1)*third_speed
+			third_m-=(move-(5000*third_speed))*third_speed2
+		} else {
+			third_m-=move*0.008
+		}
+	} else if (home_y-range1>=0) {
+		third_m-=move*third_speed
+		if (third_m<third_e) {
+			third_m=third_e
+		} else if (third_m>third_s) {
+			third_m=third_s
+		}
 	}
-	console.log('thirdMove', t);
-	third_box.style.transform=`translateY(${ t }%)`;
-	home_third.style.transform=`translateY(${ t }%)`;
-	thirdTxt(t)
+	if (html.scrollTop==0&&third_m!==third_s) {
+		third_m=third_s
+	}
+	console.log('third_m', third_m);
 
+	third_box.style.transform=`translateY(${ third_m }%)`;
+	home_third.style.transform=`translateY(${ third_m }%)`;
 }
-function thirdTxt(t) {
-	// if (third_m<0) {
-	// 	thirdT1_op-=move*0.0005
-	// 	thirdT2_op-=move*0.0005
-	// 	thirdT1_m+=move*thirdT1_speed
-	// 	thirdT2_m+=move*thirdT2_speed
-	// } else if (third_m<50) {
-	// 	thirdT1_op+=move*0.0003
-	// 	thirdT2_op+=move*0.0003
-	// 	thirdT1_m+=move*thirdT1_speed
-	// 	thirdT2_m+=move*thirdT2_speed
-	// } else if (third_m>50&&home_scroll<0) {
-	// 	thirdT1_op+=move*0.0003
-	// 	thirdT2_op+=move*0.0003
-	// 	thirdT1_op=check_op(thirdT1_op)
-	// 	thirdT2_op=check_op(thirdT2_op)
+function thirdTxt(move) {
+	if (third_m<0) {
+		thirdT1_op-=move*0.0005
+		thirdT2_op-=move*0.0005
+		thirdT1_m+=move*thirdT1_speed
+		thirdT2_m+=move*thirdT2_speed
+	} else if (third_m<50) {
+		thirdT1_op+=move*0.0003
+		thirdT2_op+=move*0.0003
+		thirdT1_m+=move*thirdT1_speed
+		thirdT2_m+=move*thirdT2_speed
+	} else if (third_m>50&&home_scroll<0) {
+		thirdT1_op+=move*0.0003
+		thirdT2_op+=move*0.0003
+		thirdT1_op=check_op(thirdT1_op)
+		thirdT2_op=check_op(thirdT2_op)
 
-	// 	thirdT1_m+=move*thirdT1_speed
-	// 	thirdT2_m+=move*thirdT2_speed
-	// 	if (thirdT1_op==0) {
-	// 		thirdT1_op=0
-	// 		thirdT2_op=0
-	// 		thirdT1_m=thirdT1_s
-	// 		thirdT2_m=thirdT2_s
-	// 	}
-	// }
-
-	// 0-1
-	if (t<50) {
-		// 50/75
-		var m1=t*2*(Math.abs(thirdT1_s)/100)
-		var m2=t*2*(Math.abs(thirdT2_s)/100)
-		thirdT2_op=t*2/100-1
-		thirdT2_op=Math.abs(thirdT2_op);
-		// if(home_scroll>0){
-		// 	thirdT1_m -=m1
-		// }else {
-		// 	thirdT1_m +=m1
-		// }
-		thirdT1_m=m1*-1
-		thirdT2_m=m2*-1
-		console.log('m1', m1);
-	} else if (t>50&&thirdT2_op!==0) {
-		thirdT2_op=0
+		thirdT1_m+=move*thirdT1_speed
+		thirdT2_m+=move*thirdT2_speed
+		if (thirdT1_op==0) {
+			thirdT1_op=0
+			thirdT2_op=0
+			thirdT1_m=thirdT1_s
+			thirdT2_m=thirdT2_s
+		}
 	}
-
-
 	third_txt1.style.transform=`translateY(${ thirdT1_m }%)`;
 	third_txt2.style.transform=`translateY(${ thirdT2_m }%)`;
-	third_txt1.style.opacity=thirdT2_op;
+	third_txt1.style.opacity=thirdT1_op;
 	third_txt2.style.opacity=thirdT2_op;
 }
-function forthMove(move) {
-	var t=(range3-home_y)/100
-	// console.log('forthMove', t);
-	home_forth.style.transform=`translateY(${ t }%)`;
-}
-// function forthMove(move) {
-// 	if (home_y-range3>0) {
-// 		forth_m-=move*forth_speed
-// 		forth_data-=move*forth_speed
-// 	} else if (home_y-range2>=0) {
-// 		if (home_scroll<0) {
-// 			if (forth_m<forth_s) {
-// 				forth_m-=move*forth_speed
-// 				forth_data-=move*forth_speed
-// 			}
-// 		}
-// 	}
-// 	if (forth_m<forth_e) {
-// 		forth_m=forth_e
-// 	} else if (forth_m>forth_s) {
-// 		forth_m=forth_s
-// 		forth_data=forth_s
-// 	}
-// 	home_forth.setAttribute("data-m", forth_data)
-// 	home_forth.style.transform=`translateY(${ forth_m }%)`;
-// }
-// function forthTxt(move) {
-// 	var getD=home_forth.getAttribute("data-m")
-// 	console.log('forth_m', forth_m);
 
-// 	if (forth_m<50) {
-// 		console.log('start');
-// 		forthT_op+=move*0.0005
-// 		forthT_m+=move*forthT_speed
-// 	} else if (forth_m>50&&home_scroll<0) {
-// 		forthT_op+=move*0.0005
-// 	}
-// 	if (forthT_m>0) {
-// 		forthT_m=forthT_e
-// 	} else if (forthT_m<forthT_s) {
-// 		forthT_m=forthT_s
-// 	}
-// 	forthT_op=check_op(forthT_op);
-// 	forthTxt1.style.opacity=forthT_op;
-// 	forthTxt1.style.transform=`translateY(${ forthT_m }%)`;
-// }
+function forthMove(move) {
+	if (home_y-range3>0) {
+		forth_m-=move*forth_speed
+		forth_data-=move*forth_speed
+	} else if (home_y-range2>=0) {
+		if (home_scroll<0) {
+			if (forth_m<forth_s) {
+				forth_m-=move*forth_speed
+				forth_data-=move*forth_speed
+			}
+		}
+	}
+	if (forth_m<forth_e) {
+		forth_m=forth_e
+	} else if (forth_m>forth_s) {
+		forth_m=forth_s
+		forth_data=forth_s
+	}
+	home_forth.setAttribute("data-m", forth_data)
+	home_forth.style.transform=`translateY(${ forth_m }%)`;
+}
+function forthTxt(move) {
+	var getD=home_forth.getAttribute("data-m")
+	console.log('forth_m', forth_m);
+
+	if (forth_m<50) {
+		console.log('start');
+		forthT_op+=move*0.0005
+		forthT_m+=move*forthT_speed
+	} else if (forth_m>50&&home_scroll<0) {
+		forthT_op+=move*0.0005
+	}
+	if (forthT_m>0) {
+		forthT_m=forthT_e
+	} else if (forthT_m<forthT_s) {
+		forthT_m=forthT_s
+	}
+	forthT_op=check_op(forthT_op);
+	forthTxt1.style.opacity=forthT_op;
+	forthTxt1.style.transform=`translateY(${ forthT_m }%)`;
+}
 
 function homeInit() {
 	fake_h.style.height=setFake_h+"px";
-	html.scrollTop=0
 	home_sec.style=`transform: translateY(${ sec_s }%);transition: transform ${ sec_d }s;opacity: ${ sec_op };`;
 	home_third.style=`transform: translateY(${ third_s }%);transition: transform ${ third_d }s;`;
 	third_box.style=`transform: translateY(${ third_s }%);transition: transform ${ third_d }s;`;
