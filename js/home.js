@@ -569,9 +569,9 @@ var forthCat_s = 100, forthCat_e = 0, forthCat_m = forthCat_s, forthCat_d = 0.2,
 
 var forthOut_s = 100, forthOut_e = 0.1, forthOut_m = 1, forthOut_d = 0.2, forthOut_speed = 0.01
 
-var fif_s = 100, fif_e = 0, fif_m = fif_s, fif_d = 0.2, fif_s = 0.01, fif_op = 0
+var fif_s = 100, fif_e = 0, fif_m = fif_s, fif_d = 0.2, fif_speed = 0.01, fif_op = 0
 
-var setFake_h = window_h + third_s / third_speed + forth_s / forth_speed + forthOut_s / forthOut_speed
+var setFake_h = window_h + third_s / third_speed + forth_s / forth_speed + forthOut_s / forthOut_speed + fif_s / fif_speed
 var range1 = 0
 var range2 = third_s / third_speed
 console.log('range2', range2);
@@ -701,8 +701,8 @@ function forthOut(move) {
 		forth_op = (t + 65) / 100
 		console.log('forthOut', (t + 65) / 100);
 
-		if(forth_op<0){
-			forth_op=0
+		if (forth_op < 0) {
+			forth_op = 0
 		}
 	} else if (t < 100) {
 		forthOut_m = t / 100
