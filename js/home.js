@@ -666,29 +666,32 @@ var window_h=window.innerWidth<=1024? window.innerHeight-54:window.innerHeight-9
 
 var home_sec=document.querySelector("#home_second");
 var home_third=document.querySelector("#home_third");
+var third_box=document.querySelector("#home_txtBox");
 var third_txt1=document.querySelector("#home_third_txt1");
 var third_txt2=document.querySelector("#home_third_txt2");
 var home_forth=document.querySelector("#home_forth");
 
 
-var sec_s=0, sec_e, sec_m=sec_s, sec_d=0.2, sec_speed=0.01, sec_op=1
-var third_s=100, third_e=0, third_m=third_s, third_d=0.2, third_speed=0.02
+var sec_s=0, sec_e, sec_m=sec_s, sec_d=0.2, sec_speed=0.005, sec_op=1
+var third_s=100, third_e=0, third_m=third_s, third_d=0.2, third_speed=0.01, third_speed2=0.009
 
-var thirdT1_s=-75, thirdT1_e=0, thirdT1_m=thirdT1_s, thirdT1_d=0.2, thirdT1_speed=0.03, thirdT1_op=0;
-var thirdT2_s=-50, thirdT2_e=0, thirdT2_m=thirdT2_s, thirdT2_d=0.2, thirdT2_speed=0.02, thirdT2_op=0;
+var thirdT1_s=-75, thirdT1_e=0, thirdT1_m=thirdT1_s, thirdT1_d=0.2, thirdT1_speed=0.015, thirdT1_op=0;
+var thirdT2_s=-60, thirdT2_e=0, thirdT2_m=thirdT2_s, thirdT2_d=0.2, thirdT2_speed=0.012, thirdT2_op=0;
 
-var forth_s=100, forth_e=0, forth_m=forth_s, forth_d=0.2, forth_speed=0.02
+var forth_s=100, forth_e=0, forth_m=forth_s, forth_d=0.2, forth_speed=0.018
 
 var setFake_h=window_h+third_s/third_speed+forth_s/forth_speed
+
 var range1=0
 var range2=third_s/third_speed/2
 var range3=third_s/third_speed
+var range4=range3+range3/2
+var range5;
 console.log('window_h', forth_s/forth_speed);
 console.log('range3', range3);
-
+console.log('range3', range3+range3/2);
 document.addEventListener("scroll", function (e) {
-	// console.log('666', html.scrollTop-old_scroll);
-	console.log(' html.scrollTop', html.scrollTop);
+	// console.log(' html.scrollTop', html.scrollTop);
 	home_y=html.scrollTop
 	html.scrollTop-old_scroll>0? home_scroll=1:home_scroll=-1
 
@@ -702,19 +705,18 @@ document.addEventListener("scroll", function (e) {
 function secMove(move) {
 	if (home_y-range3>0) {
 	} else if (home_y-range1>=0) {
-		sec_m=sec_s-move*sec_speed
-		sec_op=1-move*0.0001
+		sec_m-=move*sec_speed
 	}
-
-	// home_sec.style.opacity=sec_op;
+	if (sec_m>sec_s) {
+		sec_m=sec_s
+	}
 	home_sec.style.transform=`translateY(${ sec_m }%)`;
-
 }
 function thirdMove(move) {
 	if (home_y-range3>0) {
 		if (third_m>0) {
 			third_m=third_s-(range3-range1)*third_speed
-			third_m-=(move-(5000*third_speed))*0.008
+			third_m-=(move-(5000*third_speed))*third_speed2
 		} else {
 			third_m-=move*0.008
 		}
@@ -726,54 +728,94 @@ function thirdMove(move) {
 			third_m=third_s
 		}
 	}
-	if (move==0&&third_m!==0) {
+	if (html.scrollTop==0&&third_m!==third_s) {
 		third_m=third_s
 	}
+	console.log('third_m', third_m);
+
+	third_box.style.transform=`translateY(${ third_m }%)`;
 	home_third.style.transform=`translateY(${ third_m }%)`;
 }
 function thirdTxt(move) {
-	// console.log('thirdTxt', thirdT1_m);
-	if (home_y-range2>=0) {
-		thirdT1_op+=move*0.0005
-		thirdT2_op+=move*0.0005
+	console.log('hsa');
+
+	// if (home_y-range4>0) {
+	// } else if (home_y-range3>0) {
+	// 	console.log('ASDFASDF', thirdT1_op);
+	// 	thirdT1_op-=move*0.0003
+	// 	thirdT2_op-=move*0.0003
+	// 	thirdT1_op=check_op(thirdT1_op)
+	// 	thirdT2_op=check_op(thirdT2_op)
+	// 	if (thirdT1_op!==0) {
+	// 		console.log('ASDFASDF2');
+	// 		thirdT1_m+=move*thirdT1_speed
+	// 		thirdT2_m+=move*thirdT2_speed
+	// 	}
+
+	// } else if (home_y-range2>=0) {
+	// 	thirdT1_op+=move*0.0003
+	// 	thirdT2_op+=move*0.0003
+	// 	thirdT1_m+=move*thirdT1_speed
+	// 	thirdT2_m+=move*thirdT2_speed
+	// } else if (home_y-range1>=0) {
+	// 	if (home_scroll<0) {
+
+	// 		thirdT1_m+=move*thirdT1_speed
+	// 		thirdT2_m+=move*thirdT2_speed
+	// 		if (thirdT1_m<thirdT1_s) {
+	// 			thirdT1_m=thirdT1_s
+	// 		}
+	// 		if (thirdT2_m<thirdT2_s) {
+	// 			thirdT2_m=thirdT2_s
+	// 		}
+	// 	}
+	// }
+	// thirdT1_op=check_op(thirdT1_op)
+	// thirdT2_op=check_op(thirdT2_op)
+
+	if (third_m<0) {
+		thirdT1_op-=move*0.0005
+		thirdT2_op-=move*0.0005
 		thirdT1_m+=move*thirdT1_speed
 		thirdT2_m+=move*thirdT2_speed
-	} else if (home_y-range1>=0) {
-		if (home_scroll<0) {
-			thirdT1_op+=move*0.0005
-			thirdT2_op+=move*0.0005
+	} else if (third_m<50) {
+		thirdT1_op+=move*0.0003
+		thirdT2_op+=move*0.0003
+		thirdT1_m+=move*thirdT1_speed
+		thirdT2_m+=move*thirdT2_speed
+	} else if (third_m>50&&home_scroll<0) {
+		console.log('???');
+	
+			thirdT1_op+=move*0.0003
+			thirdT2_op+=move*0.0003
+			thirdT1_op=check_op(thirdT1_op)
+			thirdT2_op=check_op(thirdT2_op)
+		
+		thirdT1_m+=move*thirdT1_speed
+		thirdT2_m+=move*thirdT2_speed
+		if(thirdT1_op==0){
+			thirdT1_op=0
+			thirdT2_op=0
+			thirdT1_m=thirdT1_s
+			thirdT2_m=thirdT2_s
 		}
 	}
-	thirdT1_op<0? thirdT1_op=0:thirdT1_op
-	thirdT2_op<0? thirdT2_op=0:thirdT2_op
-	console.log('thirdT1_m', thirdT1_m);
 	third_txt1.style.transform=`translateY(${ thirdT1_m }%)`;
 	third_txt2.style.transform=`translateY(${ thirdT2_m }%)`;
 	third_txt1.style.opacity=thirdT1_op;
 	third_txt2.style.opacity=thirdT2_op;
-	// if (home_y-range2>=0) {
-	// 	// thirdT1_m=thirdT1_s+move*thirdT1_speed
-	// 	// thirdT2_m=thirdT2_s+move*thirdT2_speed
-	// 	// thirdT1_op=move*0.0005
-	// 	// thirdT2_op=move*0.0005
-
-	// } else if (home_y-range1>=0&&home_scroll<0) {
-	// 	thirdT1_m=thirdT1_s+move*thirdT1_speed<thirdT1_s
-	// 	thirdT2_m=thirdT2_s+move*thirdT2_speed
-
-	// 	if (thirdT1_m<thirdT1_s||thirdT1_op==0) {
-	// 		thirdT1_m=thirdT1_s
-	// 	}
-	// 	if (thirdT2_m<thirdT2_s||thirdT2_op==0) {
-	// 		thirdT2_m=thirdT2_s
-	// 	}
-	// }
 }
 
 function forthMove(move) {
 	if (home_y-range3>0) {
-		console.log('forthMove', move);
+		// console.log('forthMove', move);
 		forth_m-=move*forth_speed
+	} else if (home_y-range2>=0) {
+		if (home_scroll<0) {
+			if (forth_m<forth_s) {
+				forth_m-=move*forth_speed
+			}
+		}
 	}
 	if (forth_m<forth_e) {
 		forth_m=forth_e
@@ -790,6 +832,7 @@ function homeInit() {
 	fake_h.style.height=setFake_h+"px";
 	home_sec.style=`transform: translateY(${ sec_s }%);transition: transform ${ sec_d }s;opacity: ${ sec_op };`;
 	home_third.style=`transform: translateY(${ third_s }%);transition: transform ${ third_d }s;`;
+	third_box.style=`transform: translateY(${ third_s }%);transition: transform ${ third_d }s;`;
 	third_txt1.style=`transform: translateY(${ thirdT1_s }%);transition: transform ${ thirdT1_d }s;opacity: ${ thirdT1_op };`;
 	third_txt2.style=`transform: translateY(${ thirdT2_s }%);transition: transform ${ thirdT2_d }s;opacity: ${ thirdT1_op };`;
 	home_forth.style=`transform: translateY(${ forth_s }%);transition: transform ${ forth_d }s;`;
