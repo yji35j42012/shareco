@@ -681,14 +681,14 @@ h4 {
 		}
 	}
 
-	&._home{
-		@include mw(L){
-			overflow: hidden;
-			position: fixed;
-			top: 0;
-			left: 0;
-		}
-	}
+	// &._home{
+	// 	@include mw(L){
+	// 		overflow: hidden;
+	// 		position: fixed;
+	// 		top: 0;
+	// 		left: 0;
+	// 	}
+	// }
 	@include mw(L) {
 		padding-top: 54px;
 	}

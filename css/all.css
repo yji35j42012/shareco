@@ -653,14 +653,6 @@ h4 {
   pointer-events: none;
 }
 @media screen and (max-width: 1024px) {
-  .wrap._home {
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
-}
-@media screen and (max-width: 1024px) {
   .wrap {
     padding-top: 54px;
   }
@@ -3851,6 +3843,9 @@ h1 + .product_group {
 }
 .home_fake_H {
   flex: none;
+  z-index: 99;
+  width: 100%;
+  top: 98px;
 }
 .home_outside {
   overflow: hidden;

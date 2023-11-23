@@ -18,9 +18,7 @@ function mobile() {
 }
 
 var device=mobile()? "ph":"pc";
-if (device=="ph") {
-	getScrollT.style=`overflow: hidden;`
-}
+
 var fifthAni2Time;
 var home_btn=document.querySelector("#home_btn");
 var home=document.querySelector("#home");
@@ -53,7 +51,7 @@ function home_btnHandler() {
 	html.scrollTop=40000
 }
 home_btn.addEventListener("click", home_btnHandler)
-home_btn.addEventListener("touchstart", home_btnHandler)
+// home_btn.addEventListener("touchstart", home_btnHandler)
 
 home_video1Handler1.onclick=function () {
 	if (home_video1Handler1.classList.contains("_quiet")) {
@@ -128,12 +126,13 @@ var header=document.querySelector("#header");
 setTimeout(() => {
 	header.style="display: ;"
 }, 1000);
-function touchHandler(e) {
-	if (header.classList.contains("onHead")) return
-	touchStart=e.touches[0].pageY;
-	window.addEventListener("touchmove", touchmoveHandler);
-	window.addEventListener("touchend", touchendHandler);
-}
+// function touchHandler(e) {
+// 	console.log('?');
+// 	// if (header.classList.contains("onHead")) return
+// 	// touchStart=e.touches[0].pageY;
+// 	// window.addEventListener("touchmove", touchmoveHandler);
+// 	// window.addEventListener("touchend", touchendHandler);
+// }
 function touchmoveHandler(e) {
 	e.preventDefault();
 	if (header.classList.contains("onHead")) return
@@ -172,7 +171,7 @@ function touchendHandler() {
 }
 
 window.addEventListener("mousemove", mousemove);
-window.addEventListener("touchstart", touchHandler);
+// window.addEventListener("touchstart", touchHandler);
 
 var nowW=window.innerWidth;
 var nowH=window.innerHeight;
@@ -583,6 +582,7 @@ var fifPT_s=-100, fifPT_e=0, fifPT_m, fifPT_s, fifPT_d=0.2, fifPT_speed=0.01, fi
 var fifPB_s=100, fifPB_e=0, fifPB_m=fifPB_s, fifPB_d=0.2, fifPB_speed=0.01, fifPB_op=1
 var fifT_s=1.8, fifT_m=fifT_s, fifT_d=0.2, fifT_speed=0.01, fifT_op=0, fifT_sc=0.7
 
+var fif2_s=100, fif2_e=0, fif2_=fif2_s, fif2_d=0.2, fif2_speed=0.01, fif2_op=0
 
 var fifth_bird=document.querySelector("#fif_bird");
 var fifBird_s=50, fifBird_d=0.2, fifBird_m=fifBird_s, fifBird_op=0
@@ -593,19 +593,16 @@ var fifBee2_s=100, fifBee2_d=0.2, fifBee2_m=fifBee2_s, fifBee2_op=0, fifBee2_sc=
 var fif_bee3=document.querySelector("#fif_bee3");
 var fifBee3_s=150, fifBee3_d=0.2, fifBee3_m=fifBee3_s, fifBee3_op=0, fifBee3_sc=1
 
-
-var setFake_h=window_h+third_s/third_speed+forth_s/forth_speed+forthOut_s/forthOut_speed+fif_s/fif_speed
 var range1=0
 var range2=third_s/third_speed
-console.log('range2', range2);
 var range3=forth_s/forth_speed+range2
-// range3 = range3.toFixed(2);
-console.log('range3', range3);
 var range4=forthOut_s/forthOut_speed+range3;
-// range4 = range4.toFixed(2);
-console.log('range4', range4);
 var range5=fif_s/fif_speed+range4;
-console.log('range5', range5);
+var range5_1=fif2_s/fif2_speed+range5
+// var range5_1=2500
+
+var setFake_h=window_h+range2+forth_s/forth_speed+forthOut_s/forthOut_speed+fif_s/fif_speed+fif2_s/fif2_speed
+
 
 
 
@@ -618,6 +615,7 @@ document.addEventListener("scroll", function (e) {
 	forthMove(home_y-old_scroll)
 	forthOut(home_y-old_scroll)
 	fifMove()
+	fifMove2()
 	old_scroll=html.scrollTop
 });
 
@@ -680,7 +678,7 @@ function forthMove(move) {
 		forthBg_m=m2*-1
 		forthT_op=t*2/100-1
 		forthT_op=Math.abs(forthT_op);
-		forthBg_op=t*2/100-1
+		forthBg_op=1-t
 		forthBg_op=Math.abs(forthBg_op);
 		forthCat_m=m3
 	} else if (t>40&&forthBg_op!==0) {
@@ -755,12 +753,12 @@ function fifMove() {
 	var t=(range5-home_y)/100
 	var fifbg_m=1.2
 	var fifT_m=2
+	var sc=t*(Math.abs(fifPT_s)/100)
+	var top=t*(Math.abs(fifPT_s)/100)
+	var bottom=t*(Math.abs(fifPB_s)/100)
 	birdSc=0.7
 	if (t<60) {
 		var sct=t*(Math.abs(fifT_s)/60)
-		var sc=t*(Math.abs(fifPT_s)/60)
-		var top=t*(Math.abs(fifPT_s)/60)
-		var bottom=t*(Math.abs(fifPB_s)/60)
 		var bee1=t*(Math.abs(fifBee1_s)/60)
 		var bee2=t*(Math.abs(fifBee2_s)/60)
 		var bee3=t*(Math.abs(fifBee3_s)/60)
@@ -779,27 +777,22 @@ function fifMove() {
 		fifBee1_m=bee1
 		fifBee2_m=bee2
 		fifBee3_m=bee3
-		console.log('birdSc', t);
 	} else if (t>60&&home_scroll<0) {
 		fifT_op=1-t/60
 		var birdSc=1-(t/100/0.2)/10
-		// birdSc.Math.fix
 		fifBird_m=t*(Math.abs(fifBird_s)/60)*2
+		fifPT_m=top*-1
+		fifPB_m=bottom
+		fifPT_sc=1+sc/500
 	} else if (t<100) {
-		var sc=t*(Math.abs(fifPT_s)/100)
-		var top=t*(Math.abs(fifPT_s)/100)
-		var bottom=t*(Math.abs(fifPB_s)/100)
 		fifPT_m=top*-1
 		fifPB_m=bottom
 		fifPT_sc=1+sc/500
 		fifbg_m=1+sc/500
 	}
-	if (fifPB_m<0) {
-		fifPB_m=0
-	}
-	if (fifbg_m<1) {
-		fifbg_m=1
-	}
+	fifPB_m<0? fifPB_m=0:fifPB_m
+	fifbg_m<1? fifbg_m=1:fifbg_m
+
 	if (birdSc>1) {
 		birdSc=1
 	}
@@ -809,18 +802,31 @@ function fifMove() {
 	if (fifBird_m>50) {
 		fifBird_m=50
 	}
+	if (fifPT_m>0) {
+		fifPT_m=0
+	}
+	if (fifPT_sc<1) {
+		fifPT_sc=1
+	}
+	if (fifT_m<1) {
+		fifT_m=1
+	}
+	if (fifBird_m<0) {
+		fifBird_m=0
+	}
+	if (fifBee2_m<0) {
+		fifBee2_m=0
+	}
 	fifT_op=check_op(fifT_op);
 	fifth_bg.style=`--fifbg:${ fifbg_m }`;
 	fifth_txt.style.opacity=fifT_op
 	fifth_txt.style.transform=`scale(${ fifT_m })`;
-
 	fifth_bird.style=` transform: scale(${ birdSc }) translate(${ fifBird_m }% , ${ fifBird_m }%);opacity:${ fifT_op };transition: all ${ fifT_d }s;`
-
 	fif_bee1.style=`transform: scale(${ fifBee1_sc }) translate(-${ fifBee1_m }% , ${ fifBee1_m }%);transition: all ${ fifBee1_d }s;opacity: ${ fifBee1_op };`;
 	fif_bee2.style=`transform: scale(${ fifBee2_sc }) translate(${ fifBee2_m }% , ${ fifBee2_m }%);transition: all ${ fifBee2_d }s;opacity: ${ fifBee2_op };`;
 	fif_bee3.style=`transform: scale(${ fifBee3_sc }) translate(-${ fifBee3_m }% , ${ fifBee3_m }%);transition: all ${ fifBee3_d }s;opacity: ${ fifBee3_op };`;
-	// fifth_bird.style.opacity=fifT_op
-	// fifth_bird.style=`transform: translate(${ fifBird_s }% , ${ fifBird_s }%);
+
+
 	if (dev=="pc") {
 		fifth_pc1.style.transform=`translateY(${ fifPT_m }%) scale(${ fifPT_sc })`;
 		fifth_pc2.style.transform=`translateY(${ fifPB_m }%) scale(${ fifPT_sc })`;
@@ -829,7 +835,33 @@ function fifMove() {
 		fifth_ph2.style.transform=`translateY(${ fifPB_m }%) scale(${ fifPT_sc })`;
 	}
 }
+function fifMove2() {
+	var t=(range5_1-home_y)/100
+	var fifbg_m=1
+	// console.log('fifMove2',1+(50-t*0.5)/100);
+	console.log('fifMove2', 1+(20-t*0.2)/50);
+	// 1.5
 
+	if (t<50) {
+		fifPT_sc=1+(50-t*0.5)/100
+		fifbg_m=1+(30-t*0.3)/50
+	} else if (t<100) {
+		fifPT_sc=1+(50-t*0.5)/100
+		fifbg_m=1+(30-t*0.3)/50
+	}
+
+	if (fifbg_m>1.3) {
+		fifbg_m=1.3
+	}
+	fifth_bg.style=`--fifbg:${ fifbg_m }`;
+	if (dev=="pc") {
+		fifth_pc1.style.transform=`translateY(${ fifPT_m }%) scale(${ fifPT_sc })`;
+		fifth_pc2.style.transform=`translateY(${ fifPB_m }%) scale(${ fifPT_sc })`;
+	} else {
+		fifth_ph1.style.transform=`translateY(${ fifPT_m }%) scale(${ fifPT_sc })`;
+		fifth_ph2.style.transform=`translateY(${ fifPB_m }%) scale(${ fifPT_sc })`;
+	}
+}
 function homeInit() {
 	fake_h.style.height=setFake_h+"px";
 	home_sec.style=`transform: translateY(${ sec_s }%);transition: all ${ sec_d }s;opacity: ${ sec_op };`;
