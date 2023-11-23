@@ -48,7 +48,7 @@ function home_btnHandler() {
 	setTimeout(() => {
 		wrap.classList.remove("active");
 	}, 100);
-	html.scrollTop=40000
+	html.scrollTop=0
 }
 home_btn.addEventListener("click", home_btnHandler)
 // home_btn.addEventListener("touchstart", home_btnHandler)
