@@ -3843,9 +3843,6 @@ h1 + .product_group {
 }
 .home_fake_H {
   flex: none;
-  z-index: 99;
-  width: 100%;
-  top: 98px;
 }
 .home_outside {
   overflow: hidden;
@@ -4219,7 +4216,6 @@ h1 + .product_group {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #fff;
   transition-duration: 0.5s;
 }
 .home_fifth_box1 {
@@ -4231,6 +4227,7 @@ h1 + .product_group {
   transition-duration: 0.2s;
 }
 .home_fifth_box1::before {
+  pointer-events: none;
   content: "";
   display: block;
   width: 100%;
@@ -4241,11 +4238,13 @@ h1 + .product_group {
   transition-duration: 0.2s;
 }
 .home_fifth_bg1 .top {
+  pointer-events: none;
   position: absolute;
   top: 0;
   left: 0;
 }
 .home_fifth_bg1 .bottom {
+  pointer-events: none;
   position: absolute;
   bottom: 0;
   left: 0;
