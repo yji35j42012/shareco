@@ -583,8 +583,16 @@ var fifPT_s=-100, fifPT_e=0, fifPT_m, fifPT_s, fifPT_d=0.2, fifPT_speed=0.01, fi
 var fifPB_s=100, fifPB_e=0, fifPB_m=fifPB_s, fifPB_d=0.2, fifPB_speed=0.01, fifPB_op=1
 var fifT_s=1.8, fifT_m=fifT_s, fifT_d=0.2, fifT_speed=0.01, fifT_op=0, fifT_sc=0.7
 
+
 var fifth_bird=document.querySelector("#fif_bird");
 var fifBird_s=50, fifBird_d=0.2, fifBird_m=fifBird_s, fifBird_op=0
+var fif_bee1=document.querySelector("#fif_bee1");
+var fifBee1_s=200, fifBee1_d=0.2, fifBee1_m=fifBee1_s, fifBee1_op=0, fifBee1_sc=0.7
+var fif_bee2=document.querySelector("#fif_bee2");
+var fifBee2_s=100, fifBee2_d=0.2, fifBee2_m=fifBee2_s, fifBee2_op=0, fifBee2_sc=1
+var fif_bee3=document.querySelector("#fif_bee3");
+var fifBee3_s=150, fifBee3_d=0.2, fifBee3_m=fifBee3_s, fifBee3_op=0, fifBee3_sc=1
+
 
 var setFake_h=window_h+third_s/third_speed+forth_s/forth_speed+forthOut_s/forthOut_speed+fif_s/fif_speed
 var range1=0
@@ -749,25 +757,34 @@ function fifMove() {
 	var fifT_m=2
 	birdSc=0.7
 	if (t<60) {
-		var sct=t*(Math.abs(fifT_s)/100)
-		var sc=t*(Math.abs(fifPT_s)/100)
-		var top=t*(Math.abs(fifPT_s)/100)
-		var bottom=t*(Math.abs(fifPB_s)/100)
+		var sct=t*(Math.abs(fifT_s)/60)
+		var sc=t*(Math.abs(fifPT_s)/60)
+		var top=t*(Math.abs(fifPT_s)/60)
+		var bottom=t*(Math.abs(fifPB_s)/60)
+		var bee1=t*(Math.abs(fifBee1_s)/60)
+		var bee2=t*(Math.abs(fifBee2_s)/60)
+		var bee3=t*(Math.abs(fifBee3_s)/60)
 		fifPT_m=top*-1
 		fifPB_m=bottom
 		fifPT_sc=1+sc/500
 		fifbg_m=1+sc/500
-		fifT_op=1-t/100
+		fifT_op=1-t/60
+		fifBee1_op=1-t/60
+		fifBee2_op=1-t/60
+		fifBee3_op=1-t/60
 		fifT_m=1+sct
 		var birdSc=1-(t/100/0.2)/10
-		// birdSc.Math.fix
-		fifBird_m=t*(Math.abs(fifBird_s)/100)*2
-		console.log('birdSc', birdSc);
+		fifBee1_sc=1-(t/100/0.2)/10
+		fifBird_m=t*(Math.abs(fifBird_s)/60)*2
+		fifBee1_m=bee1
+		fifBee2_m=bee2
+		fifBee3_m=bee3
+		console.log('birdSc', t);
 	} else if (t>60&&home_scroll<0) {
-		fifT_op=1-t/100
+		fifT_op=1-t/60
 		var birdSc=1-(t/100/0.2)/10
 		// birdSc.Math.fix
-		fifBird_m=t*(Math.abs(fifBird_s)/100)*2
+		fifBird_m=t*(Math.abs(fifBird_s)/60)*2
 	} else if (t<100) {
 		var sc=t*(Math.abs(fifPT_s)/100)
 		var top=t*(Math.abs(fifPT_s)/100)
@@ -786,18 +803,22 @@ function fifMove() {
 	if (birdSc>1) {
 		birdSc=1
 	}
-if(birdSc<0.7){
-	birdSc=0.7
-}
-if(fifBird_m>50){
-	fifBird_m=50
-}
+	if (birdSc<0.7) {
+		birdSc=0.7
+	}
+	if (fifBird_m>50) {
+		fifBird_m=50
+	}
 	fifT_op=check_op(fifT_op);
 	fifth_bg.style=`--fifbg:${ fifbg_m }`;
 	fifth_txt.style.opacity=fifT_op
 	fifth_txt.style.transform=`scale(${ fifT_m })`;
 
 	fifth_bird.style=` transform: scale(${ birdSc }) translate(${ fifBird_m }% , ${ fifBird_m }%);opacity:${ fifT_op };transition: all ${ fifT_d }s;`
+
+	fif_bee1.style=`transform: scale(${ fifBee1_sc }) translate(-${ fifBee1_m }% , ${ fifBee1_m }%);transition: all ${ fifBee1_d }s;opacity: ${ fifBee1_op };`;
+	fif_bee2.style=`transform: scale(${ fifBee2_sc }) translate(${ fifBee2_m }% , ${ fifBee2_m }%);transition: all ${ fifBee2_d }s;opacity: ${ fifBee2_op };`;
+	fif_bee3.style=`transform: scale(${ fifBee3_sc }) translate(-${ fifBee3_m }% , ${ fifBee3_m }%);transition: all ${ fifBee3_d }s;opacity: ${ fifBee3_op };`;
 	// fifth_bird.style.opacity=fifT_op
 	// fifth_bird.style=`transform: translate(${ fifBird_s }% , ${ fifBird_s }%);
 	if (dev=="pc") {
@@ -828,7 +849,10 @@ function homeInit() {
 	fifth_ph2.style=`transform: translateY(${ fifPB_s }%)  scale(${ fifPT_sc });transition: all ${ fifPB_d }s;`;
 	fifth_bg.style=`--fifbg:1.1`;
 	fifth_txt.style=`transform: scale(${ fifT_m });transition: all ${ fifT_d }s;opacity: ${ fifT_op };`;
-	fifth_bird.style=`transform: scale(${ fifT_sc });translate(${ fifBird_s }% , ${ fifBird_s }%);transition: all ${ fifBird_d }s;opacity: ${ fifT_op };`;
+	fifth_bird.style=`transform: scale(${ fifT_sc }) translate(${ fifBird_s }% , ${ fifBird_s }%);transition: all ${ fifBird_d }s;opacity: ${ fifT_op };`;
+	fif_bee1.style=`transform: scale(${ fifBee1_sc }) translate(-${ fifBee1_s }% , ${ fifBee1_s }%);transition: all ${ fifBee1_d }s;opacity: ${ fifBee1_op };`;
+	fif_bee2.style=`transform: scale(${ fifBee2_sc }) translate(${ fifBee2_s }% , ${ fifBee2_s }%);transition: all ${ fifBee2_d }s;opacity: ${ fifBee2_op };`;
+	fif_bee3.style=`transform: scale(${ fifBee3_sc }) translate(-${ fifBee3_s }% , ${ fifBee3_s }%);transition: all ${ fifBee3_d }s;opacity: ${ fifBee3_op };`;
 }
 document.addEventListener("DOMContentLoaded", () => {
 	homeInit();

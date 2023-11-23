@@ -4269,6 +4269,7 @@ h1 + .product_group {
   left: 170px;
   bottom: 180px;
   max-width: 70px;
+  transform-origin: center center;
 }
 .home_fifth_animal img:nth-child(3) {
   position: absolute;
