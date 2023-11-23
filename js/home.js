@@ -601,6 +601,7 @@ var range5=fif_s/fif_speed+range4;
 var range5_1=fif2_s/fif2_speed+range5
 // var range5_1=2500
 
+
 var setFake_h=window_h+range2+forth_s/forth_speed+forthOut_s/forthOut_speed+fif_s/fif_speed+fif2_s/fif2_speed
 
 
@@ -620,53 +621,78 @@ document.addEventListener("scroll", function (e) {
 });
 
 function secMove(move) {
-	if (home_y-range3>0) {
-	} else if (home_y-range1>=0) {
-		sec_m-=move*sec_speed
-	}
-	if (sec_m>sec_s) {
-		sec_m=sec_s
-	}
-	home_sec.style.transform=`translateY(${ sec_m }%)`;
+	var t=(range2-home_y)/100
+	var v=100-t
+	v=(Math.round(v*100)/100)/2
+	v=parseFloat(v)*-1
+	home_sec.style.transform=`translateY(${ v }%)`;
 }
 function thirdMove(move) {
 	var t=(range2-home_y)/100
+	var v=t
 	if (t<0) {
-		t=(range2-home_y)/100+0.5*Math.abs(t)
+		v=(Math.round(v*100)/100)/2
 	} else {
-		t=(range2-home_y)/100
+		v=(Math.round(v*100)/100)
 	}
-	third_box.style.transform=`translateY(${ t }%)`;
-	home_third.style.transform=`translateY(${ t }%)`;
+	third_box.style.transform=`translateY(${ v }%)`;
+	home_third.style.transform=`translateY(${ v }%)`;
 	thirdTxt(t)
 
 }
 function thirdTxt(t) {
-	if (t<-25) {
-		if (thirdT2_op!==0) {
-			thirdT2_op=0
-		}
-	} else if (t<0) {
-		var m1=t*2*(Math.abs(thirdT1_s)/100)
-		var m2=t*2*(Math.abs(thirdT2_s)/100)
-		thirdT1_m=m1*-1
-		thirdT2_m=m2*-1
-		thirdT2_op=1+t*4/100
-		thirdT2_op=Math.abs(thirdT2_op);
+	// 0.025
+	if (t<0) {
+		var t1=t*2*(Math.abs(thirdT1_s)/100)
+		var t2=t*2*(Math.abs(forthBg_s)/100)
+		thirdT1_m=t1*-1
+		thirdT2_m=t2*-1
+		thirdT2_op= (t/50)+1
+		console.log('op', (t/50)+1);
 	} else if (t<50) {
-		var m1=t*2*(Math.abs(thirdT1_s)/100)
-		var m2=t*2*(Math.abs(thirdT2_s)/100)
-		thirdT2_op=t*2/100-1
-		thirdT2_op=Math.abs(thirdT2_op);
-		thirdT1_m=m1*-1
-		thirdT2_m=m2*-1
-	} else if (t>50&&thirdT2_op!==0) {
-		thirdT2_op=0
+		var t1=t*2*(Math.abs(thirdT1_s)/90)
+		var t2=t*2*(Math.abs(forthBg_s)/110)
+		thirdT2_op=1-(t/50)
+		thirdT1_m=t1*-1
+		thirdT2_m=t2*-1
+
+	} else if (t>50&&home_scroll<0) {
+		thirdT2_op=1-(t/50)
 	}
+	if (thirdT1_m<thirdT1_s) {
+		thirdT1_m=thirdT1_s
+	}
+	if (thirdT2_m<thirdT2_s) {
+		thirdT2_m=thirdT2_s
+	}
+	thirdT2_op=check_op(thirdT2_op);
 	third_txt1.style.transform=`translateY(${ thirdT1_m }%)`;
 	third_txt2.style.transform=`translateY(${ thirdT2_m }%)`;
 	third_txt1.style.opacity=thirdT2_op;
 	third_txt2.style.opacity=thirdT2_op;
+
+	// if (t<-25) {
+	// 	if (thirdT2_op!==0) {
+	// 		thirdT2_op=0
+	// 	}
+	// } else if (t<0) {
+	// 	var m1=t*2*(Math.abs(thirdT1_s)/100)
+	// 	var m2=t*2*(Math.abs(thirdT2_s)/100)
+	// 	thirdT1_m=m1*-1
+	// 	thirdT2_m=m2*-1
+	// 	thirdT2_op=1+t*4/100
+	// 	thirdT2_op=Math.abs(thirdT2_op);
+	// } else if (t<50) {
+	// 	var m1=t*2*(Math.abs(thirdT1_s)/100)
+	// 	var m2=t*2*(Math.abs(thirdT2_s)/100)
+	// 	thirdT2_op=t*2/100-1
+	// 	thirdT2_op=Math.abs(thirdT2_op);
+	// 	thirdT1_m=m1*-1
+	// 	thirdT2_m=m2*-1
+	// } else if (t>50&&thirdT2_op!==0) {
+	// 	thirdT2_op=0
+	// }
+
 }
 function forthMove(move) {
 	var t=(range3-home_y)/100
@@ -839,7 +865,7 @@ function fifMove2() {
 	var t=(range5_1-home_y)/100
 	var fifbg_m=1
 	// console.log('fifMove2',1+(50-t*0.5)/100);
-	console.log('fifMove2', 1+(20-t*0.2)/50);
+	// console.log('fifMove2', 1+(20-t*0.2)/50);
 	// 1.5
 
 	if (t<50) {
