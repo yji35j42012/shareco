@@ -582,7 +582,7 @@ var sev_s=100, sev_speed=moveSpeed
 
 var sev_bg=document.querySelector("#sev_bg");
 var sev_footer=document.querySelector("#sev_footer");
-var sevBg_s=100, sevBg_m=sevBg_s, sevBg_d=0.2,sevBg_op=0
+var sevBg_s=100, sevBg_m=sevBg_s, sevBg_d=0.2, sevBg_op=0
 
 var sev_txt=document.querySelector("#sev_txt");
 var sevT_op=0
@@ -598,11 +598,13 @@ var range5=fif_s/moveSpeed+range4;
 var range5_1=fif2_s/moveSpeed+range5
 var range6=six_s/moveSpeed+range5_1
 var range7=sev_s/moveSpeed+range6
+
+var range7_1=range7+800
 // var range5_1=2500
 
 
 var setFake_h=window_h+range2+forth_s/moveSpeed+forthOut_s/moveSpeed+fif_s/moveSpeed+fif2_s/moveSpeed+six_s/moveSpeed
-setFake_h=setFake_h+sev_s/moveSpeed
+setFake_h=setFake_h+sev_s/moveSpeed+800
 
 
 
@@ -618,6 +620,7 @@ document.addEventListener("scroll", function (e) {
 	fifMove2()
 	sixMove()
 	sevMove()
+	sevMove1()
 	old_scroll=html.scrollTop
 });
 
@@ -1002,21 +1005,31 @@ function sixMove() {
 function sevMove() {
 	var t=(range7-home_y)/100
 	if (t<100) {
-		sevLin_op=1-t/100
-		sevBg_op=1-t/100
-		sevLin_h=100-t
-		sevBg_m=t
-		console.log('sevBg_m', sevBg_m);
+		sevLin_op=(1-t/100)*2.5
+		sevLin_h=(100-t)*2.5
 	}
 	sev_lin.style=`opacity:${ sevLin_op };height:${ sevLin_h }%;transition: all 0.2s;`
 
 
-	
-	sev_bg.style=`transform: translateY(${ sevBg_m }%);transition: all 0.2s;opacity:${sevBg_op};`;
+
+
 	// sev_bg.style.transform=`translateY(${ sevBg_m }%);`;
 
 }
 
+
+function sevMove1() {
+	var t=(range7_1-home_y)/100
+	// 95-178
+	var m=178-95
+
+	if (t<100) {
+		sevBg_op=(1-t/100)
+		sevBg_m=t
+		console.log('sevBg_m', sevBg_m);
+	}
+	sev_bg.style=`transform: translateY(${ sevBg_m }%);transition: all 0.2s;opacity:${ sevBg_op };`;
+}
 
 // function setSixLin(h, b1, b2, op) {
 // 	six_lin.style=`
@@ -1061,8 +1074,8 @@ function homeInit() {
 	six_bg2.style=`transform: translateY(${ sixBg2_s }%);transition: all 0.2s;`;
 	six_lin.style.opacity=sixIn_op
 
-	
-	sev_bg.style=`transform: translateY(${ sevBg_s }%);;transition: all 0.2s;opacity:${sevBg_op};`;
+
+	sev_bg.style=`transform: translateY(${ sevBg_s }%);;transition: all 0.2s;opacity:${ sevBg_op };`;
 	sev_footer.style=`transform: translateY(${ sevBg_s }%);;transition: all 0.2s;`;
 	sev_txt.style=`opacity: ${ sevT_op };transition: all 0.2s;`;
 	sev_lin.style=`opacity:${ sevLin_op };height:${ sevLin_h }%;transition: all 0.2s;`
