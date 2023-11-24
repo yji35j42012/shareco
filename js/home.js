@@ -582,11 +582,11 @@ var six_lin=document.querySelector("#six_lin");
 
 var sev_s=100, sev_speed=moveSpeed
 
-var sev_bg = document.querySelector("#sev_bg");
-var sev_footer = document.querySelector("#sev_footer");
-var sevBg_s=100,sevBg_m=sevBg_s,sevBg_d=0.2
+var sev_bg=document.querySelector("#sev_bg");
+var sev_footer=document.querySelector("#sev_footer");
+var sevBg_s=100, sevBg_m=sevBg_s, sevBg_d=0.2
 
-var sev_txt = document.querySelector("#sev_txt");
+var sev_txt=document.querySelector("#sev_txt");
 var sevT_op=0
 
 
@@ -984,6 +984,9 @@ function sixMove() {
 	if (sixBg2_m>0) {
 		sixBg2_m=0
 	}
+	// if(sixT_m<0){
+	// 	sixT_m=0
+	// }
 	six_bg1.style.opacity=sixIn_op
 	six_txt.style.opacity=sixIn_op
 	six_txt.style.transform=`translateY(${ sixT_m }%)`;
@@ -998,20 +1001,37 @@ function sixMove() {
 
 function sevMove() {
 	var t=(range7-home_y)/100
-	if (t<100) {
+	if (t<70) {
 		sixLin_h=(100-t)+65
 		sixLin_b1=t/2
 		sixLin_b2=t
-		console.log('sixLin_b1', sixLin_b1);
 
-		setSixLin(sixLin_h, sixLin_b1, sixLin_b2, sixIn_op)
+		sevBg_m=t*1.5
+		console.log('sixLin_b1', sevBg_m);
+	} else if (t<100) {
+		if(home_scroll<0 && sevBg_m!==0){
+			sevBg_m=t
+		}
+		sixLin_h=(100-t)+65
+		sixLin_b1=t/2
+		sixLin_b2=t
+	}else if(t>100 && home_scroll<0){
+		sevBg_m=t
 	}
+
+	if(sixLin_h>100){
+		sixLin_h=100
+	}
+	sev_bg.style.transform=`translateY(${ sevBg_m }%)`;
+	setSixLin(sixLin_h, sixLin_b1, sixLin_b2, sixIn_op)
+
+
 }
 
 
 function setSixLin(h, b1, b2, op) {
 	six_lin.style=`
-		height: ${ h }%;
+		height: ${h}%;
 		background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(100, 100, 100, 0.61) ${ b1 }%, #000 ${ b2 }%);
 		opacity: ${ op };transition: all 0.2s;
 	`;
@@ -1051,6 +1071,7 @@ function homeInit() {
 	six_bg1.style=`opacity: ${ sixIn_op };transition: all 0.2s;`;
 	six_bg2.style=`transform: translateY(${ sixBg2_s }%);transition: all 0.2s;`;
 	setSixLin(sixLin_h, sixLin_b1, sixLin_b2, sixIn_op);
+
 	sev_bg.style=`transform: translateY(${ sevBg_s }%);;transition: all 0.2s;`;
 	sev_footer.style=`transform: translateY(${ sevBg_s }%);;transition: all 0.2s;`;
 	sev_txt.style=`opacity: ${ sevT_op };transition: all 0.2s;`;
