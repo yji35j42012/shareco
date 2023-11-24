@@ -377,7 +377,8 @@
 		opacity: 0;
 		transition-duration: 1s;
 	}
-// .home_fake_H
+
+	// .home_fake_H
 	&_fake_H {
 		flex: none;
 		// position: fixed;
@@ -744,29 +745,28 @@
 					background-image: url("../images/home/background_forth_1_ph.jpg");
 				}
 			}
+		}
 
-			&::after {
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				display: block;
-				height: 500px;
-				background: url("../images/home/background_forth_2.png") no-repeat center/cover;
-				transform: translateY(var(--cat));
-				transition-duration: var(--cat_delay);
+		// .home_forth_cat 
+		&_cat {
+			z-index: 99999;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			display: block;
+			width: 100%;
+			height: 500px;
+			background: url("../images/home/background_forth_2.png") no-repeat center/cover;
+			// transform: translateY(var(--cat));
+			// transition-duration: var(--cat_delay);
 
-				@include mw(L) {
-					left: auto;
-					right: -75px;
-					width: 845px;
-					height: 300px;
-					background-position: center bottom;
-					background-size: contain;
-				}
-
-				// .show & {
-				// 	transform: translateY(0);
-				// }
+			@include mw(L) {
+				left: auto;
+				right: -75px;
+				width: 845px;
+				height: 300px;
+				background-position: center bottom;
+				background-size: contain;
 			}
 		}
 

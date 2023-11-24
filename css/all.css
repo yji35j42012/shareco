@@ -4140,18 +4140,18 @@ h1 + .product_group {
     background-image: url("../images/home/background_forth_1_ph.jpg");
   }
 }
-.home_forth_box::after {
+.home_forth_cat {
+  z-index: 99999;
   position: absolute;
   bottom: 0;
   left: 0;
   display: block;
+  width: 100%;
   height: 500px;
   background: url("../images/home/background_forth_2.png") no-repeat center/cover;
-  transform: translateY(var(--cat));
-  transition-duration: var(--cat_delay);
 }
 @media screen and (max-width: 1024px) {
-  .home_forth_box::after {
+  .home_forth_cat {
     left: auto;
     right: -75px;
     width: 845px;
