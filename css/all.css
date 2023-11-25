@@ -4154,10 +4154,15 @@ h1 + .product_group {
   .home_forth_cat {
     left: auto;
     right: -75px;
-    width: 845px;
+    width: calc(100% + 75px);
     height: 300px;
     background-position: center bottom;
     background-size: contain;
+  }
+}
+@media screen and (max-width: 767px) {
+  .home_forth_cat {
+    width: 845px;
   }
 }
 .home_forth_txtBox {
@@ -4237,17 +4242,51 @@ h1 + .product_group {
   background: url("../images/home/background_fifth.png") no-repeat center/cover;
   transition-duration: 0.2s;
 }
+@media screen and (max-width: 1024px) {
+  .home_fifth_bg1 {
+    display: flex;
+    justify-content: center;
+  }
+}
 .home_fifth_bg1 .top {
   pointer-events: none;
   position: absolute;
   top: 0;
   left: 0;
 }
+@media screen and (max-width: 1024px) {
+  .home_fifth_bg1 .top {
+    left: auto;
+    width: 145%;
+  }
+}
 .home_fifth_bg1 .bottom {
   pointer-events: none;
   position: absolute;
   bottom: 0;
   left: 0;
+}
+@media screen and (max-width: 1024px) {
+  .home_fifth_bg1 .bottom {
+    left: auto;
+    width: 145%;
+  }
+}
+.home_fifth_bg1 .pc {
+  display: block;
+}
+@media screen and (max-width: 1024px) {
+  .home_fifth_bg1 .pc {
+    display: none;
+  }
+}
+.home_fifth_bg1 .ph {
+  display: none;
+}
+@media screen and (max-width: 1024px) {
+  .home_fifth_bg1 .ph {
+    display: block;
+  }
 }
 .home_fifth_animal img:nth-child(1) {
   position: absolute;
@@ -4258,6 +4297,12 @@ h1 + .product_group {
   margin: auto;
   transform-origin: center center;
 }
+@media screen and (max-width: 1024px) {
+  .home_fifth_animal img:nth-child(1) {
+    top: 130px;
+    max-width: 245px;
+  }
+}
 .home_fifth_animal img:nth-child(2) {
   position: absolute;
   left: 170px;
@@ -4265,17 +4310,37 @@ h1 + .product_group {
   max-width: 70px;
   transform-origin: center center;
 }
+@media screen and (max-width: 1024px) {
+  .home_fifth_animal img:nth-child(2) {
+    max-width: 38px;
+    bottom: 100px;
+    left: 200px;
+  }
+}
 .home_fifth_animal img:nth-child(3) {
   position: absolute;
   left: 400px;
   bottom: 100px;
   max-width: 140px;
 }
+@media screen and (max-width: 1024px) {
+  .home_fifth_animal img:nth-child(3) {
+    left: 60px;
+    max-width: 75px;
+  }
+}
 .home_fifth_animal img:nth-child(4) {
   position: absolute;
   right: 450px;
   bottom: 90px;
   max-width: 70px;
+}
+@media screen and (max-width: 1024px) {
+  .home_fifth_animal img:nth-child(4) {
+    right: 0;
+    bottom: 150px;
+    max-width: 75px;
+  }
 }
 .home_fifth_animal .txt {
   pointer-events: none;
@@ -4296,8 +4361,12 @@ h1 + .product_group {
   font-style: normal;
   font-weight: 400;
   line-height: 128.5%;
-  /* 123.36px */
   letter-spacing: 0.2px;
+}
+@media screen and (max-width: 1024px) {
+  .home_fifth_animal .txt {
+    font-size: 40px;
+  }
 }
 .home_fifth_bg2 {
   position: absolute;
@@ -4361,8 +4430,21 @@ h1 + .product_group {
   pointer-events: none;
   width: auto;
 }
+.home_fifth_box2 .pc {
+  display: block;
+}
+@media screen and (max-width: 1024px) {
+  .home_fifth_box2 .pc {
+    display: none;
+  }
+}
 .home_fifth_box2 .ph {
   display: none;
+}
+@media screen and (max-width: 1024px) {
+  .home_fifth_box2 .ph {
+    display: inline-block;
+  }
 }
 .home_fifth_txt {
   position: absolute;
@@ -4378,6 +4460,16 @@ h1 + .product_group {
   line-height: 160%;
   /* 44.8px */
   z-index: 1;
+}
+@media screen and (max-width: 1024px) {
+  .home_fifth_txt {
+    top: 7%;
+    left: 0px;
+    right: 0;
+    max-width: 476px;
+    padding: 0 53px;
+    font-size: 16px;
+  }
 }
 .home_fifth_txt::before, .home_fifth_txt::after {
   content: "";
@@ -4400,11 +4492,21 @@ h1 + .product_group {
   top: 0;
   transform: translate(-150%, -150%);
 }
+@media screen and (max-width: 1024px) {
+  .home_fifth_txt::before {
+    transform: translate(165%, -70%);
+  }
+}
 .home_fifth_txt::after {
   right: 0;
   bottom: 0;
   background-image: url("../images/icon/icon_dot_top_b.svg");
   transform: translate(150%, 150%);
+}
+@media screen and (max-width: 1024px) {
+  .home_fifth_txt::after {
+    transform: translate(-165%, 70%);
+  }
 }
 .home_fifth.show2 .home_fifth_box1 {
   transform: translateY(-100%);
@@ -4474,15 +4576,42 @@ h1 + .product_group {
   bottom: 0;
   height: 100%;
 }
+@media screen and (max-width: 1024px) {
+  .home_six_bg > span:nth-child(1) {
+    right: auto;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+  }
+}
 .home_six_bg > span:nth-child(1) img {
   width: auto;
   height: 100%;
 }
+@media screen and (max-width: 1024px) {
+  .home_six_bg > span:nth-child(1) img {
+    width: 100%;
+    height: auto;
+  }
+}
 .home_six_bg > span:nth-child(1) .pc {
   display: block;
 }
+@media screen and (max-width: 1024px) {
+  .home_six_bg > span:nth-child(1) .pc {
+    display: none;
+  }
+}
 .home_six_bg > span:nth-child(1) .ph {
   display: none;
+}
+@media screen and (max-width: 1024px) {
+  .home_six_bg > span:nth-child(1) .ph {
+    display: block;
+  }
 }
 .home_six_bg > span:nth-child(2) {
   position: absolute;
@@ -4511,6 +4640,14 @@ h1 + .product_group {
   flex-direction: column;
   margin: auto;
 }
+@media screen and (max-width: 1024px) {
+  .home_six_txt {
+    top: 147px;
+    left: 0;
+    right: 0;
+    bottom: auto;
+  }
+}
 .home_six_txt span {
   color: #333;
   text-align: center;
@@ -4519,8 +4656,12 @@ h1 + .product_group {
   font-style: normal;
   font-weight: 400;
   line-height: 160%;
-  /* 44.8px */
   white-space: nowrap;
+}
+@media screen and (max-width: 1024px) {
+  .home_six_txt span {
+    font-size: 16px;
+  }
 }
 .home_six_txt::before {
   content: "";
@@ -4532,6 +4673,12 @@ h1 + .product_group {
   background-size: contain;
   background-position: center;
   background-image: url(../images/icon/icon_dot_top_b.svg);
+}
+@media screen and (max-width: 1024px) {
+  .home_six_txt::before {
+    width: 16px;
+    margin-bottom: 25px;
+  }
 }
 .home_seven {
   overflow: hidden;
@@ -4554,6 +4701,11 @@ h1 + .product_group {
   width: 100%;
   height: 100%;
   background: url("../images/home/seven_background.jpg") no-repeat center/cover;
+}
+@media screen and (max-width: 1024px) {
+  .home_seven_bg {
+    background-size: 230%;
+  }
 }
 .home_seven_lin {
   position: absolute;

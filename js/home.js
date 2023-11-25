@@ -67,6 +67,9 @@ home_video1Handler1.onclick = function () {
 };
 var fifth_video = document.querySelector("#fifth_video");
 var fifth_video_m = document.querySelector("#fifth_video_m");
+var fifth_videoPh = document.querySelector("#fifth_video_ph");
+
+
 fifth_video.pause();
 fifth_video_m.pause();
 
@@ -873,13 +876,13 @@ function fifMove() {
 	fif_bee3.style = `transform: scale(${fifBee3_sc}) translate(-${fifBee3_m}% , ${fifBee3_m}%);transition: all ${fifBee3_d}s;opacity: ${fifBee3_op};`;
 
 
-	if (dev == "pc") {
+
 		fifth_pc1.style.transform = `translateY(${fifPT_m}%) scale(${fifPT_sc})`;
 		fifth_pc2.style.transform = `translateY(${fifPB_m}%) scale(${fifPT_sc})`;
-	} else {
+
 		fifth_ph1.style.transform = `translateY(${fifPT_m}%) scale(${fifPT_sc})`;
 		fifth_ph2.style.transform = `translateY(${fifPB_m}%) scale(${fifPT_sc})`;
-	}
+	
 }
 function fifM(t) {
 	fifPT_sc = 1 + (50 - t * 0.5) / 100
@@ -940,6 +943,7 @@ function fifMove2() {
 
 
 		fifth_video.play();
+		fifth_video_m.play();
 	} else if (t < 100) {
 		fifbg_m = 1 + (30 - t * 0.3) / 50
 		if (fifbg_m < 1) {
@@ -957,6 +961,8 @@ function fifMove2() {
 		fifth_bird.style = ` transform: scale(1) translate(${fifBird_m}% , ${fifBird_m}%);opacity:${fifT_op};transition: all ${fifT_d}s;`
 		fifth_video.pause();
 		fifth_video.currentTime = 0
+		fifth_video_m.pause();
+		fifth_video.currentTime = 0
 
 
 	}
@@ -965,13 +971,13 @@ function fifMove2() {
 	}
 
 
-	if (dev == "pc") {
+
 		fifth_pc1.style.transform = `translateY(${fifPT_m}%) scale(${fifPT_sc})`;
 		fifth_pc2.style.transform = `translateY(${fifPB_m}%) scale(${fifPT_sc})`;
-	} else {
+
 		fifth_ph1.style.transform = `translateY(${fifPT_m}%) scale(${fifPT_sc})`;
 		fifth_ph2.style.transform = `translateY(${fifPB_m}%) scale(${fifPT_sc})`;
-	}
+
 }
 function sixMove() {
 	var t = (range6 - home_y) / 100
@@ -1002,6 +1008,7 @@ function sixMove() {
 	fifT2.style.opacity = sixOut_op
 	fifbee4.style.opacity = sixOut_op
 	fifth_video.style.opacity = sixOut_op
+	fifth_videoPh.style.opacity = sixOut_op
 	fifBg3.style = `transform: scale(${fifBg3_sc}) translateY(${fifBg3_m}%);transition: all ${fifBg3_d}s;`;
 }
 
@@ -1074,7 +1081,7 @@ function homeInit() {
 	fifBg3.style = `transform: scale(${fifBg3_sc}) translateY(${fifBg3_s}%);transition: all ${fifBg3_d}s;`;
 	home_six.style = `transform: translateY(${six_m}%);transition: all ${six_d}s;`;
 	fifth_video.style = `opacity: ${sixOut_op};transition: all 0.2s;`;
-
+	fifth_videoPh.style = `opacity: ${sixOut_op};transition: all 0.2s;`;
 	six_txt.style = `transform: translateY(${sixT_m}%);opacity: ${sixIn_op};transition: all 0.2s;`;
 	six_bg1.style = `opacity: ${sixIn_op};transition: all 0.2s;`;
 	six_bg2.style = `transform: translateY(${sixBg2_s}%);transition: all 0.2s;`;
