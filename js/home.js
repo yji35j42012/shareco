@@ -2,8 +2,6 @@ var getScrollT=document.querySelector("html");
 var wrap=document.querySelector("#wrap");
 var fake_h=document.querySelector("#fake_h");
 var changePageTime;
-
-
 wrap.classList.add("full");
 setTimeout(() => {
 	wrap.classList.add("active");
@@ -18,23 +16,10 @@ function mobile() {
 }
 
 var device=mobile()? "ph":"pc";
-
 var fifthAni2Time;
 var home_btn=document.querySelector("#home_btn");
 var home=document.querySelector("#home");
-
 var home_second=document.querySelector("#home_second");
-
-var pageArr=[
-	"home",
-	"home_second",
-	"home_third",
-	"home_forth",
-	"home_fifth",
-	"home_six",
-	"home_seven"
-];
-
 var pageNum=0;
 function home_btnHandler() {
 	home.classList.add("zoomOut");
@@ -458,7 +443,6 @@ if (device=="pc") {
 			lionMove=0;
 		}
 		clearInterval(lionTime);
-
 		lionTime=setInterval(() => {
 			if (parseInt(lionMove)==parseInt(lionNow)) {
 				clearInterval(lionTime);
@@ -525,7 +509,6 @@ var fifth_txt=document.querySelector("#fifth_txt");
 // 5000
 var moveSpeed=0.02
 var rangeSpeen=50
-console.log('rangeSpeen', rangeSpeen);
 var sec_s=0, sec_e, sec_m=sec_s, sec_d=0.2, sec_speed=0.005, sec_op=1
 var third_s=100, third_e=0, third_m=third_s, third_d=0.2, third_speed=0.01, third_op=1
 
@@ -591,28 +574,20 @@ var sevLin_op=0, sevLin_h=0
 
 var range1=0
 var range2=third_s/moveSpeed
-console.log('range2', range2);
 var range3=forth_s/moveSpeed+range2
-console.log('range3', range3);
 var range4=forthOut_s/moveSpeed+range3;
 var range5=fif_s/moveSpeed+range4;
 var range5_1=fif2_s/moveSpeed+range5
 var range6=six_s/moveSpeed+range5_1
 var range7=sev_s/moveSpeed+range6
-
 var range7_1=range7+800
-// var range5_1=2500
-
 
 var setFake_h=window_h+range2+forth_s/moveSpeed+forthOut_s/moveSpeed+fif_s/moveSpeed+fif2_s/moveSpeed+six_s/moveSpeed
 setFake_h=setFake_h+sev_s/moveSpeed+800
 
-
-
 document.addEventListener("scroll", function (e) {
 	home_y=html.scrollTop
 	html.scrollTop-old_scroll>0? home_scroll=1:home_scroll=-1
-
 	secMove(home_y-old_scroll)
 	thirdMove(home_y-old_scroll)
 	forthMove(home_y-old_scroll)
@@ -691,7 +666,6 @@ function forthCatHandler(t) {
 
 	forthCat.style.transform=`translateY(${ forthCat_m }%)`;
 }
-
 function forthMove(move) {
 	var t=(range3-home_y)/rangeSpeen
 	if (t<40) {
@@ -716,11 +690,13 @@ function forthMove(move) {
 		forthCatHandler(t)
 		forthT_op=1-(t/50)
 	} else if (t>50) {
-		forthCatHandler(t)
+		if(home_scroll<0){
+			forthCatHandler(t)
+		}
+		
 		if (home_scroll<0&&forthT_op!==0) {
 			forthT_op=1-(t/50)
 		}
-
 	} else if (t<100) {
 		forthCatHandler(t)
 	}
@@ -778,8 +754,6 @@ function forthOut(move) {
 			home_sec.style.opacity=1
 		}
 	}
-	console.log('asdfasdfasdf', t);
-	console.log('home_scroll', home_scroll);
 	if (t>100&&home_scroll<0) {
 		if (forthOut_m!==1) {
 			forthOut_m=t/100
@@ -792,10 +766,14 @@ function forthOut(move) {
 	} else if (forthOut_m>1) {
 		forthOut_m=1
 	}
-
-	forthCat.style.transform=`translateY(${ forthCat_m }%)`;
+if(forthCat_m<0){
+	forthCat_m=0
+}else if(forthCat_m>100){
+	forthCat_m=100
+}
 	home_forth.style.opacity=forth_op;
 	forthCat.style.opacity=forth_op;
+	forthCat.style.transform=`translateY(${ forthCat_m }%)`;
 	forthBox.style=`transform: scale(${ forthOut_m });transition: transform ${ forthOut_d }s;`;
 	fifth_bg.style=`--fifbg:1.1;;opacity: ${ fif_op };transition: transform ${ fif_d }s;`;
 }
@@ -906,7 +884,6 @@ function fifM(t) {
 	fifbee4.style.opacity=fifBee4_op
 
 	fifT2_op=1-(t/100)
-	// fifT2_op=check_op(fifT2_op);
 	fifT2_m=t
 	if (fifT2_m<0) {
 		fifT2_m=0
@@ -964,11 +941,16 @@ function fifMove2() {
 		fifth_video.currentTime=0
 		fifth_video_m.pause();
 		fifth_video.currentTime=0
-
-
 	}
 	if (fifbg_m>1.3) {
 		fifbg_m=1.3
+	}
+	if (t>70&&home_scroll<0) {
+		if (fifthBg2_op!==0) {
+			fifthBg2_op=(1-(t*0.2/10))*1.2
+			fifthBg2_op=check_op(fifthBg2_op);
+			fifth_bg2.style=`transition: all ${ fifthBg2_d }s;opacity: ${ fifthBg2_op };`;
+		}
 	}
 	fifth_pc1.style.transform=`translateY(${ fifPT_m }%) scale(${ fifPT_sc })`;
 	fifth_pc2.style.transform=`translateY(${ fifPB_m }%) scale(${ fifPT_sc })`;
@@ -996,6 +978,14 @@ function sixMove() {
 	} else if (sixBg2_m<-100) {
 		sixBg2_m=-100
 	}
+	if (t>100&&home_scroll<0) {
+		if (sixIn_op!==0) {
+			sixIn_op=1-(t/100)
+		}
+		if(sixBg2_m!==-100){
+			sixBg2_m=t*-1
+		}
+	}
 	six_bg1.style.opacity=sixIn_op
 	six_txt.style.opacity=sixIn_op
 	six_txt.style.transform=`translateY(${ sixT_m }%)`;
@@ -1008,7 +998,6 @@ function sixMove() {
 	fifth_videoPh.style.opacity=sixOut_op
 	fifBg3.style=`transform: scale(${ fifBg3_sc }) translateY(${ fifBg3_m }%);transition: all ${ fifBg3_d }s;`;
 }
-
 function sevMove() {
 	var t=(range7-home_y)/rangeSpeen
 	if (t<100) {
@@ -1017,6 +1006,12 @@ function sevMove() {
 	}
 	if (sixBg2_m>0) {
 		sixBg2_m=0
+	}
+	if (t>100&&home_scroll<0) {
+		if (sevLin_op!==0) {
+			sevLin_op=(1-t/100)*2.5
+			sevLin_h=(100-t)*2.5
+		}
 	}
 	sev_lin.style=`opacity:${ sevLin_op };height:${ sevLin_h }%;transition: all 0.2s;`
 }
@@ -1029,20 +1024,21 @@ function sevMove1() {
 	if (t<100) {
 		sevBg_op=(1-t/100)
 		sevBg_m=t
-		sevBg_m=t
+	}
+	if (t>100&&home_scroll<0) {
+		if (sevBg_op!==0) {
+			sevBg_op=(1-t/100)
+			sevBg_m=t
+		}
+		if (sevT_op!==0) {
+			sevT_op=(1-t*2/100)
+			sevT_m=t*2
+		}
 	}
 	sev_txt.style=`opacity: ${ sevT_op };transition: all 0.2s;transform: translateY(${ sevT_m }%)`;
 	sev_footer.style=`transform: translateY(${ sevBg_m }%);transition: all 0.2s;`;
 	sev_bg.style=`transform: translateY(${ sevBg_m }%);transition: all 0.2s;opacity:${ sevBg_op };`;
 }
-
-// function setSixLin(h, b1, b2, op) {
-// 	six_lin.style=`
-// 		height: ${h}%;
-
-// 		opacity: ${ op };transition: all 0.2s;
-// 	`;
-// }
 
 function homeInit() {
 	fake_h.style.height=setFake_h+"px";
@@ -1056,7 +1052,6 @@ function homeInit() {
 	forthBg.style=`transform: translateY(${ forthBg_s }%);transition: all ${ forthBg_d }s;opacity: ${ forthBg_op };`;
 	forthCat.style=`transform: translateY(${ forthCat_s }%);transition: all ${ forthCat_d }s;`;
 	forthBox.style=`transform: scale(${ forthOut_m });transition: all ${ forthOut_d }s;`;
-	// home_fifth.style=`transition: transform ${ fif_d }s;opacity: ${ fif_op };`
 	fifth_pc1.style=`transform: translateY(${ fifPT_s }%)  scale(${ fifPT_sc });transition: all ${ fifPB_d }s;`;
 	fifth_pc2.style=`transform: translateY(${ fifPB_s }%)  scale(${ fifPT_sc });transition: all ${ fifPB_d }s;`;
 	fifth_ph1.style=`transform: translateY(${ fifPT_s }%)  scale(${ fifPT_sc });transition: all ${ fifPB_d }s;`;
@@ -1078,15 +1073,11 @@ function homeInit() {
 	six_bg1.style=`opacity: ${ sixIn_op };transition: all 0.2s;`;
 	six_bg2.style=`transform: translateY(${ sixBg2_s }%);transition: all 0.2s;`;
 	six_lin.style.opacity=sixIn_op
-
-
 	sev_bg.style=`transform: translateY(${ sevBg_s }%);;transition: all 0.2s;opacity:${ sevBg_op };`;
 	sev_footer.style=`transform: translateY(${ sevBg_s }%);;transition: all 0.2s;`;
 	sev_txt.style=`opacity: ${ sevT_op };transition: all 0.2s;`;
 	sev_lin.style=`opacity:${ sevLin_op };height:${ sevLin_h }%;transition: all 0.2s;`
 }
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
 	homeInit();
