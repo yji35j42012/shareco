@@ -3894,6 +3894,11 @@ h1 + .product_group {
   align-items: center;
   padding: 0 110px;
 }
+@media screen and (max-width: 1024px) {
+  .home_txtBox {
+    flex-direction: column;
+  }
+}
 .home_scroll {
   position: relative;
   display: flex;
@@ -4486,6 +4491,11 @@ h1 + .product_group {
   line-height: 160%;
   /* 44.8px */
   z-index: 1;
+}
+@media screen and (max-width: 1440px) {
+  .home_fifth_txt {
+    right: 120px;
+  }
 }
 @media screen and (max-width: 1024px) {
   .home_fifth_txt {

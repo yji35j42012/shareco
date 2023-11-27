@@ -424,6 +424,9 @@
 		pointer-events: none;
 		@include d_f(flex, space-between, center);
 		padding: 0 110px;
+		@include mw(L){
+			flex-direction: column;
+		}
 	}
 
 	// .home_scroll
@@ -1113,6 +1116,9 @@
 			line-height: 160%;
 			/* 44.8px */
 			z-index: 1;
+			@include mw(XXL){
+				right: 120px;
+			}
 			@include mw(L) {
 				top: 7%;
 				left: 0px;
