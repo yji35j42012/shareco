@@ -690,10 +690,10 @@ function forthMove(move) {
 		forthCatHandler(t)
 		forthT_op=1-(t/50)
 	} else if (t>50) {
-		if(home_scroll<0){
+		if (home_scroll<0) {
 			forthCatHandler(t)
 		}
-		
+
 		if (home_scroll<0&&forthT_op!==0) {
 			forthT_op=1-(t/50)
 		}
@@ -766,11 +766,11 @@ function forthOut(move) {
 	} else if (forthOut_m>1) {
 		forthOut_m=1
 	}
-if(forthCat_m<0){
-	forthCat_m=0
-}else if(forthCat_m>100){
-	forthCat_m=100
-}
+	if (forthCat_m<0) {
+		forthCat_m=0
+	} else if (forthCat_m>100) {
+		forthCat_m=100
+	}
 	home_forth.style.opacity=forth_op;
 	forthCat.style.opacity=forth_op;
 	forthCat.style.transform=`translateY(${ forthCat_m }%)`;
@@ -982,7 +982,7 @@ function sixMove() {
 		if (sixIn_op!==0) {
 			sixIn_op=1-(t/100)
 		}
-		if(sixBg2_m!==-100){
+		if (sixBg2_m!==-100) {
 			sixBg2_m=t*-1
 		}
 	}
