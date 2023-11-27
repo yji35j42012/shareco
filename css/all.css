@@ -4481,6 +4481,7 @@ h1 + .product_group {
   position: absolute;
   top: 40%;
   right: 215px;
+  max-width: 500px;
   margin: auto;
   color: #333;
   text-align: center;
@@ -4674,6 +4675,7 @@ h1 + .product_group {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  max-width: 540px;
   margin: auto;
 }
 @media screen and (max-width: 1024px) {
@@ -4692,7 +4694,6 @@ h1 + .product_group {
   font-style: normal;
   font-weight: 400;
   line-height: 160%;
-  white-space: nowrap;
 }
 @media screen and (max-width: 1024px) {
   .home_six_txt span {
