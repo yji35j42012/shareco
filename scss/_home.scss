@@ -34,8 +34,7 @@
 			top: -180px;
 			width: 100%;
 			height: 765px;
-			background: url("../images/home/home_top.png") no-repeat
-				center/cover;
+			background: url("../images/home/home_top.png") no-repeat center/cover;
 			pointer-events: none;
 		}
 
@@ -47,12 +46,10 @@
 			bottom: -330px;
 			width: 100%;
 			height: 765px;
-			background: linear-gradient(
-				0deg,
-				#000 0%,
-				rgba(0, 0, 0, 0.43) 60.42%,
-				rgba(0, 0, 0, 0) 100%
-			);
+			background: linear-gradient(0deg,
+					#000 0%,
+					rgba(0, 0, 0, 0.43) 60.42%,
+					rgba(0, 0, 0, 0) 100%);
 			pointer-events: none;
 		}
 	}
@@ -109,9 +106,11 @@
 		width: 100%;
 		max-width: 1280px;
 		max-height: 694px;
+
 		@include mw(L) {
 			left: -340px;
 		}
+
 		@include mw(M) {
 			z-index: 2;
 			left: -135px;
@@ -169,6 +168,7 @@
 			left: -110px;
 			max-width: 550px;
 		}
+
 		@include mw(M) {
 			left: -270px;
 			top: 305px;
@@ -190,6 +190,7 @@
 		bottom: -20px;
 		right: 320px;
 		max-width: 750px;
+
 		@include mw(L) {
 			width: 100%;
 			max-width: 800px;
@@ -208,6 +209,7 @@
 			right: -120px;
 			max-width: 500px;
 		}
+
 		@include mw(M) {
 			// right: -120px;
 			max-width: 340px;
@@ -252,9 +254,11 @@
 		bottom: 350px;
 		right: 430px;
 		max-width: 90px;
+
 		@include mw(L) {
 			right: 300px;
 		}
+
 		@include mw(M) {
 			right: 75px;
 			bottom: 280px;
@@ -424,7 +428,8 @@
 		pointer-events: none;
 		@include d_f(flex, space-between, center);
 		padding: 0 110px;
-		@include mw(L){
+
+		@include mw(L) {
 			flex-direction: column;
 		}
 	}
@@ -472,8 +477,7 @@
 	// .home_video
 	&_video {
 		padding: 63px;
-		background: url("../images/home/video_1_background.png") no-repeat
-				center bottom / cover,
+		background: url("../images/home/video_1_background.png") no-repeat center bottom / cover,
 			linear-gradient(180deg, rgba(23, 23, 23, 0) 0%, #171717 0%);
 
 		@include mw(L) {
@@ -578,8 +582,7 @@
 			width: 100%;
 			height: 100%;
 			padding: 0 110px;
-			background: url("../images/home/background_2.jpg") no-repeat
-				center/cover;
+			background: url("../images/home/background_2.jpg") no-repeat center/cover;
 
 			@include mw(L) {
 				flex-direction: column;
@@ -593,12 +596,10 @@
 					left: 0;
 					width: 100%;
 					height: 100%;
-					background: linear-gradient(
-						90deg,
-						#000 4.4%,
-						rgba(0, 0, 0, 0.43) 61.81%,
-						rgba(0, 0, 0, 0) 92.66%
-					);
+					background: linear-gradient(90deg,
+							#000 4.4%,
+							rgba(0, 0, 0, 0.43) 61.81%,
+							rgba(0, 0, 0, 0) 92.66%);
 					transform: translateX(-50%);
 				}
 
@@ -609,12 +610,10 @@
 					right: 0;
 					width: 100%;
 					height: 100%;
-					background: linear-gradient(
-						270deg,
-						#000 5.73%,
-						rgba(0, 0, 0, 0.43) 66.78%,
-						rgba(0, 0, 0, 0) 92.66%
-					);
+					background: linear-gradient(270deg,
+							#000 5.73%,
+							rgba(0, 0, 0, 0.43) 66.78%,
+							rgba(0, 0, 0, 0) 92.66%);
 					transform: translateX(50%);
 				}
 			}
@@ -694,12 +693,10 @@
 				left: 0;
 				width: 100%;
 				height: 100%;
-				background: linear-gradient(
-					186deg,
-					#171717 5.73%,
-					rgba(23, 23, 23, 0.43) 66.78%,
-					rgba(23, 23, 23, 0) 92.66%
-				);
+				background: linear-gradient(186deg,
+						#171717 5.73%,
+						rgba(23, 23, 23, 0.43) 66.78%,
+						rgba(23, 23, 23, 0) 92.66%);
 				transform: translateY(-50%);
 			}
 
@@ -710,12 +707,10 @@
 				right: 0;
 				width: 100%;
 				height: 100%;
-				background: linear-gradient(
-					186deg,
-					rgba(0, 0, 0, 0) 4.53%,
-					#000 53.61%,
-					rgba(0, 0, 0, 0) 72.51%
-				);
+				background: linear-gradient(186deg,
+						rgba(0, 0, 0, 0) 4.53%,
+						#000 53.61%,
+						rgba(0, 0, 0, 0) 72.51%);
 				transform: translateY(50%);
 			}
 		}
@@ -723,7 +718,7 @@
 
 	// .home_forth
 	&_forth {
-		position: absolute;
+		position: relative;
 		top: 0;
 		left: 0;
 
@@ -743,12 +738,10 @@
 				width: 100%;
 				height: 556px;
 				transform: translateY(calc(-100% + 168px));
-				background: linear-gradient(
-					186deg,
-					rgba(0, 0, 0, 0) 4.53%,
-					#000 53.61%,
-					rgba(0, 0, 0, 0) 72.51%
-				);
+				background: linear-gradient(186deg,
+						rgba(0, 0, 0, 0) 4.53%,
+						#000 53.61%,
+						rgba(0, 0, 0, 0) 72.51%);
 				z-index: 2;
 			}
 		}
@@ -762,7 +755,6 @@
 			&::after {
 				content: "";
 				width: 100%;
-				// transform: translateY(100%);
 			}
 
 			&::before {
@@ -771,8 +763,7 @@
 				left: 0;
 				right: 0;
 				bottom: 0;
-				background: url("../images/home/background_forth_1.jpg")
-					no-repeat center/cover;
+				background: url("../images/home/background_forth_1.jpg") no-repeat center/cover;
 
 				@include mw(L) {
 					background-image: url("../images/home/background_forth_1_ph.jpg");
@@ -789,8 +780,7 @@
 			display: block;
 			width: 100%;
 			height: 500px;
-			background: url("../images/home/background_forth_2.png") no-repeat
-				center/cover;
+			background: url("../images/home/background_forth_2.png") no-repeat center/cover;
 
 			@include mw(L) {
 				left: auto;
@@ -800,6 +790,7 @@
 				background-position: center bottom;
 				background-size: contain;
 			}
+
 			@include mw(S) {
 				width: 845px;
 			}
@@ -861,7 +852,7 @@
 	&_fifth {
 		z-index: 7;
 		overflow: hidden;
-		position: absolute;
+		position: relative;
 		top: 0;
 		left: 0;
 		width: 100%;
@@ -885,8 +876,7 @@
 				height: 100%;
 				transform: scale(var(--fifbg));
 				transform-origin: center center;
-				background: url("../images/home/background_fifth.png") no-repeat
-					center/cover;
+				background: url("../images/home/background_fifth.png") no-repeat center/cover;
 				transition-duration: 0.2s;
 			}
 		}
@@ -896,11 +886,13 @@
 			@include mw(L) {
 				@include d_f(flex, center);
 			}
+
 			.top {
 				pointer-events: none;
 				position: absolute;
 				top: 0;
 				left: 0;
+
 				@include mw(L) {
 					left: auto;
 					width: 145%;
@@ -912,19 +904,24 @@
 				position: absolute;
 				bottom: 0;
 				left: 0;
+
 				@include mw(L) {
 					left: auto;
 					width: 145%;
 				}
 			}
+
 			.pc {
 				display: block;
+
 				@include mw(L) {
 					display: none;
 				}
 			}
+
 			.ph {
 				display: none;
+
 				@include mw(L) {
 					display: block;
 				}
@@ -941,6 +938,7 @@
 				max-width: 480px;
 				margin: auto;
 				transform-origin: center center;
+
 				@include mw(L) {
 					top: 130px;
 					max-width: 245px;
@@ -953,6 +951,7 @@
 				bottom: 180px;
 				max-width: 70px;
 				transform-origin: center center;
+
 				@include mw(L) {
 					max-width: 38px;
 					bottom: 100px;
@@ -965,6 +964,7 @@
 				left: 400px;
 				bottom: 100px;
 				max-width: 140px;
+
 				@include mw(L) {
 					left: 60px;
 					max-width: 75px;
@@ -976,6 +976,7 @@
 				right: 450px;
 				bottom: 90px;
 				max-width: 70px;
+
 				@include mw(L) {
 					right: 0;
 					bottom: 150px;
@@ -1001,6 +1002,7 @@
 				font-weight: 400;
 				line-height: 128.5%;
 				letter-spacing: 0.2px;
+
 				@include mw(L) {
 					font-size: 40px;
 				}
@@ -1014,8 +1016,7 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background: url("../images/home/fifth_background_2.png") no-repeat
-				center top/cover;
+			background: url("../images/home/fifth_background_2.png") no-repeat center top/cover;
 			transform-origin: center top;
 			transform: translateY(-100%);
 		}
@@ -1076,7 +1077,7 @@
 			opacity: 0;
 			background-color: #ffffff;
 
-			> img {
+			>img {
 				position: absolute;
 				bottom: 0;
 				right: -60px;
@@ -1087,14 +1088,18 @@
 				pointer-events: none;
 				width: auto;
 			}
+
 			.pc {
 				display: block;
+
 				@include mw(L) {
 					display: none;
 				}
 			}
+
 			.ph {
 				display: none;
+
 				@include mw(L) {
 					display: inline-block;
 				}
@@ -1117,9 +1122,11 @@
 			line-height: 160%;
 			/* 44.8px */
 			z-index: 1;
-			@include mw(XXL){
+
+			@include mw(XXL) {
 				right: 120px;
 			}
+
 			@include mw(L) {
 				top: 7%;
 				left: 0px;
@@ -1128,6 +1135,7 @@
 				padding: 0 53px;
 				font-size: 16px;
 			}
+
 			&::before,
 			&::after {
 				content: "";
@@ -1149,6 +1157,7 @@
 				left: 0;
 				top: 0;
 				transform: translate(-150%, -150%);
+
 				@include mw(L) {
 					transform: translate(165%, -70%);
 				}
@@ -1159,6 +1168,7 @@
 				bottom: 0;
 				background-image: url("../images/icon/icon_dot_top_b.svg");
 				transform: translate(150%, 150%);
+
 				@include mw(L) {
 					transform: translate(-165%, 70%);
 				}
@@ -1180,7 +1190,7 @@
 				opacity: 1;
 				transition-duration: 1s;
 
-				> img {
+				>img {
 					z-index: 2;
 				}
 			}
@@ -1210,12 +1220,10 @@
 				width: 20px;
 				height: 100%;
 				transform: translateX(50%);
-				background: linear-gradient(
-					to left,
-					#fff,
-					#fff 50%,
-					rgba(255, 255, 255, 0) 100%
-				);
+				background: linear-gradient(to left,
+						#fff,
+						#fff 50%,
+						rgba(255, 255, 255, 0) 100%);
 			}
 		}
 	}
@@ -1223,7 +1231,7 @@
 	// .home_six
 	&_six {
 		overflow: hidden;
-		position: absolute;
+		position: relative;
 		z-index: 7;
 		top: 0;
 		left: 0;
@@ -1238,8 +1246,7 @@
 				left: 0;
 				width: 100%;
 				height: 100%;
-				background: url("../images/home/six_background.png") no-repeat
-					center/cover;
+				background: url("../images/home/six_background.png") no-repeat center/cover;
 			}
 		}
 
@@ -1251,11 +1258,12 @@
 			width: 100%;
 			height: 100%;
 
-			> span:nth-child(1) {
+			>span:nth-child(1) {
 				position: absolute;
 				right: 0;
 				bottom: 0;
 				height: 100%;
+
 				@include mw(L) {
 					right: auto;
 					left: 0;
@@ -1263,9 +1271,11 @@
 					@include d_f(flex, center, flex-end);
 					width: 100%;
 				}
+
 				img {
 					width: auto;
 					height: 100%;
+
 					@include mw(L) {
 						width: 100%;
 						height: auto;
@@ -1274,6 +1284,7 @@
 
 				.pc {
 					display: block;
+
 					@include mw(L) {
 						display: none;
 					}
@@ -1281,13 +1292,14 @@
 
 				.ph {
 					display: none;
+
 					@include mw(L) {
 						display: block;
 					}
 				}
 			}
 
-			> span:nth-child(2) {
+			>span:nth-child(2) {
 				position: absolute;
 				top: 0;
 				right: 0;
@@ -1304,12 +1316,10 @@
 			left: 0;
 			width: 100%;
 			height: 65%;
-			background: linear-gradient(
-				180deg,
-				rgba(255, 255, 255, 0) 0%,
-				rgba(100, 100, 100, 0.61) 50%,
-				#000 100%
-			);
+			background: linear-gradient(180deg,
+					rgba(255, 255, 255, 0) 0%,
+					rgba(100, 100, 100, 0.61) 50%,
+					#000 100%);
 		}
 
 		// .home_six_txt
@@ -1322,12 +1332,14 @@
 			flex-direction: column;
 			max-width: 540px;
 			margin: auto;
+
 			@include mw(L) {
 				top: 147px;
 				left: 0;
 				right: 0;
 				bottom: auto;
 			}
+
 			span {
 				color: #333;
 				text-align: center;
@@ -1336,6 +1348,7 @@
 				font-style: normal;
 				font-weight: 400;
 				line-height: 160%;
+
 				// white-space: nowrap;
 				@include mw(L) {
 					font-size: 16px;
@@ -1352,6 +1365,7 @@
 				background-size: contain;
 				background-position: center;
 				background-image: url(../images/icon/icon_dot_top_b.svg);
+
 				@include mw(L) {
 					width: 16px;
 					margin-bottom: 25px;
@@ -1364,9 +1378,10 @@
 	&_seven {
 		overflow: hidden;
 		z-index: 8;
-		position: absolute;
+		position: relative;
 		top: 0;
 		left: 0;
+		transform: translateY(-100%);
 
 		// z-index: 999;
 		// .home_seven_box
@@ -1384,8 +1399,8 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background: url("../images/home/seven_background.jpg") no-repeat
-				center/cover;
+			background: url("../images/home/seven_background.jpg") no-repeat center/cover;
+
 			@include mw(L) {
 				background-size: 230%;
 			}

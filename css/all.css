@@ -4128,7 +4128,7 @@ h1 + .product_group {
   transform: translateY(50%);
 }
 .home_forth {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
 }
@@ -4248,7 +4248,7 @@ h1 + .product_group {
 .home_fifth {
   z-index: 7;
   overflow: hidden;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -4585,7 +4585,7 @@ h1 + .product_group {
 }
 .home_six {
   overflow: hidden;
-  position: absolute;
+  position: relative;
   z-index: 7;
   top: 0;
   left: 0;
@@ -4720,9 +4720,10 @@ h1 + .product_group {
 .home_seven {
   overflow: hidden;
   z-index: 8;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
+  transform: translateY(-100%);
 }
 .home_seven_box {
   display: flex;
