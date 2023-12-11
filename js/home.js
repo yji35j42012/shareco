@@ -509,8 +509,8 @@ var fifth_ph2=document.querySelector("#fifth_ph_g2");
 var fifth_bg=document.querySelector("#home_fifth_box1");
 var fifth_txt=document.querySelector("#fifth_txt");
 // 5000
-var moveSpeed=0.04
-var rangeSpeen=25
+var moveSpeed=0.07
+var rangeSpeen=1/moveSpeed
 var sec_s=0, sec_e, sec_m=sec_s, sec_d=0.2, sec_speed=0.005, sec_op=1
 var third_s=100, third_e=0, third_m=third_s, third_d=0.2, third_speed=0.01, third_op=1
 
@@ -576,6 +576,8 @@ var sevLin_op=0, sevLin_h=0
 
 var range1=0
 var range2=third_s/moveSpeed
+
+
 var range3=forth_s/moveSpeed+range2
 var range4=forthOut_s/moveSpeed+range3;
 var range5=fif_s/moveSpeed+range4;
@@ -587,14 +589,55 @@ var range7=sev_s/moveSpeed+range6
 var setFake_h=window_h+range2+forth_s/moveSpeed+forthOut_s/moveSpeed+fif_s/moveSpeed+fif2_s/moveSpeed+six_s/moveSpeed
 setFake_h=setFake_h+sev_s/moveSpeed
 
+var scroll_num=0
+var stop_count=0
+var d1=false, d2=false
+
+var d1_num=0, d2_num=0
+var d1_s='down', d2_s='down'
+function checkS(n) {
+	if (n==1) { d1_num++ }
+	if (n==-1) { d1_num-- }
+	if (d1_num>30) { d1=!d1 }
+	if (d1_num<=0) { d1_num=0; d1=!d1 }
+}
+function checkS2(n) {
+	if (n==1) { d2_num++ }
+	if (n==-1) { d2_num-- }
+	if (d2_num>30) { d2=!d2 }
+	if (d2_num<=0) { d2_num=0; d2=!d2 }
+}
 document.addEventListener("scroll", function (e) {
+
 	home_y=html.scrollTop
 	html.scrollTop-old_scroll>0? home_scroll=1:home_scroll=-1
 
+	var delay1=(range2-home_y)/rangeSpeen
+	var delay2=(range3-home_y)/rangeSpeen
+	if (delay1<0&&!d1) {
+		html.scrollTop=range2
+		home_y=range2
+		checkS(1)
+	} else if (delay1>0&&d1&&home_scroll<0) {
+		html.scrollTop=range2
+		home_y=range2
+		checkS(-1)
+	}
+	if (delay2<0&&!d2) {
+		html.scrollTop=range3
+		home_y=range3
+		checkS2(1)
+	} else if (delay2>0&&d2&&home_scroll<0) {
+		html.scrollTop=range3
+		home_y=range3
+		checkS2(-1)
+	}
+
+
 	home_moveHandler()
-	thirdMove(home_y-old_scroll)
-	forthMove(home_y-old_scroll)
-	forthOut(home_y-old_scroll)
+	thirdMove()
+	forthMove()
+	forthOut()
 	forthCatHandler();
 	fifMove()
 	fifMove2()
@@ -602,13 +645,16 @@ document.addEventListener("scroll", function (e) {
 	sevMove()
 	sevMove1()
 	old_scroll=html.scrollTop
+	// if (delay1<0 &&  stop==0) {
+	// 	console.log('ASDFASDF', home_y);
+	// 	stop=1
+	// }
 });
 
 function home_moveHandler() {
 	var t=(range2-home_y)/rangeSpeen
 	var t1=(range3-home_y)/rangeSpeen
 	var t2=(range7-home_y)/rangeSpeen
-
 	if (t2<100) {
 		home_move_y=(100-t)*-1+400
 	} else if (t1<0&&home_move_y<-200) {
@@ -623,18 +669,14 @@ function home_moveHandler() {
 	}
 	home_move.style=`transform: translateY(${ home_move_y }%);transition: all 0.2s;`;
 }
-function thirdMove(move) {
+function thirdMove() {
 	var t=(range2-home_y)/rangeSpeen
-	var v=t
 	var thirdLin=0
 	if (t<0) {
-		v=t
 		thirdLin=t*-1/100
 		if (thirdLin>0.7) {
 			thirdLin=0.7
 		}
-	} else {
-		v=t
 	}
 	thirdTxt(t)
 	home_third_liner.style=`background: rgba(0, 0, 0, ${ thirdLin });`
@@ -678,7 +720,7 @@ function forthCatHandler() {
 	}
 	forthCat.style.transform=`translateY(${ forthCat_m }%)`;
 }
-function forthMove(move) {
+function forthMove() {
 	var t=(range3-home_y)/rangeSpeen
 	if (t<40) {
 		var m=t*2*(Math.abs(forthT_s)/100)
@@ -714,7 +756,7 @@ function forthMove(move) {
 	forthBg.style.opacity=forthBg_op;
 	forthBg.style.transform=`translateY(${ forthBg_m }%)`;
 }
-function forthOut(move) {
+function forthOut() {
 	var t=(range4-home_y)/rangeSpeen
 	if (t<60) {
 		home_third.style.opacity=0
@@ -989,12 +1031,11 @@ function sevMove() {
 		sevBg_m=t
 		sevBg_op=(1-t/100)
 		sevT_op=(1-t/50)
-		console.log('sevT_op',sevT_op);
 	} else if (t<100) {
 		sevBg_m=t
 		sevBg_m=t
 		sevBg_op=(1-t/100)
-		if(home_scroll<0){
+		if (home_scroll<0) {
 			sevT_op=(1-t/50)
 		}
 	}
