@@ -595,14 +595,16 @@ var st_count=0, st_count2=0
 var st
 
 var wheelNew=0
+
+window.addEventListener("wheel", function (e) {
+	console.log('wheel', e.wheelDelta);
+	if (e.wheelDelta<0) {
+		wheelNew=1
+	} else {
+		wheelNew=-1
+	}
+})
 function scrollTime() {
-	window.addEventListener("wheel", function (e) {
-		if (e.wheelDelta<0) {
-			wheelNew=1
-		} else {
-			wheelNew=-1
-		}
-	})
 	st=setTimeout(() => {
 		if (wheelNew<0) {
 			st_count-=1
@@ -612,18 +614,8 @@ function scrollTime() {
 		st_count<0? st_count=0:st_count
 	}, 100);
 }
-// window.addEventListener("wheel", function (e) {
 
-// 	console.log('e.wheelDelta', e.wheelDelta);
-// })
 function scrollTime2() {
-	window.addEventListener("wheel", function (e) {
-		if (e.wheelDelta<0) {
-			wheelNew=1
-		} else {
-			wheelNew=-1
-		}
-	})
 	st=setTimeout(() => {
 		if (wheelNew<0) {
 			st_count2-=1
@@ -641,25 +633,17 @@ document.addEventListener("scroll", function (e) {
 
 	var delay1=(range2-home_y)/rangeSpeen
 	var delay2=(range3-home_y)/rangeSpeen
-	// console.log('delay1', delay1);
-	// console.log('delay2', delay2);
+	console.log('delay1', st_count);
+	console.log('delay2', st_count2);
 	if (delay1<=0&&st_count<=2&&home_scroll>0) {
-		console.log('A?', home_scroll);
 		html.scrollTop=range2;
 		home_y=range2;
 		clearTimeout(st)
 		scrollTime()
-	} else if (delay1>0&&st_count==2&&delay2>100) {
-		window.addEventListener("wheel", function (e) {
-			if (e.wheelDelta<0) {
-				wheelNew=1
-			} else {
-				wheelNew=-1
-			}
-			if (wheelNew<0) {
-				st_count=0
-			}
-		})
+	} else if (delay1>0&&st_count==3&&delay2>100) {
+		if (wheelNew<0) {
+			st_count=0
+		}
 	}
 
 	// else if (delay1>0&&st_count>0) {
@@ -684,17 +668,10 @@ document.addEventListener("scroll", function (e) {
 		home_y=range3;
 		clearTimeout(st)
 		scrollTime2()
-	} else if (delay2>0&&st_count2==2) {
-		window.addEventListener("wheel", function (e) {
-			if (e.wheelDelta<0) {
-				wheelNew=1
-			} else {
-				wheelNew=-1
-			}
-			if (wheelNew<0) {
-				st_count2=0
-			}
-		})
+	} else if (delay2>0&&st_count2==3) {
+		if (wheelNew<0) {
+			st_count2=0
+		}
 		// html.scrollTop=range3;
 		// home_y=range3;
 		// clearTimeout(st)
