@@ -762,6 +762,8 @@ function forthCatHandler() {
 	if (forthCat_m<0) {
 		forthCat_m=0
 		forthCat_m=(t*-1*0.8)
+		home_third.style.opacity=1
+		home_sec.style.opacity=1
 	}
 	forthCat.style.transform=`translateY(${ forthCat_m }%)`;
 }
