@@ -600,9 +600,25 @@ var ts = document.querySelector("#text")
 var ts1 = document.querySelector("#text1")
 var we = document.querySelector("#we")
 var sc = document.querySelector("#sc")
+var tsc=0,tec=0,tcc=0,tmc=0
+window.addEventListener("touchstart", function (e) {
+	tsc+=tsc
+	ts.innerHTML='tStart:'+tsc
+}, false);
+window.addEventListener("touchend",  function (e) {
+	tec+=tec
+	we.innerHTML='tEnd:'+tec
+}, false);
+window.addEventListener("touchcancel",  function (e) {
+	tcc+=tcc
+	ts.innerHTML='tChancel:'+tcc
+}, false);
+window.addEventListener("touchmove",  function (e) {
+	tmc+=tmc
+	ts1.innerHTML='tMOve:'+tmc
+}, false);
 
 window.addEventListener("wheel", function (e) {
-	console.log('wheel', e.wheelDelta);
 	we.innerHTML='we'+e.wheelDelta+"     "
 	if (e.wheelDelta<0) {
 		wheelNew=1
@@ -633,16 +649,11 @@ function scrollTime2() {
 }
 
 document.addEventListener("scroll", function (e) {
-	sc.innerHTML='sc'+html.scrollTop+'    '
 	home_y=html.scrollTop
 	html.scrollTop-old_scroll>0? home_scroll=1:home_scroll=-1
-
 	var delay1=(range2-home_y)/rangeSpeen
 	var delay2=(range3-home_y)/rangeSpeen
-	console.log('delay1', st_count);
-	console.log('delay2', st_count2);
-	ts.innerHTML = 'st_count:'+st_count
-	ts1.innerHTML = 'st_count2:'+st_count2
+
 	if (delay1<=0&&st_count<=2&&home_scroll>0) {
 		if (html.scrollTop>=range2) {
 			html.scrollTop=range2;
