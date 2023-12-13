@@ -601,6 +601,10 @@ var ts1 = document.querySelector("#text1")
 var we = document.querySelector("#we")
 var sc = document.querySelector("#sc")
 var tsc=0,tec=0,tcc=0,tmc=0
+we.innerHTML='touchstart:0'
+sc.innerHTML='touchend:0'
+ts.innerHTML='touchcancel:0'
+ts1.innerHTML='touchmove:0'
 window.addEventListener("touchstart", function (e) {
 	console.log('touchstart');
 	tsc+=1
@@ -609,7 +613,7 @@ window.addEventListener("touchstart", function (e) {
 window.addEventListener("touchend",  function (e) {
 	console.log('touchend');
 	tec+=1
-	sc.innerHTML='tEnd:'+tec
+	sc.innerHTML='touchend:'+tec
 }, false);
 window.addEventListener("touchcancel",  function (e) {
 	console.log('touchcancel');
