@@ -596,16 +596,20 @@ var st
 
 var wheelNew=0
 
+var ts = document.querySelector("#text")
+var ts1 = document.querySelector("#text1")
+var we = document.querySelector("#we")
+var sc = document.querySelector("#sc")
+
 window.addEventListener("wheel", function (e) {
 	console.log('wheel', e.wheelDelta);
+	we.innerHTML='we'+e.wheelDelta+"     "
 	if (e.wheelDelta<0) {
 		wheelNew=1
 	} else {
 		wheelNew=-1
 	}
 })
-var ts = document.querySelector("#text")
-var ts1 = document.querySelector("#text1")
 function scrollTime() {
 	st=setTimeout(() => {
 		if (wheelNew<0) {
@@ -614,7 +618,7 @@ function scrollTime() {
 			st_count+=1
 		}
 		st_count<0? st_count=0:st_count
-	}, 100);
+	}, 50);
 }
 
 function scrollTime2() {
@@ -625,11 +629,11 @@ function scrollTime2() {
 			st_count2+=1
 		}
 		st_count2<0? st_count2=0:st_count2
-	}, 100);
+	}, 50);
 }
 
 document.addEventListener("scroll", function (e) {
-
+	sc.innerHTML='sc'+html.scrollTop+'    '
 	home_y=html.scrollTop
 	html.scrollTop-old_scroll>0? home_scroll=1:home_scroll=-1
 
