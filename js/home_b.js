@@ -604,6 +604,8 @@ window.addEventListener("wheel", function (e) {
 		wheelNew=-1
 	}
 })
+var ts = document.querySelector("#text")
+var ts1 = document.querySelector("#text1")
 function scrollTime() {
 	st=setTimeout(() => {
 		if (wheelNew<0) {
@@ -635,6 +637,8 @@ document.addEventListener("scroll", function (e) {
 	var delay2=(range3-home_y)/rangeSpeen
 	console.log('delay1', st_count);
 	console.log('delay2', st_count2);
+	ts.innerHTML = 'st_count:'+st_count
+	ts1.innerHTML = 'st_count2:'+st_count2
 	if (delay1<=0&&st_count<=2&&home_scroll>0) {
 		if (html.scrollTop>=range2) {
 			html.scrollTop=range2;
