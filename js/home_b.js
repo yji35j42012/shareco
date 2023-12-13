@@ -602,24 +602,27 @@ var we = document.querySelector("#we")
 var sc = document.querySelector("#sc")
 var tsc=0,tec=0,tcc=0,tmc=0
 window.addEventListener("touchstart", function (e) {
-	tsc+=tsc
-	ts.innerHTML='tStart:'+tsc
+	console.log('touchstart');
+	tsc+=1
+	we.innerHTML='touchstart:'+tsc
 }, false);
 window.addEventListener("touchend",  function (e) {
-	tec+=tec
-	we.innerHTML='tEnd:'+tec
+	console.log('touchend');
+	tec+=1
+	sc.innerHTML='tEnd:'+tec
 }, false);
 window.addEventListener("touchcancel",  function (e) {
-	tcc+=tcc
-	ts.innerHTML='tChancel:'+tcc
+	console.log('touchcancel');
+	tcc+=1
+	ts.innerHTML='touchcancel:'+tcc
 }, false);
 window.addEventListener("touchmove",  function (e) {
-	tmc+=tmc
-	ts1.innerHTML='tMOve:'+tmc
+	console.log('touchmove');
+	tmc+=1
+	ts1.innerHTML='touchmove:'+tmc
 }, false);
 
 window.addEventListener("wheel", function (e) {
-	we.innerHTML='we'+e.wheelDelta+"     "
 	if (e.wheelDelta<0) {
 		wheelNew=1
 	} else {
