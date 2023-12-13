@@ -607,7 +607,7 @@ window.addEventListener("wheel", function (e) {
 function scrollTime() {
 	st=setTimeout(() => {
 		if (wheelNew<0) {
-			st_count-=1
+			st_count-=1.5
 		} else {
 			st_count+=1
 		}
@@ -618,7 +618,7 @@ function scrollTime() {
 function scrollTime2() {
 	st=setTimeout(() => {
 		if (wheelNew<0) {
-			st_count2-=1
+			st_count2-=1.5
 		} else {
 			st_count2+=1
 		}
