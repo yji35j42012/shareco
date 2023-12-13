@@ -642,11 +642,18 @@ document.addEventListener("scroll", function (e) {
 		}
 		clearTimeout(st)
 		scrollTime()
-	} else if (delay1>0&&st_count==3&&delay2>100) {
-		if (wheelNew<0) {
-			st_count=0
-		}
+	} else if (delay1>0&&st_count>0) {
+		html.scrollTop=range2;
+		home_y=range2;
+		clearTimeout(st)
+		scrollTime()
 	}
+
+	// else if (delay1>0&&st_count==3&&delay2>100) {
+	// 	if (wheelNew<0) {
+	// 		st_count=0
+	// 	}
+	// }
 
 	// else if (delay1>0&&st_count>0) {
 	// 	window.addEventListener("wheel", function (e) {
@@ -672,15 +679,24 @@ document.addEventListener("scroll", function (e) {
 		}
 		clearTimeout(st)
 		scrollTime2()
-	} else if (delay2>0&&st_count2==3) {
-		if (wheelNew<0) {
-			st_count2=0
-		}
-		// html.scrollTop=range3;
-		// home_y=range3;
-		// clearTimeout(st)
-		// scrollTime2()
+	} else if (delay2>0&&st_count2>0) {
+		html.scrollTop=range3;
+		home_y=range3;
+		clearTimeout(st)
+		scrollTime2()
 	}
+
+
+
+	// else if (delay2>0&&st_count2==3) {
+	// 	if (wheelNew<0) {
+	// 		st_count2=0
+	// 	}
+	// 	// html.scrollTop=range3;
+	// 	// home_y=range3;
+	// 	// clearTimeout(st)
+	// 	// scrollTime2()
+	// }
 
 
 	home_moveHandler()
