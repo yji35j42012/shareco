@@ -4823,4 +4823,14 @@ h1 + .product_group {
   height: 1px;
   margin: auto;
   background-color: red;
+}
+
+.show_detail {
+  z-index: 500;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: red;
+  color: #fff;
+  font-size: 26px;
 }/*# sourceMappingURL=all.css.map */

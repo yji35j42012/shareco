@@ -14,7 +14,82 @@ function mobile() {
 		return false;
 	}
 }
+var isPad=document.querySelector("#isPad");
+var dx=document.querySelector("#dx");
+var dy=document.querySelector("#dy");
+var dxc=document.querySelector("#dxc");
+var touPad=document.querySelector("#touPad");
+var scrolling=false;
+var oldTime=0;
+var newTime=0;
+var isTouchPad;
+var eventCount=0;
+var eventCountStart;
+var dxCount=0
+var mouseHandle=function (evt) {
+	var isTouchPadDefined=isTouchPad||typeof isTouchPad!=="undefined";
+	isTouchPad? isPad.innerHTML=isTouchPadDefined:isPad.innerHTML=isTouchPadDefined
 
+	console.log(isTouchPadDefined);
+	var isdeltaY=Math.abs(evt.deltaY)<5? true:false
+	var isdeltaX=Math.abs(evt.deltaX)<0? true:false
+	if (isdeltaX) {
+		dxCount++
+	}
+	dxc.innerHTML="dxC:"+dxCount
+	if (Math.abs(evt.deltaX)!==0) return true
+	dx.innerHTML="dx:"+parseInt(evt.deltaX)+",isdx:"+isdeltaX
+	dy.innerHTML="dy:"+parseInt(evt.deltaY)+",isdy:"+isdeltaY
+
+
+	if (!isTouchPadDefined) {
+		if (eventCount===0) {
+			eventCountStart=new Date().getTime();
+		}
+		eventCount++;
+		if (new Date().getTime()-eventCountStart>50) {
+			if (eventCount>5) {
+				isTouchPad=true;
+			} else {
+				isTouchPad=false;
+			}
+			touPad.innerHTML="touPad:"+isTouchPad
+			isTouchPadDefined=true;
+		}
+	}
+	if (isTouchPadDefined) {
+		// in this if-block you can do what you want
+		// i just wanted the direction, for swiping, so i have to prevent
+		// the multiple event calls to trigger multiple unwanted actions (trackpad)
+		if (!evt) evt=event;
+		var direction=(evt.detail<0||evt.wheelDelta>0)? 1:-1;
+
+		if (isTouchPad) {
+			newTime=new Date().getTime();
+
+			if (!scrolling&&newTime-oldTime>550) {
+				scrolling=true;
+				if (direction<0) {
+					// swipe down
+				} else {
+					// swipe up
+				}
+				setTimeout(function () { oldTime=new Date().getTime(); scrolling=false }, 500);
+			}
+		} else {
+			if (direction<0) {
+				// swipe down
+			} else {
+				// swipe up
+			}
+		}
+	}
+
+}
+
+
+document.addEventListener("mousewheel", mouseHandle, false);
+document.addEventListener("DOMMouseScroll", mouseHandle, false);
 var device=mobile()? "ph":"pc";
 var fifthAni2Time;
 var home_btn=document.querySelector("#home_btn");
@@ -596,9 +671,46 @@ var st
 
 var wheelNew=0
 
+// var ts = document.querySelector("#text")
+// var ts1 = document.querySelector("#text1")
+// var we = document.querySelector("#we")
+// var sc = document.querySelector("#sc")
+// var tsc=0,tec=0,tcc=0,tmc=0
+// we.innerHTML='touchstart:0'
+// sc.innerHTML='touchend:0'
+// ts.innerHTML='touchcancel:0'
+// ts1.innerHTML='touchmove:0'
+window.addEventListener("touchstart", function (e) {
+	console.log('touchstart');
+	tsc+=1
+	// we.innerHTML='touchstart:'+tsc
+}, false);
+window.addEventListener("touchend", function (e) {
+	console.log('touchend');
+	tec+=1
+	// sc.innerHTML='touchend:'+tec
+}, false);
+window.addEventListener("touchcancel", function (e) {
+	console.log('touchcancel');
+	tcc+=1
+	// ts.innerHTML='touchcancel:'+tcc
+}, false);
+window.addEventListener("touchmove", function (e) {
+	console.log('touchmove');
+	tmc+=1
+	// ts1.innerHTML='touchmove:'+tmc
+}, false);
+
+window.addEventListener("wheel", function (e) {
+	if (e.wheelDelta<0) {
+		wheelNew=1
+	} else {
+		wheelNew=-1
+	}
+})
 function scrollTime() {
 	st=setTimeout(() => {
-		if (home_scroll<0) {
+		if (wheelNew<0) {
 			st_count-=1.5
 		} else {
 			st_count+=1
@@ -606,9 +718,10 @@ function scrollTime() {
 		st_count<0? st_count=0:st_count
 	}, 50);
 }
+
 function scrollTime2() {
 	st=setTimeout(() => {
-		if (home_scroll<0) {
+		if (wheelNew<0) {
 			st_count2-=1.5
 		} else {
 			st_count2+=1
@@ -616,57 +729,89 @@ function scrollTime2() {
 		st_count2<0? st_count2=0:st_count2
 	}, 50);
 }
-$(function () {
-	$('html').bind('mousewheel', function (event, delta) {
-		// event.preventDefault();
-		var scrollTop=this.scrollTop;
-		this.scrollTop=(scrollTop+((event.deltaY*event.deltaFactor)*-1));
-		home_y=this.scrollTop
-		delta<0? home_scroll=1:home_scroll=-1
-		var delay1=(range2-home_y)/rangeSpeen
-		var delay2=(range3-home_y)/rangeSpeen
 
-		if (delay1<=0&&st_count<=2&&home_scroll>0) {
-			if (this.scrollTop>=range2) {
-				this.scrollTop=range2;
-				home_y=range2;
-			}
-			clearTimeout(st)
-			scrollTime()
-		} else if (delay1>0&&st_count>0) {
-			this.scrollTop=range2;
+document.addEventListener("scroll", function (e) {
+	home_y=html.scrollTop
+	html.scrollTop-old_scroll>0? home_scroll=1:home_scroll=-1
+	var delay1=(range2-home_y)/rangeSpeen
+	var delay2=(range3-home_y)/rangeSpeen
+
+	if (delay1<=0&&st_count<=2&&home_scroll>0) {
+		if (html.scrollTop>=range2) {
+			html.scrollTop=range2;
 			home_y=range2;
-			clearTimeout(st)
-			scrollTime()
 		}
-		if (delay2<=0&&st_count2<=2&&home_scroll>0) {
-			if (this.scrollTop>=range3) {
-				this.scrollTop=range3;
-				home_y=range3;
-			}
-			clearTimeout(st)
-			scrollTime2()
-		} else if (delay2>0&&st_count2>0) {
-			this.scrollTop=range3;
+		clearTimeout(st)
+		scrollTime()
+	} else if (delay1>0&&st_count>0) {
+		html.scrollTop=range2;
+		home_y=range2;
+		clearTimeout(st)
+		scrollTime()
+	}
+
+	// else if (delay1>0&&st_count==3&&delay2>100) {
+	// 	if (wheelNew<0) {
+	// 		st_count=0
+	// 	}
+	// }
+
+	// else if (delay1>0&&st_count>0) {
+	// 	window.addEventListener("wheel", function (e) {
+	// 		if (e.wheelDelta<0) {
+	// 			wheelNew=1
+	// 		} else {
+	// 			wheelNew=-1
+	// 		}
+	// 		if (wheelNew<0) {
+	// 			st_count=0
+	// 		}
+	// 	})
+
+	// 	// html.scrollTop=range2;
+	// 	// home_y=range2;
+	// 	// clearTimeout(st)
+	// 	// scrollTime()
+	// }
+	if (delay2<=0&&st_count2<=2&&home_scroll>0) {
+		if (html.scrollTop>=range3) {
+			html.scrollTop=range3;
 			home_y=range3;
-			clearTimeout(st)
-			scrollTime2()
 		}
-		home_moveHandler()
-		thirdMove()
-		forthMove()
-		forthOut()
-		forthCatHandler();
-		fifMove()
-		fifMove2()
-		sixMove()
-		sevMove()
-		sevMove1()
-		old_scroll=this.scrollTop;
-		console.log('this.scrollTop', delta);
-		//console.log(event.deltaY, event.deltaFactor, event.originalEvent.deltaMode, event.originalEvent.wheelDelta);
-	});
-})
+		clearTimeout(st)
+		scrollTime2()
+	} else if (delay2>0&&st_count2>0) {
+		html.scrollTop=range3;
+		home_y=range3;
+		clearTimeout(st)
+		scrollTime2()
+	}
+
+
+
+	// else if (delay2>0&&st_count2==3) {
+	// 	if (wheelNew<0) {
+	// 		st_count2=0
+	// 	}
+	// 	// html.scrollTop=range3;
+	// 	// home_y=range3;
+	// 	// clearTimeout(st)
+	// 	// scrollTime2()
+	// }
+
+
+	home_moveHandler()
+	thirdMove()
+	forthMove()
+	forthOut()
+	forthCatHandler();
+	fifMove()
+	fifMove2()
+	sixMove()
+	sevMove()
+	sevMove1()
+	old_scroll=html.scrollTop
+});
 
 function home_moveHandler() {
 	var t=(range2-home_y)/rangeSpeen
