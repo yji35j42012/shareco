@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 100%;
+            height: 2000px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        var b = document.querySelector('html');
+        // var b=document.querySelector(".box")
+        b.mousewheel(function (evt, delta, deltaX, deltaY) {
+            console.log('a');
+            if (Math.abs(deltaY)>=40)
+                deltaY/=40;
+            if (Math.abs(deltaX)>=40)
+                deltaX/=40;
+
+            //Do your stuff here.
+        });
+
+    </script>
+</body>
+
+</html>
