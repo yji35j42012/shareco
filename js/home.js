@@ -595,9 +595,8 @@ var st_count=0, st_count2=0
 var st
 
 var wheelNew=0
-
+var scroll_delay=0.2
 window.addEventListener("wheel", function (e) {
-	console.log('wheel', e.wheelDelta);
 	if (e.wheelDelta<0) {
 		wheelNew=1
 	} else {
@@ -606,6 +605,7 @@ window.addEventListener("wheel", function (e) {
 })
 function scrollTime() {
 	st=setTimeout(() => {
+		scroll_delay=0.2
 		if (wheelNew<0) {
 			st_count-=1
 		} else {
@@ -617,6 +617,7 @@ function scrollTime() {
 
 function scrollTime2() {
 	st=setTimeout(() => {
+		scroll_delay=0.2
 		if (wheelNew<0) {
 			st_count2-=1
 		} else {
@@ -633,9 +634,8 @@ document.addEventListener("scroll", function (e) {
 
 	var delay1=(range2-home_y)/rangeSpeen
 	var delay2=(range3-home_y)/rangeSpeen
-	console.log('delay1', st_count);
-	console.log('delay2', st_count2);
 	if (delay1<=0&&st_count<=2&&home_scroll>0) {
+		scroll_delay=0.5
 		if (html.scrollTop>=range2) {
 			html.scrollTop=range2;
 			home_y=range2;
@@ -647,25 +647,8 @@ document.addEventListener("scroll", function (e) {
 			st_count=0
 		}
 	}
-
-	// else if (delay1>0&&st_count>0) {
-	// 	window.addEventListener("wheel", function (e) {
-	// 		if (e.wheelDelta<0) {
-	// 			wheelNew=1
-	// 		} else {
-	// 			wheelNew=-1
-	// 		}
-	// 		if (wheelNew<0) {
-	// 			st_count=0
-	// 		}
-	// 	})
-
-	// 	// html.scrollTop=range2;
-	// 	// home_y=range2;
-	// 	// clearTimeout(st)
-	// 	// scrollTime()
-	// }
 	if (delay2<=0&&st_count2<=2&&home_scroll>0) {
+		scroll_delay=0.5
 		if (html.scrollTop>=range3) {
 			html.scrollTop=range3;
 			home_y=range3;
@@ -676,10 +659,6 @@ document.addEventListener("scroll", function (e) {
 		if (wheelNew<0) {
 			st_count2=0
 		}
-		// html.scrollTop=range3;
-		// home_y=range3;
-		// clearTimeout(st)
-		// scrollTime2()
 	}
 
 
@@ -712,7 +691,7 @@ function home_moveHandler() {
 			home_move_y=-200
 		}
 	}
-	home_move.style=`transform: translateY(${ home_move_y }%);transition: all 0.2s;`;
+	home_move.style=`transform: translateY(${ home_move_y }%);transition: all ${scroll_delay}s;`;
 }
 function thirdMove() {
 	var t=(range2-home_y)/rangeSpeen

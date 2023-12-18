@@ -595,6 +595,7 @@ var st_count=0, st_count2=0
 var st
 
 var wheelNew=0
+var scroll_delay=0.2
 
 // var ts = document.querySelector("#text")
 // var ts1 = document.querySelector("#text1")
@@ -640,6 +641,7 @@ function scrollTime() {
 		} else {
 			st_count+=1
 		}
+		scroll_delay=0.2
 		st_count<0? st_count=0:st_count
 	}, 50);
 }
@@ -651,6 +653,7 @@ function scrollTime2() {
 		} else {
 			st_count2+=1
 		}
+		scroll_delay=0.2
 		st_count2<0? st_count2=0:st_count2
 	}, 50);
 }
@@ -662,6 +665,7 @@ document.addEventListener("scroll", function (e) {
 	var delay2=(range3-home_y)/rangeSpeen
 
 	if (delay1<=0&&st_count<=2&&home_scroll>0) {
+		scroll_delay=0.5
 		if (html.scrollTop>=range2) {
 			html.scrollTop=range2;
 			home_y=range2;
@@ -669,6 +673,7 @@ document.addEventListener("scroll", function (e) {
 		clearTimeout(st)
 		scrollTime()
 	} else if (delay1>0&&st_count>0) {
+		scroll_delay=0.5
 		html.scrollTop=range2;
 		home_y=range2;
 		clearTimeout(st)
@@ -699,6 +704,7 @@ document.addEventListener("scroll", function (e) {
 	// 	// scrollTime()
 	// }
 	if (delay2<=0&&st_count2<=2&&home_scroll>0) {
+		scroll_delay=0.5
 		if (html.scrollTop>=range3) {
 			html.scrollTop=range3;
 			home_y=range3;
@@ -706,6 +712,7 @@ document.addEventListener("scroll", function (e) {
 		clearTimeout(st)
 		scrollTime2()
 	} else if (delay2>0&&st_count2>0) {
+		scroll_delay=0.5
 		html.scrollTop=range3;
 		home_y=range3;
 		clearTimeout(st)
@@ -754,7 +761,7 @@ function home_moveHandler() {
 			home_move_y=-200
 		}
 	}
-	home_move.style=`transform: translateY(${ home_move_y }%);transition: all 0.2s;`;
+	home_move.style=`transform: translateY(${ home_move_y }%);transition: all ${scroll_delay}s;`;
 }
 function thirdMove() {
 	var t=(range2-home_y)/rangeSpeen
