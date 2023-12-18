@@ -3512,6 +3512,9 @@ h1 + .product_group {
   height: 100%;
   perspective: 200px;
 }
+.home.zoomOut {
+  pointer-events: none;
+}
 .home_txtBox {
   position: absolute;
   top: 0;
@@ -3908,6 +3911,7 @@ h1 + .product_group {
   flex-direction: column;
   transform: translateY(0px);
   height: 100%;
+  background-color: #000;
 }
 .home_video, .home_third, .home_forth, .home_fifth, .home_six, .home_seven {
   position: relative;
@@ -4833,4 +4837,11 @@ h1 + .product_group {
   background-color: red;
   color: #fff;
   font-size: 26px;
+}
+
+.home_third.ab,
+.home_forth.ab {
+  position: absolute !important;
+  top: 0;
+  left: 0;
 }/*# sourceMappingURL=all.css.map */

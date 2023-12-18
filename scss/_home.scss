@@ -7,7 +7,11 @@
 	width: 100%;
 	height: 100%;
 	perspective: 200px;
+
 	// pointer-events: none;
+	&.zoomOut {
+		pointer-events: none;
+	}
 
 	// .home_txtBox
 	&_txtBox {
@@ -441,6 +445,7 @@
 		flex-direction: column;
 		transform: translateY(0px);
 		height: 100%;
+		background-color: #000;
 	}
 
 	&_video,
@@ -1510,4 +1515,11 @@
 	background-color: red;
 	color: #fff;
 	font-size: 26px;
+}
+
+.home_third.ab,
+.home_forth.ab {
+	position: absolute !important;
+	top: 0;
+	left: 0;
 }
