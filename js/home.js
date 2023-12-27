@@ -637,13 +637,11 @@ document.addEventListener("scroll", function (e) {
 
 	home_y=html.scrollTop
 	html.scrollTop-old_scroll>0? home_scroll=1:home_scroll=-1
-
+	console.log('scroll',html.scrollTop);
 	var delay1=(range2-home_y)/rangeSpeen
 	var delay2=(range3-home_y)/rangeSpeen
 	if (delay1<=0&&st_count<=2&&home_scroll>0) {
-		scroll_delay=0.5
-		thirdT1_d=0.5
-		thirdT2_d=0.5
+		document.removeEventListener("scroll")
 		if (html.scrollTop>=range2) {
 			html.scrollTop=range2;
 			home_y=range2;
@@ -656,11 +654,7 @@ document.addEventListener("scroll", function (e) {
 		}
 	}
 	if (delay2<=0&&st_count2<=2&&home_scroll>0) {
-		scroll_delay=0.5
-		forth_d=0.5
-		forthT_d=0.5
-		forthBg_d=0.5
-		forthCat_d=0.5
+		document.removeEventListener("scroll")
 		if (html.scrollTop>=range3) {
 			html.scrollTop=range3;
 			home_y=range3;
