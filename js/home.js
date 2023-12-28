@@ -591,7 +591,7 @@ setFake_h=setFake_h+sev_s/moveSpeed
 
 var d1=false
 
-var st_count=0, st_count2=0
+var st_count=0, st_count2=0, st_count3=0, st_count4=0
 var st
 
 var wheelNew=0
@@ -614,7 +614,7 @@ function scrollTime() {
 			st_count+=1
 		}
 		st_count<0? st_count=0:st_count
-	}, 100);
+	}, 30);
 }
 
 function scrollTime2() {
@@ -630,43 +630,95 @@ function scrollTime2() {
 			st_count2+=1
 		}
 		st_count2<0? st_count2=0:st_count2
-	}, 100);
+	}, 30);
+}
+function scrollTime3() {
+	st=setTimeout(() => {
+		scroll_delay=0.2
+		forth_d=0.2
+		forthT_d=0.2
+		forthBg_d=0.2
+		forthCat_d=0.2
+		if (wheelNew<0) {
+			st_count3-=1
+		} else {
+			st_count3+=1
+		}
+		st_count3<0? st_count3=0:st_count3
+	}, 30);
+}
+function scrollTime4() {
+	st=setTimeout(() => {
+		scroll_delay=0.2
+		forth_d=0.2
+		forthT_d=0.2
+		forthBg_d=0.2
+		forthCat_d=0.2
+		if (wheelNew<0) {
+			st_count4-=1
+		} else {
+			st_count4+=1
+		}
+		st_count4<0? st_count4=0:st_count4
+	}, 30);
 }
 
-document.addEventListener("scroll", function (e) {
-
+function scrollHandler(e) {
 	home_y=html.scrollTop
 	html.scrollTop-old_scroll>0? home_scroll=1:home_scroll=-1
-	console.log('scroll',html.scrollTop);
 	var delay1=(range2-home_y)/rangeSpeen
 	var delay2=(range3-home_y)/rangeSpeen
+	var delay3=(range5-home_y)/rangeSpeen
+	var delay4=(range6-home_y)/rangeSpeen
+	console.log('st_count3', st_count3);
+	// console.log('st_count2', st_count2);
+	// console.log('delay4', delay4);
+	// console.log('html.scrollTop', html.scrollTop);
 	if (delay1<=0&&st_count<=2&&home_scroll>0) {
-		document.removeEventListener("scroll")
-		if (html.scrollTop>=range2) {
-			html.scrollTop=range2;
-			home_y=range2;
-		}
+		html.scrollTop=range2;
+		home_y=range2;
 		clearTimeout(st)
 		scrollTime()
+		return
 	} else if (delay1>0&&st_count==3&&delay2>100) {
 		if (wheelNew<0) {
 			st_count=0
 		}
 	}
 	if (delay2<=0&&st_count2<=2&&home_scroll>0) {
-		document.removeEventListener("scroll")
-		if (html.scrollTop>=range3) {
-			html.scrollTop=range3;
-			home_y=range3;
-		}
+		html.scrollTop=range3;
+		home_y=range3;
+		// document.removeEventListener("scroll")
 		clearTimeout(st)
 		scrollTime2()
+		return
 	} else if (delay2>0&&st_count2==3) {
 		if (wheelNew<0) {
 			st_count2=0
 		}
 	}
-
+	if (delay3<=-100&&st_count3<=2&&home_scroll>0) {
+		html.scrollTop=7145;
+		home_y=7145;
+		clearTimeout(st)
+		scrollTime3()
+		return
+	} else if (delay3>-100&&st_count3==3) {
+		if (wheelNew<0) {
+			st_count3=0
+		}
+	}
+	if (delay4<=0&&st_count4<=2&&home_scroll>0) {
+		html.scrollTop=range6;
+		home_y=range6;
+		clearTimeout(st)
+		scrollTime4()
+		return
+	} else if (delay4>0&&st_count4==3) {
+		if (wheelNew<0) {
+			st_count4=0
+		}
+	}
 
 	home_moveHandler()
 	thirdMove()
@@ -679,7 +731,15 @@ document.addEventListener("scroll", function (e) {
 	sevMove()
 	sevMove1()
 	old_scroll=html.scrollTop
-});
+}
+
+function aniHandler() {
+
+}
+
+document.addEventListener("scroll", scrollHandler);
+
+
 
 function home_moveHandler() {
 	var t=(range2-home_y)/rangeSpeen
