@@ -473,7 +473,11 @@ function onYouTubeIframeAPIReady() {
 			loop: 1,
 			controls: 0,
 			playsinline: 1,
-			rel: 0
+			rel: 0,
+			'iv_load_policy': 3,
+			'modestbranding': 1,
+			disablekb:0,
+			enablejsapi:0,
 		},
 		events: {
 			onReady: onPlayerReady
@@ -591,7 +595,7 @@ setFake_h=setFake_h+sev_s/moveSpeed
 
 var d1=false
 
-var st_count=0, st_count2=0, st_count3=0, st_count4=0
+var st_count=0, st_count2=0, st_count3=0, st_count4=0, st_count5=0
 var st
 
 var wheelNew=0
@@ -662,6 +666,21 @@ function scrollTime4() {
 		st_count4<0? st_count4=0:st_count4
 	}, 30);
 }
+function scrollTime5() {
+	st=setTimeout(() => {
+		scroll_delay=0.2
+		forth_d=0.2
+		forthT_d=0.2
+		forthBg_d=0.2
+		forthCat_d=0.2
+		if (wheelNew<0) {
+			st_count5-=1
+		} else {
+			st_count5+=1
+		}
+		st_count5<0? st_count5=0:st_count5
+	}, 30);
+}
 
 function scrollHandler(e) {
 	home_y=html.scrollTop
@@ -670,10 +689,6 @@ function scrollHandler(e) {
 	var delay2=(range3-home_y)/rangeSpeen
 	var delay3=(range5-home_y)/rangeSpeen
 	var delay4=(range6-home_y)/rangeSpeen
-	console.log('st_count3', st_count3);
-	// console.log('st_count2', st_count2);
-	// console.log('delay4', delay4);
-	// console.log('html.scrollTop', html.scrollTop);
 	if (delay1<=0&&st_count<=2&&home_scroll>0) {
 		html.scrollTop=range2;
 		home_y=range2;
@@ -697,6 +712,18 @@ function scrollHandler(e) {
 			st_count2=0
 		}
 	}
+	if (delay3<=0&&st_count5<=2&&home_scroll>0) {
+		html.scrollTop=5780;
+		home_y=5780;
+		clearTimeout(st)
+		scrollTime5()
+		return
+	} else if (delay3>0&&st_count5==3) {
+		if (wheelNew<0) {
+			st_count5=0
+		}
+	}
+
 	if (delay3<=-100&&st_count3<=2&&home_scroll>0) {
 		html.scrollTop=7145;
 		home_y=7145;
@@ -1209,4 +1236,15 @@ function homeInit() {
 
 document.addEventListener("DOMContentLoaded", () => {
 	homeInit();
+	
 });
+// window.onload=function (params) {
+// 	var p = document.querySelector("iframe");
+// 	p.setAttribute("src","https://www.youtube.com/embed/3xuF-cCZEWc?playlist=3xuF-cCZEWc&autoplay=0&loop=1&controls=0&playsinline=1&rel=0&showinfo=0&iv_load_policy=3&modestbranding=1&disablekb=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A5501&widgetid=1")
+	
+// 	var p1 = p.contentWindow.document.getElementsByClassName('ytp-chrome-top');
+
+// 	console.log('p',p);
+// 	console.log('p1',p1);
+
+// }
