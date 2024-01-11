@@ -3,6 +3,7 @@ var wrap=document.querySelector("#wrap");
 var fake_h=document.querySelector("#fake_h");
 var changePageTime;
 var ispc=true
+var nowD=window.innerWidth<1024? ispc='ph':ispc='pc'
 wrap.classList.add("full");
 setTimeout(() => {
 	wrap.classList.add("active");
@@ -1155,34 +1156,7 @@ function sevMove() {
 	sev_footer.style=`transform: translateY(${ sevBg_m }%);transition: all 0.2s;`;
 
 }
-function sevMove1() {
-	// var t=(range7_1-home_y)/rangeSpeen
-	// if (t<50) {
-	// 	sevT_op=(1-t*2/100)
-	// 	sevT_m=t*2
-	// }
-	// if (t<100) {
-	// 	sevBg_op=(1-t/100)
-	// 	sevBg_m=t
-	// }
-	// if (t>100&&home_scroll<0) {
-	// 	if (sevBg_op!==0) {
-	// 		sevBg_op=(1-t/100)
-	// 		sevBg_m=t
-	// 	}
-	// 	if (sevT_op!==0) {
-	// 		sevT_op=(1-t*2/100)
-	// 		sevT_m=t*2
-	// 	}
-	// }
-	// sev_txt.style=`opacity: ${ sevT_op };transition: all 0.2s;`;
-	// sev_footer.style=`transition: all 0.2s;`;
-	// sev_bg.style=`transition: all 0.2s;opacity:${ sevBg_op };`;
-
-	// sev_txt.style=`opacity: ${ sevT_op };transition: all 0.2s;transform: translateY(${ sevT_m }%)`;
-	// sev_footer.style=`transform: translateY(${ sevBg_m }%);transition: all 0.2s;`;
-	// sev_bg.style=`transform: translateY(${ sevBg_m }%);transition: all 0.2s;opacity:${ sevBg_op };`;
-}
+function sevMove1() { }
 function homeInit() {
 	fake_h.style.height=setFake_h+"px";
 	home_move.style=`transform: translateY(${ home_move_y }%);transition: all 0.2s;`;
@@ -1234,6 +1208,15 @@ window.onload=function () {
 	} else {
 		ispc=true;
 		fifth_video.sytle.display=""
-		fifth_video.setAttribute("src","../images/home/blacksmoke.mp4")
+		fifth_video.setAttribute("src", "../images/home/blacksmoke.mp4")
+	}
+}
+window.onresize=function () {
+	if (window.innerWidth<1024&& nowD=='pc') {
+		ispc=false
+		nowD='ph'
+	} else if (window.innerWidth>=1024&& nowD=='ph') {
+		ispc=true;
+		nowD='pc'
 	}
 }
