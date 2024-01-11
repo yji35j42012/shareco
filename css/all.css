@@ -4088,7 +4088,6 @@ h1 + .product_group {
 @media screen and (max-width: 1024px) {
   .home_third_txt {
     position: relative;
-    justify-content: flex-start;
     width: 100%;
     color: #ede3e3;
     text-align: center;

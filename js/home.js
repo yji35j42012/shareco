@@ -37,7 +37,6 @@ function home_btnHandler() {
 
 }
 home_btn.addEventListener("click", home_btnHandler)
-// home_btn.addEventListener("touchstart", home_btnHandler)
 
 home_video1Handler1.onclick=function () {
 	if (home_video1Handler1.classList.contains("_quiet")) {
@@ -80,7 +79,6 @@ function mousemove(event) {
 			flyl(mouseX-boxCenterW);
 		}
 	}
-
 	// strawZ
 }
 
@@ -117,7 +115,6 @@ setTimeout(() => {
 }, 1000);
 
 window.addEventListener("mousemove", mousemove);
-// window.addEventListener("touchstart", touchHandler);
 
 var nowW=window.innerWidth;
 var nowH=window.innerHeight;
@@ -141,10 +138,8 @@ if (device=="pc") {
 	var strawMoveR=0;
 
 	var strawTime;
-	// var lionRange = 0.2;
 	var strawRange=strawMax/boxCenterH;
 	var strawRangeR=strawMaxR/boxCenterH;
-	// 100 / 70
 	function strawZ(y) {
 		strawMove=y*strawRange;
 		strawMoveR=y*strawRangeR;
@@ -476,8 +471,8 @@ function onYouTubeIframeAPIReady() {
 			rel: 0,
 			'iv_load_policy': 3,
 			'modestbranding': 1,
-			disablekb:0,
-			enablejsapi:0,
+			disablekb: 0,
+			enablejsapi: 0,
 		},
 		events: {
 			onReady: onPlayerReady
@@ -760,9 +755,7 @@ function scrollHandler(e) {
 	old_scroll=html.scrollTop
 }
 
-function aniHandler() {
-
-}
+function aniHandler() { }
 
 document.addEventListener("scroll", scrollHandler);
 
@@ -822,8 +815,6 @@ function thirdTxt(t) {
 		thirdT2_m=thirdT2_s
 	}
 	thirdT2_op=check_op(thirdT2_op);
-
-
 	third_txt1.style=`transform: translateY(${ thirdT1_m }%);transition: all ${ thirdT1_d }s;opacity: ${ thirdT2_op };`;
 	third_txt2.style=`transform: translateY(${ thirdT2_m }%);transition: all ${ thirdT2_d }s;opacity: ${ thirdT2_op };`;
 
@@ -1193,7 +1184,6 @@ function sevMove1() {
 	// sev_footer.style=`transform: translateY(${ sevBg_m }%);transition: all 0.2s;`;
 	// sev_bg.style=`transform: translateY(${ sevBg_m }%);transition: all 0.2s;opacity:${ sevBg_op };`;
 }
-
 function homeInit() {
 	fake_h.style.height=setFake_h+"px";
 	home_move.style=`transform: translateY(${ home_move_y }%);transition: all 0.2s;`;
@@ -1233,18 +1223,12 @@ function homeInit() {
 	sev_txt.style=`opacity: ${ sevT_op };transition: all 0.2s;`;
 	sev_lin.style=`opacity:1;height:100%;transition: all 0.2s;`
 }
-
 document.addEventListener("DOMContentLoaded", () => {
 	homeInit();
-	
 });
-// window.onload=function (params) {
-// 	var p = document.querySelector("iframe");
-// 	p.setAttribute("src","https://www.youtube.com/embed/3xuF-cCZEWc?playlist=3xuF-cCZEWc&autoplay=0&loop=1&controls=0&playsinline=1&rel=0&showinfo=0&iv_load_policy=3&modestbranding=1&disablekb=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A5501&widgetid=1")
-	
-// 	var p1 = p.contentWindow.document.getElementsByClassName('ytp-chrome-top');
 
-// 	console.log('p',p);
-// 	console.log('p1',p1);
-
-// }
+window.onload=function (params) {
+	enableInlineVideo(fifth_video_m, {
+		iPad: true
+	});
+}
