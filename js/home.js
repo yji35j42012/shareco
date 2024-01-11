@@ -1211,7 +1211,7 @@ function homeInit() {
 	fifT2.style=`transform: translateY(${ fifT2_s }%);transition: all ${ fifT2_d }s;opacity: ${ fifT2_op };`;
 	fifBg3.style=`transform: scale(${ fifBg3_sc }) translateY(${ fifBg3_s }%);transition: all ${ fifBg3_d }s;`;
 	home_six.style=`transform: translateY(${ six_m }%);transition: all ${ six_d }s;`;
-	fifth_video.style=`opacity: ${ sixOut_op };transition: all 0.2s;`;
+	fifth_video.style=`opacity: ${ sixOut_op };transition: all 0.2s; display:none`;
 	fifth_videoPh.style=`opacity: ${ sixOut_op };transition: all 0.2s;`;
 	six_txt.style=`transform: translateY(${ sixT_m }%);opacity: ${ sixIn_op };transition: all 0.2s;`;
 	six_bg1.style=`opacity: ${ sixIn_op };transition: all 0.2s;`;
@@ -1230,13 +1230,10 @@ document.addEventListener("DOMContentLoaded", () => {
 window.onload=function () {
 	if (window.innerWidth<1024) {
 		ispc=false
-		fifth_video_m.style.display=''
+		// fifth_video_m.style.display=''
 	} else {
-		ispc=true
+		ispc=true;
+		fifth_video.sytle.display=""
+		fifth_video.setAttribute("src","../images/home/blacksmoke.mp4")
 	}
-
-	// enableInlineVideo(fifth_video_m, {
-	// 	iPad: true
-	// });
-
 }
