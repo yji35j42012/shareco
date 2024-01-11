@@ -2,6 +2,7 @@ var getScrollT=document.querySelector("html");
 var wrap=document.querySelector("#wrap");
 var fake_h=document.querySelector("#fake_h");
 var changePageTime;
+var ispc=true
 wrap.classList.add("full");
 setTimeout(() => {
 	wrap.classList.add("active");
@@ -94,8 +95,6 @@ var pagedown=true;
 var pageMove=0;
 
 var body=document.querySelector("body");
-
-
 
 function check_op(num) {
 	if (num>1) {
@@ -1227,8 +1226,17 @@ document.addEventListener("DOMContentLoaded", () => {
 	homeInit();
 });
 
-window.onload=function (params) {
-	enableInlineVideo(fifth_video_m, {
-		iPad: true
-	});
+
+window.onload=function () {
+	if (window.innerWidth<1024) {
+		ispc=false
+		fifth_video_m.style.display=''
+	} else {
+		ispc=true
+	}
+
+	// enableInlineVideo(fifth_video_m, {
+	// 	iPad: true
+	// });
+
 }
