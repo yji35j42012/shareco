@@ -739,6 +739,10 @@
 		top: 0;
 		left: 0;
 
+		.ph & {
+			z-index: 9;
+		}
+
 		&::before {
 			z-index: 1;
 			content: "";
