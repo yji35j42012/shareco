@@ -919,7 +919,6 @@ function fifMove() {
 	var bottom=t*(Math.abs(fifPB_s)/100)
 	birdSc=0.7
 	if (t<60) {
-		var sct=t*(Math.abs(fifT_s)/60)
 		var bee1=t*(Math.abs(fifBee1_s)/60)
 		var bee2=t*(Math.abs(fifBee2_s)/60)
 		var bee3=t*(Math.abs(fifBee3_s)/60)
@@ -1206,16 +1205,17 @@ window.onload=function () {
 		ispc=false
 		// fifth_video_m.style.display=''
 	} else {
+		console.log('ASDF');
 		ispc=true;
-		fifth_video.sytle.display=""
+		fifth_video.style.display=""
 		fifth_video.setAttribute("src", "../images/home/blacksmoke.mp4")
 	}
 }
 window.onresize=function () {
-	if (window.innerWidth<1024&& nowD=='pc') {
+	if (window.innerWidth<1024&&nowD=='pc') {
 		ispc=false
 		nowD='ph'
-	} else if (window.innerWidth>=1024&& nowD=='ph') {
+	} else if (window.innerWidth>=1024&&nowD=='ph') {
 		ispc=true;
 		nowD='pc'
 	}
