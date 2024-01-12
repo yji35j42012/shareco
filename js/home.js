@@ -1203,9 +1203,8 @@ document.addEventListener("DOMContentLoaded", () => {
 window.onload=function () {
 	if (window.innerWidth<1024) {
 		ispc=false
-		// fifth_video_m.style.display=''
+		fifth_video_m.style.display=''
 	} else {
-		console.log('ASDF');
 		ispc=true;
 		fifth_video.style.display=""
 		fifth_video.setAttribute("src", "../images/home/blacksmoke.mp4")
