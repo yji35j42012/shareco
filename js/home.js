@@ -678,14 +678,25 @@ function scrollTime5() {
 }
 
 function scrollHandler(e) {
-	home_y=html.scrollTop
-	html.scrollTop-old_scroll>0? home_scroll=1:home_scroll=-1
+	console.log('a', wrap.scrollTop);
+	if (device=='ph') {
+		home_y=wrap.scrollTop
+		wrap.scrollTop-old_scroll>0? home_scroll=1:home_scroll=-1
+	} else {
+		home_y=html.scrollTop
+		html.scrollTop-old_scroll>0? home_scroll=1:home_scroll=-1
+	}
+
 	var delay1=(range2-home_y)/rangeSpeen
 	var delay2=(range3-home_y)/rangeSpeen
 	var delay3=(range5-home_y)/rangeSpeen
 	var delay4=(range6-home_y)/rangeSpeen
 	if (delay1<=0&&st_count<=2&&home_scroll>0) {
-		html.scrollTop=range2;
+		if (device=='ph') {
+			wrap.scrollTop=range2;
+		}else{
+			html.scrollTop=range2;
+		}	
 		home_y=range2;
 		clearTimeout(st)
 		scrollTime()
@@ -696,7 +707,11 @@ function scrollHandler(e) {
 		}
 	}
 	if (delay2<=0&&st_count2<=2&&home_scroll>0) {
-		html.scrollTop=range3;
+		if (device=='ph') {
+			wrap.scrollTop=range3;
+		}else{
+			html.scrollTop=range3;
+		}
 		home_y=range3;
 		// document.removeEventListener("scroll")
 		clearTimeout(st)
@@ -708,7 +723,11 @@ function scrollHandler(e) {
 		}
 	}
 	if (delay3<=0&&st_count5<=2&&home_scroll>0) {
-		html.scrollTop=5780;
+		if (device=='ph') {
+			wrap.scrollTop=5780;
+		}else{
+			html.scrollTop=5780;
+		}
 		home_y=5780;
 		clearTimeout(st)
 		scrollTime5()
@@ -720,7 +739,11 @@ function scrollHandler(e) {
 	}
 
 	if (delay3<=-100&&st_count3<=2&&home_scroll>0) {
-		html.scrollTop=7145;
+		if (device=='ph') {
+			wrap.scrollTop=7145;
+		}else{
+			html.scrollTop=7145;
+		}
 		home_y=7145;
 		clearTimeout(st)
 		scrollTime3()
@@ -731,7 +754,11 @@ function scrollHandler(e) {
 		}
 	}
 	if (delay4<=0&&st_count4<=2&&home_scroll>0) {
-		html.scrollTop=range6;
+		if (device=='ph') {
+			wrap.scrollTop=range6;
+		}else{
+			html.scrollTop=range6;
+		}
 		home_y=range6;
 		clearTimeout(st)
 		scrollTime4()
@@ -752,7 +779,12 @@ function scrollHandler(e) {
 	sixMove()
 	sevMove()
 	sevMove1()
-	old_scroll=html.scrollTop
+	if (device=='ph') {
+		old_scroll=wrap.scrollTop
+	}else{
+		old_scroll=html.scrollTop
+	}
+	
 }
 
 function aniHandler() { }
@@ -1208,6 +1240,11 @@ window.onload=function () {
 		ispc=true;
 		fifth_video.style.display=""
 		fifth_video.setAttribute("src", "../images/home/blacksmoke.mp4")
+	}
+	console.log('device', device);
+	if (device=='ph') {
+		document.querySelector('html').classList.add("ph");
+		wrap.addEventListener("scroll", scrollHandler);
 	}
 }
 window.onresize=function () {

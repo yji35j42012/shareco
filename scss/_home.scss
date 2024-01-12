@@ -404,11 +404,10 @@
 	// .home_fake_H
 	&_fake_H {
 		flex: none;
-		// position: fixed;
-		// z-index: 99;
-		// width: 100%;
-		// // height: 100%;
-		// top: 98px;
+
+		.ph & {
+			position: relative;
+		}
 	}
 
 	// .home_outside
@@ -419,6 +418,10 @@
 		left: 0;
 		width: 100%;
 		height: calc(100% - 98px);
+
+		.ph & {
+			position: absolute;
+		}
 
 		@include mw(L) {
 			top: 54px;
@@ -446,6 +449,12 @@
 		transform: translateY(0px);
 		height: 100%;
 		background-color: #000;
+
+		.ph & {
+			position: fixed;
+			top: 54px;
+			width: 100%;
+		}
 	}
 
 	&_video,
@@ -877,6 +886,10 @@
 		width: 100%;
 		// background-color: #fff;
 		transition-duration: 0.5s;
+
+		.ph & {
+			background-color: #fff;
+		}
 
 		// .home_fifth_box1
 		&_box1 {

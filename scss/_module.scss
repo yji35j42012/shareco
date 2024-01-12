@@ -680,9 +680,17 @@ h4 {
 			pointer-events: none;
 		}
 	}
-	&._home{
+
+
+	&._home {
 		background-color: #000;
 	}
+
+	.ph & {
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+
 	@include mw(L) {
 		padding-top: 54px;
 	}

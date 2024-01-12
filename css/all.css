@@ -655,6 +655,10 @@ h4 {
 .wrap._home {
   background-color: #000;
 }
+.ph .wrap {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 @media screen and (max-width: 1024px) {
   .wrap {
     padding-top: 54px;
@@ -3876,6 +3880,9 @@ h1 + .product_group {
 .home_fake_H {
   flex: none;
 }
+.ph .home_fake_H {
+  position: relative;
+}
 .home_outside {
   overflow: hidden;
   position: fixed;
@@ -3883,6 +3890,9 @@ h1 + .product_group {
   left: 0;
   width: 100%;
   height: calc(100% - 98px);
+}
+.ph .home_outside {
+  position: absolute;
 }
 @media screen and (max-width: 1024px) {
   .home_outside {
@@ -3912,6 +3922,11 @@ h1 + .product_group {
   transform: translateY(0px);
   height: 100%;
   background-color: #000;
+}
+.ph .home_scroll {
+  position: fixed;
+  top: 54px;
+  width: 100%;
 }
 .home_video, .home_third, .home_forth, .home_fifth, .home_six, .home_seven {
   position: relative;
@@ -4281,6 +4296,9 @@ h1 + .product_group {
   left: 0;
   width: 100%;
   transition-duration: 0.5s;
+}
+.ph .home_fifth {
+  background-color: #fff;
 }
 .home_fifth_box1 {
   position: absolute;
