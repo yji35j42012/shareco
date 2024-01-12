@@ -3927,6 +3927,7 @@ h1 + .product_group {
   position: fixed;
   top: 54px;
   width: 100%;
+  height: calc(100% - 54px);
 }
 .home_video, .home_third, .home_forth, .home_fifth, .home_six, .home_seven {
   position: relative;
