@@ -4783,6 +4783,7 @@ h1 + .product_group {
   top: 0;
   left: 0;
   transform: translateY(-100%);
+  will-change: auto;
 }
 .home_seven_box {
   display: flex;
