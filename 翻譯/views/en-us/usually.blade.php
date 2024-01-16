@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Shareco-合作方式">
+    <meta name="description" content="Shareco-Common Links">
     <meta name="keywords" content="Shareco">
     <meta name="image" property="og:image" content="../images/shareco_seo.jpg">
     <link rel="shortcut icon" type="image/png" href="favicon.png">
@@ -17,8 +17,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/all.min.css">
-    <link rel="stylesheet" href="../css/aos.css">
-    <title>SHARECO-Collaborations</title>
+    <title>SHARECO-Common Links</title>
 </head>
 
 <body>
@@ -68,6 +67,7 @@
                         </li>
                     </ul>
                 </li>
+
                 <li class="nav_item fz18to16" name="nav_item">
                     <span class="nav_item_title">Stocklists</span>
                     <ul class="nav_sec">
@@ -103,50 +103,66 @@
                 <span class="nav_btn_line"></span>
             </button>
         </header>
-        <section class="banner _bg" style="background-image: url('../images/cooperate/banner.png');">
-            <div class="banner_txt">
-                <h1 data-aos="fade-up" data-aos-easing="ease-in-sine">Collaborations</h1>
-            </div>
+        <section class="banner">
+            <video width="100%" height="100%" autoplay muted src="../images/gallery/video_1.mp4"></video>
         </section>
-        <section class="cooperate">
-            <div class="container">
-                <div class="cooperate_txt fz26pxto16" data-aos="fade-up" data-aos-easing="ease-in-sine">
-                    We welcome collaborations! Please provide us with relevant information such as: contact details,
-                    website/social media page link, store front name and address, etc. Email us these details and we’ll
-                    get back to you within three business days!
-                </div>
-                <a class="border_btn" href="./contact.html" data-aos="fade-up" data-aos-easing="ease-in-sine">Other Contact Methods</a>
-            </div>
+        <section class="usually">
+            <a href="" class="usually_btn">Our Story</a>
+            <a href="./gallery.html" class="usually_btn">Gallery</a>
+            <a href="./product_parfums.html" class="usually_btn">Perfumes</a>
+            <a href="./product_venus.html" class="usually_btn">VENUS FLYTRAP Diffusers</a>
+            <label class="usually_sel">
+                <span id="usually_sel_txt" class="usually_sel_txt">台灣 / Taiwan</span>
+                <ul id="usually_sel_group" class="usually_sel_group">
+                    <li class="usually_sel_item" name='tw' data-name="Taiwan">Taiwan / Taiwan</li>
+                    <li class="usually_sel_item" name='jp' data-name="Japan">Japan / Japan</li>
+                    <li class="usually_sel_item" name='hk' data-name="Hong Kong">Hongkong / Hongkong</li>
+                    <li class="usually_sel_item" name='sg' data-name="Singapore">Singapore / Singapore</li>
+                    <li class="usually_sel_item" name='my' data-name="Malaysia">Malaysia / Malaysia</li>
+                </ul>
+            </label>
+            <a name="usually_area" class="usually_btn" href="./store.html?country=tw&content=store0"
+                data-msg=" Online Platforms">Taiwan</a>
+            <a name="usually_area" class="usually_btn" href="./store.html?country=jp&content=store1"
+                data-msg=" Store Fronts">Taiwan</a>
+            <ul class="gallery_photo" data-aos="">
+                <li class="gallery_photo_item">
+                    <img src="../images/gallery/photot_1.png" alt="SHARECO">
+                </li>
+                <li class="gallery_photo_item">
+                    <img src="../images/gallery/photot_2.png" alt="SHARECO">
+                </li>
+                <li class="gallery_photo_item">
+                    <img src="../images/gallery/photot_3.png" alt="SHARECO">
+                </li>
+                <li class="gallery_photo_item">
+                    <img src="../images/gallery/photot_4.png" alt="SHARECO">
+                </li>
+                <li class="gallery_photo_item">
+                    <img src="../images/gallery/photot_5.png" alt="SHARECO">
+                </li>
+                <li class="gallery_photo_item">
+                    <img src="../images/gallery/photot_6.png" alt="SHARECO">
+                </li>
+                <li class="gallery_photo_item">
+                    <img src="../images/gallery/photot_7.png" alt="SHARECO">
+                </li>
+                <li class="gallery_photo_item">
+                    <img src="../images/gallery/photot_8.png" alt="SHARECO">
+                </li>
+                <li class="gallery_photo_item">
+                    <img src="../images/gallery/photot_9.png" alt="SHARECO">
+                </li>
+            </ul>
         </section>
-        <footer class="footer">
-            <div class="footer_box">
-                <ul class="footer_nav">
-                    <li class="footer_nav_item fz14to12">Our Story</li>
-                    <li class="footer_nav_item fz14to12"><a class="footer_nav_title" href="contact.html">Contact Us</a>
-                    </li>
-
-                    <li class="footer_nav_item fz14to12"><a class="footer_nav_title" href="rule.html">Trademark and
-                            Application</a></li>
-                    <li class="footer_nav_item fz14to12"><a class="footer_nav_title" href="usually.html">Common
-                            Links</a></li>
-                    <li class="footer_nav_item fz14to12"><a class="footer_nav_title" href="privacy.html">Privacy and
-                            Policies</a></li>
-                </ul>
-                <ul class="footer_link">
-                    <li class="footer_link_icon _fb">
-                        <a href="https://www.facebook.com/Share.co.tw" target="_blank"></a>
-                    </li>
-                    <li class="footer_link_icon _ig">
-                        <a href="https://www.instagram.com/share.co.design/" target="_blank"></a>
-                    </li>
-                </ul>
-                <p class="copyRight">Copyright © 2023 SHARECO | All Rights Reserved</p>
-            </div>
+        <footer id="footer" class="footer">
+            @include('layout.footer')
         </footer>
     </div>
 
 
     <script src="../js/module.js"></script>
+    <script src="../js/usually.js"></script>
     <script src="../js/aos.js"></script>
     <script>
         AOS.init();

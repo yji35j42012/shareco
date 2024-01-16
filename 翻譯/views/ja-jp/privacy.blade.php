@@ -2,30 +2,30 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<meta name="description" content="Shareco-プライバシーポリシー">
-	<meta name="keywords" content="Shareco">
-	<meta name="image" property="og:image" content="../images/shareco_seo.jpg">
-	<link rel="shortcut icon" type="image/png" href="favicon.png">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Noto+Sans+TC:wght@100;200;300;400;500;600;700;800;900&display=swap"
-		rel="stylesheet">
-	<link
-		href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Noto+Sans+TC:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-		rel="stylesheet">
-	<link rel="stylesheet" href="../css/reset.css">
-	<link rel="stylesheet" href="../css/aos.css">
-	<link rel="stylesheet" href="../css/all.min.css">
-	<title>SHARECO-プライバシーポリシー</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Shareco-プライバシーポリシー">
+    <meta name="keywords" content="Shareco">
+    <meta name="image" property="og:image" content="../images/shareco_seo.jpg">
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Noto+Sans+TC:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Noto+Sans+TC:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/aos.css">
+    <link rel="stylesheet" href="../css/all.min.css">
+    <title>SHARECO-プライバシーポリシー</title>
 </head>
 
 <body>
-	<div class="wrap">
+    <div class="wrap">
 		<header id="header" class="header">
 			<h1 class="logo">
 				<a href="home.html"><img src="../images/logo.svg" alt="SHARECO"></a>
@@ -107,7 +107,7 @@
 				<span class="nav_btn_line"></span>
 			</button>
 		</header>
-		<section class="privacy">
+        <section class="privacy">
 			<div class="privacy_box">
 				<div class="privacy_title">プライバシーポリシー</div>
 				<div class="privacy_p">
@@ -171,37 +171,19 @@
 					</li>
 				</ul>
 			</div>
-		</section>
-		<footer class="footer">
-			<div class="footer_box">
-				<ul class="footer_nav">
-					<li class="footer_nav_item fz14to12">ブランドストーリー</li>
-					<li class="footer_nav_item fz14to12"><a class="footer_nav_title" href="contact.html">お問い合わせ</a></li>
-					<li class="footer_nav_item fz14to12"><a class="footer_nav_title" href="rule.html">商標及び使用方針</a></li>
-					<li class="footer_nav_item fz14to12"><a class="footer_nav_title" href="usually.html">外部リンク</a></li>
-					<li class="footer_nav_item fz14to12"><a class="footer_nav_title" href="privacy.html">プライバシーポリシー</a>
-					</li>
-				</ul>
-				<ul class="footer_link">
-					<li class="footer_link_icon _fb">
-						<a href="https://www.facebook.com/Share.co.tw" target="_blank"></a>
-					</li>
-					<li class="footer_link_icon _ig">
-						<a href="https://www.instagram.com/share.co.design/" target="_blank"></a>
-					</li>
-				</ul>
-				<p class="copyRight">Copyright © 2023 SHARECO | All Rights Reserved</p>
-			</div>
-		</footer>
-	</div>
+        </section>
+        <footer id="footer" class="footer">
+            @include('layout.footer')
+        </footer>
+    </div>
 
 
-	<script src="../js/module.js"></script>
-	<script src="../js/aos.js"></script>
-	<script src="../js/index.js"></script>
-	<script>
-		AOS.init();
-	</script>
+    <script src="../js/module.js"></script>
+    <script src="../js/aos.js"></script>
+    <script src="../js/index.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>

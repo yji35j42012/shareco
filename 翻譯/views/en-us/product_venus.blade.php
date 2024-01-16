@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<meta name="description" content="Shareco-聯絡我們">
+	<meta name="description" content="Shareco-VENUS FLYTRAP">
 	<meta name="keywords" content="Shareco">
 	<meta name="image" property="og:image" content="../images/shareco_seo.jpg">
 	<link rel="shortcut icon" type="image/png" href="favicon.png">
@@ -15,13 +15,10 @@
 	<link
 		href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Noto+Sans+TC:wght@100;200;300;400;500;600;700;800;900&display=swap"
 		rel="stylesheet">
-	<link
-		href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Noto+Sans+TC:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-		rel="stylesheet">
 	<link rel="stylesheet" href="../css/reset.css">
 	<link rel="stylesheet" href="../css/all.min.css">
 	<link rel="stylesheet" href="../css/aos.css">
-	<title>SHARECO-Contact Us</title>
+	<title>SHARECO-VENUS FLYTRAP</title>
 </head>
 
 <body>
@@ -107,57 +104,86 @@
 				<span class="nav_btn_line"></span>
 			</button>
 		</header>
-		<section class="banner _bg _contact" style="background-image: url('../images/contact/banner.png');">
-			<div class="banner_txt">
-				<h1 data-aos="fade-up">Contact Us</h1>
-				<div class="banner_txt_rule fz26pxto16" data-aos="fade-up" data-aos-delay="100">
-					If you are a fan of SHARECO and our vision, have any questions or would like to receive more
-					information as well as offer collaborations, please contact us using one of the following methods.
-					We will get back to you as soon as possible.
+		<div class="banner" style="background-image:url('../images/product_venus/banner.jpg')">
+			<img src="../images/product_venus/banner.jpg" alt="SHARECO venus banner">
+		</div>
+		<div class="product _parfums _lastPic">
+			<div class="product_txt fz26pxto16" data-aos="fade-up" data-aos-easing="ease-in-sine">
+				We want to create an atmosphere that entices people to linger, to temporarily let go of reality and just
+				enjoy themselves. Like a venus flytrap that lures its prey in with a chemical secretion that relaxes, we
+				want our diffuser scents to help our customers feel laid back, comfortable, and never leave…
+			</div>
+			<h1 data-aos="fade-up" data-aos-easing="ease-in-sine">VENUS FLYTRAP DIFFUSERS</h1>
+			<ul class="product_group">
+				<li class="product_item" data-aos="fade-up" data-aos-easing="ease-in-sine">
+					<div class="product_item_head">
+						<h3 class="product_item_name" data-en="VENUS-FLYTRAP">VENUS-FLYTRAP Diffuser Oil</h3>
+						<div class="product_item_ml fz14to12" data-txt="160ml / Wood and Floral Blend"></div>
+					</div>
+					<div class="product_item_pic">
+						<img src="../images/product_venus/venusflytrap.png" alt="VENUS-FLYTRAP Diffuser Oil">
+					</div>
+					<ul class="product_item_detail">
+						<li>
+							Like the garden of Eden, a hint of something sweet, temptation lurks within; like a venus
+							flytrap that enchants and captures you, making you linger.
+						</li>
+						<li>
+							Top / Bergamot<br>
+							Heart / Sandalwood, Lavender<br>
+							Base / Tonka Beans, Frankincense
+						</li>
+					</ul>
+				</li>
+				<li class="product_item" data-aos="fade-up" data-aos-easing="ease-in-sine">
+					<div class="product_item_head">
+						<h3 class="product_item_name" data-en="ACID-MOLLY">ACID-MOLLY Diffuser Oil</h3>
+						<div class="product_item_ml fz14to12" data-txt="160ml / Oriental Wood Blend"></div>
+					</div>
+					<div class="product_item_pic">
+						<img src="../images/product_venus/acidmolly.png" alt="ACID-MOLLY Diffuser Oil">
+					</div>
+					<ul class="product_item_detail">
+						<li>
+							Relaxing and laid back, charming and comfortable; the high of a party,
+							enjoy the moment, out of this world.
+						</li>
+						<li>
+							Top / Rose, Cypress<br>
+							Heart / Sandalwood, Cedarwood<br>
+							Base / Amber, Musk, Brazilwood
+						</li>
+					</ul>
+				</li>
+				<li class="product_item" data-aos="fade-up" data-aos-easing="ease-in-sine">
+					<div class="product_item_head">
+						<h3 class="product_item_name" data-en="GOOD-TIMES">GOOD-TIMES Diffuser Oil</h3>
+						<div class="product_item_ml fz14to12" data-txt="160ml / Wood and Fruit Blend"></div>
+					</div>
+					<div class="product_item_pic">
+						<img src="../images/product_venus/goodtimes.png" alt="GOOD-TIMES Diffuser Oil">
+					</div>
+					<ul class="product_item_detail">
+						<li>
+							Get on the time machine and go back in time to the vintage vibe of a barbershop in the 70s.
+							This is a clean, smart macho scent.
+						</li>
+						<li>
+							Top / Orange, Bitter Orange, Basil<br>
+							Heart / Musk, Lily<br>
+							Base / Oakmoss, Cedarwood
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<div class="product_pic">
+				<img src="../images/product_venus/photo.jpg" alt="SHARECO 我們一邊追求生活的秩序、跟安全感">
+				<div class="product_pic_txt fz26to14">
+					We want our lives to be full of order and sense of security, but we yearn to break the rules, and
+					enjoy the sense of losing control.
 				</div>
 			</div>
-		</section>
-		<section class="contact">
-			<div class="container">
-				<ul class="contact_group">
-					<li class="contact_item">
-						<div class="contact_item_title">Customer Service</div>
-						<div class="contact_item_detail">
-							<span>+886-906-153688</span>
-							<span class="contact_item_mail" name="mailHandler" data-mail="Copied">info@shareco.me</span>
-						</div>
-					</li>
-					<li class="contact_item">
-						<div class="contact_item_title">Domestic Distribution</div>
-						<div class="contact_item_detail">
-							<span class="contact_item_mail" name="mailHandler"
-								data-mail="Copied">danny＠super-landing.com</span>
-						</div>
-					</li>
-					<li class="contact_item">
-						<div class="contact_item_title">International Distribution</div>
-						<div class="contact_item_detail">
-							<span class="contact_item_mail" name="mailHandler"
-								data-mail="Copied">ann.yu@speeding-rocket.com</span>
-						</div>
-					</li>
-					<li class="contact_item">
-						<div class="contact_item_title">Press and Public Relations</div>
-						<div class="contact_item_detail">
-							<span class="contact_item_mail" name="mailHandler"
-								data-mail="Copied">emma.lin@speeding-rocket.com</span>
-						</div>
-					</li>
-					<li class="contact_item">
-						<div class="contact_item_title">Other Collaborations</div>
-						<div class="contact_item_detail">
-							<span class="contact_item_mail" name="mailHandler"
-								data-mail="Copied">danny＠super-landing.com</span>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</section>
+		</div>
 		<footer class="footer">
 			<div class="footer_box">
 				<ul class="footer_nav">
@@ -185,12 +211,8 @@
 		</footer>
 	</div>
 
-
 	<script src="../js/module.js"></script>
 	<script src="../js/aos.js"></script>
-	<script src="../js/contact.js"></script>
-
-
 	<script>
 		AOS.init();
 	</script>
