@@ -18,6 +18,7 @@ function mobile() {
 }
 
 var device=mobile()? "ph":"pc";
+
 var fifthAni2Time;
 var home_btn=document.querySelector("#home_btn");
 var home=document.querySelector("#home");
@@ -128,15 +129,12 @@ if (device=="pc") {
 		originY: 0.5
 	});
 	straw_parallax.friction(0.05, 0.05);
-
 	var strawMax=160;
 	var strawMaxR=15;
-
 	var strawNow=0;
 	var strawNowR=0;
 	var strawMove=0;
 	var strawMoveR=0;
-
 	var strawTime;
 	var strawRange=strawMax/boxCenterH;
 	var strawRangeR=strawMaxR/boxCenterH;
@@ -500,7 +498,6 @@ var forthTxt1=document.querySelector("#forthTxt");
 var forthBg=document.querySelector("#forthBg");
 var forthCat=document.querySelector("#forth_cat");
 var forthBox=document.querySelector("#forthBox");
-
 var fifth_pc1=document.querySelector("#fifth_pc_g1");
 var fifth_pc2=document.querySelector("#fifth_pc_g2");
 var fifth_ph1=document.querySelector("#fifth_ph_g1");
@@ -602,6 +599,12 @@ window.addEventListener("wheel", function (e) {
 		wheelNew=-1
 	}
 })
+function touchsHandler() {
+	console.log('a');
+	window.addEventListener("touchmove", this.slipMouseMove);
+	window.addEventListener("touchend", this.slipMouseUp);
+}
+
 function scrollTime() {
 	st=setTimeout(() => {
 		scroll_delay=0.2
@@ -676,7 +679,6 @@ function scrollTime5() {
 		st_count5<0? st_count5=0:st_count5
 	}, 30);
 }
-
 function scrollHandler(e) {
 	console.log('a', wrap.scrollTop);
 	if (device=='ph') {
@@ -694,9 +696,9 @@ function scrollHandler(e) {
 	if (delay1<=0&&st_count<=2&&home_scroll>0) {
 		if (device=='ph') {
 			wrap.scrollTop=range2;
-		}else{
+		} else {
 			html.scrollTop=range2;
-		}	
+		}
 		home_y=range2;
 		clearTimeout(st)
 		scrollTime()
@@ -709,7 +711,7 @@ function scrollHandler(e) {
 	if (delay2<=0&&st_count2<=2&&home_scroll>0) {
 		if (device=='ph') {
 			wrap.scrollTop=range3;
-		}else{
+		} else {
 			html.scrollTop=range3;
 		}
 		home_y=range3;
@@ -725,7 +727,7 @@ function scrollHandler(e) {
 	if (delay3<=0&&st_count5<=2&&home_scroll>0) {
 		if (device=='ph') {
 			wrap.scrollTop=5780;
-		}else{
+		} else {
 			html.scrollTop=5780;
 		}
 		home_y=5780;
@@ -741,7 +743,7 @@ function scrollHandler(e) {
 	if (delay3<=-100&&st_count3<=2&&home_scroll>0) {
 		if (device=='ph') {
 			wrap.scrollTop=7145;
-		}else{
+		} else {
 			html.scrollTop=7145;
 		}
 		home_y=7145;
@@ -756,7 +758,7 @@ function scrollHandler(e) {
 	if (delay4<=0&&st_count4<=2&&home_scroll>0) {
 		if (device=='ph') {
 			wrap.scrollTop=range6;
-		}else{
+		} else {
 			html.scrollTop=range6;
 		}
 		home_y=range6;
@@ -781,12 +783,11 @@ function scrollHandler(e) {
 	sevMove1()
 	if (device=='ph') {
 		old_scroll=wrap.scrollTop
-	}else{
+	} else {
 		old_scroll=html.scrollTop
 	}
-	
-}
 
+}
 function aniHandler() { }
 
 document.addEventListener("scroll", scrollHandler);
@@ -1229,6 +1230,9 @@ function homeInit() {
 }
 document.addEventListener("DOMContentLoaded", () => {
 	homeInit();
+	if (device=='ph') {
+		window.addEventListener(touchstart, touchsHandler);
+	}
 });
 
 

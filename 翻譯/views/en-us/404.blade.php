@@ -29,16 +29,16 @@
             </h1>
             <ul class="nav">
                 <li class="nav_item fz18to16" name="nav_item">
-                    <span class="nav_item_title">關於 SHARECO</span>
+                    <span class="nav_item_title">About Us</span>
                     <ul class="nav_sec">
                         <li class="nav_sec_item">
                             <a class="nav_sec_link" href="story.html">
-                                <span>品牌故事</span>
+                                <span>Our Story</span>
                             </a>
                         </li>
                         <li class="nav_sec_item">
                             <a class="nav_sec_link" href="spokesman.html">
-                                <span>品牌代言人</span>
+                                <span>Brand Ambassador</span>
                             </a>
                         </li>
                         <li class="nav_sec_item">
@@ -49,44 +49,44 @@
                     </ul>
                 </li>
                 <li class="nav_item fz18to16" name="nav_item">
-                    <span class="nav_item_title">產品列表</span>
+                    <span class="nav_item_title">Products</span>
                     <ul class="nav_sec">
                         <li class="nav_sec_item">
                             <a class="nav_sec_link" href="product_parfums.html">
-                                <span>PARFUMS 香精香水</span>
+                                <span>Perfumes</span>
                             </a>
                         </li>
                         <li class="nav_sec_item">
                             <a class="nav_sec_link" href="product_venus.html">
-                                <span>VENUS FLYTRAP 捕蠅草擴香</span>
+                                <span>VENUS FLYTRAP Diffusers</span>
                             </a>
                         </li>
                         <li class="nav_sec_item">
                             <a class="nav_sec_link" href="product_shower.html">
-                                <span>BATHING 洗沐系列</span>
+                                <span>Shower Series</span>
                             </a>
                         </li>
                     </ul>
                 </li>
 
                 <li class="nav_item fz18to16" name="nav_item">
-                    <span class="nav_item_title">銷售據點</span>
+                    <span class="nav_item_title">Stocklists</span>
                     <ul class="nav_sec">
                         <li class="nav_sec_item">
                             <a class="nav_sec_link" href="store.html">
-                                <span>銷售據點</span>
+                                <span>Stocklists</span>
                             </a>
                         </li>
                         <li class="nav_sec_item">
                             <a class="nav_sec_link" href="cooperate.html">
-                                <span>全球經銷合作</span>
+                                <span>Global Distributors</span>
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav_item show_ph fz18to16" name="nav_item">
                     <a class="nav_item_title" href="contact.html">
-                        <span>聯絡我們</span>
+                        <span>Contact Us</span>
                     </a>
                 </li>
             </ul>

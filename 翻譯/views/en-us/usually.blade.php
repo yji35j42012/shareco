@@ -85,7 +85,7 @@
                 </li>
                 <li class="nav_item show_ph fz18to16" name="nav_item">
                     <a class="nav_item_title" href="contact.html">
-                        <span>聯絡我們</span>
+                        <span>Contact Us</span>
                     </a>
                 </li>
             </ul>
@@ -112,7 +112,7 @@
             <a href="./product_parfums.html" class="usually_btn">Perfumes</a>
             <a href="./product_venus.html" class="usually_btn">VENUS FLYTRAP Diffusers</a>
             <label class="usually_sel">
-                <span id="usually_sel_txt" class="usually_sel_txt">台灣 / Taiwan</span>
+                <span id="usually_sel_txt" class="usually_sel_txt">Taiwan / Taiwan</span>
                 <ul id="usually_sel_group" class="usually_sel_group">
                     <li class="usually_sel_item" name='tw' data-name="Taiwan">Taiwan / Taiwan</li>
                     <li class="usually_sel_item" name='jp' data-name="Japan">Japan / Japan</li>

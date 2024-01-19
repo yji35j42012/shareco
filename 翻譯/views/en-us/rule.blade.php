@@ -88,7 +88,7 @@
 				</li>
 				<li class="nav_item show_ph fz18to16" name="nav_item">
 					<a class="nav_item_title" href="contact.html">
-						<span>聯絡我們</span>
+						<span>Contact Us</span>
 					</a>
 				</li>
 			</ul>

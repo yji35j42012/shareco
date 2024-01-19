@@ -66,13 +66,13 @@
         <section id="store" class="store">
             <div class="container">
                 <label class="store_sel">
-                    <span id="store_sel" class="store_sel_txt fz24to18">台灣 / Taiwan</span>
+                    <span id="store_sel" class="store_sel_txt fz24to18">Taiwan / Taiwan</span>
                     <ul id="store_sel_group" class="store_sel_group">
-                        <li name="tw" class="store_sel_item">台灣 / Taiwan</li>
-                        <li name="jp" class="store_sel_item">日本 / Japan</li>
-                        <li name="hk" class="store_sel_item">香港 / Hongkong</li>
-                        <li name="sg" class="store_sel_item">新加坡 / Singapore</li>
-                        <li name="my" class="store_sel_item">馬來西亞 / Malaysia</li>
+                        <li name="tw" class="store_sel_item">Taiwan / Taiwan</li>
+                        <li name="jp" class="store_sel_item">Japan / Japan</li>
+                        <li name="hk" class="store_sel_item">Hongkong / Hongkong</li>
+                        <li name="sg" class="store_sel_item">Singapore / Singapore</li>
+                        <li name="my" class="store_sel_item">Malaysia / Malaysia</li>
                     </ul>
                 </label>
                 <ul id="store_tab" class="normal_tab">
