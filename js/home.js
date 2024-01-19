@@ -601,8 +601,8 @@ window.addEventListener("wheel", function (e) {
 })
 function touchsHandler() {
 	console.log('a');
-	window.addEventListener("touchmove", this.slipMouseMove);
-	window.addEventListener("touchend", this.slipMouseUp);
+	// window.addEventListener("touchmove", this.slipMouseMove);
+	// window.addEventListener("touchend", this.slipMouseUp);
 }
 
 function scrollTime() {
@@ -1231,7 +1231,7 @@ function homeInit() {
 document.addEventListener("DOMContentLoaded", () => {
 	homeInit();
 	if (device=='ph') {
-		window.addEventListener(touchstart, touchsHandler);
+		// window.addEventListener('touchstart', touchsHandler);
 	}
 });
 
