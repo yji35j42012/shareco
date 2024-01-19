@@ -37,8 +37,38 @@ function home_btnHandler() {
 		wrap.classList.remove("active");
 	}, 100);
 	html.scrollTop=0
-
+	if (device=='ph') {
+		window.addEventListener('touchstart', tsHandler);
+	}
 }
+var tstart=0, tmove=0, tend=0
+function tsHandler(e) {
+	if (!e.touches) {
+		//相容移動端
+		tstart=e.clientY;
+	} else {
+		//相容PC端
+		tstart=e.touches[0].pageY;
+	}
+	console.log('tsHandler', tstart);
+	window.addEventListener('touchmove', tmHandler);
+	window.addEventListener('touchend', teHandler);
+}
+function tmHandler(e) {
+	if (!e.touches) {
+		//相容移動端
+		tmove=e.clientY;
+	} else {
+		//相容PC端
+		tmove=e.touches[0].pageY;
+	}
+	console.log('tmHandler', tmove);
+}
+function teHandler() {
+	tend=tmove-tstart
+	console.log('teHandler', tend);
+}
+
 home_btn.addEventListener("click", home_btnHandler)
 
 home_video1Handler1.onclick=function () {
@@ -1230,9 +1260,6 @@ function homeInit() {
 }
 document.addEventListener("DOMContentLoaded", () => {
 	homeInit();
-	if (device=='ph') {
-		// window.addEventListener('touchstart', touchsHandler);
-	}
 });
 
 
