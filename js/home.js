@@ -1302,28 +1302,43 @@ document.addEventListener("DOMContentLoaded", () => {
 	homeInit();
 });
 
+var six_img=document.querySelector("#six_img");
+var lion_img=document.querySelector("#lion_img");
+
+function pcShow() {
+	six_img.setAttribute('src', "../images/home/sixPic_pc.png")
+	lion_img.setAttribute('src', "../images/home/lion_pc.png")
+}
+function phShow() {
+	six_img.setAttribute('src', "../images/home/sixPic_ph.jpeg")
+	lion_img.setAttribute('src', "../images/home/lion_ph.png")
+}
 
 window.onload=function () {
 	if (window.innerWidth<1024) {
 		ispc=false
-		fifth_video_m.style.display=''
+		fifth_video_m.style.display='';
+		phShow()
 	} else {
 		ispc=true;
 		fifth_video.style.display=""
 		fifth_video.setAttribute("src", "../images/home/blacksmoke.mp4")
+		pcShow()
 	}
-	console.log('device', device);
 	if (device=='ph') {
 		document.querySelector('html').classList.add("ph");
 		wrap.addEventListener("scroll", scrollHandler);
 	}
 }
+
 window.onresize=function () {
 	if (window.innerWidth<1024&&nowD=='pc') {
 		ispc=false
 		nowD='ph'
+		phShow()
 	} else if (window.innerWidth>=1024&&nowD=='ph') {
 		ispc=true;
 		nowD='pc'
+		pcShow()
 	}
 }
