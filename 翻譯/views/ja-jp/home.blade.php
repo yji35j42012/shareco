@@ -77,17 +77,15 @@
         <div id="home_third" class="home_third">
             <div class="home_third_box">
                 <div class="home_third_liner"></div>
-                <div class="home_third_txt">我們都經歷過成長過程中的 struggle</div>
-                <div class="home_third_txt _right">我們都質疑過自己在這個世界的位置</div>
+                <div id="home_third_txt1" class="home_third_txt">私たちは成長の中で、ときに戸惑い、</div>
+				<div id="home_third_txt2" class="home_third_txt _right">この世界で自分がどう生きたらいいのか疑問に思うことがあります。</div>
             </div>
         </div>
         <div id="home_forth" class="home_forth">
             <div class="home_forth_box">
                 <div class="home_forth_txt">
-                    面對內在與外在的衝突 <br>
-                    友情、親情、愛情、壓抑、自我認同問題<br>
-                    SHARECO 想透過香氣與服飾 保存心中那段<br>
-                    對任何事物都超有感覺的青春歲月
+                    友情や家族愛、恋愛や抑圧、アイデンティティについてなど、多くの内面や外見に関する葛藤に向き合います。
+                    SHARECOは、香りとファッションを通じて、すべてに敏感だった青春時代の思い出を大切にしたいと考えています。
                 </div>
             </div>
         </div>
@@ -118,8 +116,7 @@
                 <span id="fifth_video_lin" class="home_fifth_lin" style="display: none"></span>
                 <img class="" src="../images/home/fifth_background_3.png" alt="">
                 <div class="home_fifth_txt">
-                    黑暗面，也是自我組成的一部分 <br>
-                    這部分有多壓抑、就有多渴望展現出來
+                    ネガティブな面も、他ならぬ私たちの一部です。抑圧されるほどに、表現したいという欲求も高まります。
                 </div>
                 <div class="home_fifth_bee pc">
                     <img src="../images/home/flyl.png" alt="">
@@ -137,9 +134,8 @@
                 </div>
                 <div class="home_six_txt">
                     <span>
-                        對那些能夠激發我們黑暗面的人 <br>
-                        會有一種讓人沈迷的吸引力 <br>
-                        這種人格特質散發的 “味道” 就是 SHARECO
+                        ネガティブな面を引き出すこととができる人ほど、魅力的でもあるのです。 <br>
+                        あなただけの個性を放つ「香り」。それこそが、SHARECOです。
                     </span>
                 </div>
             </div>
@@ -147,33 +143,33 @@
         <div id="home_seven" class="home_seven">
             <div class="home_seven_box">
                 <div class="home_seven_bg"></div>
-                <div class="home_seven_txt">
-                    <a class="border_btn _back" href="./story.html">品牌故事</a>
-                </div>
-                <footer class="footer">
-                    <div class="footer_box">
-                        <ul class="footer_nav">
-                            <li class="footer_nav_item fz14to12">品牌故事</li>
-                            <li class="footer_nav_item fz14to12"><a class="footer_nav_title"
-                                    href="contact.html">聯絡我們</a></li>
-                            <li class="footer_nav_item fz14to12"><a class="footer_nav_title"
-                                    href="rule.html">商標及應用準則</a></li>
-                            <li class="footer_nav_item fz14to12"><a class="footer_nav_title"
-                                    href="usually.html">常用連結</a></li>
-                            <li class="footer_nav_item fz14to12"><a class="footer_nav_title"
-                                    href="privacy.html">隱私權與政策</a></li>
-                        </ul>
-                        <ul class="footer_link">
-                            <li class="footer_link_icon _fb">
-                                <a href="https://www.facebook.com/Share.co.tw" target="_blank"></a>
-                            </li>
-                            <li class="footer_link_icon _ig">
-                                <a href="https://www.instagram.com/share.co.design/" target="_blank"></a>
-                            </li>
-                        </ul>
-                        <p class="copyRight">Copyright © 2023 SHARECO | All Rights Reserved</p>
-                    </div>
-                </footer>
+				<div id="sev_txt" class="home_seven_txt">
+					<a class="border_btn _back" href="./story.html">ブランドストーリー</a>
+				</div>
+                <footer id="sev_footer" class="footer">
+					<div class="footer_box">
+						<ul class="footer_nav">
+							<li class="footer_nav_item fz14to12">ブランドストーリー</li>
+							<li class="footer_nav_item fz14to12"><a class="footer_nav_title"
+											href="contact.html">お問い合わせ</a></li>
+							<li class="footer_nav_item fz14to12"><a class="footer_nav_title"
+											href="rule.html">商標及び使用方針</a></li>
+							<li class="footer_nav_item fz14to12"><a class="footer_nav_title"
+											href="usually.html">外部リンク</a></li>
+							<li class="footer_nav_item fz14to12"><a class="footer_nav_title"
+											href="privacy.html">プライバシーポリシー</a></li>
+						</ul>
+						<ul class="footer_link">
+							<li class="footer_link_icon _fb">
+								<a href="https://www.facebook.com/Share.co.tw" target="_blank"></a>
+							</li>
+							<li class="footer_link_icon _ig">
+								<a href="https://www.instagram.com/share.co.design/" target="_blank"></a>
+							</li>
+						</ul>
+						<p class="copyRight">Copyright © 2023 SHARECO | All Rights Reserved</p>
+					</div>
+				</footer>
             </div>
         </div>
     </div>

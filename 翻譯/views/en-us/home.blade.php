@@ -77,8 +77,8 @@
         <div id="home_third" class="home_third">
             <div class="home_third_box">
                 <div class="home_third_liner"></div>
-                <div class="home_third_txt">我們都經歷過成長過程中的 struggle</div>
-                <div class="home_third_txt _right">我們都質疑過自己在這個世界的位置</div>
+                <div id="home_third_txt1" class="home_third_txt">We have all gone through the struggle that is growing up,</div>
+                <div id="home_third_txt2" class="home_third_txt _right">wondering what our position is in this bustling world.</div>
             </div>
         </div>
         <div id="home_forth" class="home_forth">
@@ -118,8 +118,8 @@
                 <span id="fifth_video_lin" class="home_fifth_lin" style="display: none"></span>
                 <img class="" src="../images/home/fifth_background_3.png" alt="">
                 <div class="home_fifth_txt">
-                    黑暗面，也是自我組成的一部分 <br>
-                    這部分有多壓抑、就有多渴望展現出來
+                    The dark side is still part of us. However strongly we suppress it, <br> 
+                    however strong the desire to showcase it.
                 </div>
                 <div class="home_fifth_bee pc">
                     <img src="../images/home/flyl.png" alt="">
@@ -148,32 +148,34 @@
             <div class="home_seven_box">
                 <div class="home_seven_bg"></div>
                 <div class="home_seven_txt">
-                    <a class="border_btn _back" href="./story.html">品牌故事</a>
+                    <a class="border_btn _back" href="./story.html">Our Story</a>
                 </div>
-                <footer class="footer">
+                <footer id="sev_footer" class="footer">
                     <div class="footer_box">
                         <ul class="footer_nav">
-                            <li class="footer_nav_item fz14to12">品牌故事</li>
-                            <li class="footer_nav_item fz14to12"><a class="footer_nav_title"
-                                    href="contact.html">聯絡我們</a></li>
-                            <li class="footer_nav_item fz14to12"><a class="footer_nav_title"
-                                    href="rule.html">商標及應用準則</a></li>
-                            <li class="footer_nav_item fz14to12"><a class="footer_nav_title"
-                                    href="usually.html">常用連結</a></li>
-                            <li class="footer_nav_item fz14to12"><a class="footer_nav_title"
-                                    href="privacy.html">隱私權與政策</a></li>
-                        </ul>
-                        <ul class="footer_link">
-                            <li class="footer_link_icon _fb">
-                                <a href="https://www.facebook.com/Share.co.tw" target="_blank"></a>
-                            </li>
-                            <li class="footer_link_icon _ig">
-                                <a href="https://www.instagram.com/share.co.design/" target="_blank"></a>
-                            </li>
-                        </ul>
-                        <p class="copyRight">Copyright © 2023 SHARECO | All Rights Reserved</p>
-                    </div>
-                </footer>
+							<li class="footer_nav_item fz14to12">Our Story</li>
+							<li class="footer_nav_item fz14to12"><a class="footer_nav_title"
+											href="contact.html">Contact Us</a></li>
+							<li class="footer_nav_item fz14to12"><a class="footer_nav_title"
+											href="rule.html">Trademark
+											and Application</a></li>
+							<li class="footer_nav_item fz14to12"><a class="footer_nav_title"
+											href="usually.html">Common
+											Links</a></li>
+							<li class="footer_nav_item fz14to12"><a class="footer_nav_title"
+											href="privacy.html">Privacy and Policies</a></li>
+						</ul>
+						<ul class="footer_link">
+							<li class="footer_link_icon _fb">
+								<a href="https://www.facebook.com/Share.co.tw" target="_blank"></a>
+							</li>
+							<li class="footer_link_icon _ig">
+								<a href="https://www.instagram.com/share.co.design/" target="_blank"></a>
+							</li>
+						</ul>
+						<p class="copyRight">Copyright © 2023 SHARECO | All Rights Reserved</p>
+					</div>
+				</footer>
             </div>
         </div>
     </div>

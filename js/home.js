@@ -1156,12 +1156,7 @@ function fifMove2() {
 		fif_bee2.style=`transform: scale(${ fifBee2_sc }) translate(${ fifBee2_m }% , ${ fifBee2_m }%);transition: all ${ fifBee2_d }s;opacity: ${ fifBee2_op };`;
 		fif_bee3.style=`transform: scale(${ fifBee3_sc }) translate(${ fifBee3_m }% , -${ fifBee3_m }%);transition: all ${ fifBee3_d }s;opacity: ${ fifBee3_op };`;
 		fifth_bird.style=` transform: scale(1) translate(${ fifBird_m }% , ${ fifBird_m }%);opacity:${ fifT_op };transition: all ${ fifT_d }s;`
-		if (nowD=='pc') {
-			fifth_video.play();
-		} else {
-			fifth_video_m.play();
-		}
-
+		nowD=='pc'? fifth_video.play():fifth_video_m.play()
 	} else if (t<100) {
 		fifbg_m=1+(30-t*0.3)/50
 		if (fifbg_m<1) {
