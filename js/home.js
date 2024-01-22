@@ -50,7 +50,6 @@ function tsHandler(e) {
 		//相容PC端
 		tstart=e.touches[0].pageY;
 	}
-	console.log('tsHandler', tstart);
 	window.addEventListener('touchmove', tmHandler);
 	window.addEventListener('touchend', teHandler);
 }
@@ -62,11 +61,13 @@ function tmHandler(e) {
 		//相容PC端
 		tmove=e.touches[0].pageY;
 	}
-	console.log('tmHandler', tmove);
 }
 function teHandler() {
+	// 正往上，負往下
 	tend=tmove-tstart
-	console.log('teHandler', tend);
+	window.removeEventListener('touchmove', tmHandler);
+	window.removeEventListener('touchend', teHandler);
+	return tend;
 }
 
 home_btn.addEventListener("click", home_btnHandler)
@@ -629,22 +630,26 @@ window.addEventListener("wheel", function (e) {
 		wheelNew=-1
 	}
 })
-function touchsHandler() {
-	console.log('a');
-	// window.addEventListener("touchmove", this.slipMouseMove);
-	// window.addEventListener("touchend", this.slipMouseUp);
-}
 
 function scrollTime() {
 	st=setTimeout(() => {
 		scroll_delay=0.2
 		thirdT1_d=0.2
 		thirdT2_d=0.2
-		if (wheelNew<0) {
-			st_count-=1
+		if (device=='pc') {
+			if (wheelNew<0) {
+				st_count-=1
+			} else {
+				st_count+=1
+			}
 		} else {
-			st_count+=1
+			if (teHandler()<0) {
+				st_count+=1
+			} else {
+				st_count-=1
+			}
 		}
+
 		st_count<0? st_count=0:st_count
 	}, 30);
 }
@@ -656,11 +661,20 @@ function scrollTime2() {
 		forthT_d=0.2
 		forthBg_d=0.2
 		forthCat_d=0.2
-		if (wheelNew<0) {
-			st_count2-=1
+		if (device=='pc') {
+			if (wheelNew<0) {
+				st_count2-=1
+			} else {
+				st_count2+=1
+			}
 		} else {
-			st_count2+=1
+			if (teHandler()<0) {
+				st_count2+=1
+			} else {
+				st_count2-=1
+			}
 		}
+
 		st_count2<0? st_count2=0:st_count2
 	}, 30);
 }
@@ -671,11 +685,20 @@ function scrollTime3() {
 		forthT_d=0.2
 		forthBg_d=0.2
 		forthCat_d=0.2
-		if (wheelNew<0) {
-			st_count3-=1
+		if (device=='pc') {
+			if (wheelNew<0) {
+				st_count3-=1
+			} else {
+				st_count3+=1
+			}
 		} else {
-			st_count3+=1
+			if (teHandler()<0) {
+				st_count3+=1
+			} else {
+				st_count3-=1
+			}
 		}
+
 		st_count3<0? st_count3=0:st_count3
 	}, 30);
 }
@@ -686,11 +709,20 @@ function scrollTime4() {
 		forthT_d=0.2
 		forthBg_d=0.2
 		forthCat_d=0.2
-		if (wheelNew<0) {
-			st_count4-=1
+		if (device=='pc') {
+			if (wheelNew<0) {
+				st_count4-=1
+			} else {
+				st_count4+=1
+			}
 		} else {
-			st_count4+=1
+			if (teHandler()<0) {
+				st_count4+=1
+			} else {
+				st_count4-=1
+			}
 		}
+
 		st_count4<0? st_count4=0:st_count4
 	}, 30);
 }
@@ -701,16 +733,25 @@ function scrollTime5() {
 		forthT_d=0.2
 		forthBg_d=0.2
 		forthCat_d=0.2
-		if (wheelNew<0) {
-			st_count5-=1
+		if (device=='pc') {
+			if (wheelNew<0) {
+				st_count5-=1
+			} else {
+				st_count5+=1
+			}
 		} else {
-			st_count5+=1
+			if (teHandler()<0) {
+				st_count5+=1
+			} else {
+				st_count5-=1
+			}
 		}
+
 		st_count5<0? st_count5=0:st_count5
 	}, 30);
 }
 function scrollHandler(e) {
-	console.log('a', wrap.scrollTop);
+	console.log('a', st_count);
 	if (device=='ph') {
 		home_y=wrap.scrollTop
 		wrap.scrollTop-old_scroll>0? home_scroll=1:home_scroll=-1
@@ -734,7 +775,7 @@ function scrollHandler(e) {
 		scrollTime()
 		return
 	} else if (delay1>0&&st_count==3&&delay2>100) {
-		if (wheelNew<0) {
+		if (wheelNew<0||teHandler()>0) {
 			st_count=0
 		}
 	}
@@ -750,7 +791,7 @@ function scrollHandler(e) {
 		scrollTime2()
 		return
 	} else if (delay2>0&&st_count2==3) {
-		if (wheelNew<0) {
+		if (wheelNew<0||teHandler()>0) {
 			st_count2=0
 		}
 	}
@@ -765,7 +806,7 @@ function scrollHandler(e) {
 		scrollTime5()
 		return
 	} else if (delay3>0&&st_count5==3) {
-		if (wheelNew<0) {
+		if (wheelNew<0||teHandler()>0) {
 			st_count5=0
 		}
 	}
@@ -781,7 +822,7 @@ function scrollHandler(e) {
 		scrollTime3()
 		return
 	} else if (delay3>-100&&st_count3==3) {
-		if (wheelNew<0) {
+		if (wheelNew<0||teHandler()>0) {
 			st_count3=0
 		}
 	}
@@ -796,7 +837,7 @@ function scrollHandler(e) {
 		scrollTime4()
 		return
 	} else if (delay4>0&&st_count4==3) {
-		if (wheelNew<0) {
+		if (wheelNew<0||teHandler()>0) {
 			st_count4=0
 		}
 	}
@@ -1115,8 +1156,12 @@ function fifMove2() {
 		fif_bee2.style=`transform: scale(${ fifBee2_sc }) translate(${ fifBee2_m }% , ${ fifBee2_m }%);transition: all ${ fifBee2_d }s;opacity: ${ fifBee2_op };`;
 		fif_bee3.style=`transform: scale(${ fifBee3_sc }) translate(${ fifBee3_m }% , -${ fifBee3_m }%);transition: all ${ fifBee3_d }s;opacity: ${ fifBee3_op };`;
 		fifth_bird.style=` transform: scale(1) translate(${ fifBird_m }% , ${ fifBird_m }%);opacity:${ fifT_op };transition: all ${ fifT_d }s;`
-		fifth_video.play();
-		fifth_video_m.play();
+		if (nowD=='pc') {
+			fifth_video.play();
+		} else {
+			fifth_video_m.play();
+		}
+
 	} else if (t<100) {
 		fifbg_m=1+(30-t*0.3)/50
 		if (fifbg_m<1) {
