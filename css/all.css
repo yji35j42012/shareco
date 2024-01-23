@@ -3516,9 +3516,6 @@ h1 + .product_group {
   height: 100%;
   perspective: 200px;
 }
-.home > * {
-  will-change: auto;
-}
 .home.zoomOut {
   pointer-events: none;
 }
@@ -3669,7 +3666,7 @@ h1 + .product_group {
 }
 @media screen and (max-width: 995px) {
   .home_tree {
-    left: -270px;
+    left: -215px;
     top: 305px;
     width: 120%;
     max-width: 468px;
@@ -3930,6 +3927,9 @@ h1 + .product_group {
   transform: translateY(0px);
   height: 100%;
   background-color: #000;
+}
+.home_scroll > * {
+  will-change: auto;
 }
 .ph .home_scroll {
   position: fixed;

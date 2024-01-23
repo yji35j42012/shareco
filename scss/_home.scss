@@ -7,9 +7,6 @@
 	width: 100%;
 	height: 100%;
 	perspective: 200px;
->*{
-	will-change: auto;
-}
 	// pointer-events: none;
 	&.zoomOut {
 		pointer-events: none;
@@ -179,7 +176,7 @@
 		}
 
 		@include mw(M) {
-			left: -270px;
+			left: -215px;
 			top: 305px;
 			width: 120%;
 			max-width: 468px;
@@ -454,7 +451,9 @@
 		transform: translateY(0px);
 		height: 100%;
 		background-color: #000;
-
+		>* {
+			will-change: auto;
+		}
 		.ph & {
 			position: fixed;
 			top: 54px;
@@ -1425,7 +1424,7 @@
 		top: 0;
 		left: 0;
 		transform: translateY(-100%);
-		
+
 
 		// z-index: 999;
 		// .home_seven_box
