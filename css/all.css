@@ -3516,6 +3516,9 @@ h1 + .product_group {
   height: 100%;
   perspective: 200px;
 }
+.home > * {
+  will-change: auto;
+}
 .home.zoomOut {
   pointer-events: none;
 }
@@ -4785,7 +4788,6 @@ h1 + .product_group {
   top: 0;
   left: 0;
   transform: translateY(-100%);
-  will-change: auto;
 }
 .home_seven_box {
   display: flex;
