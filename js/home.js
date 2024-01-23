@@ -1261,9 +1261,9 @@ function sevMove() {
 	if (t>50&&home_scroll<0) {
 		sevT_op=(1-t/50)
 	}
-	sev_bg.style=`transform: translateY(${ sevBg_m }%);transition: all 0.2s;opacity:${ sevBg_op };`;
-	sev_txt.style=`opacity: ${ sevT_op };transition: all 0.2s;transform: translateY(${ sevT_m }%)`;
-	sev_footer.style=`transform: translateY(${ sevBg_m }%);transition: all 0.2s;`;
+	sev_bg.style=`transform: translate3d(0,${ sevBg_m }%,0);transition: all 0.2s;opacity:${ sevBg_op };`;
+	sev_txt.style=`opacity: ${ sevT_op };transition: all 0.2s;transform: translate3d(0,${ sevT_m }%,0)`;
+	sev_footer.style=`transform: translate3d(0,${ sevBg_m }%,0);transition: all 0.2s;`;
 
 }
 function sevMove1() { }
