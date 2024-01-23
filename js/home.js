@@ -751,7 +751,6 @@ function scrollTime5() {
 	}, 30);
 }
 function scrollHandler(e) {
-	console.log('a', st_count);
 	if (device=='ph') {
 		home_y=wrap.scrollTop
 		wrap.scrollTop-old_scroll>0? home_scroll=1:home_scroll=-1
@@ -1205,6 +1204,15 @@ function sixMove() {
 		sixIn_op=1-(t/100)
 		sixT_m=t*1.3
 	}
+	if (t<10) {
+		if (nowD=="pc") {
+			fifth_video.pause()
+			fifth_video.currentTime=0
+		} else {
+			fifth_video_m.pause()
+			fifth_video_m.currentTime=0
+		}
+	}
 	if (t<0) {
 		sixBg2_m=t
 	}
@@ -1304,20 +1312,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
 var six_img=document.querySelector("#six_img");
 var lion_img=document.querySelector("#lion_img");
-
+var tree_Lpic=document.querySelector("#tree_scene > img")
 function pcShow() {
 	six_img.setAttribute('src', "../images/home/sixPic_pc.png");
 	lion_img.setAttribute('src', "../images/home/lion_pc.png");
-	fifth_pc1.setAttribute('src',"../images/home/fifPicT_pc.png");
-	fifth_pc2.setAttribute('src',"../images/home/fifPicD_pc.png");
-	fifBg3.setAttribute('src',"../images/home/fifBg3_pc.png");
+	fifth_pc1.setAttribute('src', "../images/home/fifPicT_pc.png");
+	fifth_pc2.setAttribute('src', "../images/home/fifPicD_pc.png");
+	fifBg3.setAttribute('src', "../images/home/fifBg3_pc.png");
+	tree_Lpic.setAttribute('src', "../images/home/treel_pc.png")
 }
 function phShow() {
 	six_img.setAttribute('src', "../images/home/sixPic_ph.jpeg")
 	lion_img.setAttribute('src', "../images/home/lion_ph.png")
-	fifth_ph1.setAttribute('src',"../images/home/fifPicT_ph.webp");
-	fifth_ph2.setAttribute('src',"../images/home/fifPicD_ph.webp");
-	fifBg3.setAttribute('src',"../images/home/fifBg3_ph.webp");
+	fifth_ph1.setAttribute('src', "../images/home/fifPicT_ph.webp");
+	fifth_ph2.setAttribute('src', "../images/home/fifPicD_ph.webp");
+	fifBg3.setAttribute('src', "../images/home/fifBg3_ph.webp");
+	tree_Lpic.setAttribute('src', "../images/home/treel_ph.webp")
 }
 
 window.onload=function () {
