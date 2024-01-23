@@ -19,6 +19,14 @@
 	}
 }
 
+
+@mixin pcShowPic($picUrl){
+	@media (any-pointer: fine) and (hover: hover){
+		background-image: url($picUrl);
+	}
+}
+
+
 // juc 預設值 flex-start 、 align-items 預設值 stretch
 @mixin d_f($flex, $jc: 0, $ai: 0) {
 	display: $flex;

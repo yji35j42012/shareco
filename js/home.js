@@ -1306,12 +1306,18 @@ var six_img=document.querySelector("#six_img");
 var lion_img=document.querySelector("#lion_img");
 
 function pcShow() {
-	six_img.setAttribute('src', "../images/home/sixPic_pc.png")
-	lion_img.setAttribute('src', "../images/home/lion_pc.png")
+	six_img.setAttribute('src', "../images/home/sixPic_pc.png");
+	lion_img.setAttribute('src', "../images/home/lion_pc.png");
+	fifth_pc1.setAttribute('src',"../images/home/fifPicT_pc.png");
+	fifth_pc2.setAttribute('src',"../images/home/fifPicD_pc.png");
+	fifBg3.setAttribute('src',"../images/home/fifBg3_pc.png");
 }
 function phShow() {
 	six_img.setAttribute('src', "../images/home/sixPic_ph.jpeg")
 	lion_img.setAttribute('src', "../images/home/lion_ph.png")
+	fifth_ph1.setAttribute('src',"../images/home/fifPicT_ph.webp");
+	fifth_ph2.setAttribute('src',"../images/home/fifPicD_ph.webp");
+	fifBg3.setAttribute('src',"../images/home/fifBg3_ph.webp");
 }
 
 window.onload=function () {
