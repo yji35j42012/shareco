@@ -1193,6 +1193,8 @@ function fifMove2() {
 	fifth_ph2.style.transform=`translateY(${ fifPB_m }%) scale(${ fifPT_sc })`;
 
 }
+var sec_box=document.querySelector("#sec_box")
+var forDiv = document.querySelectorAll("#home_forth div")
 function sixMove() {
 	var t=(range6-home_y)/rangeSpeen
 	if (t<100) {
@@ -1210,7 +1212,20 @@ function sixMove() {
 			fifth_video.currentTime=0
 		} else {
 			fifth_video_m.pause()
-			fifth_video_m.currentTime=0
+		}
+
+		sec_box.style.display="none"
+		for (let i = 0; i < forDiv.length; i++) {
+			const element = forDiv[i];
+			element.style.display="none"
+			
+		}
+	} else if (t>50) {
+		sec_box.style.display=""
+		for (let i = 0; i < forDiv.length; i++) {
+			const element = forDiv[i];
+			element.style.display=""
+			
 		}
 	}
 	if (t<0) {
