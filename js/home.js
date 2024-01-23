@@ -880,7 +880,7 @@ function home_moveHandler() {
 			home_move_y=-200
 		}
 	}
-	home_move.style=`transform: translateY(${ home_move_y }%);transition: all ${ scroll_delay }s;`;
+	home_move.style=`transform: translate3d(0,${ home_move_y }%,0);transition: all ${ scroll_delay }s;`;
 }
 function thirdMove() {
 	var t=(range2-home_y)/rangeSpeen
