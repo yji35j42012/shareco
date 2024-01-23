@@ -4337,8 +4337,13 @@ h1 + .product_group {
   height: 100%;
   transform: scale(var(--fifbg));
   transform-origin: center center;
-  background: url("../images/home/background_fifth.png") no-repeat center/cover;
+  background: url("../images/home/fifBg_ph.webp") no-repeat center/cover;
   transition-duration: 0.2s;
+}
+@media (any-pointer: fine) and (hover: hover) {
+  .home_fifth_box1::before {
+    background-image: url("../images/home/fifBg_pc.png");
+  }
 }
 @media screen and (max-width: 1024px) {
   .home_fifth_bg1 {

@@ -1194,7 +1194,7 @@ function fifMove2() {
 
 }
 var sec_box=document.querySelector("#sec_box")
-var forDiv = document.querySelectorAll("#home_forth div")
+var forDiv=document.querySelectorAll("#home_forth div")
 function sixMove() {
 	var t=(range6-home_y)/rangeSpeen
 	if (t<100) {
@@ -1215,17 +1215,17 @@ function sixMove() {
 		}
 
 		sec_box.style.display="none"
-		for (let i = 0; i < forDiv.length; i++) {
-			const element = forDiv[i];
+		for (let i=0; i<forDiv.length; i++) {
+			const element=forDiv[i];
 			element.style.display="none"
-			
+
 		}
 	} else if (t>50) {
 		sec_box.style.display=""
-		for (let i = 0; i < forDiv.length; i++) {
-			const element = forDiv[i];
+		for (let i=0; i<forDiv.length; i++) {
+			const element=forDiv[i];
 			element.style.display=""
-			
+
 		}
 	}
 	if (t<0) {

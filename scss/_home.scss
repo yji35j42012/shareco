@@ -924,8 +924,9 @@
 				height: 100%;
 				transform: scale(var(--fifbg));
 				transform-origin: center center;
-				background: url("../images/home/background_fifth.png") no-repeat center/cover;
+				background: url("../images/home/fifBg_ph.webp") no-repeat center/cover;
 				transition-duration: 0.2s;
+				@include pcShowPic("../images/home/fifBg_pc.png");
 			}
 		}
 
