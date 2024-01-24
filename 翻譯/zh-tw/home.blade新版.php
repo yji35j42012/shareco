@@ -122,8 +122,8 @@
 						<span id="fifth_video_lin" class="home_fifth_lin" style="display: none"></span>
 						<img id="fifBg3" class="home_fifth_bg3" src="" alt="">
 						<div id="fiftxt2" class="home_fifth_txt">
-                            The dark side is still part of us. However strongly we suppress it, <br>
-							however strong the desire to showcase it.
+							黑暗面，也是自我組成的一部分 <br>
+							這部分有多壓抑、就有多渴望展現出來
 						</div>
 						<div id="fifbee4" class="home_fifth_bee pc">
 							<img src="../images/home/flyl.png" alt="">
@@ -155,20 +155,18 @@
 						<div id="sev_txt" class="home_seven_txt">
 							<a class="border_btn _back" href="./story.html">品牌故事</a>
 						</div>
-                        <footer id="sev_footer" class="footer">
+						<footer id="sev_footer" class="footer">
 							<div class="footer_box">
 								<ul class="footer_nav">
-									<li class="footer_nav_item fz14to12">Our Story</li>
+									<li class="footer_nav_item fz14to12">品牌故事</li>
 									<li class="footer_nav_item fz14to12"><a class="footer_nav_title"
-											href="contact.html">Contact Us</a></li>
+											href="contact.html">聯絡我們</a></li>
 									<li class="footer_nav_item fz14to12"><a class="footer_nav_title"
-											href="rule.html">Trademark
-											and Application</a></li>
+											href="rule.html">商標及應用準則</a></li>
 									<li class="footer_nav_item fz14to12"><a class="footer_nav_title"
-											href="usually.html">Common
-											Links</a></li>
+											href="usually.html">常用連結</a></li>
 									<li class="footer_nav_item fz14to12"><a class="footer_nav_title"
-											href="privacy.html">Privacy and Policies</a></li>
+											href="privacy.html">隱私權與政策</a></li>
 								</ul>
 								<ul class="footer_link">
 									<li class="footer_link_icon _fb">
