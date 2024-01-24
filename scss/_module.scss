@@ -686,7 +686,7 @@ h4 {
 		background-color: #000;
 	}
 
-	.ph & {
+	.ph &:not(.full) {
 		overflow-x: hidden;
 		overflow-y: auto;
 	}

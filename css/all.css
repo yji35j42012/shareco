@@ -655,7 +655,7 @@ h4 {
 .wrap._home {
   background-color: #000;
 }
-.ph .wrap {
+.ph .wrap:not(.full) {
   overflow-x: hidden;
   overflow-y: auto;
 }
