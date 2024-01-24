@@ -587,7 +587,7 @@ var range7=sev_s/moveSpeed+range6
 // var range7_1=range7
 
 var setFake_h=window_h+range2+forth_s/moveSpeed+forthOut_s/moveSpeed+fif_s/moveSpeed+fif2_s/moveSpeed+six_s/moveSpeed
-setFake_h=setFake_h+sev_s/moveSpeed+1000
+setFake_h=setFake_h+sev_s/moveSpeed
 
 var d1=false
 
@@ -1236,9 +1236,10 @@ function sevMove() {
 	if (t>50&&home_scroll<0) {
 		sevT_op=(1-t/50)
 	}
-	sev_bg.style=`transform: translate3d(0,${ sevBg_m }%,0);transition: all 0.2s;opacity:${ sevBg_op };`;
-	sev_txt.style=`opacity: ${ sevT_op };transition: all 0.2s;transform: translate3d(0,${ sevT_m }%,0)`;
-	sev_footer.style=`transform: translate3d(0,${ sevBg_m }%,0);transition: all 0.2s;`;
+	// sev_bg.style=`transform: translate3d(0,${ sevBg_m }%,0);transition: all 0.2s;opacity:${ sevBg_op };`;
+	sev_bg.style=`transition: all 0.2s;opacity:${ sevBg_op };`;
+	sev_txt.style=`transform: translate3d(0,${ sevT_m }%,0);opacity: ${ sevT_op };transition: opacity transform 0.2s;`;
+	sev_footer.style=`transform: translate3d(0,${ sevBg_m }%,0);transition: transform 0.2s;`;
 
 }
 function sevMove1() { }
@@ -1276,9 +1277,10 @@ function homeInit() {
 	six_bg1.style=`opacity: ${ sixIn_op };transition: all 0.2s;`;
 	six_bg2.style=`transform: translateY(${ sixBg2_s }%);transition: all 0.2s;`;
 	six_lin.style.opacity=sixIn_op
-	sev_bg.style=`transform: translateY(${ sevBg_s }%);;transition: all 0.2s;opacity:${ sevBg_op };`;
-	sev_footer.style=`transform: translateY(${ sevBg_s }%);;transition: all 0.2s;`;
-	sev_txt.style=`opacity: ${ sevT_op };transition: all 0.2s;`;
+	// sev_bg.style=`transform: translateY(${ sevBg_s }%);;transition: all 0.2s;opacity:${ sevBg_op };`;
+	sev_bg.style=`opacity:${ sevBg_op };opacity: all 0.2s;`;
+	sev_footer.style=`transform: translateY(${ sevBg_s }%);;transition: transform 0.2s;`;
+	sev_txt.style=`opacity: ${ sevT_op };transition: opacity 0.2s;`;
 	sev_lin.style=`opacity:1;height:100%;transition: all 0.2s;`
 }
 document.addEventListener("DOMContentLoaded", () => {
@@ -1329,8 +1331,10 @@ window.onload=function () {
 		pcShow()
 	}
 	if (device=='ph') {
-		document.querySelector('html').classList.add("ph");
+
 		wrap.addEventListener("scroll", scrollHandler);
+	} else {
+		document.querySelector('html').classList.remove("ph");
 	}
 }
 
