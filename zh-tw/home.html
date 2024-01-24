@@ -26,7 +26,7 @@
 <body>
 
 	<div id="wrap" class="wrap _home">
-		<div id="test">版本：1.13</div>
+		<div id="test">版本：1.14</div>
 		<header id="header" class="header">
 			<h1 class="logo">
 				<a href="home.html"><img src="../images/logo.svg" alt="SHARECO"></a>
@@ -274,7 +274,12 @@
 	<script src="../js/module.js"></script>
 	<script src="../js/home.js"></script>
 
-
+<script>
+	var te = document.querySelector("#test");
+	te.onclick = function () {
+		player.stopVideo();
+	}
+</script>
 </body>
 
 </html>

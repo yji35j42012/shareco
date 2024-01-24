@@ -949,7 +949,6 @@ function forthOut() {
 		forth_op=(t+40)/100*0.8
 		fif_op=1-(t+40)/100
 		forthOut_m=t/100
-		player.playVideo();
 	}
 	else if (t<100) {
 		forthOut_m=t/100
@@ -1171,14 +1170,7 @@ function sixMove() {
 			fifth_video.pause()
 		} else {
 			fifth_video_m.pause()
-			if (!videoSw) {
-				sec_box.innerHTML=`
-				<div id="player"></div>
-				<button id="home_video1Handler1" class="home_video_sound _quiet"></button>
-			`;
-				videoSw=true
-			}
-
+			player.stopVideo();
 		}
 		sec_box.style.display="none"
 		for (let i=0; i<forDiv.length; i++) {
@@ -1193,7 +1185,7 @@ function sixMove() {
 		}
 		if (videoSw) {
 			onYouTubeIframeAPIReady()
-			
+
 			videoSw=false
 		}
 	}
