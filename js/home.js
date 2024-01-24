@@ -1175,6 +1175,7 @@ function sixMove() {
 		} else {
 			fifth_video_m.pause()
 		}
+		sec_box.innerHTML=""
 
 		sec_box.style.display="none"
 		for (let i=0; i<forDiv.length; i++) {
@@ -1278,7 +1279,7 @@ function homeInit() {
 	six_bg2.style=`transform: translateY(${ sixBg2_s }%);transition: all 0.2s;`;
 	six_lin.style.opacity=sixIn_op
 	// sev_bg.style=`transform: translateY(${ sevBg_s }%);;transition: all 0.2s;opacity:${ sevBg_op };`;
-	sev_bg.style=`opacity:${ sevBg_op };opacity: all 0.2s;`;
+	sev_bg.style=`opacity:${ sevBg_op };transition: opacity 0.2s;`;
 	sev_footer.style=`transform: translateY(${ sevBg_s }%);;transition: transform 0.2s;`;
 	sev_txt.style=`opacity: ${ sevT_op };transition: opacity 0.2s;`;
 	sev_lin.style=`opacity:1;height:100%;transition: all 0.2s;`
