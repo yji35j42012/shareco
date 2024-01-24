@@ -1190,8 +1190,9 @@ function sixMove() {
 			const element=forDiv[i];
 			element.style.display=""
 		}
-		if (videoPl) {
+		if (!videoPl) {
 			player.playVideo();
+			fifth_video_m.play()
 			videoSw=true
 		}
 	}
