@@ -7,6 +7,10 @@
   cursor: pointer;
 }
 
+.home_seven_txt, .home_seven_bg, .home_six_txt {
+  will-change: transform;
+}
+
 h1 {
   color: #333;
   text-align: center;
@@ -3927,9 +3931,6 @@ h1 + .product_group {
   transform: translateY(0px);
   height: 100%;
   background-color: #000;
-}
-.home_scroll > * {
-  will-change: auto;
 }
 .ph .home_scroll {
   position: fixed;

@@ -4,6 +4,10 @@
 %hand {
 	cursor: pointer;
 }
+
+%upspeed{
+	will-change: transform;
+}
 // @extend %hand;
 // @extend %transition;
 @mixin hoverHandler {

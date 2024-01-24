@@ -40,6 +40,9 @@ function home_btnHandler() {
 	if (device=='ph') {
 		window.addEventListener('touchstart', tsHandler);
 	}
+	setTimeout(() => {
+		home.style.display="none";
+	}, 2000)
 }
 var tstart=0, tmove=0, tend=0
 function tsHandler(e) {
