@@ -1152,7 +1152,7 @@ function fifMove2() {
 }
 var sec_box=document.querySelector("#sec_box")
 var forDiv=document.querySelectorAll("#home_forth div")
-var videoSw=false
+var videoPl=true
 function sixMove() {
 	var t=(range6-home_y)/rangeSpeen
 	if (t<100) {
@@ -1167,26 +1167,32 @@ function sixMove() {
 	// tteess
 	if (t<10) {
 		if (nowD=="pc") {
-			fifth_video.pause()
+			if (videoPl) {
+				fifth_video.pause()
+				videoPl=false
+			}
 		} else {
-			fifth_video_m.pause()
-			player.stopVideo();
+			if (videoPl) {
+				fifth_video_m.pause()
+				player.stopVideo();
+				videoPl=false
+			}
 		}
 		sec_box.style.display="none"
 		for (let i=0; i<forDiv.length; i++) {
 			const element=forDiv[i];
 			element.style.display="none"
 		}
+
 	} else if (t>50) {
 		sec_box.style.display=""
 		for (let i=0; i<forDiv.length; i++) {
 			const element=forDiv[i];
 			element.style.display=""
 		}
-		if (videoSw) {
-			onYouTubeIframeAPIReady()
-
-			videoSw=false
+		if (videoPl) {
+			player.playVideo();
+			videoSw=true
 		}
 	}
 	if (t<0) {
