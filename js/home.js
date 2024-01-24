@@ -587,7 +587,7 @@ var range7=sev_s/moveSpeed+range6
 // var range7_1=range7
 
 var setFake_h=window_h+range2+forth_s/moveSpeed+forthOut_s/moveSpeed+fif_s/moveSpeed+fif2_s/moveSpeed+six_s/moveSpeed
-setFake_h=setFake_h+sev_s/moveSpeed
+setFake_h=setFake_h+sev_s/moveSpeed+1000
 
 var d1=false
 
