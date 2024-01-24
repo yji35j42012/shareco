@@ -501,9 +501,10 @@
 		z-index: 4;
 		position: relative;
 		padding: 63px;
-		background: url("../images/home/video_1_background.png") no-repeat center bottom / cover,
+		background: url("") no-repeat center bottom / cover,
 			linear-gradient(180deg, rgba(23, 23, 23, 0) 0%, #171717 0%);
 
+		@include pcShowPic("../images/home/secBg_pc.png");
 
 		@include mw(L) {
 			overflow: hidden;
@@ -723,7 +724,9 @@
 				width: 100%;
 				height: 105%;
 				max-height: 437px;
-				background: url('../images/home/third_top_lin.png') no-repeat top center/contain;
+				background: url('../images/home/thirdLinT_ph.webp') no-repeat top center/contain;
+
+				@include pcShowPic('../images/home/thirdLinT_pc.png');
 			}
 
 			&::after {
@@ -805,11 +808,9 @@
 				left: 0;
 				right: 0;
 				bottom: 0;
-				background: url("../images/home/background_forth_1.jpg") no-repeat center/cover;
+				background: url("../images/home/forthBg1_ph.webp") no-repeat center/cover;
 
-				@include mw(L) {
-					background-image: url("../images/home/background_forth_1_ph.jpg");
-				}
+				@include pcShowPic("../images/home/forthBg1_pc.jpg")
 			}
 		}
 
@@ -1446,7 +1447,9 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background: url("../images/home/seven_background.jpg") no-repeat center/cover;
+			background: url("../images/home/sevBg_ph.webp") no-repeat center/cover;
+
+			@include pcShowPic("../images/home/sevBg_pc.jpg");
 
 			@include mw(L) {
 				background-size: 230%;

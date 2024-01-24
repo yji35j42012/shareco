@@ -1322,22 +1322,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
 var six_img=document.querySelector("#six_img");
 var lion_img=document.querySelector("#lion_img");
-var tree_Lpic=document.querySelector("#tree_scene > img")
+var tree_Lpic=document.querySelector("#tree_scene > img");
+var plant_pic=document.querySelector("#plant_scene > img");
+var grass_pic=document.querySelector("#grass_scene > img");
+var straw_pic=document.querySelector("#straw_scene > img");
+var six_bg2=document.querySelector("#six_bg2 > img");
 function pcShow() {
 	six_img.setAttribute('src', "../images/home/sixPic_pc.png");
 	lion_img.setAttribute('src', "../images/home/lion_pc.png");
 	fifth_pc1.setAttribute('src', "../images/home/fifPicT_pc.png");
 	fifth_pc2.setAttribute('src', "../images/home/fifPicD_pc.png");
 	fifBg3.setAttribute('src', "../images/home/fifBg3_pc.png");
-	tree_Lpic.setAttribute('src', "../images/home/treel_pc.png")
+	tree_Lpic.setAttribute('src', "../images/home/treel_pc.png");
+	plant_pic.setAttribute("src", "../images/home/plant_pc.png");
+	grass_pic.setAttribute("src", "../images/home/grass_pc.png");
+	straw_pic.setAttribute("src", "../images/home/straw_pc.png");
+	six_bg2.setAttribute("src", "../images/home/sixBg2_pc.png");
 }
 function phShow() {
-	six_img.setAttribute('src', "../images/home/sixPic_ph.jpeg")
+	six_img.setAttribute('src', "../images/home/sixPic_ph.webp")
 	lion_img.setAttribute('src', "../images/home/lion_ph.png")
 	fifth_ph1.setAttribute('src', "../images/home/fifPicT_ph.webp");
 	fifth_ph2.setAttribute('src', "../images/home/fifPicD_ph.webp");
 	fifBg3.setAttribute('src', "../images/home/fifBg3_ph.webp");
-	tree_Lpic.setAttribute('src', "../images/home/treel_ph.webp")
+	tree_Lpic.setAttribute('src', "../images/home/treel_ph.webp");
+	plant_pic.setAttribute("src", "../images/home/plant_ph.webp");
+	grass_pic.setAttribute("src", "../images/home/grass_ph.webp");
+	straw_pic.setAttribute("src", "../images/home/straw_ph.webp");
+	six_bg2.setAttribute("src", "../images/home/sixBg2_ph.webp");
 }
 
 window.onload=function () {

@@ -3960,7 +3960,12 @@ h1 + .product_group {
   z-index: 4;
   position: relative;
   padding: 63px;
-  background: url("../images/home/video_1_background.png") no-repeat center bottom/cover, linear-gradient(180deg, rgba(23, 23, 23, 0) 0%, #171717 0%);
+  background: url("") no-repeat center bottom/cover, linear-gradient(180deg, rgba(23, 23, 23, 0) 0%, #171717 0%);
+}
+@media (any-pointer: fine) and (hover: hover) {
+  .home_video {
+    background-image: url("../images/home/secBg_pc.png");
+  }
 }
 @media screen and (max-width: 1024px) {
   .home_video {
@@ -4161,7 +4166,12 @@ h1 + .product_group {
   width: 100%;
   height: 105%;
   max-height: 437px;
-  background: url("../images/home/third_top_lin.png") no-repeat top center/contain;
+  background: url("../images/home/thirdLinT_ph.webp") no-repeat top center/contain;
+}
+@media (any-pointer: fine) and (hover: hover) {
+  .home_third_liner::before {
+    background-image: url("../images/home/thirdLinT_pc.png");
+  }
 }
 .home_third_liner::after {
   content: "";
@@ -4223,11 +4233,11 @@ h1 + .product_group {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url("../images/home/background_forth_1.jpg") no-repeat center/cover;
+  background: url("../images/home/forthBg1_ph.webp") no-repeat center/cover;
 }
-@media screen and (max-width: 1024px) {
+@media (any-pointer: fine) and (hover: hover) {
   .home_forth_box::before {
-    background-image: url("../images/home/background_forth_1_ph.jpg");
+    background-image: url("../images/home/forthBg1_pc.jpg");
   }
 }
 .home_forth_cat {
@@ -4807,7 +4817,12 @@ h1 + .product_group {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("../images/home/seven_background.jpg") no-repeat center/cover;
+  background: url("../images/home/sevBg_ph.webp") no-repeat center/cover;
+}
+@media (any-pointer: fine) and (hover: hover) {
+  .home_seven_bg {
+    background-image: url("../images/home/sevBg_pc.jpg");
+  }
 }
 @media screen and (max-width: 1024px) {
   .home_seven_bg {
