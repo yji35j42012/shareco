@@ -1619,6 +1619,42 @@ h1 + .banner_txt_rule {
   transition-property: all !important;
 }
 
+#test {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background-color: black;
+  color: white;
+}
+
+#ad {
+  position: absolute;
+  top: 0;
+  z-index: 999;
+  background-color: black;
+  color: white;
+  left: 100px;
+}
+
+#rm {
+  position: absolute;
+  top: 0;
+  z-index: 999;
+  background-color: black;
+  color: white;
+  left: 200px;
+}
+
+#pl {
+  position: absolute;
+  top: 0;
+  z-index: 999;
+  background-color: black;
+  color: white;
+  left: 300px;
+}
+
 @keyframes homeAni {
   0% {
     transform: scale(1);

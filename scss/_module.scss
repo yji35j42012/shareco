@@ -1709,3 +1709,36 @@ h4 {
 [data-aos^="fade"][data-aos^="fade"] {
 	transition-property: all !important;
 }
+
+#test {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	background-color: black;
+	color: white;
+}
+#ad{
+	position: absolute;
+	top: 0;
+	z-index: 999;
+	background-color: black;
+	color: white;
+	left: 100px;
+}
+#rm{
+	position: absolute;
+	top: 0;
+	z-index: 999;
+	background-color: black;
+	color: white;
+	left: 200px;
+}
+#pl{
+	position: absolute;
+	top: 0;
+	z-index: 999;
+	background-color: black;
+	color: white;
+	left: 300px;
+}

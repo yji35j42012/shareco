@@ -72,9 +72,7 @@ function teHandler() {
 	window.removeEventListener('touchend', teHandler);
 	return tend;
 }
-
 home_btn.addEventListener("click", home_btnHandler)
-
 home_video1Handler1.onclick=function () {
 	if (home_video1Handler1.classList.contains("_quiet")) {
 		home_video1Handler1.classList.remove("_quiet");
@@ -89,11 +87,8 @@ home_video1Handler1.onclick=function () {
 var fifth_video=document.querySelector("#fifth_video");
 var fifth_video_m=document.querySelector("#fifth_video_m");
 var fifth_videoPh=document.querySelector("#fifth_video_ph");
-
-
 fifth_video.pause();
 fifth_video_m.pause();
-
 function mousemove(event) {
 	var mouseX=event.clientX;
 	var mouseY=event.clientY;
@@ -118,7 +113,6 @@ function mousemove(event) {
 	}
 	// strawZ
 }
-
 function backHome() {
 	wrap.classList.add("full");
 	home.classList.remove("zoomOut");
@@ -129,7 +123,6 @@ function backHome() {
 }
 var pagedown=true;
 var pageMove=0;
-
 var body=document.querySelector("body");
 
 function check_op(num) {
@@ -478,6 +471,7 @@ var firstScriptTag=document.getElementsByTagName("script")[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 function onYouTubeIframeAPIReady() {
+	player=""
 	player=new YT.Player("player", {
 		width: "100%",
 		height: "100%",
@@ -955,6 +949,7 @@ function forthOut() {
 		forth_op=(t+40)/100*0.8
 		fif_op=1-(t+40)/100
 		forthOut_m=t/100
+		player.playVideo();
 	}
 	else if (t<100) {
 		forthOut_m=t/100
@@ -1158,6 +1153,7 @@ function fifMove2() {
 }
 var sec_box=document.querySelector("#sec_box")
 var forDiv=document.querySelectorAll("#home_forth div")
+var videoSw=false
 function sixMove() {
 	var t=(range6-home_y)/rangeSpeen
 	if (t<100) {
@@ -1169,14 +1165,21 @@ function sixMove() {
 		sixIn_op=1-(t/100)
 		sixT_m=t*1.3
 	}
+	// tteess
 	if (t<10) {
 		if (nowD=="pc") {
 			fifth_video.pause()
 		} else {
 			fifth_video_m.pause()
-		}
-		sec_box.innerHTML=""
+			if (!videoSw) {
+				sec_box.innerHTML=`
+				<div id="player"></div>
+				<button id="home_video1Handler1" class="home_video_sound _quiet"></button>
+			`;
+				videoSw=true
+			}
 
+		}
 		sec_box.style.display="none"
 		for (let i=0; i<forDiv.length; i++) {
 			const element=forDiv[i];
@@ -1187,7 +1190,11 @@ function sixMove() {
 		for (let i=0; i<forDiv.length; i++) {
 			const element=forDiv[i];
 			element.style.display=""
-
+		}
+		if (videoSw) {
+			onYouTubeIframeAPIReady()
+			
+			videoSw=false
 		}
 	}
 	if (t<0) {
