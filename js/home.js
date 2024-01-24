@@ -544,8 +544,7 @@ var third_s=100, third_e=0, third_m=third_s, third_d=0.2, third_speed=0.01, thir
 var thirdT1_s=-75, thirdT1_e=0, thirdT1_m=thirdT1_s, thirdT1_d=0.2, thirdT1_op=0;
 var thirdT2_s=-60, thirdT2_e=0, thirdT2_m=thirdT2_s, thirdT2_d=0.2, thirdT2_op=0;
 
-var home_third_liner=document.querySelector("#home_third_liner")
-
+var home_third_liner=document.querySelector("#home_third_liner");
 
 var forth_s=100, forth_e=0, forth_m=forth_s, forth_d=0.2, forth_op=1
 var forthT_s=-120, forthT_e=0, forthT_m=forthT_s, forthT_d=0.2, forthT_speed=0.041, forthT_op=0
@@ -565,7 +564,6 @@ var fif_bee2=document.querySelector("#fif_bee2");
 var fifBee2_s=100, fifBee2_d=0.2, fifBee2_m=fifBee2_s, fifBee2_op=0, fifBee2_sc=1
 var fif_bee3=document.querySelector("#fif_bee3");
 var fifBee3_s=150, fifBee3_d=0.2, fifBee3_m=fifBee3_s, fifBee3_op=0, fifBee3_sc=1
-
 var fifth_bg2=document.querySelector("#home_fifth_box2");
 var fifthBg2_op=0, fifthBg2_d=0.2
 
@@ -785,7 +783,6 @@ function scrollHandler(e) {
 			html.scrollTop=range3;
 		}
 		home_y=range3;
-		// document.removeEventListener("scroll")
 		clearTimeout(st)
 		scrollTime2()
 		return
@@ -861,8 +858,6 @@ function scrollHandler(e) {
 function aniHandler() { }
 
 document.addEventListener("scroll", scrollHandler);
-
-
 
 function home_moveHandler() {
 	var t=(range2-home_y)/rangeSpeen
