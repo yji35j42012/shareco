@@ -1173,6 +1173,7 @@ function sixMove() {
 			}
 		} else {
 			if (videoPl) {
+				console.log('aaaa');
 				fifth_video_m.pause()
 				player.stopVideo();
 				videoPl=false
