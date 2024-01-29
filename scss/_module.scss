@@ -931,6 +931,9 @@ h4 {
 		padding-top: 0;
 		padding-bottom: 75px;
 		background-color: transparent;
+		@include mw(L){
+			padding-bottom: 36px;
+		}
 	}
 
 	@include mw(L) {
@@ -1138,6 +1141,7 @@ h4 {
 
 		@include mw(L) {
 			top: calc(100% + 25px);
+			left: -10px
 		}
 
 		.show_lang & {
@@ -1718,7 +1722,8 @@ h4 {
 	background-color: black;
 	color: white;
 }
-#ad{
+
+#ad {
 	position: absolute;
 	top: 0;
 	z-index: 999;
@@ -1726,7 +1731,8 @@ h4 {
 	color: white;
 	left: 100px;
 }
-#rm{
+
+#rm {
 	position: absolute;
 	top: 0;
 	z-index: 999;
@@ -1734,7 +1740,8 @@ h4 {
 	color: white;
 	left: 200px;
 }
-#pl{
+
+#pl {
 	position: absolute;
 	top: 0;
 	z-index: 999;
