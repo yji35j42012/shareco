@@ -3471,7 +3471,7 @@ h1 + .product_group {
 @media screen and (max-width: 1024px) {
   .story_box._bg1 {
     padding-top: 84px;
-    padding-bottom: 153px;
+    padding-bottom: 110px;
   }
 }
 .story_box._bg2 {
@@ -4811,7 +4811,7 @@ h1 + .product_group {
 }
 @media screen and (max-width: 1024px) {
   .home_six_txt {
-    top: 147px;
+    top: 105px;
     left: 0;
     right: 0;
     bottom: auto;
