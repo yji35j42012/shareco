@@ -1238,9 +1238,9 @@
 		// .home_fifth_ph
 		&_ph {
 			position: absolute;
-			left: 0;
+			left: -100px;
 			bottom: 0;
-			height: 110%;
+			height: 100%;
 
 			&:after {
 				content: "";
