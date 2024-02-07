@@ -122,7 +122,7 @@
 						<span id="fifth_video_lin" class="home_fifth_lin" style="display: none"></span>
 						<img id="fifBg3" class="home_fifth_bg3" src="" alt="">
 						<div id="fiftxt2" class="home_fifth_txt">
-                            The dark side is still part of us. However strongly we suppress it, <br>
+							The dark side is still part of us. However strongly we suppress it, <br>
 							however strong the desire to showcase it.
 						</div>
 						<div id="fifbee4" class="home_fifth_bee pc">
@@ -153,9 +153,9 @@
 					<div class="home_seven_box">
 						<div id="sev_bg" class="home_seven_bg"></div>
 						<div id="sev_txt" class="home_seven_txt">
-							<a class="border_btn _back" href="./story.html">品牌故事</a>
+							<a class="border_btn _back" href="./story.html">Our Story</a>
 						</div>
-                        <footer id="sev_footer" class="footer">
+						<footer id="sev_footer" class="footer">
 							<div class="footer_box">
 								<ul class="footer_nav">
 									<li class="footer_nav_item fz14to12">Our Story</li>
@@ -184,8 +184,8 @@
 					</div>
 				</div>
 				<div id="home_txtBox" class="home_txtBox">
-					<div id="home_third_txt1" class="home_third_txt">我們都經歷過成長過程中的 struggle</div>
-					<div id="home_third_txt2" class="home_third_txt _right">我們都質疑過自己在這個世界的位置</div>
+					<div id="home_third_txt1" class="home_third_txt">We have all gone through the struggle that is growing up,</div>
+					<div id="home_third_txt2" class="home_third_txt _right">wondering what our position is in this bustling world.</div>
 				</div>
 
 			</div>
