@@ -87,8 +87,8 @@
 						<div id="forthBox" class="home_forth_txtBox">
 							<div id="forthBg" class="linear"></div>
 							<div id="forthTxt" class="txt">
-                                友情や家族愛、恋愛や抑圧、アイデンティティについてなど、多くの内面や外見に関する葛藤に向き合います。
-								SHARECOは、香りとファッションを通じて、すべてに敏感だった青春時代の思い出を大切にしたいと考えています。
+								私たちは生活に、秩序と安心感を求めていると同時に、規則が破られ、 <br>
+								状況が制御不能になることも密かに期待しています。
 							</div>
 						</div>
 					</div>
@@ -137,10 +137,11 @@
 						</div>
 						<div id="six_lin" class="home_six_lin"></div>
 						<div id="six_txt" class="home_six_txt">
-							<span>
-                                ネガティブな面を引き出すこととができる人ほど、魅力的でもあるのです。 <br>
-								あなただけの個性を放つ「香り」。それこそが、SHARECOです。
-							</span>
+						<span>
+							香りは情報を伝えるメッセージです。<br>
+							私たちのコンセプトは、すべての香水を通じて、<br>
+							魅力的で忘れられない思い出を創り出すことです。
+						</span>
 						</div>
 					</div>
 				</div>
@@ -178,8 +179,8 @@
 					</div>
 				</div>
 				<div id="home_txtBox" class="home_txtBox">
-					<div id="home_third_txt1" class="home_third_txt">我們都經歷過成長過程中的 struggle</div>
-					<div id="home_third_txt2" class="home_third_txt _right">我們都質疑過自己在這個世界的位置</div>
+				<div id="home_third_txt1" class="home_third_txt">私たちは成長の中で、ときに戸惑い、</div>
+<div id="home_third_txt2" class="home_third_txt _right">この世界で自分がどう生きたらいいのか疑問に思うことがあります。</div>
 				</div>
 
 			</div>

@@ -87,10 +87,8 @@
 						<div id="forthBox" class="home_forth_txtBox">
 							<div id="forthBg" class="linear"></div>
 							<div id="forthTxt" class="txt">
-								面對內在與外在的衝突 <br>
-								友情、親情、愛情、壓抑、自我認同問題<br>
-								SHARECO 想透過香氣與服飾 保存心中那段<br>
-								對任何事物都超有感覺的青春歲月
+								我們一邊追求生活的秩序、跟安全感<br>
+								但又嚮往著打破規則、享受失控的快感
 							</div>
 						</div>
 					</div>
@@ -140,11 +138,11 @@
 						</div>
 						<div id="six_lin" class="home_six_lin"></div>
 						<div id="six_txt" class="home_six_txt">
-							<span>
-								對那些能夠激發我們黑暗面的人 <br>
-								會有一種讓人沈迷的吸引力 <br>
-								這種人格特質散發的 “味道” 就是 SHARECO
-							</span>
+						<span>
+							香水是傳遞資訊的潛台詞<br>
+							我們的理念是讓每款香水創造出<br>
+							你心中迷人且無法自拔的記憶
+						</span>
 						</div>
 					</div>
 				</div>
