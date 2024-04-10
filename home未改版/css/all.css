@@ -722,9 +722,15 @@ h4 {
 }
 .alert_close::before, .alert_close::after {
   content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: block;
-  width: 100%;
+  width: calc(100% - 20px);
   height: 1px;
+  margin: auto;
   background-color: #333333;
 }
 .alert_close::before {
