@@ -100,24 +100,6 @@
 
 					<div class="store_info_title">北區（直營門市）</div>
 					<div class="store_grid">
-						<div class="store_grid_item">台北SOGO忠孝館</div>
-						<div class="store_grid_item">-</div>
-						<div class="store_grid_item">台北市大安區忠孝東路四段45號7F</div>
-						<div class="store_grid_item">
-							<a class="border_btn" target="_blank"
-								href="https://www.google.com/maps/place/%E9%81%A0%E6%9D%B1SOGO+%E5%8F%B0%E5%8C%97%E5%BF%A0%E5%AD%9D%E9%A4%A8/@25.0421272,121.5423644,17z/data=!3m1!4b1!4m6!3m5!1s0x3442abd0af5c2005:0xf9c26b5bf5de8f0a!8m2!3d25.0421272!4d121.5449393!16s%2Fg%2F1hjh8j24k?entry=ttu">MAP</a>
-						</div>
-					</div>
-					<div class="store_grid">
-						<div class="store_grid_item">台北捷運-南京復興站</div>
-						<div class="store_grid_item">02 - 25460500</div>
-						<div class="store_grid_item">台北市松山區南京東路3段253號(B1站內)</div>
-						<div class="store_grid_item">
-							<a class="border_btn" target="_blank"
-								href="https://www.google.com/maps/place/YBG.inc+%E5%8D%97%E4%BA%AC%E5%BE%A9%E8%88%88%E5%BA%97+B1/@25.0520925,121.541899,17.05z/data=!3m1!5s0x3442abdd89950dcd:0x520dd782f97878ab!4m6!3m5!1s0x3442ab9b1a3439c9:0x2d50660bc23ced56!8m2!3d25.0520565!4d121.5445172!16s%2Fg%2F11swmdggpd?entry=ttu">MAP</a>
-						</div>
-					</div>
-					<div class="store_grid">
 						<div class="store_grid_item">台北武昌誠品門市</div>
 						<div class="store_grid_item">02 - 23757500</div>
 						<div class="store_grid_item">台北市萬華區武昌街二段77號1F</div>
@@ -144,6 +126,15 @@
 								href="https://www.google.com/maps/place/YBG.inc+%E6%96%B0%E5%85%89%E5%8D%97%E8%A5%BF%E5%BA%97+4F/@25.0527457,121.5181246,17z/data=!3m2!4b1!5s0x3442a9694c4bc3b3:0x6c0d4efda97f46eb!4m6!3m5!1s0x3442a9d4b0be17bb:0x13435833f5b82d1c!8m2!3d25.0527457!4d121.5206995!16s%2Fg%2F11r_n1ytkp?entry=ttu">MAP</a>
 						</div>
 					</div>
+					<!-- 113.04.11新增 新店裕隆城 -->
+					<div class="store_grid">
+						<div class="store_grid_item">新店裕隆城</div>
+						<div class="store_grid_item">02 - 29177500</div>
+						<div class="store_grid_item">新北市板橋區新站路28號4F</div>
+						<div class="store_grid_item">
+							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/CX7MrLYVj5qdVwY99">MAP</a>
+						</div>
+					</div>
 					<div class="store_grid">
 						<div class="store_grid_item">新北板橋大遠百門市</div>
 						<div class="store_grid_item">02 - 29617500</div>
@@ -151,15 +142,6 @@
 						<div class="store_grid_item">
 							<a class="border_btn" target="_blank"
 								href="https://www.google.com/maps/place/YBG.inc+%E6%9D%BF%E6%A9%8B%E5%A4%A7%E9%81%A0%E7%99%BE%E5%BA%97+4F/@25.0133485,121.4636792,17z/data=!3m2!4b1!5s0x3442a818c143c69f:0x16258e8aadde7050!4m6!3m5!1s0x3442a91b0bce4667:0x971d7a9a1c15fd41!8m2!3d25.0133485!4d121.4662541!16s%2Fg%2F11jp163cxr?entry=ttu">MAP</a>
-						</div>
-					</div>
-					<div class="store_grid">
-						<div class="store_grid_item">中壢大江購物中心</div>
-						<div class="store_grid_item">03 - 4680999 #6386</div>
-						<div class="store_grid_item">桃園市中壢區中園路二段501號3F</div>
-						<div class="store_grid_item">
-							<a class="border_btn" target="_blank"
-								href="https://www.google.com/maps/place/YBG.inc+%E5%A4%A7%E6%B1%9F%E8%B3%BC%E7%89%A9%E4%B8%AD%E5%BF%83%E5%BA%97+3F/@25.0015282,121.2236038,17z/data=!3m2!4b1!5s0x346821bd2a266653:0xb3956276714a11e5!4m6!3m5!1s0x3468216150c5b2a5:0x74596c31dfd6fc1f!8m2!3d25.0015283!4d121.2284747!16s%2Fg%2F11k05915zq?entry=ttu">MAP</a>
 						</div>
 					</div>
 					<div class="store_grid">
@@ -240,13 +222,13 @@
 					</div>
 
 					<div class="store_info_title">Bonny & Read（經銷門市）</div>
+					<!-- 113.04.11新增 台北 京站門市 -->
 					<div class="store_grid">
-						<div class="store_grid_item">台北統一時代百貨</div>
+						<div class="store_grid_item">台北 京站門市</div>
 						<div class="store_grid_item">080-0000004</div>
-						<div class="store_grid_item">台北市信義區忠孝東路五段8號B1F</div>
+						<div class="store_grid_item">台北市大同區承德路一段1號 B1F</div>
 						<div class="store_grid_item">
-							<a class="border_btn" target="_blank"
-								href="https://www.google.com/maps/place/Bonny+%26+Read%E9%A3%BE%E5%93%81+%E5%8F%B0%E5%8C%97%E7%B5%B1%E4%B8%80%E6%99%82%E4%BB%A3%E6%AB%83%E4%BD%8D/@25.0406227,121.5628837,17z/data=!3m1!4b1!4m6!3m5!1s0x3442abb1c5fc6da5:0x752c46bceef0cfe1!8m2!3d25.0406227!4d121.5654586!16s%2Fg%2F11mv1trwqk?entry=ttu">MAP</a>
+							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/U1u24QQoj1bJs9Bv8">MAP</a>
 						</div>
 					</div>
 					<div class="store_grid">
@@ -285,6 +267,15 @@
 								href="https://www.google.com/maps/place/Bonny%26Read%E9%A3%BE%E5%93%81+%E6%96%B0%E5%8C%97%E6%A8%B9%E6%9E%97%E7%A7%80%E6%B3%B0%E6%AB%83%E4%BD%8D/@24.9955095,121.4257911,17z/data=!3m1!4b1!4m6!3m5!1s0x34681dd5fefef6a1:0xd7a6e2d40c32bf28!8m2!3d24.9955095!4d121.428366!16s%2Fg%2F11p5j73nlj?entry=ttu">MAP</a>
 						</div>
 					</div>
+					<!-- 113.04.11新增 桃園新光影城店 -->
+					<div class="store_grid">
+						<div class="store_grid_item">桃園新光影城店</div>
+						<div class="store_grid_item">080-0000004</div>
+						<div class="store_grid_item">桃園市中壢區春德路107號 1F</div>
+						<div class="store_grid_item">
+							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/BGEwC4jrVc1cS4Dc6">MAP</a>
+						</div>
+					</div>
 					<div class="store_grid">
 						<div class="store_grid_item">桃園台茂購物中心</div>
 						<div class="store_grid_item">080-0000004</div>
@@ -292,6 +283,33 @@
 						<div class="store_grid_item">
 							<a class="border_btn" target="_blank"
 								href="https://www.google.com/maps/place/Bonny+%26+Read%E9%A3%BE%E5%93%81+%E6%A1%83%E5%9C%92%E5%8F%B0%E8%8C%82%E8%B3%BC%E7%89%A9%E4%B8%AD%E5%BF%83%E6%AB%83%E4%BD%8D/@25.0530591,121.2853061,17z/data=!3m1!4b1!4m6!3m5!1s0x3442a158686285fb:0x8cae521ac5f7c614!8m2!3d25.0530591!4d121.287881!16s%2Fg%2F11kx5w6q89?entry=ttu">MAP</a>
+						</div>
+					</div>
+					<!-- 113.04.11新增 新竹 遠東百貨店 -->
+					<div class="store_grid">
+						<div class="store_grid_item">新竹 遠東百貨店</div>
+						<div class="store_grid_item">080-0000004</div>
+						<div class="store_grid_item">新竹縣竹北市莊敬北路18號 3F</div>
+						<div class="store_grid_item">
+							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/q1Qax2tdck4YMRhBA">MAP</a>
+						</div>
+					</div>
+					<!-- 113.04.11新增 新竹 大魯閣湳雅店 -->
+					<div class="store_grid">
+						<div class="store_grid_item">新竹 大魯閣湳雅店</div>
+						<div class="store_grid_item">080-0000004</div>
+						<div class="store_grid_item">新竹市北區大雅路88號 1F</div>
+						<div class="store_grid_item">
+							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/Kb4i4U4d2v1EFQC18">MAP</a>
+						</div>
+					</div>
+					<!-- 113.04.11新增 台中 誠品480門市 -->
+					<div class="store_grid">
+						<div class="store_grid_item">台中 誠品480門市</div>
+						<div class="store_grid_item">04-22516898</div>
+						<div class="store_grid_item">：台中市西屯區市政路480號 3F</div>
+						<div class="store_grid_item">
+							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/m845EuoM552U3tmw5">MAP</a>
 						</div>
 					</div>
 					<div class="store_grid">
@@ -339,6 +357,15 @@
 								href="https://www.google.com/maps/place/Bonny+%26+Read%E9%A3%BE%E5%93%81+%E5%8F%B0%E5%8D%97%E6%96%B0%E5%85%89%E4%B8%89%E8%B6%8A%E5%B0%8F%E8%A5%BF%E9%96%80%E9%96%80%E5%B8%82/@22.9873418,120.1965377,17z/data=!3m2!4b1!5s0x346e767bf3ecf66b:0x3097d6fa8a67b1f5!4m6!3m5!1s0x346e773f867150a3:0x380368b87bb78f4a!8m2!3d22.9873418!4d120.1991126!16s%2Fg%2F11j0v2njyg?entry=ttu">MAP</a>
 						</div>
 					</div>
+					<!-- 113.04.11新增 高雄 大立門市 -->
+					<div class="store_grid">
+						<div class="store_grid_item">高雄 大立門市</div>
+						<div class="store_grid_item">07-2613060</div>
+						<div class="store_grid_item">高雄市前金區五福三路57號 3F</div>
+						<div class="store_grid_item">
+							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/DTpRzRiM47F5Edce9">MAP</a>
+						</div>
+					</div>
 					<div class="store_grid">
 						<div class="store_grid_item">高雄左營新光三越</div>
 						<div class="store_grid_item">080-0000004</div>
@@ -369,48 +396,12 @@
 
 					<div class="store_info_title">新高橋（經銷門市）</div>
 					<div class="store_grid">
-						<div class="store_grid_item">BG Gold Natural 遠百竹北</div>
-						<div class="store_grid_item">03 - 6105018</div>
-						<div class="store_grid_item">新竹縣竹北市莊敬北路18號2F</div>
-						<div class="store_grid_item">
-							<a class="border_btn" target="_blank"
-								href="https://www.google.com/maps/place/%E9%81%A0%E6%9D%B1%E7%99%BE%E8%B2%A8+%E7%AB%B9%E5%8C%97%E5%BA%97/@24.8223519,121.023336,17z/data=!3m1!4b1!4m6!3m5!1s0x3468370f9719828d:0xd05d42e4cea4211f!8m2!3d24.8223519!4d121.023336!16s%2Fg%2F11h40zcw1k?entry=ttu">MAP</a>
-						</div>
-					</div>
-					<div class="store_grid">
 						<div class="store_grid_item">夢時代店</div>
 						<div class="store_grid_item">07-8232378</div>
 						<div class="store_grid_item">高雄市前鎮區中華五路789號 B2綠區</div>
 						<div class="store_grid_item">
 							<a class="border_btn" target="_blank"
 								href="https://www.google.com/maps/place/%E6%96%B0%E9%AB%98%E6%A9%8B%E8%97%A5%E5%A6%9D%E5%A4%A2%E6%99%82%E4%BB%A3%E5%BA%97/@22.5951028,120.3046179,17z/data=!3m2!4b1!5s0x346e0372e8d9952b:0xd1d960a5f0c3b4d6!4m6!3m5!1s0x346e0372e97998d9:0x56ed64dcc5b99121!8m2!3d22.5951028!4d120.3071928!16s%2Fg%2F11f2wp_xq5?entry=ttu">MAP</a>
-						</div>
-					</div>
-					<div class="store_grid">
-						<div class="store_grid_item">土庫店</div>
-						<div class="store_grid_item">07-3535458</div>
-						<div class="store_grid_item">高雄市楠梓區土庫路188號</div>
-						<div class="store_grid_item">
-							<a class="border_btn" target="_blank"
-								href="https://www.google.com/maps/place/%E6%96%B0%E9%AB%98%E6%A9%8B%E8%97%A5%E5%B1%80%E5%9C%9F%E5%BA%AB%E5%BA%97/@22.7391146,120.328205,17z/data=!3m1!4b1!4m6!3m5!1s0x346e0fcd5fa45173:0x23178515967e0bb3!8m2!3d22.7391146!4d120.3307799!16s%2Fg%2F1pzr919cr?entry=ttu">MAP</a>
-						</div>
-					</div>
-					<div class="store_grid">
-						<div class="store_grid_item">八德中店</div>
-						<div class="store_grid_item">07-3736437</div>
-						<div class="store_grid_item">高雄市仁武區八德中路88號</div>
-						<div class="store_grid_item">
-							<a class="border_btn" target="_blank"
-								href="https://www.google.com/maps/place/%E6%96%B0%E9%AB%98%E6%A9%8B%E8%97%A5%E5%B1%80%E5%85%AB%E5%BE%B7%E4%B8%AD%E5%BA%97/@22.6863121,120.3356022,17z/data=!3m1!4b1!4m6!3m5!1s0x346e0553d5aa0d75:0x841a32b75b777999!8m2!3d22.6863121!4d120.3381771!16s%2Fg%2F11c2prnzzz?entry=ttu">MAP</a>
-						</div>
-					</div>
-					<div class="store_grid">
-						<div class="store_grid_item">藍昌店</div>
-						<div class="store_grid_item">07-5912358</div>
-						<div class="store_grid_item">高雄市楠梓區藍昌路387號</div>
-						<div class="store_grid_item">
-							<a class="border_btn" target="_blank"
-								href="https://www.google.com/maps/place/%E6%96%B0%E9%AB%98%E6%A9%8B%E8%97%A5%E5%B1%80%E8%97%8D%E6%98%8C%E5%BA%97/@22.7266428,120.288781,17z/data=!3m1!4b1!4m6!3m5!1s0x346e0f0a8ae66d09:0x80db37ea4099e532!8m2!3d22.7266428!4d120.2913559!16s%2Fg%2F11q466f5jr?entry=ttu">MAP</a>
 						</div>
 					</div>
 
@@ -431,6 +422,39 @@
 						<div class="store_grid_item">
 							<a class="border_btn" target="_blank"
 								href="https://www.google.com/maps/place/%E9%87%91%E6%A9%98%E7%9C%BC%E9%8F%A1+%E9%AB%98%E9%9B%84%E6%97%97%E8%89%A6%E5%BA%97/@22.6329802,120.3207052,17z/data=!3m1!4b1!4m6!3m5!1s0x346e04c0afb3c5f3:0x748167e2e358f0ba!8m2!3d22.6329803!4d120.3255761!16s%2Fg%2F1tg7prts?entry=ttu">MAP</a>
+						</div>
+					</div>
+
+					<!-- 113.04.11新增 VLENS（經銷門市） -->
+					<div class="store_info_title">VLENS（經銷門市）</div>
+					<!-- 113.04.11新增 桃園 統領店 -->
+					<div class="store_grid">
+						<div class="store_grid_item">桃園 統領店</div>
+						<div class="store_grid_item">0971-801-575</div>
+						<div class="store_grid_item">桃園市桃園區中正路61號1F (統領廣場)</div>
+						<div class="store_grid_item">
+							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/qDZH8E2ZHc7kLS4BA">MAP</a>
+						</div>
+					</div>
+
+					<!-- 113.04.11新增 DT STORE（經銷門市） -->
+					<div class="store_info_title">DT STORE（經銷門市）</div>
+					<!-- 113.04.11新增 高雄 苓雅店 -->
+					<div class="store_grid">
+						<div class="store_grid_item">高雄 苓雅店</div>
+						<div class="store_grid_item">07-751-0016</div>
+						<div class="store_grid_item">高雄市苓雅區漢泰街19號</div>
+						<div class="store_grid_item">
+							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/PDDNTsTi2MX8SbRi8">MAP</a>
+						</div>
+					</div>
+					<!-- 113.04.11新增 高雄 鼎山店 -->
+					<div class="store_grid">
+						<div class="store_grid_item">高雄 鼎山店</div>
+						<div class="store_grid_item">07-392-5885</div>
+						<div class="store_grid_item">高雄市三民區鼎山街560號</div>
+						<div class="store_grid_item">
+							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/tXDitKarLVR9uMcX8">MAP</a>
 						</div>
 					</div>
 				</div>
