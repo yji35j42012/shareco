@@ -37,7 +37,7 @@
 					trademark materials are used at any time, and also reserves the right to terminate or modify the
 					Trademark/Logo Usage Rights.
 				</div>
-				<button class="border_btn _bottom_arr">Download all logo material</button>
+				<a class="border_btn _bottom_arr" href="../images/rule/SHARECO＿商標下載檔.zip" download="SHARECO＿商標下載檔.zip">Download all logo material</a>
 			</div>
 		</section>
 		<section class="rule">

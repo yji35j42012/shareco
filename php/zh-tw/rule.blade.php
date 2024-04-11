@@ -30,11 +30,11 @@
             <div class="banner_txt">
                 <h1>商標及應用準則</h1>
                 <div class="banner_txt_rule fz26pxto16">下方為SHARECO的標誌使用方針，你可以下載所有標誌素材進行運用。
-                    使用標誌素材，表示你同意遵守光速火箭商標使用規範。
-                    請了解光速火箭有權利在任一時間重新評估標誌素材的使用方式，
+                    使用標誌素材，表示你同意遵守SHARECO商標使用規範。
+                    請了解SHARECO有權利在任一時間重新評估標誌素材的使用方式，
                     並保留可終止或修改「標誌使用權限」的權利。
                 </div>
-                <button class="border_btn _bottom_arr">下載所有標誌素材</button>
+                <a class="border_btn _bottom_arr" href="../images/rule/SHARECO＿商標下載檔.zip" download="SHARECO＿商標下載檔.zip">下載所有標誌素材</a>
             </div>
         </section>
         <section class="rule">

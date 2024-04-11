@@ -30,7 +30,7 @@
         <section class="banner _bg _contact" style="background-image: url('../images/contact/banner.png');">
             <div class="banner_txt">
 				<h1 data-aos="fade-up">Contact Us</h1>
-                <div class="banner_txt_rule fz26pxto16" data-aos="fade-up" data-aos-delay="100">如果你喜歡
+                <div class="banner_txt_rule fz26pxto16" data-aos="fade-up" data-aos-delay="100">
                     If you are a fan of SHARECO and our vision, have any questions or would like to receive more
 					information as well as offer collaborations, please contact us using one of the following methods.
 					We will get back to you as soon as possible.
