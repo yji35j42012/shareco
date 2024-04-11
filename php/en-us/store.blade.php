@@ -133,7 +133,7 @@
 					<div class="store_grid">
 						<div class="store_grid_item">新店裕隆城</div>
 						<div class="store_grid_item">02 - 29177500</div>
-						<div class="store_grid_item">新北市板橋區新站路28號4F</div>
+						<div class="store_grid_item">新北市新店區中興路三段70號2F</div>
 						<div class="store_grid_item">
 							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/CX7MrLYVj5qdVwY99">MAP</a>
 						</div>
@@ -146,6 +146,17 @@
 						<div class="store_grid_item">
 							<a class="border_btn" target="_blank"
 								href="https://www.google.com/maps/place/YBG.inc+%E6%9D%BF%E6%A9%8B%E5%A4%A7%E9%81%A0%E7%99%BE%E5%BA%97+4F/@25.0133485,121.4636792,17z/data=!3m2!4b1!5s0x3442a818c143c69f:0x16258e8aadde7050!4m6!3m5!1s0x3442a91b0bce4667:0x971d7a9a1c15fd41!8m2!3d25.0133485!4d121.4662541!16s%2Fg%2F11jp163cxr?entry=ttu">MAP</a>
+						</div>
+					</div>
+					<!-- 113.04.11修改地址 -->
+					<div class="store_grid">
+						<div class="store_grid_item">MetroWalk Shopping Center Store</div>
+						<div class="store_grid_item">+886-3-4680999 #6386</div>
+						<div class="store_grid_item">1F., No. 501, Sec. 2, Zhongyuan Rd., Zhongli Dist., Taoyuan City,
+							Taiwan</div>
+						<div class="store_grid_item">
+							<a class="border_btn" target="_blank"
+								href="https://www.google.com/maps/place/YBG.inc+%E5%A4%A7%E6%B1%9F%E8%B3%BC%E7%89%A9%E4%B8%AD%E5%BF%83%E5%BA%97+3F/@25.0015282,121.2236038,17z/data=!3m2!4b1!5s0x346821bd2a266653:0xb3956276714a11e5!4m6!3m5!1s0x3468216150c5b2a5:0x74596c31dfd6fc1f!8m2!3d25.0015283!4d121.2284747!16s%2Fg%2F11k05915zq?entry=ttu">MAP</a>
 						</div>
 					</div>
 					<div class="store_grid">
@@ -473,29 +484,26 @@
 					</div>
                 </div>
                 <div id="tw_store1" name="store_show" class="store_online" style="display: none;">
-                    <div class="store_online_title">SHARECO線上商店</div>
+                    <div class="store_online_title">SHARECO Online Shop </div>
                     <div class="store_online_pic">
                         <img src="../images/store/onlinestore_banner.jpg" alt="SHARECO onlinestore_banner">
                     </div>
-                    <a class="border_btn" target="_blank" target="_blank" href="https://www.shareco.me/">線上購買</a>
-
-                    <div class="store_online_title _border">其他通路</div>
+                    <a class="border_btn" target="_blank" target="_blank" href="https://www.shareco.me/">Go To Shop</a>
+					<div class="store_online_title _border">Other Online Shops</div>
                     <ul class="store_online_group">
                         <li class="store_online_item">
                             <img src="../images/store/lineicon.png" alt="SHARECO lineicon">
-                            <a class="border_btn" target="_blank" target="_blank"
-                                href="https://giftshop-tw.line.me/brand/10002195">前往購買頁面</a>
-
-                        </li>
+                            <a class="border_btn" target="_blank" target="_blank" href="https://giftshop-tw.line.me/brand/10002195">Go To Shop</a>
+						</li>
                         <li class="store_online_item">
                             <img src="../images/store/shopeeicon.png" alt="SHARECO shopeeicon">
                             <a class="border_btn" target="_blank" target="_blank"
-                                href="https://shopee.tw/keep_perfume?categoryId=100630&entryPoint=ShopByPDP&itemId=1605467055&upstream=search">前往購買頁面</a>
+                                href="https://shopee.tw/keep_perfume?categoryId=100630&entryPoint=ShopByPDP&itemId=1605467055&upstream=search">Go To Shop</a>
                         </li>
                         <li class="store_online_item">
                             <img src="../images/store/momoicon.png" alt="SHARECO momoicon">
                             <a class="border_btn" target="_blank" target="_blank"
-                                href="https://www.momoshop.com.tw/category/DgrpCategory.jsp?d_code=1115002468&p_orderType=4&showType=chessboardType">前往購買頁面</a>
+                                href="https://www.momoshop.com.tw/category/DgrpCategory.jsp?d_code=1115002468&p_orderType=4&showType=chessboardType">Go To Shop</a>
                         </li>
                     </ul>
                 </div>
@@ -587,8 +595,7 @@
 					<div class="store_online_pic">
 						<img src="../images/store/onlinestore_banner.jpg" alt="SHARECO onlinestore_banner">
 					</div>
-					<a class="border_btn _m0" target="_blank" href="https://sg.asiapower-worldwide.com/perfume_sgp">Go
-						To Shop</a>
+					<a class="border_btn _m0" target="_blank" href="https://sg.asiapower-worldwide.com/perfume_sgp">Go To Shop</a>
 				</div>
 
 				<div id="my_store0" name="store_show" class="store_info" style="display: none;">
@@ -699,8 +706,7 @@
 					<div class="store_online_pic">
 						<img src="../images/store/onlinestore_banner.jpg" alt="SHARECO onlinestore_banner">
 					</div>
-					<a class="border_btn _m0" target="_blank" href="https://www.asiapower-worldwide.com/YBG_sperfume">Go
-						To Shop</a>
+					<a class="border_btn _m0" target="_blank" href="https://www.asiapower-worldwide.com/YBG_sperfume">Go To Shop</a>
 				</div>
 
             </div>

@@ -159,8 +159,8 @@
                     </div>
                 </div>
                 <div id="home_txtBox" class="home_txtBox">
-                    <div id="home_third_txt1" class="home_third_txt">私たちは成長の中で、ときに戸惑い、</div>
-                    <div id="home_third_txt2" class="home_third_txt _right">この世界で自分がどう生きたらいいのか疑問に思うことがあります。</div>
+                    <div id="home_third_txt1" class="home_third_txt">私たちは成長の中で、<br>ときに戸惑い、</div>
+                    <div id="home_third_txt2" class="home_third_txt _right">この世界で自分がどう生きたらいい<br>のか疑問に思うことがあります。</div>
                 </div>
 
             </div>

@@ -160,12 +160,12 @@
                     </div>
                 </div>
                 <div id="home_txtBox" class="home_txtBox">
-                    <div id="home_third_txt1" class="home_third_txt">We have all gone through the struggle that is
-                        growing up,</div>
-                    <div id="home_third_txt2" class="home_third_txt _right">wondering what our position is in this
-                        bustling world.</div>
+                    <div id="home_third_txt1" class="home_third_txt">
+                        We have all gone through the <br> struggle that is growing up,
+                    </div>
+                    <div id="home_third_txt2" class="home_third_txt _right">
+                        wondering what our position is <br> in this bustling world.</div>
                 </div>
-
             </div>
         </div>
         <div id="fake_h" class="home_fake_H"></div>

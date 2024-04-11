@@ -130,7 +130,7 @@
 					<div class="store_grid">
 						<div class="store_grid_item">新店裕隆城</div>
 						<div class="store_grid_item">02 - 29177500</div>
-						<div class="store_grid_item">新北市板桥区新站路28号4F</div>
+						<div class="store_grid_item">新北市新店区中兴路三段70号2F</div>
 						<div class="store_grid_item">
 							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/CX7MrLYVj5qdVwY99">MAP</a>
 						</div>
@@ -144,6 +144,16 @@
                                 href="https://www.google.com/maps/place/YBG.inc+%E6%9D%BF%E6%A9%8B%E5%A4%A7%E9%81%A0%E7%99%BE%E5%BA%97+4F/@25.0133485,121.4636792,17z/data=!3m2!4b1!5s0x3442a818c143c69f:0x16258e8aadde7050!4m6!3m5!1s0x3442a91b0bce4667:0x971d7a9a1c15fd41!8m2!3d25.0133485!4d121.4662541!16s%2Fg%2F11jp163cxr?entry=ttu">MAP</a>
                         </div>
                     </div>
+					<!-- 113.04.11修改地址 -->
+					<div class="store_grid">
+						<div class="store_grid_item">中坜大江购物中心</div>
+						<div class="store_grid_item">03 - 4680999 #6386</div>
+						<div class="store_grid_item">桃园市中坜区中园路二段501号1F</div>
+						<div class="store_grid_item">
+							<a class="border_btn" target="_blank"
+								href="https://www.google.com/maps/place/YBG.inc+%E5%A4%A7%E6%B1%9F%E8%B3%BC%E7%89%A9%E4%B8%AD%E5%BF%83%E5%BA%97+3F/@25.0015282,121.2236038,17z/data=!3m2!4b1!5s0x346821bd2a266653:0xb3956276714a11e5!4m6!3m5!1s0x3468216150c5b2a5:0x74596c31dfd6fc1f!8m2!3d25.0015283!4d121.2284747!16s%2Fg%2F11k05915zq?entry=ttu">MAP</a>
+						</div>
+					</div>
                     <div class="store_grid">
                         <div class="store_grid_item">新竹远东巨城门市</div>
                         <div class="store_grid_item">03 - 5430500</div>
