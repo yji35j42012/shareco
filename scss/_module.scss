@@ -66,6 +66,9 @@ h4 {
 	}
 }
 
+.d_none{
+	display: none !important;
+}
 .fz36to14 {
 	font-family: Noto Sans;
 	font-size: 36px;
@@ -929,15 +932,22 @@ h4 {
 	padding: 83px 149px 96px;
 	background-color: #171717;
 
+
+
 	.error+& {
 		padding-top: 0;
 	}
 
-	.home_seven & {
+	._home & {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
 		padding-top: 0;
 		padding-bottom: 75px;
 		background-color: transparent;
-		@include mw(L){
+
+		@include mw(L) {
 			padding-bottom: 36px;
 		}
 	}

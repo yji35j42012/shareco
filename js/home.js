@@ -564,6 +564,7 @@ var six_lin = document.querySelector("#six_lin");
 var sev_s = 100
 var sev_bg = document.querySelector("#sev_bg");
 var sev_footer = document.querySelector("#sev_footer");
+var sev_footer_ph = document.querySelector("#sev_footer_ph");
 var sevBg_s = 100, sevBg_m = sevBg_s, sevBg_d = 0.2, sevBg_op = 0
 var sev_txt = document.querySelector("#sev_txt");
 var sevT_op = 0, sevT_m = 100
@@ -1173,7 +1174,6 @@ function sixMove() {
 			}
 		} else {
 			if (videoPl) {
-				console.log('aaaa');
 				fifth_video_m.pause()
 				player.stopVideo();
 				videoPl = false
@@ -1248,6 +1248,7 @@ function sevMove() {
 	sev_bg.style = `transition: all 0.2s;opacity:${sevBg_op};`;
 	sev_txt.style = `transform: translate3d(0,${sevT_m}%,0);opacity: ${sevT_op};transition: opacity transform 0.2s;`;
 	sev_footer.style = `transform: translate3d(0,${sevBg_m}%,0);transition: transform 0.2s;`;
+	sev_footer_ph.style = `transform: translate3d(0,${sevBg_m * 2}%,0);transition: transform 0.2s;`;
 
 }
 function sevMove1() { }
@@ -1288,6 +1289,7 @@ function homeInit() {
 	// sev_bg.style=`transform: translateY(${ sevBg_s }%);;transition: all 0.2s;opacity:${ sevBg_op };`;
 	sev_bg.style = `opacity:${sevBg_op};transition: opacity 0.2s;`;
 	sev_footer.style = `transform: translateY(${sevBg_s}%);;transition: transform 0.2s;`;
+	sev_footer_ph.style = `transform: translateY(${sevBg_s}%);;transition: transform 0.2s;`;
 	sev_txt.style = `opacity: ${sevT_op};transition: opacity 0.2s;`;
 	sev_lin.style = `opacity:1;height:100%;transition: all 0.2s;`
 }
@@ -1313,6 +1315,7 @@ function pcShow() {
 	grass_pic.setAttribute("src", "../images/home/grass_pc.png");
 	straw_pic.setAttribute("src", "../images/home/straw_pc.png");
 	six_bg2.setAttribute("src", "../images/home/sixBg2_pc.png");
+	sev_footer.classList.remove("d_none");
 }
 function phShow() {
 	six_img.setAttribute('src', "../images/home/sixPic_ph.webp")
@@ -1325,6 +1328,7 @@ function phShow() {
 	grass_pic.setAttribute("src", "../images/home/grass_ph.webp");
 	straw_pic.setAttribute("src", "../images/home/straw_ph.webp");
 	six_bg2.setAttribute("src", "../images/home/sixBg2_ph.webp");
+	sev_footer_ph.classList.remove("d_none");
 }
 
 window.onload = function () {
