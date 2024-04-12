@@ -64,7 +64,7 @@
                         Desire · Addiction
                     </div>
                     <div class="home_txt_since">since 2016</div>
-                    <button id="home_btn" class="home_txt_btn">Enter</button>
+                    <button id="home_btn" class="home_txt_btn d_none">Enter</button>
                 </span>
             </div>
         </div>
