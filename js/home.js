@@ -1364,6 +1364,8 @@ window.onload=function () {
 	} else {
 		document.querySelector('html').classList.remove("ph");
 	}
+
+	home_btn.classList.remove("d_none");
 }
 
 window.onresize=function () {
