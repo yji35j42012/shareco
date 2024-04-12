@@ -1243,7 +1243,7 @@ function sevMove() {
 		sevBg_op=(1-t/100)
 		sevT_op=(1-t/50)
 		if (home_scroll<0) {
-			sevPhT_op=(1-t/50)
+			sevPhT_op=(1-t/20)
 		}
 
 	} else if (t<100) {
@@ -1254,7 +1254,7 @@ function sevMove() {
 			sevT_op=(1-t/50)
 		}
 		if (home_scroll<0) {
-			sevPhT_op=(1-t/50)
+			sevPhT_op=(1-t/20)
 		}
 	}
 	if (t>50&&home_scroll<0) {
