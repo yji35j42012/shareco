@@ -1231,7 +1231,6 @@ function sevMove() {
 	if (t<20) {
 		sevBg_m=t
 		sevT_m=t
-		sevBg_m=t
 		sevBg_op=(1-t/100)
 		sevT_op=(1-t/50)
 		sevPhT_m=t
@@ -1239,7 +1238,6 @@ function sevMove() {
 	} else if (t<50) {
 		sevBg_m=t
 		sevT_m=t
-		sevBg_m=t
 		sevBg_op=(1-t/100)
 		sevT_op=(1-t/50)
 		if (home_scroll<0) {
@@ -1247,7 +1245,6 @@ function sevMove() {
 		}
 
 	} else if (t<100) {
-		sevBg_m=t
 		sevBg_m=t
 		sevBg_op=(1-t/100)
 		if (home_scroll<0) {
