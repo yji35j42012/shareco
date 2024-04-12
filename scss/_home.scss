@@ -1335,7 +1335,8 @@
 				top: 0;
 				right: 0;
 				width: 55%;
-				@include mw(L){
+
+				@include mw(L) {
 					top: -25px;
 					width: 100%;
 				}
@@ -1478,6 +1479,12 @@
 			padding-top: 70px;
 			text-align: center;
 			@extend %upspeed;
+
+			&._ph {
+				position: fixed;
+				left: 0;
+				right: 0;
+			}
 
 			p {
 				color: #fff;

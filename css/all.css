@@ -4910,6 +4910,11 @@ h1 + .product_group {
   padding-top: 70px;
   text-align: center;
 }
+.home_seven_txt._ph {
+  position: fixed;
+  left: 0;
+  right: 0;
+}
 .home_seven_txt p {
   color: #fff;
   text-align: center;
