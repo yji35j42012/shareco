@@ -1253,6 +1253,9 @@ function sevMove() {
 		if (home_scroll<0) {
 			sevT_op=(1-t/50)
 		}
+		if (home_scroll<0) {
+			sevPhT_op=(1-t/50)
+		}
 	}
 	if (t>50&&home_scroll<0) {
 		sevT_op=(1-t/50)
