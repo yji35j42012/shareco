@@ -150,10 +150,10 @@
                     <div id="sev_lin" class="home_seven_lin"></div>
                     <div class="home_seven_box">
                         <div id="sev_bg" class="home_seven_bg"></div>
-                        <div id="sev_txt" class="home_seven_txt">
+                        <div id="sev_txt" class="home_seven_txt d_none">
                             <a class="border_btn _back" href="{{ route('story') }}">ブランドストーリー</a>
                         </div>
-                        <footer id="sev_footer" class="footer">
+                        <footer id="sev_footer" class="footer d_none">
                             @include($footer)
                         </footer>
                     </div>
@@ -166,6 +166,12 @@
             </div>
         </div>
         <div id="fake_h" class="home_fake_H"></div>
+        <div id="sev_txt_ph" class="home_seven_txt _ph d_none">
+            <a class="border_btn _back" href="{{ route('story') }}">ブランドストーリー</a>
+		</div>
+		<footer id="sev_footer_ph" class="footer d_none">
+            @include($footer)
+		</footer>
     </div>
     <script src="{{ asset('/js/pallax.js') }}"></script>
     <script src="{{ asset('/js/module.js') }}"></script>
