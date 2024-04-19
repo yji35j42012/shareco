@@ -316,7 +316,7 @@
 					<div class="store_grid">
 						<div class="store_grid_item">台中 誠品480門市</div>
 						<div class="store_grid_item">04-22516898</div>
-						<div class="store_grid_item">：台中市西屯區市政路480號 3F</div>
+						<div class="store_grid_item">台中市西屯區市政路480號 3F</div>
 						<div class="store_grid_item">
 							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/m845EuoM552U3tmw5">MAP</a>
 						</div>

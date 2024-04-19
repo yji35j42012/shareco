@@ -2,6 +2,7 @@ function getC() {
 	fetch("https://ipinfo.io/json")
 		.then(response => response.json())
 		.then(data => {
+			console.log('data', data.country);
 			if (data.country) {
 				set_usually_sel(data.country);
 			} else {

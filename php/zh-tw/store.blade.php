@@ -304,11 +304,20 @@
 							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/q1Qax2tdck4YMRhBA">MAP</a>
 						</div>
 					</div>
+					<!-- 113.04.11新增 新竹 大魯閣湳雅店 -->
+					<div class="store_grid">
+						<div class="store_grid_item">新竹 大魯閣湳雅店</div>
+						<div class="store_grid_item">080-0000004</div>
+						<div class="store_grid_item">新竹市北區大雅路88號 1F</div>
+						<div class="store_grid_item">
+							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/Kb4i4U4d2v1EFQC18">MAP</a>
+						</div>
+					</div>
 					<!-- 113.04.11新增 台中 誠品480門市 -->
 					<div class="store_grid">
 						<div class="store_grid_item">台中 誠品480門市</div>
 						<div class="store_grid_item">04-22516898</div>
-						<div class="store_grid_item">：台中市西屯區市政路480號 3F</div>
+						<div class="store_grid_item">台中市西屯區市政路480號 3F</div>
 						<div class="store_grid_item">
 							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/m845EuoM552U3tmw5">MAP</a>
 						</div>
