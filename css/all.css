@@ -749,6 +749,11 @@ h4 {
   margin: auto;
   background-color: #333333;
 }
+@media screen and (max-width: 1024px) {
+  .alert_close::before, .alert_close::after {
+    width: 100%;
+  }
+}
 .alert_close::before {
   transform: rotate(45deg);
 }

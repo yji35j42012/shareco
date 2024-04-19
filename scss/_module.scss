@@ -779,6 +779,9 @@ h4 {
 			height: 1px;
 			margin: auto;
 			background-color: #333333;
+			@include mw(L) {
+				width: 100%;
+			}
 		}
 
 		&::before {

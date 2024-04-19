@@ -450,8 +450,8 @@
 						</div>
 					</div>
 
-					<!-- 113.04.11新增 VLENS（經銷門市） -->
-					<div class="store_info_title">VLENS（經銷門市）</div>
+					<!-- 113.04.11新增 VLENS（distributor store） -->
+					<div class="store_info_title">VLENS（distributor store）</div>
 					<!-- 113.04.11新增 桃園 統領店 -->
 					<div class="store_grid">
 						<div class="store_grid_item">VLENS (Taoyuan Tonlin Plaza)</div>
@@ -462,8 +462,8 @@
 						</div>
 					</div>
 
-					<!-- 113.04.11新增 DT STORE（經銷門市） -->
-					<div class="store_info_title">DT STORE（經銷門市）</div>
+					<!-- 113.04.11新增 DT STORE（distributor store） -->
+					<div class="store_info_title">DT STORE（distributor store）</div>
 					<!-- 113.04.11新增 高雄 苓雅店 -->
 					<div class="store_grid">
 						<div class="store_grid_item">DT STORE (Kaohsiung Lingya)</div>
