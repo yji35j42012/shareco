@@ -147,7 +147,7 @@
 					<div class="store_grid">
 						<div class="store_grid_item">中壢大江購物中心</div>
 						<div class="store_grid_item">03 - 4680999 #6386</div>
-						<div class="store_grid_item">桃園市中壢區中園路二段501號3F</div>
+						<div class="store_grid_item">桃園市中壢區中園路二段501號1F</div>
 						<div class="store_grid_item">
 							<a class="border_btn" target="_blank"
 								href="https://www.google.com/maps/place/YBG.inc+%E5%A4%A7%E6%B1%9F%E8%B3%BC%E7%89%A9%E4%B8%AD%E5%BF%83%E5%BA%97+3F/@25.0015282,121.2236038,17z/data=!3m2!4b1!5s0x346821bd2a266653:0xb3956276714a11e5!4m6!3m5!1s0x3468216150c5b2a5:0x74596c31dfd6fc1f!8m2!3d25.0015283!4d121.2284747!16s%2Fg%2F11k05915zq?entry=ttu">MAP</a>
