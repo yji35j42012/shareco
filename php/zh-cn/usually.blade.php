@@ -41,9 +41,9 @@
                     <li class="usually_sel_item" name='my' data-name="马来西亚">马来西亚 / Malaysia</li>
                 </ul>
             </label>
-            <a name="usually_area" class="usually_btn" href="./store.html?country=tw&content=store0"
+            <a name="usually_area" class="usually_btn" href="./store?country=tw&content=store0"
                 data-msg=" 线上销售平台">台湾</a>
-            <a name="usually_area" class="usually_btn" href="./store.html?country=jp&content=store1"
+            <a name="usually_area" class="usually_btn" href="./store?country=jp&content=store1"
                 data-msg=" 门市据点">台湾</a>
             <ul class="gallery_photo" data-aos="">
                 <li class="gallery_photo_item">
