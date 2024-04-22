@@ -232,7 +232,7 @@
                     </div>
 
                     <div class="store_info_title">Bonny & Read（经销门市）</div>
-					<!-- 113.04.11新增 台北 京站門市 -->
+					<!-- 113.04.11新增 台北 京站门市 -->
 					<div class="store_grid">
 						<div class="store_grid_item">台北 京站门市</div>
 						<div class="store_grid_item">080-0000004</div>
@@ -277,7 +277,7 @@
                                 href="https://www.google.com/maps/place/Bonny%26Read%E9%A3%BE%E5%93%81+%E6%96%B0%E5%8C%97%E6%A8%B9%E6%9E%97%E7%A7%80%E6%B3%B0%E6%AB%83%E4%BD%8D/@24.9955095,121.4257911,17z/data=!3m1!4b1!4m6!3m5!1s0x34681dd5fefef6a1:0xd7a6e2d40c32bf28!8m2!3d24.9955095!4d121.428366!16s%2Fg%2F11p5j73nlj?entry=ttu">MAP</a>
                         </div>
                     </div>
-					<!-- 113.04.11新增 桃園新光影城店 -->
+					<!-- 113.04.11新增 桃园新光影城店 -->
 					<div class="store_grid">
 						<div class="store_grid_item">桃园新光影城店</div>
 						<div class="store_grid_item">080-0000004</div>
@@ -295,7 +295,7 @@
                                 href="https://www.google.com/maps/place/Bonny+%26+Read%E9%A3%BE%E5%93%81+%E6%A1%83%E5%9C%92%E5%8F%B0%E8%8C%82%E8%B3%BC%E7%89%A9%E4%B8%AD%E5%BF%83%E6%AB%83%E4%BD%8D/@25.0530591,121.2853061,17z/data=!3m1!4b1!4m6!3m5!1s0x3442a158686285fb:0x8cae521ac5f7c614!8m2!3d25.0530591!4d121.287881!16s%2Fg%2F11kx5w6q89?entry=ttu">MAP</a>
                         </div>
                     </div>
-					<!-- 113.04.11新增 新竹 遠東百貨店 -->
+					<!-- 113.04.11新增 新竹 远东百货店 -->
 					<div class="store_grid">
 						<div class="store_grid_item">新竹 远东百货店</div>
 						<div class="store_grid_item">080-0000004</div>
@@ -304,7 +304,7 @@
 							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/q1Qax2tdck4YMRhBA">MAP</a>
 						</div>
 					</div>
-					<!-- 113.04.11新增 新竹 大魯閣湳雅店 -->
+					<!-- 113.04.11新增 新竹 大鲁阁湳雅店 -->
 					<div class="store_grid">
 						<div class="store_grid_item">新竹 大鲁阁湳雅店</div>
 						<div class="store_grid_item">080-0000004</div>
@@ -313,7 +313,7 @@
 							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/Kb4i4U4d2v1EFQC18">MAP</a>
 						</div>
 					</div>
-					<!-- 113.04.11新增 台中 誠品480門市 -->
+					<!-- 113.04.11新增 台中 诚品480门市 -->
 					<div class="store_grid">
 						<div class="store_grid_item">台中 诚品480门市</div>
 						<div class="store_grid_item">04-22516898</div>
@@ -367,7 +367,7 @@
                                 href="https://www.google.com/maps/place/Bonny+%26+Read%E9%A3%BE%E5%93%81+%E5%8F%B0%E5%8D%97%E6%96%B0%E5%85%89%E4%B8%89%E8%B6%8A%E5%B0%8F%E8%A5%BF%E9%96%80%E9%96%80%E5%B8%82/@22.9873418,120.1965377,17z/data=!3m2!4b1!5s0x346e767bf3ecf66b:0x3097d6fa8a67b1f5!4m6!3m5!1s0x346e773f867150a3:0x380368b87bb78f4a!8m2!3d22.9873418!4d120.1991126!16s%2Fg%2F11j0v2njyg?entry=ttu">MAP</a>
                         </div>
                     </div>
-					<!-- 113.04.11新增 高雄 大立門市 -->
+					<!-- 113.04.11新增 高雄 大立门市 -->
 					<div class="store_grid">
 						<div class="store_grid_item">高雄 大立门市</div>
 						<div class="store_grid_item">07-2613060</div>
@@ -435,9 +435,9 @@
                         </div>
                     </div>
 
-                    <!-- 113.04.11新增 VLENS（經銷門市） -->
+                    <!-- 113.04.11新增 VLENS（经销门市） -->
                     <div class="store_info_title">VLENS（经销门市）</div>
-                    <!-- 113.04.11新增 桃園 統領店 -->
+                    <!-- 113.04.11新增 桃园 统领店 -->
                     <div class="store_grid">
                         <div class="store_grid_item">桃园 统领店</div>
                         <div class="store_grid_item">0971-801-575</div>
@@ -447,7 +447,7 @@
                         </div>
                     </div>
 
-                    <!-- 113.04.11新增 DT STORE（經銷門市） -->
+                    <!-- 113.04.11新增 DT STORE（经销门市） -->
                     <div class="store_info_title">DT STORE（经销门市）</div>
                     <!-- 113.04.11新增 高雄 苓雅店 -->
                     <div class="store_grid">
@@ -576,6 +576,23 @@
                                 href="https://www.google.com/maps/place/Mendatory+by+SGPomades/@1.354212,103.9424603,17z/data=!3m2!4b1!5s0x31da3d0e20554629:0x9b30d8bf98892e90!4m6!3m5!1s0x31da3d8053f39685:0xa1d1cad01ee3a6e4!8m2!3d1.354212!4d103.9450352!16s%2Fg%2F11s926nx2x?entry=ttu">MAP</a>
                         </div>
                     </div>
+                    <!-- 113.04.11新增  -->
+					<div class="store_grid">
+						<div class="store_grid_item">MENDATORY <br> BY SGPOMADES</div>
+						<div class="store_grid_item">+65 9477 8385</div>
+						<div class="store_grid_item">Jurong Point Shopping Centre 1 Jurong West Central 2, #02-30, Singapore 648886</div>
+						<div class="store_grid_item">
+							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/X1hQHFXRJyA3YQoK8">MAP</a>
+						</div>
+					</div>
+					<div class="store_grid">
+						<div class="store_grid_item">EXIT</div>
+						<div class="store_grid_item">+65 8201 8488 /<br> +65 9618 9069</div>
+						<div class="store_grid_item">8 Grange Rd, #02-04 Cineleisure, Singapore 239695</div>
+						<div class="store_grid_item">
+							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/c4qCjiPoy9k1mzf36">MAP</a>
+						</div>
+					</div>
                 </div>
                 <div id="sg_store1" name="store_show" class="store_online" style="display: none;">
                     <div class="store_online_title">SHARECO线上商店</div>
@@ -599,18 +616,9 @@
                                 href="https://www.google.com/maps/place/158CM+Concept+Store/@1.5886719,103.7556924,17z/data=!3m1!4b1!4m6!3m5!1s0x31da6f321414fe79:0x4de6844ac8125e3e!8m2!3d1.5886719!4d103.7582673!16s%2Fg%2F11rklw5w19?entry=ttu">MAP</a>
                         </div>
                     </div>
+
                     <div class="store_grid">
-                        <div class="store_grid_item">Pavilion Bukit Jalil - HaWooo Store</div>
-                        <div class="store_grid_item">-</div>
-                        <div class="store_grid_item">No 2 Persiaran Jalil Utama, Bandar Bukit Jalil,
-                            Kuala Lumpur</div>
-                        <div class="store_grid_item">
-                            <a class="border_btn" target="_blank"
-                                href="https://www.google.com/maps/place/HaWooo+Store/@3.052567,101.6674995,17z/data=!3m2!4b1!5s0x31cc4add2262e65b:0x2df3ba0adadd2348!4m6!3m5!1s0x31cc4b7b43e4160d:0xe83244244c6a73bc!8m2!3d3.052567!4d101.6700744!16s%2Fg%2F11s3_sp1dd?entry=ttu">MAP</a>
-                        </div>
-                    </div>
-                    <div class="store_grid">
-                        <div class="store_grid_item">HMXY</div>
+						<div class="store_grid_item">HMXY Clothing</div>
                         <div class="store_grid_item">+6012-2511125</div>
                         <div class="store_grid_item">12-01, Jalan Austin Heights 8/9, Taman Mount
                             Austin, Johor Bahru, Malaysia</div>
@@ -630,7 +638,7 @@
                         </div>
                     </div>
                     <div class="store_grid">
-                        <div class="store_grid_item">HYPESTAGES</div>
+						<div class="store_grid_item">HYPESTAGES (SELANGOR)</div>
                         <div class="store_grid_item">+6012-2511125</div>
                         <div class="store_grid_item">No71,Jalan PJS 11/7, Bandar Sunway, 47500
                             Petaling Jaya, Selangor</div>
@@ -651,7 +659,7 @@
                     </div>
                     <div class="store_grid">
                         <div class="store_grid_item">Julyana Scent Studio</div>
-                        <div class="store_grid_item">-</div>
+						<div class="store_grid_item">+6012-2511125</div>
                         <div class="store_grid_item">block e-2-6 plaza arkadia no.3, jalan intisari perdana, desa
                             parkcity, 52200 kuala lumpur.</div>
                         <div class="store_grid_item">
@@ -661,7 +669,7 @@
                     </div>
                     <div class="store_grid">
                         <div class="store_grid_item">S Luxury Penang</div>
-                        <div class="store_grid_item">-</div>
+						<div class="store_grid_item">+6012-2511125</div>
                         <div class="store_grid_item">77-G-10, Times Square Penang, George Town, Malaysia</div>
                         <div class="store_grid_item">
                             <a class="border_btn" target="_blank"
@@ -669,16 +677,33 @@
                         </div>
                     </div>
                     <div class="store_grid">
-                        <div class="store_grid_item">PNJ Robinmay</div>
-                        <div class="store_grid_item">-</div>
-                        <div class="store_grid_item">2F-29 Second Floor, Sunway Carnival Mall, 13700 Perai, Pulau
-                            Pinang
-                        </div>
+                        <div class="store_grid_item">PNJ</div>
+						<div class="store_grid_item">+6012-3785091</div>
+						<div class="store_grid_item">19 Jalan Industri Impian 1 Taman Industri Impian 14000 Bukit Mertajam</div>
                         <div class="store_grid_item">
                             <a class="border_btn" target="_blank"
                                 href="https://www.google.com/maps/place/ROBINMAY+@+SUNWAY+CARNIVAL+%E7%BB%8F%E9%94%80%E4%BB%A3%E8%B4%AD/@5.3992121,100.3976216,18z/data=!4m6!3m5!1s0x304ac529fac0945b:0x2b1b0c53a306213!8m2!3d5.39918!4d100.3978393!16s%2Fg%2F11scszv49r?entry=ttu">MAP</a>
                         </div>
                     </div>
+					<!-- 113.04.11新增 -->
+					<div class="store_grid">
+						<div class="store_grid_item">158CM CONCEPT STORE</div>
+						<div class="store_grid_item">+6012-2511125</div>
+						<div class="store_grid_item">TM-038 Third Mezzanine, Mid Valley Southkey Megamall, Persiaran Southkey 1, Kota Southkey, 80150 
+							Johor Bahru, Johor</div>
+						<div class="store_grid_item">
+							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/rBUY2PLheNhV58L59">MAP</a>
+						</div>
+					</div>
+					<div class="store_grid">
+						<div class="store_grid_item">Thebigbang.shop</div>
+						<div class="store_grid_item">+6012-2511125</div>
+						<div class="store_grid_item">L153, Level 1, The Starhill, No. 181 Jalan Bukit Bintang, 55100 Kuala Lumpur.</div>
+						<div class="store_grid_item">
+							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/xfLzG34WXLybCuQ58">MAP</a>
+						</div>
+					</div>
+
                 </div>
                 <div id="my_store1" name="store_show" class="store_online" style="display: none;">
                     <div class="store_online_title">SHARECO线上商店</div>

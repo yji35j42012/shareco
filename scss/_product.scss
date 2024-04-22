@@ -16,13 +16,13 @@
 		}
 	}
 
-	&._lastPic {
-		padding-bottom: 341px;
+	// &._lastPic {
+	// 	padding-bottom: 341px;
 
-		@include mw(XL) {
-			padding-bottom: 137px;
-		}
-	}
+	// 	@include mw(XL) {
+	// 		padding-bottom: 137px;
+	// 	}
+	// }
 
 	// .product_txt
 	&_txt {
@@ -284,8 +284,10 @@
 		position: relative;
 		@include d_f(flex, center, center);
 		max-width: 1294px;
-		margin: auto;
-
+		margin:0 auto 142px;
+		@include mw(L) {
+			margin:0 auto 87px;
+		}
 		&::before {
 			content: "";
 			position: absolute;

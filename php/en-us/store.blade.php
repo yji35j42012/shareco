@@ -450,7 +450,7 @@
 						</div>
 					</div>
 
-					<!-- 113.04.11新增 VLENS（distributor store） -->
+					<!-- 113.04.11新增 VLENS（經銷門市） -->
 					<div class="store_info_title">VLENS（distributor store）</div>
 					<!-- 113.04.11新增 桃園 統領店 -->
 					<div class="store_grid">
@@ -462,7 +462,7 @@
 						</div>
 					</div>
 
-					<!-- 113.04.11新增 DT STORE（distributor store） -->
+					<!-- 113.04.11新增 DT STORE（經銷門市） -->
 					<div class="store_info_title">DT STORE（distributor store）</div>
 					<!-- 113.04.11新增 高雄 苓雅店 -->
 					<div class="store_grid">
@@ -580,13 +580,21 @@
 								href="https://www.google.com/maps/place/Mendatory+by+SGPomades/@1.354212,103.9424603,17z/data=!3m2!4b1!5s0x31da3d0e20554629:0x9b30d8bf98892e90!4m6!3m5!1s0x31da3d8053f39685:0xa1d1cad01ee3a6e4!8m2!3d1.354212!4d103.9450352!16s%2Fg%2F11s926nx2x?entry=ttu">MAP</a>
 						</div>
 					</div>
+					<!-- 113.04.11新增  -->
 					<div class="store_grid">
-						<div class="store_grid_item">The Barrack Shop</div>
-						<div class="store_grid_item"></div>
-						<div class="store_grid_item">710 Geylang Road. TheBarrackShop</div>
+						<div class="store_grid_item">MENDATORY <br> BY SGPOMADES</div>
+						<div class="store_grid_item">+65 9477 8385</div>
+						<div class="store_grid_item">Jurong Point Shopping Centre 1 Jurong West Central 2, #02-30, Singapore 648886</div>
 						<div class="store_grid_item">
-							<a class="border_btn" target="_blank"
-								href="https://maps.app.goo.gl/cXXrzJDLSmpzCwgWA">MAP</a>
+							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/X1hQHFXRJyA3YQoK8">MAP</a>
+						</div>
+					</div>
+					<div class="store_grid">
+						<div class="store_grid_item">EXIT</div>
+						<div class="store_grid_item">+65 8201 8488 /<br> +65 9618 9069</div>
+						<div class="store_grid_item">8 Grange Rd, #02-04 Cineleisure, Singapore 239695</div>
+						<div class="store_grid_item">
+							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/c4qCjiPoy9k1mzf36">MAP</a>
 						</div>
 					</div>
 				</div>
@@ -612,7 +620,7 @@
 						</div>
 					</div>
 					<div class="store_grid">
-						<div class="store_grid_item">HMXY</div>
+						<div class="store_grid_item">HMXY Clothing</div>
 						<div class="store_grid_item">+6012-2511125</div>
 						<div class="store_grid_item">12-01, Jalan Austin Heights 8/9, Taman Mount
 							Austin, Johor Bahru, Malaysia</div>
@@ -632,7 +640,7 @@
 						</div>
 					</div>
 					<div class="store_grid">
-						<div class="store_grid_item">HYPESTAGES</div>
+						<div class="store_grid_item">HYPESTAGES (SELANGOR)</div>
 						<div class="store_grid_item">+6012-2511125</div>
 						<div class="store_grid_item">No71,Jalan PJS 11/7, Bandar Sunway, 47500
 							Petaling Jaya, Selangor</div>
@@ -653,7 +661,7 @@
 					</div>
 					<div class="store_grid">
 						<div class="store_grid_item">Julyana Scent Studio</div>
-						<div class="store_grid_item">-</div>
+						<div class="store_grid_item">+6012-2511125</div>
 						<div class="store_grid_item">block e-2-6 plaza arkadia no.3, jalan intisari perdana, desa
 							parkcity, 52200 kuala lumpur.</div>
 						<div class="store_grid_item">
@@ -663,7 +671,7 @@
 					</div>
 					<div class="store_grid">
 						<div class="store_grid_item">S Luxury Penang</div>
-						<div class="store_grid_item">-</div>
+						<div class="store_grid_item">+6012-2511125</div>
 						<div class="store_grid_item">77-G-10, Times Square Penang, George Town, Malaysia</div>
 						<div class="store_grid_item">
 							<a class="border_btn" target="_blank"
@@ -671,35 +679,33 @@
 						</div>
 					</div>
 					<div class="store_grid">
-						<div class="store_grid_item">PNJ Robinmay</div>
-						<div class="store_grid_item">-</div>
-						<div class="store_grid_item">2F-29 Second Floor, Sunway Carnival Mall, 13700 Perai, Pulau Pinang
-						</div>
+						<div class="store_grid_item">PNJ</div>
+						<div class="store_grid_item">+6012-3785091</div>
+						<div class="store_grid_item">19 Jalan Industri Impian 1 Taman Industri Impian 14000 Bukit Mertajam</div>
 						<div class="store_grid_item">
 							<a class="border_btn" target="_blank"
 								href="https://www.google.com/maps/place/ROBINMAY+@+SUNWAY+CARNIVAL+%E7%BB%8F%E9%94%80%E4%BB%A3%E8%B4%AD/@5.3992121,100.3976216,18z/data=!4m6!3m5!1s0x304ac529fac0945b:0x2b1b0c53a306213!8m2!3d5.39918!4d100.3978393!16s%2Fg%2F11scszv49r?entry=ttu">MAP</a>
 						</div>
 					</div>
+					<!-- 113.04.11新增 -->
 					<div class="store_grid">
-						<div class="store_grid_item">Julyana Scent Studio</div>
-						<div class="store_grid_item">-</div>
-						<div class="store_grid_item">BLOCK E-2-6 PLAZA ARKADIA NO.3, JALAN INTISARI PERDANA,
-							DESA PARKCITY, 52200 KUALA LUMPUR.
-						</div>
+						<div class="store_grid_item">158CM CONCEPT STORE</div>
+						<div class="store_grid_item">+6012-2511125</div>
+						<div class="store_grid_item">TM-038 Third Mezzanine, Mid Valley Southkey Megamall, Persiaran Southkey 1, Kota Southkey, 80150 
+							Johor Bahru, Johor</div>
 						<div class="store_grid_item">
-							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/HCv4n622d26Yn8bZ9">MAP</a>
+							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/rBUY2PLheNhV58L59">MAP</a>
 						</div>
 					</div>
 					<div class="store_grid">
-						<div class="store_grid_item">SUN BARBERSHOP</div>
-						<div class="store_grid_item">-</div>
-						<div class="store_grid_item">NO.27-01,jalan Austin heights 7/5 Austin Heights Taman Mount Austin,
-							Mount Austin, 81100 Johor Bahru, Johor
-						</div>
+						<div class="store_grid_item">Thebigbang.shop</div>
+						<div class="store_grid_item">+6012-2511125</div>
+						<div class="store_grid_item">L153, Level 1, The Starhill, No. 181 Jalan Bukit Bintang, 55100 Kuala Lumpur.</div>
 						<div class="store_grid_item">
-							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/abfTshcjgwU8qJvs7">MAP</a>
+							<a class="border_btn" target="_blank" href="https://maps.app.goo.gl/xfLzG34WXLybCuQ58">MAP</a>
 						</div>
 					</div>
+					
 				</div>
 				<div id="my_store1" name="store_show" class="store_online" style="display: none;">
 					<div class="store_online_title">SHARECO Online Shop</div>

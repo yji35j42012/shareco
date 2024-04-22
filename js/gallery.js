@@ -1,8 +1,3 @@
-
-
-
-
-
 var header = document.querySelector("#header");
 var headerH = header.offsetHeight
 var scrollTop = window.pageYOffset;
@@ -18,7 +13,6 @@ var v2H = video_box2.offsetHeight
 var v2Max = v2T + v2H - headerH + windowH
 
 
-// console.log('headerH',headerH);
 var tag = document.createElement("script");
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName("script")[0];
@@ -68,7 +62,6 @@ function onPlayerReady(event) {
 		event.target.mute();
 	}
 	if (scrollTop + windowH > v1T && scrollTop + windowH < v1Max) {
-		console.log('ASDF');
 		event.target.playVideo();
 	}
 }
@@ -125,22 +118,14 @@ window.addEventListener("scroll", (event) => {
 
 function videoHandler(num) {
 	if (num > v1T && num < v1Max) {
-		console.log('v1可以播放囉');
 		player1.playVideo();
 	} else if (num > v1Max && player1) {
-		console.log('v1要暫停囉');
 		player1.pauseVideo();
 	}
 
-	// console.log(' window.innerHeight', window.innerHeight);
-	console.log('num', num);
-	console.log('v2T', v2T);
-	console.log('v2Max', v2Max);
 	if (num > v2T && num < v2Max && player2) {
-		console.log('v2可以播放囉');
 		player2.playVideo();
 	} else if (num > v2Max || num < v2T && player2) {
-		console.log('v2要暫停囉');
 		player2.pauseVideo();
 	}
 }
