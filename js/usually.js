@@ -43,11 +43,11 @@ function set_usually_sel(country) {
 function setHref(str) {
 	usually_area[0].setAttribute(
 		"href",
-		`./store.html?country=${ str }&content=store1`
+		`./store?country=${ str }&content=store1`
 	);
 	usually_area[1].setAttribute(
 		"href",
-		`./store.html?country=${ str }&content=store0`
+		`./store?country=${ str }&content=store0`
 	);
 }
 usually_sel_txt.onclick=function () {
