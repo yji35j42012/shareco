@@ -30,7 +30,7 @@
             <a href="" class="usually_btn">ブランドストーリー</a>
             <a href="./gallery.html" class="usually_btn">ギャラリー</a>
             <a href="./product_parfums.html" class="usually_btn">PARFUMS 香水</a>
-            <a href="./product_venus.html" class="usually_btn">VENUS FLYTRAP ヴィーナスフライトラップリードディフューザ</a>
+            <a href="./product_venus.html" class="usually_btn">VENUS FLYTRAP ヴィーナスフ</a>
             <label class="usually_sel">
                 <span id="usually_sel_txt" class="usually_sel_txt">台湾 / Taiwan</span>
                 <ul id="usually_sel_group" class="usually_sel_group">

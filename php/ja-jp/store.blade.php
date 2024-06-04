@@ -615,16 +615,6 @@
                         </div>
                     </div>
                     <div class="store_grid">
-                        <div class="store_grid_item">Pavilion Bukit Jalil - HaWooo Store</div>
-                        <div class="store_grid_item">-</div>
-                        <div class="store_grid_item">No 2 Persiaran Jalil Utama, Bandar Bukit Jalil,
-                            Kuala Lumpur</div>
-                        <div class="store_grid_item">
-                            <a class="border_btn" target="_blank"
-                                href="https://www.google.com/maps/place/HaWooo+Store/@3.052567,101.6674995,17z/data=!3m2!4b1!5s0x31cc4add2262e65b:0x2df3ba0adadd2348!4m6!3m5!1s0x31cc4b7b43e4160d:0xe83244244c6a73bc!8m2!3d3.052567!4d101.6700744!16s%2Fg%2F11s3_sp1dd?entry=ttu">MAP</a>
-                        </div>
-                    </div>
-                    <div class="store_grid">
 						<div class="store_grid_item">HMXY Clothing</div>
                         <div class="store_grid_item">+6012-2511125</div>
                         <div class="store_grid_item">12-01, Jalan Austin Heights 8/9, Taman Mount
