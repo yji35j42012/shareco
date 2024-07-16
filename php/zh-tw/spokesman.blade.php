@@ -43,7 +43,7 @@
                         <img src="../images/spokesman/photo_eso.jpg" alt="MJ116 頑童 E.SO 瘦子">
                     </div>
                 </div>
-                <div class="spokesman_group">
+                <!-- <div class="spokesman_group">
                     <div class="spokesman_title" data-aos="fade-up" data-aos-easing="ease-in-sine">Dizzy Dizzo 蔡詩芸</div>
                     <p class="fz36to14" data-aos="fade-up" data-aos-easing="ease-in-sine">【 2023
                         共同代言人 】</p>
@@ -53,7 +53,7 @@
                     <div class="spokesman_pic" data-aos="fade-up" data-aos-easing="ease-in-sine">
                         <img src="../images/spokesman/photo_dizzydizzo.jpg" alt="Dizzy Dizzo 蔡詩芸">
                     </div>
-                </div>
+                </div> -->
                 <div class="spokesman_group">
                     <div class="spokesman_title" data-aos="fade-up" data-aos-easing="ease-in-sine">ØZI</div>
                     <p class="fz36to14" data-aos="fade-up" data-aos-easing="ease-in-sine">【 2022
