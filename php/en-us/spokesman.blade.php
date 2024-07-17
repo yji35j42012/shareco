@@ -43,16 +43,16 @@
                         <img src="../images/spokesman/photo_eso.jpg" alt="MJ116 - E.SO">
                     </div>
                 </div>
-                <!-- <div class="spokesman_group">
+                <div class="spokesman_group">
                     <div class="spokesman_title" data-aos="fade-up" data-aos-easing="ease-in-sine">Dizzy Dizzo</div>
                     <p class="fz36to14" data-aos="fade-up" data-aos-easing="ease-in-sine">【2023 Brand co-ambassador】</p>
                     <a class="border_btn" data-aos="fade-up" data-aos-easing="ease-in-sine"
                         href="https://www.instagram.com/dizzydizzo/?hl=zh-tw" target="_blank">Instagram</a>
 
-                    <div class="spokesman_pic" data-aos="fade-up" data-aos-easing="ease-in-sine">
+                    <!-- <div class="spokesman_pic" data-aos="fade-up" data-aos-easing="ease-in-sine">
                         <img src="../images/spokesman/photo_dizzydizzo.jpg" alt="Dizzy Dizzo 蔡詩芸">
-                    </div>
-                </div> -->
+                    </div> -->
+                </div>
                 <div class="spokesman_group">
                     <div class="spokesman_title" data-aos="fade-up" data-aos-easing="ease-in-sine">ØZI</div>
                     <p class="fz36to14" data-aos="fade-up" data-aos-easing="ease-in-sine">【【 2022 Brand co-ambassador 】</p>
